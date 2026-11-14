@@ -70,8 +70,8 @@
     "statut": "terminée",
     "tomes_parus": 8,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Mais non suivi."
   },
   {
     "id": "aquablue",
@@ -91,8 +91,8 @@
     "statut": "en cours",
     "tomes_parus": 5,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Sans plus."
   },
   {
     "id": "asterix",
@@ -298,8 +298,8 @@
     "statut": "terminée",
     "tomes_parus": 4,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Sans plus."
   },
   {
     "id": "focu",
@@ -426,8 +426,8 @@
     "statut": "en cours",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Idée interessante, j'espere plus de la suite."
   },
   {
     "id": "iznogoud",
@@ -574,8 +574,8 @@
     "statut": "en cours",
     "tomes_parus": 10,
     "suivie": true,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Incontournable."
   },
   {
     "id": "lanfeust-des-etoiles",
@@ -593,8 +593,8 @@
     "statut": "terminée",
     "tomes_parus": 8,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Incontournable."
   },
   {
     "id": "lanfeust-odyssey",
@@ -612,8 +612,8 @@
     "statut": "en cours",
     "tomes_parus": 10,
     "suivie": true,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Incontournable."
   },
   {
     "id": "largo-winch",
@@ -776,8 +776,8 @@
     "statut": "terminée",
     "tomes_parus": 6,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Sans plus."
   },
   {
     "id": "leonard",
