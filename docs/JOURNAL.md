@@ -3,7 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
-- 2026-11-14 — OPT-02 — Documentation à jour : section Sprint 0 retirée de CLAUDE.md au profit d'un historique des sprints, README avec toutes les pages (#PR)
+- 2026-11-14 — OPT-02 — Documentation à jour : section Sprint 0 retirée de CLAUDE.md au profit d'un historique des sprints, README avec toutes les pages (#37)
 - 2026-11-14 — US-12 — Couvertures : images Open Library via l'EAN, choisies par `scripts/couvertures.py` (37 séries sur 61), initiales par défaut sinon (#36)
 - 2026-11-14 — US-11 — Page Recommandations : `reco.html`, statut à découvrir / intéressé / rejeté (rejetées grisées), filtre par statut, lien dans la navigation (#35)
 - 2026-11-14 — US-13 — Prochaines sorties visibles sur le site : champ `a_paraitre`, bloc « À paraître » sur le tableau de bord et la page série, 3 sorties de la veille saisies (#34)
