@@ -522,10 +522,78 @@ function pageStats(series) {
     '<div class="panels">' + aParaitreHTML(series) + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + '</div>';
 }
 
+/* ---------- Page : recommandations (reco.html) ---------- */
+
+// Ordre d'affichage : ce qui m'intéresse d'abord, les recos rejetées en dernier (grisées).
+const STATUTS_RECO = ['intéressé', 'à découvrir', 'rejeté'];
+const LIBELLES_STATUT_RECO = { 'intéressé': 'Intéressé', 'à découvrir': 'À découvrir', 'rejeté': 'Rejetée' };
+
+function domaine(url) {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return url; }
+}
+
+function dateCourte(iso) {
+  const [a, m, j] = (iso || '').split('-').map(Number);
+  return j ? j + (j === 1 ? 'er' : '') + ' ' + MOIS[m - 1] + ' ' + a : '';
+}
+
+function recoHTML(r, seriesParId) {
+  const statut = STATUTS_RECO.includes(r.statut) ? r.statut : 'à découvrir';
+  const liees = (r.series_liees || []).map(id => seriesParId.get(id)).filter(Boolean).map(s =>
+    '<a href="' + lienSerie(s) + '">' + esc(s.titre) + (s.note != null ? ' <span class="r-note">' + s.note + '/10</span>' : '') + '</a>'
+  ).join('');
+  const sources = (r.sources || []).map(u =>
+    '<a href="' + esc(u) + '" rel="noopener" target="_blank">' + esc(domaine(u)) + '</a>').join(', ');
+  const meta = [r.editeur, r.tomes_parus ? r.tomes_parus + ' ' + pluriel(r.tomes_parus, 'tome') : '', r.statut_serie ? 'série ' + r.statut_serie : '']
+    .filter(Boolean).map(esc).join(' · ');
+  return '<li class="reco-card statut-' + (statut === 'rejeté' ? 'rejete' : statut === 'intéressé' ? 'interesse' : 'decouvrir') + '">' +
+    '<div class="reco-head"><div><h2>' + esc(r.titre) + '</h2>' +
+      '<p class="card-authors">' + esc((r.auteurs || []).join(', ')) + '</p></div>' +
+      '<span class="reco-statut">' + LIBELLES_STATUT_RECO[statut] + '</span></div>' +
+    (meta ? '<p class="reco-meta">' + meta + '</p>' : '') +
+    (r.parution ? '<p class="reco-meta">' + esc(r.parution) + '</p>' : '') +
+    '<p class="reco-pourquoi">' + esc(r.pourquoi) + '</p>' +
+    (liees ? '<div class="reco-liees"><span>Parce que j’ai aimé</span>' + liees + '</div>' : '') +
+    '<p class="reco-foot">Recommandée le ' + dateCourte(r.date_reco) + (sources ? ' · Sources : ' + sources : '') + '</p>' +
+  '</li>';
+}
+
+function pageReco(series, recos) {
+  const liste = document.getElementById('liste-recos');
+  const compteur = document.getElementById('compteur');
+  const puces = [...document.querySelectorAll('.chips [data-filtre]')];
+  const seriesParId = new Map(series.map(s => [s.id, s]));
+  const triees = recos.slice().sort((a, b) =>
+    STATUTS_RECO.indexOf(a.statut) - STATUTS_RECO.indexOf(b.statut) ||
+    (b.date_reco || '').localeCompare(a.date_reco || '') || collator.compare(a.titre, b.titre));
+
+  const params = new URLSearchParams(location.search);
+  let filtre = STATUTS_RECO.includes(params.get('statut')) ? params.get('statut') : 'tout';
+
+  function afficher() {
+    const resultats = filtre === 'tout' ? triees : triees.filter(r => r.statut === filtre);
+    puces.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filtre === filtre)));
+    compteur.textContent = resultats.length + ' ' + pluriel(resultats.length, 'recommandation') +
+      (filtre === 'tout' ? '' : ' · ' + LIBELLES_STATUT_RECO[filtre].toLowerCase());
+    liste.innerHTML = resultats.length
+      ? resultats.map(r => recoHTML(r, seriesParId)).join('')
+      : '<li class="message"><p>Aucune recommandation avec ce statut.</p></li>';
+    const p = new URLSearchParams();
+    if (filtre !== 'tout') p.set('statut', filtre);
+    history.replaceState(null, '', p.toString() ? '?' + p : location.pathname);
+  }
+
+  puces.forEach(b => b.addEventListener('click', () => { filtre = b.dataset.filtre; afficher(); }));
+  afficher();
+}
+
 /* ---------- Démarrage ---------- */
 
 async function demarrer() {
   initTheme();
+  // Sur mobile, la navigation défile horizontalement : on garde l'onglet courant visible.
+  const courant = document.querySelector('.main-nav [aria-current="page"]');
+  if (courant) courant.parentElement.scrollLeft = courant.offsetLeft - courant.parentElement.offsetLeft - 16;
   const page = document.body.dataset.page;
   const contenu = document.querySelector('main');
   try {
@@ -534,6 +602,7 @@ async function demarrer() {
     if (page === 'collection') pageCollection(series);
     if (page === 'serie') pageSerie(series);
     if (page === 'stats') pageStats(series);
+    if (page === 'reco') pageReco(series, await chargerJSON('data/reco.json'));
   } catch (erreur) {
     afficherErreur(contenu, erreur);
   }

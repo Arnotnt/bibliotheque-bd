@@ -62,6 +62,7 @@ Chaque issue porte exactement un label type, un epic, une priorité et une estim
 index.html          accueil : liste des séries, filtres, recherche
 serie.html          détail d'une série (?id=...)
 stats.html          tableau de bord
+reco.html           recommandations (data/reco.json), filtrables par statut
 css/style.css
 js/app.js
 data/series.json    une entrée par série
@@ -136,13 +137,15 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
   "pourquoi": "Justification à partir de mes notes et avis.",
   "series_liees": ["1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta"],
   "sources": ["https://…"],
-  "date_reco": "2026-11-14"
+  "date_reco": "2026-11-14",
+  "statut": "à découvrir"
 }
 ```
 - Une série que je lis ou ajoute à ma collection sort de `reco.json`.
 - `series_liees` : `id` de mes séries (notées ≥ 8 de préférence) qui justifient la recommandation.
 - `sources` : au moins une URL qui confirme les tomes et les dates.
 - Une nouvelle demande de recommandations ajoute des entrées ; on ne supprime une reco qu'avec mon accord.
+- `statut` (US-11) : `à découvrir` (par défaut à la création) | `intéressé` | `rejeté`. Une reco rejetée reste dans le fichier et s'affiche grisée sur la page Recommandations, filtrable par statut.
 
 ## Règles pour Claude
 - Toujours répondre en français.
@@ -161,6 +164,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - « Note Tyler Cross 9/10 : ambiance géniale » → mettre à jour la série.
   `note` : entier de 0 à 10 ; `avis` : le texte donné, avec une majuscule et un point final, sans le réécrire. Testé le 2026-11-14 sur Okko.
 - « Fais la veille des nouveautés » → pour chaque série `suivie`, chercher les tomes à paraître et mettre à jour `tomes_parus`.
+- « Long John Silver m'intéresse » / « Rejette De Cape et de Crocs » → mettre à jour `statut` dans `data/reco.json` (`intéressé` ou `rejeté`), sans supprimer l'entrée.
 - « Recommande-moi 5 séries » → partir de mes séries notées ≥ 8 (auteurs, genres, ton de mes avis), proposer des séries que je n'ai pas, écrire le résultat dans `data/reco.json`.
 
 ## Procédure de veille (US-09)

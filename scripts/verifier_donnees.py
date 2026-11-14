@@ -20,6 +20,7 @@ DATA = RACINE / "data"
 FORMAT_ID = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 STATUTS_SERIE = {"en cours", "terminée", "abandonnée par moi"}
 STATUTS_RECO = {"en cours", "terminée"}
+STATUTS_AVIS_RECO = {"à découvrir", "intéressé", "rejeté"}
 # Liste fermée des genres (DATA-02), à garder identique à CLAUDE.md.
 GENRES = {
     "aventure", "fantasy", "science-fiction", "polar", "thriller", "historique",
@@ -235,6 +236,8 @@ def verifier_reco(recos, series_par_id):
             erreur(f, f"{libelle} : au moins une source est obligatoire")
         if r.get("statut_serie") not in STATUTS_RECO:
             erreur(f, f"{libelle} : statut_serie « {r.get('statut_serie')} » non autorisé")
+        if r.get("statut") not in STATUTS_AVIS_RECO:
+            erreur(f, f"{libelle} : statut « {r.get('statut')} » non autorisé ({', '.join(sorted(STATUTS_AVIS_RECO))})")
         liees = r.get("series_liees")
         if not est_liste_de_textes(liees):
             erreur(f, f"{libelle} : series_liees doit être une liste d'id")

@@ -85,9 +85,9 @@ a { color: inherit; }
 :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
-.main-nav { display: flex; gap: 4px; }
+.main-nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
 .main-nav a {
-  min-height: 44px; display: flex; align-items: center; padding: 0 14px;
+  min-height: 44px; display: flex; align-items: center; padding: 0 14px; white-space: nowrap; flex: 0 0 auto;
   text-decoration: none; color: var(--ink2); border-bottom: 3px solid transparent;
 }
 .main-nav a[aria-current="page"] { color: var(--ink); font-weight: 700; border-bottom-color: var(--ink); }
@@ -351,6 +351,35 @@ main.page-stats { padding-top: 20px; gap: 18px; }
 .histo-axis { display: grid; grid-template-columns: repeat(var(--cols, 10), minmax(0, 1fr)); gap: 6px; margin-top: -6px; }
 .histo-axis span { text-align: center; font-size: 13px; color: var(--ink2); }
 .histo-note { margin: 0; font-size: 13px; color: var(--ink2); }
+
+/* ---------- Recommandations (US-11) ---------- */
+main.page-reco { padding-top: 20px; }
+.reco-intro { margin: -8px 0 0; color: var(--ink2); font-size: 15px; }
+.reco-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 12px; align-items: start; }
+.reco-card {
+  padding: 16px; background: var(--surf); border: 1px solid var(--line); border-radius: 12px;
+  display: flex; flex-direction: column; gap: 8px; min-width: 0;
+}
+.reco-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.reco-head h2 { margin: 0; font-size: 20px; line-height: 1.25; }
+.reco-statut {
+  flex: 0 0 auto; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700;
+  border: 1px solid var(--line); color: var(--ink2); white-space: nowrap;
+}
+.statut-interesse .reco-statut { background: var(--readtint); border-color: var(--read); color: var(--read); }
+.statut-decouvrir .reco-statut { background: var(--toreadtint); border-color: var(--toread); color: var(--toreadtxt); }
+.reco-meta { margin: 0; font-size: 14px; color: var(--ink2); }
+.reco-pourquoi { margin: 0; font-size: 15px; }
+.reco-liees { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; }
+.reco-liees span:first-child { color: var(--ink2); }
+.reco-liees a { padding: 2px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+.reco-liees a:hover { border-color: var(--ink2); }
+.reco-liees .r-note { font-weight: 700; color: var(--read); }
+.reco-foot { margin: 0; padding-top: 8px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink2); }
+.reco-foot a { color: var(--ink2); }
+/* Reco rejetée : grisée mais toujours lisible et filtrable. */
+.statut-rejete { opacity: .55; background: var(--bg); border-style: dashed; }
+.statut-rejete:hover, .statut-rejete:focus-within { opacity: .85; }
 
 /* ---------- Pied de page ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 16px; text-align: center; font-size: 13px; color: var(--ink2); }
