@@ -115,6 +115,25 @@ main.container { flex: 1 0 auto; padding-top: 18px; padding-bottom: 40px; displa
 }
 .chips button[aria-pressed="true"] { background: var(--ink); color: var(--surf); border-color: var(--ink); }
 
+/* Regard, tri et « Suivies seulement » (US-16) */
+.reglages { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 14px; }
+.reglage { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 700; color: var(--ink2); }
+.reglage select {
+  min-height: 44px; padding: 0 36px 0 12px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--surf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%2362564A' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 12px center;
+  color: var(--ink); font: inherit; font-size: 15px; font-weight: 400; appearance: none; cursor: pointer;
+}
+.toggle {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--surf); color: var(--ink);
+  font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+}
+.toggle[aria-pressed="true"] { background: var(--ink); color: var(--surf); border-color: var(--ink); }
+.lien-reinit {
+  min-height: 44px; padding: 0 4px; border: 0; background: none; color: var(--ink);
+  font: inherit; font-size: 14px; text-decoration: underline; cursor: pointer;
+}
+
 .btn-primary {
   margin-top: 6px; min-height: 44px; padding: 0 20px; border-radius: 999px;
   border: 1px solid var(--ink); background: var(--ink); color: var(--surf);
