@@ -98,6 +98,8 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - `tomes_parus` : renseigné à la main ou par une veille ; sert à calculer les manquants.
 - `suivie` : `true` si je veux être alerté des nouveaux tomes.
 - `note` : entier de 0 à 10, ou `null`.
+- `auteurs` (règle DATA-01, 2026-11-14) : scénaristes et dessinateurs principaux, **sans les coloristes** ni les auteurs du roman ou de la licence d'origine. Ordre : scénariste puis dessinateur. Séries reprises par plusieurs équipes : les **créateurs**, puis l'**équipe du dernier album paru** de la série principale numérotée (hors-séries et spin-offs exclus). Noms de plume tels que signés (`Hergé`, `Jijé`, `Fabcaro`). Au moins un auteur par série.
+- `genres` (règle DATA-02, 2026-11-14) : de 1 à 3 genres, du plus au moins marquant, choisis dans cette liste fermée : `aventure`, `fantasy`, `science-fiction`, `polar`, `thriller`, `historique`, `western`, `humour`, `jeunesse`, `espionnage`, `fantastique`, `animalier`, `guerre`, `aviation`, `shōnen`, `sport`, `documentaire`. Ajouter un genre demande l'accord du PO et la mise à jour de `GENRES` dans `scripts/verifier_donnees.py`.
 
 `data/albums.json`
 ```json

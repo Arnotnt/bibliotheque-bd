@@ -20,6 +20,12 @@ DATA = RACINE / "data"
 FORMAT_ID = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 STATUTS_SERIE = {"en cours", "terminée", "abandonnée par moi"}
 STATUTS_RECO = {"en cours", "terminée"}
+# Liste fermée des genres (DATA-02), à garder identique à CLAUDE.md.
+GENRES = {
+    "aventure", "fantasy", "science-fiction", "polar", "thriller", "historique",
+    "western", "humour", "jeunesse", "espionnage", "fantastique", "animalier",
+    "guerre", "aviation", "shōnen", "sport", "documentaire",
+}
 
 erreurs = []
 avertissements = []
@@ -87,9 +93,18 @@ def verifier_series(series):
         if not est_liste_de_textes(s.get("auteurs", None)):
             erreur(f, f"{libelle} : auteurs doit être une liste de noms")
         elif not s["auteurs"]:
-            avertir(f, f"{libelle} : aucun auteur")
-        if not est_liste_de_textes(s.get("genres", None)):
+            erreur(f, f"{libelle} : au moins un auteur est obligatoire")
+        genres = s.get("genres", None)
+        if not est_liste_de_textes(genres):
             erreur(f, f"{libelle} : genres doit être une liste de textes")
+        else:
+            if not 1 <= len(genres) <= 3:
+                erreur(f, f"{libelle} : {len(genres)} genre(s), il en faut de 1 à 3")
+            if len(set(genres)) != len(genres):
+                erreur(f, f"{libelle} : genre en double")
+            for g in genres:
+                if g not in GENRES:
+                    erreur(f, f"{libelle} : genre « {g} » hors de la liste autorisée (voir CLAUDE.md)")
         if s.get("statut") not in STATUTS_SERIE:
             erreur(f, f"{libelle} : statut « {s.get('statut')} » non autorisé ({', '.join(sorted(STATUTS_SERIE))})")
         tp = s.get("tomes_parus")
