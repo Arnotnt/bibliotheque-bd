@@ -101,6 +101,8 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - `tomes_parus` : renseigné à la main ou par une veille ; sert à calculer les manquants.
 - `suivie` : `true` si je veux être alerté des nouveaux tomes.
 - `note` : entier de 0 à 10, ou `null`.
+- Sens de la note (règle DATA-03, 2026-11-14) : elle juge la série **dans son genre** (« pour quelqu'un qui aime ce genre de BD, ça vaut combien ? »), pas mon envie actuelle. Barème : 9-10 chef-d'œuvre du genre, je relis ; 7-8 très bon, je recommande à un amateur du genre ; 5-6 correct, sans plus ; ≤ 4 raté, même pour son public.
+- `regard` (DATA-03, facultatif) : la série **ne guide pas les recommandations**, quelle que soit sa note. Valeurs : `classique` (patrimoine, acheté par fidélité : Astérix, Tintin), `jeunesse` (apprécié, mais pour enfants : Yakari, Cédric), `hors goût` (bien fait, pas mon style : Focu, Blueberry), `non suivi` (j'ai arrêté ou « sans plus » : Lucky Luke, Légende). Champ absent = la série reflète mes goûts actuels. Il se déduit de mon avis, et je valide la valeur. Indépendant de `suivie` : Astérix est `classique` et suivie ; 1629, terminée et non suivie, n'a pas de `regard` et guide les recos.
 - `auteurs` (règle DATA-01, 2026-11-14) : scénaristes et dessinateurs principaux, **sans les coloristes** ni les auteurs du roman ou de la licence d'origine. Ordre : scénariste puis dessinateur. Séries reprises par plusieurs équipes : les **créateurs**, puis l'**équipe du dernier album paru** de la série principale numérotée (hors-séries et spin-offs exclus). Noms de plume tels que signés (`Hergé`, `Jijé`, `Fabcaro`). Au moins un auteur par série.
 - `a_paraitre` (US-13, facultatif) : tomes **annoncés mais pas encore parus**, renseignés par la veille et affichés sur le tableau de bord et la page série.
   ```json
@@ -149,7 +151,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 }
 ```
 - Une série que je lis ou ajoute à ma collection sort de `reco.json`.
-- `series_liees` : `id` de mes séries (notées ≥ 8 de préférence) qui justifient la recommandation.
+- `series_liees` : `id` de mes séries (notées ≥ 8 de préférence) qui justifient la recommandation, **jamais une série avec `regard`** (contrôlé par le script).
 - `sources` : au moins une URL qui confirme les tomes et les dates.
 - Une nouvelle demande de recommandations ajoute des entrées ; on ne supprime une reco qu'avec mon accord.
 - `statut` (US-11) : `à découvrir` (par défaut à la création) | `intéressé` | `rejeté`. Une reco rejetée reste dans le fichier et s'affiche grisée sur la page Recommandations, filtrable par statut.
@@ -171,9 +173,10 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
   Après l'ajout d'albums ou d'une série, relancer `python3 scripts/couvertures.py` pour lui trouver une couverture.
 - « Note Tyler Cross 9/10 : ambiance géniale » → mettre à jour la série.
   `note` : entier de 0 à 10 ; `avis` : le texte donné, avec une majuscule et un point final, sans le réécrire. Testé le 2026-11-14 sur Okko.
+  Si l'avis indique un `regard` (« classique », « pour la jeunesse », « pas mon style », « j'ai arrêté »), le proposer et l'ajouter après mon accord.
 - « Fais la veille des nouveautés » → pour chaque série `suivie`, chercher les tomes à paraître et mettre à jour `tomes_parus`.
 - « Long John Silver m'intéresse » / « Rejette De Cape et de Crocs » → mettre à jour `statut` dans `data/reco.json` (`intéressé` ou `rejeté`), sans supprimer l'entrée.
-- « Recommande-moi 5 séries » → partir de mes séries notées ≥ 8 (auteurs, genres, ton de mes avis), proposer des séries que je n'ai pas, écrire le résultat dans `data/reco.json`.
+- « Recommande-moi 5 séries » → partir de mes séries notées ≥ 8 **sans `regard`** (auteurs, genres, ton de mes avis), proposer des séries que je n'ai pas, écrire le résultat dans `data/reco.json`.
 
 ## Procédure de veille (US-09)
 Déclencheur : « Fais la veille des nouveautés ».
