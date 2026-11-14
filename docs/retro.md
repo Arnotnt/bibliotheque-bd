@@ -2,6 +2,15 @@
 
 Une section par fin de sprint, la plus récente en haut.
 
+## Sprint 3 — 2026-11-14
+Sprint Goal : « Le site est complet et les données sont fiables » — atteint, avec une réserve : couvertures pour 37 séries sur 61 seulement (limite d'Open Library)
+Vélocité : 18 pts livrés sur 18 engagés (OPT-01, DATA-01, DATA-02, US-13, US-11, US-12, OPT-02 ; PR #32 à #37)
+Démo : https://arnotnt.github.io/bibliotheque-bd/ (couvertures, recherche « hergé », bloc « À paraître » du tableau de bord, page Recommandations)
+
+- **Garder** : poser tous les arbitrages en début de sprint avec une recommandation, et le script de vérification lancé par l'Action sur chaque PR.
+- **Arrêter** : empiler les branches les unes sur les autres : l'ordre de fusion devient strict et une fusion partielle a bloqué OPT-02 et demandé un aller-retour de plus.
+- **Essayer** : une maquette rapide avant toute nouvelle page (US-11 et US-13 faites sans), et vérifier l'environnement de test (dossier du serveur, cache du navigateur) avant de demander au PO de tester.
+
 ## Sprint 2 — 2026-11-14
 Sprint Goal : « Je suis ma collection et Claude me conseille » — atteint, avec une réserve : 4 recommandations au lieu de 5 (Undertaker retirée car déjà lue)
 Vélocité : 15 pts livrés sur 15 engagés (US-06 à US-10, PR #21 à #25)
