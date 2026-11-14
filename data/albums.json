@@ -5,7 +5,7 @@
     "titre": "L'apothicaire du diable",
     "ean": "9782344045107",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2024-07-06"
   },
   {
@@ -14,7 +14,7 @@
     "titre": "L'île rouge",
     "ean": "9782344058138",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2024-12-29"
   },
   {
@@ -68,7 +68,7 @@
     "titre": "Astérix le Gaulois",
     "ean": "9782012101333",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -77,7 +77,7 @@
     "titre": "Astérix et les Goths",
     "ean": "9782012101357",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2023-10-30"
   },
   {
@@ -86,7 +86,7 @@
     "titre": "Astérix gladiateur",
     "ean": "9782012101364",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -95,7 +95,7 @@
     "titre": "Le tour de Gaule d'Astérix",
     "ean": "9782012101371",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -104,7 +104,7 @@
     "titre": "Astérix et Cléopâtre",
     "ean": "9782012101388",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -113,7 +113,7 @@
     "titre": "Le combat des chefs",
     "ean": "9782012101395",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -122,7 +122,7 @@
     "titre": "Astérix chez les Bretons",
     "ean": "9782012101401",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -131,7 +131,7 @@
     "titre": "Astérix aux jeux olympiques",
     "ean": "9782012101449",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -140,7 +140,7 @@
     "titre": "Astérix et le chaudron",
     "ean": "9782012101456",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -149,7 +149,7 @@
     "titre": "La zizanie",
     "ean": "9782012101470",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2023-10-30"
   },
   {
@@ -158,7 +158,7 @@
     "titre": "Le domaine des dieux",
     "ean": "9782012101494",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2023-10-30"
   },
   {
@@ -167,7 +167,7 @@
     "titre": "Astérix en Corse",
     "ean": "9782012101524",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -176,7 +176,7 @@
     "titre": "La grande traversée",
     "ean": "9782012101548",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -185,7 +185,7 @@
     "titre": "Obélix et compagnie",
     "ean": "9782012101555",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -194,7 +194,7 @@
     "titre": "Le fils d'Astérix",
     "ean": "9782864970118",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -203,7 +203,7 @@
     "titre": "Astérix chez Rahazade",
     "ean": "9782864970200",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -212,7 +212,7 @@
     "titre": "La Rose et le Glaive",
     "ean": "9782864970538",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -221,7 +221,7 @@
     "titre": "La galère d'Obélix",
     "ean": "9782864970965",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -230,7 +230,7 @@
     "titre": "Le ciel lui tombe sur la tête",
     "ean": "9782864971702",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -239,7 +239,7 @@
     "titre": "Le papyrus de César",
     "ean": "9782864972716",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -248,7 +248,7 @@
     "titre": "Astérix et la Transitalique",
     "ean": "9782864973270",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": null
   },
   {
@@ -257,7 +257,7 @@
     "titre": "La fille de Vercingétorix",
     "ean": "9782864973423",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2019-11-17"
   },
   {
@@ -266,7 +266,7 @@
     "titre": "Astérix et le griffon",
     "ean": "9782864973492",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2021-11-01"
   },
   {
@@ -275,7 +275,7 @@
     "titre": "L'iris blanc",
     "ean": "9782014001334",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2023-10-30"
   },
   {
@@ -284,7 +284,7 @@
     "titre": "Astérix en Lusitanie",
     "ean": "9782017253709",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-11-05"
   },
   {
@@ -338,7 +338,7 @@
     "titre": "Alors, tout tombe : première partie",
     "ean": "9782205078046",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2021-11-01"
   },
   {
@@ -347,7 +347,7 @@
     "titre": "Alors, tout tombe : seconde partie",
     "ean": "9782205085334",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2023-12-28"
   },
   {
@@ -356,7 +356,7 @@
     "titre": "Le Secret de l'Espadon - La poursuite fantastique",
     "ean": "9782870971659",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-02-12"
   },
   {
@@ -365,7 +365,7 @@
     "titre": "Le Secret de l'Espadon - Tome 2",
     "ean": "9782870971666",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-04-03"
   },
   {
@@ -374,7 +374,7 @@
     "titre": "Le Secret de l'Espadon - Tome 3",
     "ean": "9782870971673",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-04-03"
   },
   {
@@ -383,7 +383,7 @@
     "titre": "Le Mystère de la Grande Pyramide - Tome 1",
     "ean": "9782870971680",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-02-12"
   },
   {
@@ -392,7 +392,7 @@
     "titre": "Le Mystère de la Grande Pyramide - Tome 2",
     "ean": "9782870971697",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-04-03"
   },
   {
@@ -410,7 +410,7 @@
     "titre": "L'Enigme de l'Atlantide",
     "ean": "9782870971710",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-12-28"
   },
   {
@@ -428,7 +428,7 @@
     "titre": "Le Piège Diabolique",
     "ean": "9782870971734",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-07-24"
   },
   {
@@ -437,7 +437,7 @@
     "titre": "L'Affaire du Collier",
     "ean": "9782870971741",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-07-24"
   },
   {
@@ -464,7 +464,7 @@
     "titre": "L'Affaire Francis Blake",
     "ean": "9782870971772",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-07-24"
   },
   {
@@ -473,7 +473,7 @@
     "titre": "La Machination Voronov",
     "ean": "9782870971789",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-12-28"
   },
   {
@@ -482,7 +482,7 @@
     "titre": "L'Etrange Rendez-vous",
     "ean": "9782870971796",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-12-28"
   },
   {
@@ -491,7 +491,7 @@
     "titre": "Les Sarcophages du 6e Continent - Tome 1",
     "ean": "9782870971802",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-12-28"
   },
   {
@@ -500,7 +500,7 @@
     "titre": "Les Sarcophages du 6e Continent - Tome 2",
     "ean": "9782870971819",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-12-28"
   },
   {
@@ -509,7 +509,7 @@
     "titre": "Le Sanctuaire de Gondwana",
     "ean": "9782870971826",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2021-02-14"
   },
   {
@@ -518,7 +518,7 @@
     "titre": "La Malédiction des Trente Deniers - Tome 1",
     "ean": "9782870971833",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2021-02-14"
   },
   {
@@ -527,7 +527,7 @@
     "titre": "La Malédiction des Trente Deniers - Tome 2",
     "ean": "9782870971840",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2021-02-14"
   },
   {
@@ -590,7 +590,7 @@
     "titre": "Le Cri du Moloch",
     "ean": "9782870972922",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2021-02-14"
   },
   {
@@ -599,7 +599,7 @@
     "titre": "Le Dernier Espadon",
     "ean": "9782870972854",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2022-10-27"
   },
   {
@@ -698,7 +698,7 @@
     "titre": "L'Affaire du Ticket Scandaleux",
     "ean": "9791033509721",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-12-31"
   },
   {
@@ -707,7 +707,7 @@
     "titre": "L'Affaire du Ticket Scandaleux",
     "ean": "9791033512547",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-12-31"
   },
   {
@@ -770,7 +770,7 @@
     "titre": "Ayrton Senna - le Feu Sacré",
     "ean": "9782870980514",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-04-15"
   },
   {
@@ -887,7 +887,7 @@
     "titre": "Goldorak",
     "ean": "9782505078463",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2021-12-29"
   },
   {
@@ -896,7 +896,7 @@
     "titre": "L'être nécessaire",
     "ean": "9782205089943",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2024-12-02"
   },
   {
@@ -905,7 +905,7 @@
     "titre": "Un cœur sous une soutane",
     "ean": "9782205211306",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2024-12-02"
   },
   {
@@ -914,7 +914,7 @@
     "titre": "Hoka Hey",
     "ean": "9782810202294",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2023-02-18"
   },
   {
@@ -923,7 +923,7 @@
     "titre": "Acte 1",
     "ean": "9782344011881",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2024-12-29"
   },
   {
@@ -932,7 +932,7 @@
     "titre": "Acte 2",
     "ean": "9782344018743",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-02-12"
   },
   {
@@ -941,7 +941,7 @@
     "titre": "L'exil",
     "ean": "9782344043042",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-05-06"
   },
   {
@@ -968,7 +968,7 @@
     "titre": null,
     "ean": "9791041104437",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-06-16"
   },
   {
@@ -1184,7 +1184,7 @@
     "titre": "L’Homme qui tua Chris Kyle",
     "ean": "9782205084672",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-12-25"
   },
   {
@@ -1193,7 +1193,7 @@
     "titre": "La Bombe",
     "ean": "9782344020630",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-07-17"
   },
   {
@@ -1202,7 +1202,7 @@
     "titre": "L'Ivoire du Magohamoth",
     "ean": "9782302015906",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2022-05-30"
   },
   {
@@ -1211,7 +1211,7 @@
     "titre": "Thanos l'Incongru",
     "ean": "9782302015913",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2022-05-30"
   },
   {
@@ -1220,7 +1220,7 @@
     "titre": "Castel Or-Azur",
     "ean": "9782302015920",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2023-12-28"
   },
   {
@@ -1229,7 +1229,7 @@
     "titre": "Le Paladin d'Eckmül",
     "ean": "9782302015937",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-06-16"
   },
   {
@@ -1238,7 +1238,7 @@
     "titre": "Le Frisson de l'Haruspice",
     "ean": "9782302015944",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-06-16"
   },
   {
@@ -1247,7 +1247,7 @@
     "titre": "Cixi Impératrice",
     "ean": "9782302015951",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-06-16"
   },
   {
@@ -1256,7 +1256,7 @@
     "titre": "Les Pétaures se Cachent pour Mourir",
     "ean": "9782302015968",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-06-16"
   },
   {
@@ -1265,7 +1265,7 @@
     "titre": "La Bête Fabuleuse",
     "ean": "9782302015975",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-10-11"
   },
   {
@@ -1274,7 +1274,7 @@
     "titre": "La Forêt Noiseuse",
     "ean": "9782302092037",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2026-03-07"
   },
   {
@@ -1625,7 +1625,7 @@
     "titre": "Tamose l'égyptien",
     "ean": "9782505083313",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-12-25"
   },
   {
@@ -1823,7 +1823,7 @@
     "titre": "Les Indes Fourbes",
     "ean": "9782756035734",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2020-05-21"
   },
   {
@@ -1868,7 +1868,7 @@
     "titre": "La Diligence",
     "ean": "9782884710138",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-11-05"
   },
   {
@@ -1877,7 +1877,7 @@
     "titre": "Dalton City",
     "ean": "9782884710107",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-11-05"
   },
   {
@@ -1886,7 +1886,7 @@
     "titre": "Jesse James",
     "ean": "9782884710251",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-11-05"
   },
   {
@@ -1895,7 +1895,7 @@
     "titre": "Western Circus",
     "ean": "9782884715249",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-11-05"
   },
   {
@@ -2003,7 +2003,7 @@
     "titre": "Noir Burlesque",
     "ean": "9782505083733",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2024-05-18"
   },
   {
@@ -2012,7 +2012,7 @@
     "titre": null,
     "ean": "9782505113997",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2024-05-18"
   },
   {
@@ -2111,7 +2111,7 @@
     "titre": "Ikki dans les flammes du destin",
     "ean": "9782505088349",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2023-10-30"
   },
   {
@@ -2120,7 +2120,7 @@
     "titre": "Shun et la chaine du souvenir",
     "ean": "9782505088356",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2023-10-30"
   },
   {
@@ -2129,7 +2129,7 @@
     "titre": null,
     "ean": "9782505126799",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2024-12-02"
   },
   {
@@ -2138,7 +2138,7 @@
     "titre": null,
     "ean": "9782505088370",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2025-11-26"
   },
   {
@@ -2156,7 +2156,7 @@
     "titre": "Les damnés de Cape Town",
     "ean": "9782344034200",
     "possede": true,
-    "lu": false,
+    "lu": true,
     "date_ajout": "2022-06-04"
   },
   {
