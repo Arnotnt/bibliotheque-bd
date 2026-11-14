@@ -230,7 +230,18 @@
     "tomes_parus": 3,
     "suivie": true,
     "note": null,
-    "avis": null
+    "avis": null,
+    "a_paraitre": [
+      {
+        "tome": 4,
+        "titre": "Le cauchemar du Loch Leathan 2/2",
+        "date": null,
+        "a_verifier": false,
+        "sources": [
+          "https://www.ankama-shop.com/en/books/4571-dans-la-tete-de-sherlock-holmes-le-cauchemar-du-loch-leathan-volume-1-lieron-dahan.html"
+        ]
+      }
+    ]
   },
   {
     "id": "death-note-black-edition",
@@ -678,7 +689,18 @@
     "tomes_parus": 14,
     "suivie": true,
     "note": 8,
-    "avis": "Bien mais commence à trop durer dans le temps"
+    "avis": "Bien mais commence à trop durer dans le temps",
+    "a_paraitre": [
+      {
+        "tome": 15,
+        "titre": "Le secret du Scorpion",
+        "date": "2026",
+        "a_verifier": true,
+        "sources": [
+          "https://www.bedetheque.com/serie-490-BD-Scorpion__1.html"
+        ]
+      }
+    ]
   },
   {
     "id": "le-scorpion-le-proces-scorpion",
@@ -990,7 +1012,19 @@
     "tomes_parus": 4,
     "suivie": true,
     "note": 10,
-    "avis": "Toujours aussi bien. \nL’histoire trouve sa place parfaitement dans l’oeuvre original, en apportant des informations , explications qui sont fluides.\nAvec l’édition collector, on a en plus le plaisir de comprendre le cheminement des réflexions et choix.\nJuste hâte de la suite"
+    "avis": "Toujours aussi bien. \nL’histoire trouve sa place parfaitement dans l’oeuvre original, en apportant des informations , explications qui sont fluides.\nAvec l’édition collector, on a en plus le plaisir de comprendre le cheminement des réflexions et choix.\nJuste hâte de la suite",
+    "a_paraitre": [
+      {
+        "tome": 5,
+        "titre": null,
+        "date": null,
+        "a_verifier": true,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Saint_Seiya:_Time_Odyssey",
+          "https://www.senscritique.com/groupe/Saint_Seiya_Les_Chevaliers_du_Zodiaque_Time_Odyssey/53799"
+        ]
+      }
+    ]
   },
   {
     "id": "sammy",
