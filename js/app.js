@@ -663,10 +663,78 @@ function notesHTML(series) {
   '</section>';
 }
 
+/* ---------- Mes goûts en chiffres (US-22) ---------- */
+
+const MIN_SERIES_GROUPE = 2; // en dessous, une moyenne ne veut rien dire : groupe listé à part
+
+const virgule = n => n.toFixed(1).replace('.', ',');
+
+/** Moyenne des notes par clé (genre, éditeur…) : [{ cle, moyenne, nb }], meilleure moyenne d'abord. */
+function moyennesPar(series, cles) {
+  const groupes = new Map();
+  series.filter(s => s.note != null).forEach(s => cles(s).forEach(c => {
+    if (!groupes.has(c)) groupes.set(c, []);
+    groupes.get(c).push(s.note);
+  }));
+  return [...groupes].map(([cle, notes]) => ({ cle, nb: notes.length, moyenne: notes.reduce((a, b) => a + b, 0) / notes.length }))
+    .sort((a, b) => b.moyenne - a.moyenne || b.nb - a.nb || collator.compare(a.cle, b.cle));
+}
+
+function barresMoyennesHTML(titre, groupes, lien) {
+  const retenus = groupes.filter(g => g.nb >= MIN_SERIES_GROUPE);
+  const isoles = groupes.filter(g => g.nb < MIN_SERIES_GROUPE);
+  const majuscule = t => t.charAt(0).toUpperCase() + t.slice(1);
+  const lignes = retenus.map(g => {
+    const nom = lien ? '<a href="' + lien(g.cle) + '">' + esc(majuscule(g.cle)) + '</a>' : esc(majuscule(g.cle));
+    return '<li><span class="g-nom">' + nom + '</span>' +
+      '<span class="g-val"><strong>' + virgule(g.moyenne) + '</strong>/10 <small>· ' + g.nb + ' ' + pluriel(g.nb, 'série') + '</small></span>' +
+      '<span class="bar" aria-hidden="true"><span class="seg-read" style="width:' + (g.moyenne * 10).toFixed(1) + '%"></span></span></li>';
+  }).join('');
+  return '<div class="gouts-bloc"><h3>' + titre + '</h3>' +
+    (retenus.length ? '<ul class="gouts-barres">' + lignes + '</ul>' : '<p class="histo-note">Pas assez de séries pour comparer.</p>') +
+    (isoles.length ? '<p class="histo-note">Une seule série : ' +
+      isoles.map(g => esc(majuscule(g.cle)) + ' (' + g.moyenne + '/10)').join(', ') + '</p>' : '') +
+  '</div>';
+}
+
+// Valeur du champ `regard` → valeur du filtre Regard de l'accueil (US-16).
+const REGARD_VERS_URL = { 'classique': 'classique', 'jeunesse': 'jeunesse', 'hors goût': 'hors-gout', 'non suivi': 'non-suivi' };
+
+function regardsHTML(series) {
+  const lignes = [{ libelle: 'Mes goûts', nb: series.filter(s => !s.regard).length, regard: 'gouts' }]
+    .concat(Object.keys(REGARDS).map(r => ({
+      libelle: REGARDS[r].libelle, nb: series.filter(s => s.regard === r).length, regard: REGARD_VERS_URL[r]
+    })));
+  return '<div class="gouts-bloc"><h3>Regard sur mes séries</h3><ul class="gouts-regards">' +
+    lignes.map(l => '<li><a href="index.html?regard=' + l.regard + '"><strong>' + l.nb + '</strong> ' + esc(l.libelle) + '</a></li>').join('') +
+    '</ul><p class="histo-note">Total : ' + lignes.reduce((n, l) => n + l.nb, 0) + ' séries · « Mes goûts » = sans regard, elles guident les recommandations</p></div>';
+}
+
+function goutsContenuHTML(series, toutes) {
+  const base = toutes ? series : series.filter(s => !s.regard);
+  return '<p class="histo-note">' + base.length + ' ' + pluriel(base.length, 'série') +
+      (toutes ? ', toutes incluses' : ' qui reflètent mes goûts (sans regard)') + ' · une série compte pour chacun de ses genres</p>' +
+    barresMoyennesHTML('Par genre', moyennesPar(base, s => s.genres || []), g => 'index.html?genre=' + encodeURIComponent(g) + (toutes ? '' : '&regard=gouts')) +
+    barresMoyennesHTML('Par éditeur', moyennesPar(base, s => (s.editeur ? [s.editeur] : [])));
+}
+
+function goutsHTML(series) {
+  return '<section class="panel panel-large" aria-labelledby="t-gouts">' +
+    '<div class="panel-head"><div><h2 id="t-gouts">Mes goûts en chiffres</h2><p>Note moyenne par genre et par éditeur</p></div>' +
+    '<label class="gouts-toutes"><input type="checkbox" id="gouts-toutes"> Inclure toutes les séries</label></div>' +
+    '<div id="gouts-contenu" aria-live="polite">' + goutsContenuHTML(series, false) + '</div>' +
+    regardsHTML(series) +
+  '</section>';
+}
+
 function pageStats(series) {
   const conteneur = document.getElementById('stats');
   conteneur.innerHTML = '<h1 class="page-title">Tableau de bord</h1>' + kpisHTML(series) +
-    '<div class="panels">' + aParaitreHTML(series) + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + '</div>';
+    '<div class="panels">' + aParaitreHTML(series) + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + goutsHTML(series) + '</div>';
+  const toutes = document.getElementById('gouts-toutes');
+  toutes.addEventListener('change', () => {
+    document.getElementById('gouts-contenu').innerHTML = goutsContenuHTML(series, toutes.checked);
+  });
 }
 
 /* ---------- Page : auteur (auteur.html?nom=…, US-19) ---------- */

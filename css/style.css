@@ -413,6 +413,29 @@ main.page-stats { padding-top: 20px; gap: 18px; }
 .histo-axis span { text-align: center; font-size: 13px; color: var(--ink2); }
 .histo-note { margin: 0; font-size: 13px; color: var(--ink2); }
 
+/* Mes goûts en chiffres (US-22) */
+.panel-large { grid-column: 1 / -1; }
+.gouts-toutes { display: flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; cursor: pointer; white-space: nowrap; }
+.gouts-toutes input { width: 18px; height: 18px; accent-color: var(--read); }
+#gouts-contenu { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 12px 28px; }
+#gouts-contenu > .histo-note { grid-column: 1 / -1; }
+.gouts-bloc { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.gouts-bloc h3 { margin: 0; font-size: 17px; }
+.gouts-barres { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.gouts-barres li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; align-items: baseline; }
+.gouts-barres .bar { grid-column: 1 / -1; }
+.gouts-barres .g-nom { font-size: 15px; }
+.gouts-barres .g-nom a { color: var(--ink); }
+.gouts-barres .g-val { font-size: 14px; color: var(--ink2); white-space: nowrap; }
+.gouts-barres .g-val strong { font-size: 16px; color: var(--read); }
+.gouts-regards { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.gouts-regards a {
+  display: flex; align-items: baseline; gap: 6px; min-height: 44px; padding: 8px 12px; border-radius: 10px;
+  background: var(--surf2); color: var(--ink); text-decoration: none; font-size: 15px;
+}
+.gouts-regards a:hover { box-shadow: inset 0 0 0 1px var(--ink2); }
+.gouts-regards strong { font-size: 20px; }
+
 /* ---------- Recommandations (US-11) ---------- */
 main.page-reco { padding-top: 20px; }
 .reco-intro { margin: -8px 0 0; color: var(--ink2); font-size: 15px; }
