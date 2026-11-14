@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-14 — US-19 — Page auteur (`auteur.html?nom=…`) : ses séries, note moyenne, ses recos ; auteurs cliquables sur les pages série et Recommandations (#60)
 - 2026-11-14 — US-18 — Page « À acheter » (`envies.html`) : tomes parus non possédés des séries sans `regard` triés par note (11 tomes), classiques en option (+34), « Bientôt en librairie », impression ; maquette validée (#59)
 - 2026-11-14 — US-20 — Accueil : bascule Cartes / Couvertures, mur de couvertures seules (titre au survol et pour les lecteurs d’écran), choix gardé dans l’URL et dans le navigateur (#58)
 - 2026-11-14 — US-17 — Accueil : pastilles des genres présents avec leur nombre de séries (un genre à la fois, dans l’URL) ; genres cliquables sur la page série (#57)

@@ -64,6 +64,7 @@ index.html          accueil : liste des séries, filtres, recherche
 serie.html          détail d'une série (?id=...)
 stats.html          tableau de bord
 reco.html           recommandations (data/reco.json), filtrables par statut
+auteur.html         page d'un auteur (?nom=...) : ses séries et ses recos
 envies.html         à acheter : tomes manquants des séries sans regard (+ classiques en option)
 css/style.css
 js/app.js

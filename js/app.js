@@ -491,7 +491,7 @@ function serieHTML(s) {
         '<div class="book-cover" aria-hidden="true"><span>' + esc(initiales(s.titre)) + '</span><span>Couverture</span>' +
           imageCouvertureHTML(s) + '</div>' +
         '<div class="serie-title"><h1>' + esc(s.titre) + '</h1>' +
-          '<p>' + esc((s.auteurs || []).join(', ')) + '</p>' +
+          '<p>' + auteursLiensHTML(s.auteurs) + '</p>' +
           (s.editeur ? '<p class="editeur">' + esc(s.editeur) + '</p>' : '') +
           (tags ? '<div class="tags">' + tags + '</div>' : '') +
         '</div>' +
@@ -669,6 +669,56 @@ function pageStats(series) {
     '<div class="panels">' + aParaitreHTML(series) + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + '</div>';
 }
 
+/* ---------- Page : auteur (auteur.html?nom=…, US-19) ---------- */
+
+function lienAuteur(nom) {
+  return 'auteur.html?nom=' + encodeURIComponent(nom);
+}
+
+/** Liste d'auteurs en liens vers leur page, séparés par des virgules. */
+function auteursLiensHTML(auteurs) {
+  return (auteurs || []).map(n => '<a class="lien-auteur" href="' + lienAuteur(n) + '">' + esc(n) + '</a>').join(', ');
+}
+
+const memeAuteur = nom => a => normaliser(a) === normaliser(nom);
+
+function pageAuteur(series, recos) {
+  const conteneur = document.getElementById('auteur');
+  const nom = (new URLSearchParams(location.search).get('nom') || '').trim();
+  const siennes = nom ? series.filter(s => (s.auteurs || []).some(memeAuteur(nom))) : [];
+  const recosSiennes = nom ? recos.filter(r => (r.auteurs || []).some(memeAuteur(nom))) : [];
+
+  if (!siennes.length && !recosSiennes.length) {
+    document.title = 'Auteur introuvable — Bibliothèque BD d’Arnaud';
+    conteneur.innerHTML = '<div class="message" role="alert"><h2>Auteur introuvable</h2>' +
+      '<p>' + (nom ? 'Aucune série de ma collection ni recommandation n’est signée « ' + esc(nom) + ' ».' : 'Aucun auteur n’est indiqué dans l’adresse.') + '</p>' +
+      '<a class="btn-primary" href="index.html">Retour à la collection</a></div>';
+    return;
+  }
+
+  // Nom tel qu'écrit dans les données (accents, majuscules), plutôt que celui de l'URL.
+  const nomAffiche = [...siennes, ...recosSiennes].flatMap(x => x.auteurs || []).find(memeAuteur(nom)) || nom;
+  document.title = nomAffiche + ' — Bibliothèque BD d’Arnaud';
+  const notees = siennes.filter(s => s.note != null);
+  const moyenne = notees.length ? (notees.reduce((n, s) => n + s.note, 0) / notees.length).toFixed(1).replace('.', ',').replace(',0', '') : null;
+  const resume = [siennes.length + ' ' + pluriel(siennes.length, 'série') + ' dans ma collection'];
+  if (moyenne) resume.push('note moyenne ' + moyenne + '/10');
+  if (recosSiennes.length) resume.push(recosSiennes.length + ' ' + pluriel(recosSiennes.length, 'recommandation'));
+
+  const seriesParId = new Map(series.map(s => [s.id, s]));
+  conteneur.innerHTML =
+    '<a class="back-link" href="index.html">← Collection</a>' +
+    '<div><h1 class="page-title">' + esc(nomAffiche) + '</h1><p class="count auteur-resume">' + resume.join(' · ') + '</p></div>' +
+    (siennes.length
+      ? '<section class="auteur-section" aria-labelledby="t-siennes"><h2 id="t-siennes">Dans ma collection</h2>' +
+        '<ul class="series-grid">' + siennes.slice().sort(TRIS.note.comparer).map(carteHTML).join('') + '</ul></section>'
+      : '') +
+    (recosSiennes.length
+      ? '<section class="auteur-section" aria-labelledby="t-recos"><h2 id="t-recos">À découvrir : recommandations</h2>' +
+        '<ul class="reco-list">' + recosSiennes.map(r => recoHTML(r, seriesParId)).join('') + '</ul></section>'
+      : '');
+}
+
 /* ---------- Page : à acheter (envies.html, US-18) ---------- */
 
 /** « 1 à 4, 9, 11 à 13 » à partir d'une liste triée de numéros. */
@@ -790,7 +840,7 @@ function recoHTML(r, seriesParId) {
     .filter(Boolean).map(esc).join(' · ');
   return '<li class="reco-card statut-' + (statut === 'rejeté' ? 'rejete' : statut === 'intéressé' ? 'interesse' : 'decouvrir') + '">' +
     '<div class="reco-head"><div><h2>' + esc(r.titre) + '</h2>' +
-      '<p class="card-authors">' + esc((r.auteurs || []).join(', ')) + '</p></div>' +
+      '<p class="card-authors">' + auteursLiensHTML(r.auteurs) + '</p></div>' +
       '<span class="reco-statut">' + LIBELLES_STATUT_RECO[statut] + '</span></div>' +
     (meta ? '<p class="reco-meta">' + meta + '</p>' : '') +
     (r.parution ? '<p class="reco-meta">' + esc(r.parution) + '</p>' : '') +
@@ -845,6 +895,7 @@ async function demarrer() {
     if (page === 'serie') pageSerie(series);
     if (page === 'stats') pageStats(series);
     if (page === 'envies') pageEnvies(series);
+    if (page === 'auteur') pageAuteur(series, await chargerJSON('data/reco.json').catch(() => []));
     if (page === 'reco') pageReco(series, await chargerJSON('data/reco.json'));
   } catch (erreur) {
     afficherErreur(contenu, erreur);
