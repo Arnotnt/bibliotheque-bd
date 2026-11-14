@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-14 — US-03 — Filtrer et rechercher une série : 5 filtres, recherche titre + auteur sans accents, vue partageable par l'URL (#16)
 - 2026-11-14 — US-02 — Voir la liste de mes séries : cartes par série, tri alphabétique, thème clair/sombre (#15)
 - 2026-11-14 — US-01 — Importer l'export Bubble en JSON : 60 séries, 308 albums, 18 séries notées (#14)
 - 2026-11-14 — Sprint 0 — étape 4 : maquettes des 3 écrans dans `docs/mockups/`, liées aux issues US-02, 03, 04, 06, 07, 08

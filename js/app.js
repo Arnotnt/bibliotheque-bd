@@ -194,11 +194,67 @@ function afficherErreur(conteneur, erreur) {
 
 /* ---------- Page : collection (index.html) ---------- */
 
+const FILTRES = {
+  tout: () => true,
+  possedees: s => s.possedes > 0,
+  lues: s => s.lus > 0 && s.alire === 0,
+  alire: s => s.alire > 0,
+  incompletes: s => s.incomplete
+};
+
+/** Séries retenues par un filtre et une recherche (titre + auteurs, sans accents ni casse). */
+function filtrerSeries(series, filtre, recherche) {
+  const garder = FILTRES[filtre] || FILTRES.tout;
+  const mots = normaliser(recherche).split(/\s+/).filter(Boolean);
+  return series.filter(s => garder(s) && mots.every(m => s.texteRecherche.includes(m)));
+}
+
 function pageCollection(series) {
   const liste = document.getElementById('liste-series');
   const compteur = document.getElementById('compteur');
-  compteur.textContent = series.length + ' ' + pluriel(series.length, 'série') + ' · ordre alphabétique';
-  liste.innerHTML = series.map(carteHTML).join('');
+  const champ = document.getElementById('recherche');
+  const puces = [...document.querySelectorAll('.chips [data-filtre]')];
+  const vide = document.getElementById('aucun-resultat');
+  const videTexte = document.getElementById('aucun-resultat-texte');
+
+  // État initial lu dans l'URL (?q=…&filtre=…) pour pouvoir partager une vue filtrée.
+  const params = new URLSearchParams(location.search);
+  let filtre = FILTRES[params.get('filtre')] ? params.get('filtre') : 'tout';
+  champ.value = params.get('q') || '';
+
+  function majURL() {
+    const p = new URLSearchParams();
+    if (champ.value.trim()) p.set('q', champ.value.trim());
+    if (filtre !== 'tout') p.set('filtre', filtre);
+    const qs = p.toString();
+    history.replaceState(null, '', qs ? '?' + qs : location.pathname);
+  }
+
+  function afficher() {
+    const q = champ.value.trim();
+    const resultats = filtrerSeries(series, filtre, q);
+    puces.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filtre === filtre)));
+    compteur.textContent = resultats.length + ' ' + pluriel(resultats.length, 'série') + ' · ordre alphabétique';
+    liste.innerHTML = resultats.map(carteHTML).join('');
+    liste.hidden = resultats.length === 0;
+    vide.hidden = resultats.length > 0;
+    if (!resultats.length) {
+      videTexte.textContent = q
+        ? 'Aucun titre ni auteur ne correspond à « ' + q + ' »' + (filtre !== 'tout' ? ' avec ce filtre.' : '.')
+        : 'Aucune série ne correspond à ce filtre.';
+    }
+    majURL();
+  }
+
+  champ.addEventListener('input', afficher);
+  puces.forEach(b => b.addEventListener('click', () => { filtre = b.dataset.filtre; afficher(); }));
+  document.getElementById('effacer').addEventListener('click', () => {
+    champ.value = '';
+    filtre = 'tout';
+    afficher();
+    champ.focus();
+  });
+  afficher();
 }
 
 /* ---------- Démarrage ---------- */
