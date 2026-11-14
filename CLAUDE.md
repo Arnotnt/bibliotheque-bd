@@ -150,7 +150,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
    Me montrer le script avant de l'exécuter.
 2. Créer `.github/ISSUE_TEMPLATE/user-story.md` (format de la skill) et `.github/pull_request_template.md` (Definition of Done).
 3. Créer `docs/JOURNAL.md`, `docs/retro.md` et `docs/mockups/`.
-4. Mockups (3 écrans : Accueil, Page série, Tableau de bord) : réalisés à part dans Claude Design, captures déposées dans `docs/mockups/` puis liées aux issues US-02, US-04 et US-08. ✅ fait le 2026-11-14 (sources + charte dans `docs/mockups/README.md` ; captures PNG à ajouter).
+4. Mockups (3 écrans : Accueil, Page série, Tableau de bord) : réalisés à part dans Claude Design, captures déposées dans `docs/mockups/` puis liées aux issues US-02, US-04 et US-08. ✅ fait le 2026-11-14 (captures, sources et charte dans `docs/mockups/`).
 5. Sprint planning du Sprint 1 : je pose le milestone sur US-01, US-02 et US-05.
 
 ### Backlog initial
