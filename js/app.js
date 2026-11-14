@@ -178,6 +178,36 @@ function noteBadgeHTML(note) {
   return '<span class="note-badge" aria-label="Note ' + note + ' sur 10">' + note + '/10</span>';
 }
 
+/* ---------- Badges « regard » et « Terminée » (US-14) ---------- */
+
+const SVG_BADGE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+const REGARDS = {
+  'classique': { libelle: 'Classique', icone: '<circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/>' },
+  'jeunesse': { libelle: 'Jeunesse', icone: '<ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5l-1 1.5h2zM12 17c-1 2 1 3 0 5"/>' },
+  'hors goût': { libelle: 'Hors goût', icone: '<path d="M12 3v18M12 6h7l2 2.5-2 2.5h-7M12 13H5l-2 2.5L5 18h7"/>' },
+  'non suivi': { libelle: 'Non suivi', icone: '<circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/>' }
+};
+const ICONE_TERMINEE = '<path d="M5 12.5l4.5 4.5L19 7.5"/>';
+
+/** Badge du champ `regard` (DATA-03), ou '' si la série reflète les goûts actuels. */
+function regardBadgeHTML(s) {
+  const r = REGARDS[s.regard];
+  if (!r) return '';
+  const aide = r.libelle + ' : ne compte pas dans les recommandations';
+  return '<span class="badge-regard" title="' + aide + '" aria-label="' + aide + '">' +
+    SVG_BADGE + r.icone + '</svg>' + r.libelle + '</span>';
+}
+
+/** Badges de la carte : regard puis « Terminée ». */
+function badgesCarteHTML(s) {
+  const fin = s.statut === 'terminée'
+    ? '<span class="badge-regard badge-terminee" title="Série terminée" aria-label="Série terminée">' +
+      SVG_BADGE + ICONE_TERMINEE + '</svg>Terminée</span>'
+    : '';
+  const html = regardBadgeHTML(s) + fin;
+  return html ? '<div class="card-badges">' + html + '</div>' : '';
+}
+
 function carteHTML(s) {
   return '<li><a class="card" href="serie.html?id=' + encodeURIComponent(s.id) + '">' +
     '<div class="cover"><span class="cover-initials" aria-hidden="true">' + esc(initiales(s.titre)) + '</span>' +
@@ -185,6 +215,7 @@ function carteHTML(s) {
     '<div class="card-body">' +
     '<h2>' + esc(s.titre) + '</h2>' +
     '<p class="card-authors">' + esc(auteursCourts(s.auteurs)) + '</p>' +
+    badgesCarteHTML(s) +
     '<div class="card-stats">' +
     '<span class="card-own"><strong>' + s.possedes + '</strong>/' + s.parus + ' possédés</span>' +
     barreHTML(s) +
@@ -357,7 +388,8 @@ function annoncesSerieHTML(s) {
 function serieHTML(s) {
   const statut = s.statut ? s.statut.charAt(0).toUpperCase() + s.statut.slice(1) : '';
   const tags = (statut ? '<span class="tag tag-statut">' + esc(statut) + '</span>' : '') +
-    (s.genres || []).map(g => '<span class="tag">' + esc(g.charAt(0).toUpperCase() + g.slice(1)) + '</span>').join('');
+    (s.genres || []).map(g => '<span class="tag">' + esc(g.charAt(0).toUpperCase() + g.slice(1)) + '</span>').join('') +
+    regardBadgeHTML(s);
   return '<div class="serie-layout">' +
     '<section class="serie-info">' +
       '<div class="serie-head">' +
