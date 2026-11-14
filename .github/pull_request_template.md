@@ -12,6 +12,6 @@ Closes #
 - [ ] Tous les critères d'acceptance de l'issue sont vérifiés
 - [ ] Testé en local (`python3 -m http.server` puis http://localhost:8000)
 - [ ] Aucune erreur dans la console du navigateur
-- [ ] Les fichiers `data/*.json` sont valides (pas de doublon d'`id`)
+- [ ] `python3 scripts/verifier_donnees.py` passe (0 erreur ; vérifié aussi par l'Action sur la PR)
 - [ ] `docs/JOURNAL.md` mis à jour
 - [ ] La description de la PR contient `Closes #N`

@@ -48,7 +48,7 @@ Chaque issue porte exactement un label type, un epic, une priorité et une estim
 - [ ] Tous les critères d'acceptance de l'issue sont vérifiés
 - [ ] Testé en local (`python3 -m http.server` puis http://localhost:8000)
 - [ ] Aucune erreur dans la console du navigateur
-- [ ] Les fichiers `data/*.json` sont valides (pas de doublon d'`id`)
+- [ ] `python3 scripts/verifier_donnees.py` passe (0 erreur ; vérifié aussi par l'Action sur la PR)
 - [ ] `docs/JOURNAL.md` mis à jour
 - [ ] La description de la PR contient `Closes #N`
 
@@ -69,6 +69,8 @@ data/albums.json    une entrée par album
 data/reco.json      recommandations issues des veilles
 scripts/import_bubble.py   import unique de l'export Bubble (CSV)
 scripts/setup_github.sh    création des labels, milestones et issues du Sprint 0
+scripts/verifier_donnees.py  vérification de data/*.json (format, doublons, cohérence)
+.github/workflows/verifier-donnees.yml  lance la vérification sur chaque PR
 docs/JOURNAL.md  docs/retro.md  docs/mockups/
 .github/ISSUE_TEMPLATE/user-story.md
 .github/pull_request_template.md
@@ -135,7 +137,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 
 ## Règles pour Claude
 - Toujours répondre en français.
-- Avant toute modification de `data/`, montrer ce qui change, puis commiter avec un message clair (ex. « Ajout Blacksad T8, lu, possédé »).
+- Avant toute modification de `data/`, montrer ce qui change, lancer `python3 scripts/verifier_donnees.py`, puis commiter avec un message clair (ex. « Ajout Blacksad T8, lu, possédé »).
 - Ne jamais supprimer d'album ou de série sans confirmation explicite.
 - Les `id` de série sont en minuscules, sans accents, avec des tirets (`le-troisieme-testament`).
 - Avant d'ajouter une série, vérifier qu'elle n'existe pas déjà sous un nom proche.

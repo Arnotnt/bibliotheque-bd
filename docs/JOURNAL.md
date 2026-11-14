@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-14 — OPT-01 — Script de vérification des données : `scripts/verifier_donnees.py` + Action sur chaque PR, 0 erreur sur les données actuelles (#32)
 - 2026-11-14 — US-07 — Noter une série sur 10 avec un avis : demande type testée sur Okko 9/10 (#25)
 - 2026-11-14 — US-06 — Enregistrer une BD lue non achetée : demande type testée sur Undertaker T1–T3 (#24)
 - 2026-11-14 — US-10 — Recommandations basées sur mes goûts : 4 séries dans `data/reco.json` (Undertaker retirée, déjà lue), format documenté (#23)
