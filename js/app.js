@@ -63,8 +63,12 @@ async function chargerJSON(chemin) {
 }
 
 async function chargerDonnees() {
-  const [series, albums] = await Promise.all([chargerJSON('data/series.json'), chargerJSON('data/albums.json')]);
-  return { series, albums };
+  const [series, albums, couvertures] = await Promise.all([
+    chargerJSON('data/series.json'),
+    chargerJSON('data/albums.json'),
+    chargerJSON('data/couvertures.json').catch(() => ({})) // facultatif : sans lui, visuels par défaut
+  ]);
+  return { series, albums, couvertures };
 }
 
 /**
@@ -109,18 +113,33 @@ function enrichir(serie, albumsDeLaSerie) {
   });
 }
 
-function enrichirTout({ series, albums }) {
+function enrichirTout({ series, albums, couvertures = {} }) {
   const parSerie = new Map();
   for (const a of albums) {
     if (!parSerie.has(a.serie_id)) parSerie.set(a.serie_id, []);
     parSerie.get(a.serie_id).push(a);
   }
   return series
-    .map(s => enrichir(s, parSerie.get(s.id) || []))
+    .map(s => Object.assign(enrichir(s, parSerie.get(s.id) || []), { couverture: couvertures[s.id] || null }))
     .sort((a, b) => collator.compare(normaliser(a.titre), normaliser(b.titre)));
 }
 
 /* ---------- Affichage commun ---------- */
+
+/* Couvertures (US-12) : images d'Open Library à partir de l'EAN, sans clé ni image stockée dans le repo.
+   data/couvertures.json (généré par scripts/couvertures.py) ne contient que des EAN dont l'image
+   existe : pas de lien cassé. Sinon, le visuel par défaut (initiales) reste affiché. */
+function imageCouvertureHTML(s) {
+  if (!s.couverture) return '';
+  return '<img class="cover-img" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"' +
+    ' src="https://covers.openlibrary.org/b/isbn/' + encodeURIComponent(s.couverture) + '-M.jpg">';
+}
+
+// Filet de sécurité si le service ne répond pas : on retire l'image, les initiales réapparaissent.
+// (Les événements error ne remontent pas : écoute en phase de capture.)
+document.addEventListener('error', e => {
+  if (e.target.classList && e.target.classList.contains('cover-img')) e.target.remove();
+}, true);
 
 const MOTS_IGNORES = new Set(['le', 'la', 'les', 'l', 'de', 'des', 'du', 'd', 'et', 'un', 'une', 'en', 'a', 'au', 'aux', 'ou']);
 
@@ -162,7 +181,7 @@ function noteBadgeHTML(note) {
 function carteHTML(s) {
   return '<li><a class="card" href="serie.html?id=' + encodeURIComponent(s.id) + '">' +
     '<div class="cover"><span class="cover-initials" aria-hidden="true">' + esc(initiales(s.titre)) + '</span>' +
-    noteBadgeHTML(s.note) + '</div>' +
+    imageCouvertureHTML(s) + noteBadgeHTML(s.note) + '</div>' +
     '<div class="card-body">' +
     '<h2>' + esc(s.titre) + '</h2>' +
     '<p class="card-authors">' + esc(auteursCourts(s.auteurs)) + '</p>' +
@@ -342,7 +361,8 @@ function serieHTML(s) {
   return '<div class="serie-layout">' +
     '<section class="serie-info">' +
       '<div class="serie-head">' +
-        '<div class="book-cover" aria-hidden="true"><span>' + esc(initiales(s.titre)) + '</span><span>Couverture</span></div>' +
+        '<div class="book-cover" aria-hidden="true"><span>' + esc(initiales(s.titre)) + '</span><span>Couverture</span>' +
+          imageCouvertureHTML(s) + '</div>' +
         '<div class="serie-title"><h1>' + esc(s.titre) + '</h1>' +
           '<p>' + esc((s.auteurs || []).join(', ')) + '</p>' +
           (s.editeur ? '<p class="editeur">' + esc(s.editeur) + '</p>' : '') +

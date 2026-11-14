@@ -157,6 +157,9 @@ main.container { flex: 1 0 auto; padding-top: 18px; padding-bottom: 40px; displa
   position: relative; aspect-ratio: 3 / 4; background: var(--cover); border-bottom: 1px solid var(--line);
   display: flex; align-items: center; justify-content: center;
 }
+.cover, .book-cover { position: relative; overflow: hidden; }
+.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.note-badge { z-index: 1; }
 .cover-initials { font-family: Literata, Georgia, serif; font-size: 30px; font-weight: 700; color: var(--covertxt); }
 .note-badge {
   position: absolute; top: 8px; right: 8px; padding: 3px 8px; border-radius: 6px;
