@@ -129,6 +129,15 @@ main.container { flex: 1 0 auto; padding-top: 18px; padding-bottom: 40px; displa
   font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
 }
 .toggle[aria-pressed="true"] { background: var(--ink); color: var(--surf); border-color: var(--ink); }
+/* Cartes / Couvertures (US-20) */
+.vues { display: inline-flex; margin-left: auto; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.vues button {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 0;
+  background: var(--surf); color: var(--ink); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+}
+.vues button + button { border-left: 1px solid var(--line); }
+.vues button[aria-pressed="true"] { background: var(--ink); color: var(--surf); }
+
 /* Pastilles de genre (US-17) : plus discrètes que les filtres principaux */
 .chips-genres button { min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 400; }
 .chips-genres button .nb { margin-left: 2px; font-size: 12px; font-weight: 700; color: var(--ink2); }
@@ -219,6 +228,18 @@ main.container { flex: 1 0 auto; padding-top: 18px; padding-bottom: 40px; displa
   background: var(--readtint); border: 1.5px solid var(--read); color: var(--read);
   font-size: 13px; font-weight: 700;
 }
+
+/* Mur de couvertures (US-20) : couvertures seules, le texte reste lu par les lecteurs d'écran */
+.series-grid.mur { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; }
+.mur .card { border-radius: 4px 8px 8px 4px; }
+.mur .cover { border-bottom: 0; }
+.mur .cover-initials { font-size: 22px; }
+.mur .note-badge { top: 4px; right: 4px; padding: 1px 5px; font-size: 12px; }
+.mur .card-body {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.mur .card:hover, .mur .card:focus-visible { border-color: var(--ink); }
 
 /* Barre de progression d'une série */
 .bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--surf2); }

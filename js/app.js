@@ -211,7 +211,7 @@ function badgesCarteHTML(s) {
 }
 
 function carteHTML(s) {
-  return '<li><a class="card" href="serie.html?id=' + encodeURIComponent(s.id) + '">' +
+  return '<li><a class="card" href="serie.html?id=' + encodeURIComponent(s.id) + '" title="' + esc(s.titre) + '">' +
     '<div class="cover"><span class="cover-initials" aria-hidden="true">' + esc(initiales(s.titre)) + '</span>' +
     imageCouvertureHTML(s) + noteBadgeHTML(s.note) + '</div>' +
     '<div class="card-body">' +
@@ -253,6 +253,18 @@ const FILTRES = {
   alire: s => s.alire > 0,
   incompletes: s => s.incomplete
 };
+
+/* Vue de l'accueil (US-20) : cartes détaillées ou mur de couvertures. */
+const VUES = ['cartes', 'couvertures'];
+const CLE_VUE = 'bd-vue';
+
+function vueMemorisee() {
+  try {
+    const v = localStorage.getItem(CLE_VUE);
+    if (VUES.includes(v)) return v;
+  } catch (e) { /* stockage indisponible */ }
+  return 'cartes';
+}
 
 /* Regard (US-16) : valeur dans l'URL → test sur le champ `regard` (DATA-03). */
 const FILTRES_REGARD = {
@@ -299,6 +311,7 @@ function pageCollection(series) {
   const choixTri = document.getElementById('f-tri');
   const reinit = document.getElementById('reinitialiser');
   const zoneGenres = document.getElementById('genres');
+  const boutonsVue = [...document.querySelectorAll('[data-vue]')];
   const vide = document.getElementById('aucun-resultat');
   const videTexte = document.getElementById('aucun-resultat-texte');
 
@@ -320,6 +333,9 @@ function pageCollection(series) {
     ' <span class="nb">' + nbParGenre.get(g) + '</span></button>').join('');
   const pucesGenre = [...zoneGenres.querySelectorAll('[data-genre]')];
 
+  // Vue cartes ou mur de couvertures (US-20) : l'URL prime, sinon le dernier choix de ce navigateur.
+  let vue = VUES.includes(params.get('vue')) ? params.get('vue') : vueMemorisee();
+
   const reglagesParDefaut = () =>
     !champ.value.trim() && filtre === 'tout' && choixRegard.value === 'toutes' && !suivies && choixTri.value === 'titre' && !genre;
 
@@ -331,6 +347,7 @@ function pageCollection(series) {
     if (suivies) p.set('suivies', '1');
     if (choixTri.value !== 'titre') p.set('tri', choixTri.value);
     if (genre) p.set('genre', genre);
+    if (vue !== 'cartes') p.set('vue', vue);
     const qs = p.toString();
     history.replaceState(null, '', qs ? '?' + qs : location.pathname);
   }
@@ -340,6 +357,8 @@ function pageCollection(series) {
     const resultats = filtrerSeries(series, { filtre, recherche: q, regard: choixRegard.value, suivies, tri: choixTri.value, genre });
     puces.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filtre === filtre)));
     pucesGenre.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.genre === genre)));
+    boutonsVue.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vue === vue)));
+    liste.classList.toggle('mur', vue === 'couvertures');
     boutonSuivies.setAttribute('aria-pressed', String(suivies));
     reinit.hidden = reglagesParDefaut();
     compteur.textContent = resultats.length + ' ' + pluriel(resultats.length, 'série') + ' · ' + (TRIS[choixTri.value] || TRIS.titre).libelle;
@@ -372,6 +391,11 @@ function pageCollection(series) {
   boutonSuivies.addEventListener('click', () => { suivies = !suivies; afficher(); });
   // Un seul genre à la fois ; re-cliquer le genre actif le désélectionne.
   pucesGenre.forEach(b => b.addEventListener('click', () => { genre = genre === b.dataset.genre ? '' : b.dataset.genre; afficher(); }));
+  boutonsVue.forEach(b => b.addEventListener('click', () => {
+    vue = b.dataset.vue;
+    try { localStorage.setItem(CLE_VUE, vue); } catch (e) { /* stockage indisponible : l'URL suffit */ }
+    afficher();
+  }));
   reinit.addEventListener('click', () => { toutEffacer(); champ.focus(); });
   document.getElementById('effacer').addEventListener('click', () => { toutEffacer(); champ.focus(); });
   afficher();

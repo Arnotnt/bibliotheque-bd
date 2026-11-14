@@ -17,8 +17,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap">
-<link rel="stylesheet" href="css/style.css?v=3">
-<script src="js/app.js?v=3" defer></script>
+<link rel="stylesheet" href="css/style.css?v=4">
+<script src="js/app.js?v=4" defer></script>
 </head>
 <body data-page="collection">
 
@@ -89,6 +89,16 @@
       Suivies seulement
     </button>
     <button type="button" class="lien-reinit" id="reinitialiser" hidden>Tout réinitialiser</button>
+    <div class="vues" role="group" aria-label="Affichage">
+      <button type="button" data-vue="cartes" aria-pressed="true" title="Cartes détaillées">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="9" rx="1"/><path d="M3 16h7M3 20h5M14 16h7M14 20h5"/></svg>
+        Cartes
+      </button>
+      <button type="button" data-vue="couvertures" aria-pressed="false" title="Mur de couvertures">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="5" height="7" rx="1"/><rect x="9.5" y="3" width="5" height="7" rx="1"/><rect x="16" y="3" width="5" height="7" rx="1"/><rect x="3" y="14" width="5" height="7" rx="1"/><rect x="9.5" y="14" width="5" height="7" rx="1"/><rect x="16" y="14" width="5" height="7" rx="1"/></svg>
+        Couvertures
+      </button>
+    </div>
   </div>
 
   <div class="chips chips-genres" id="genres" role="group" aria-label="Filtrer par genre"></div>
