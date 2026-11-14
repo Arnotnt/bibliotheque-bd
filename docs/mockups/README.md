@@ -87,7 +87,7 @@ Les autres variantes (mobile, sombre, aucun résultat, Undertaker) sont sur le c
 - **Répartition des notes** : histogramme 1 à 10, nombre de séries au-dessus des barres, moyenne.
 
 ## Écran 5 — À acheter (`envies.html`, US-18)
-Maquette en HTML statique sur la vraie feuille de style (`css/style.css`), à ouvrir via `python3 -m http.server` : `docs/mockups/source/05-envies.html` (`?classiques=1`, `?theme=dark`).
+Validée par Arnaud le 2026-11-14. Maquette en HTML statique sur la vraie feuille de style (`css/style.css`), à ouvrir via `python3 -m http.server` : `docs/mockups/source/05-envies.html` (`?classiques=1`, `?theme=dark`).
 
 | Défaut | Avec les classiques | Mobile | Sombre |
 |---|---|---|---|
