@@ -369,6 +369,108 @@ function pageSerie(series) {
   conteneur.innerHTML = serieHTML(serie);
 }
 
+/* ---------- Page : tableau de bord (stats.html) ---------- */
+
+const NB_LIGNES_PANNEAU = 6;
+
+function lienSerie(s) {
+  return 'serie.html?id=' + encodeURIComponent(s.id);
+}
+
+function kpisHTML(series) {
+  const possedes = series.reduce((n, s) => n + s.possedes, 0);
+  const lus = series.reduce((n, s) => n + s.lus, 0);
+  const lusPossedes = series.reduce((n, s) => n + s.lu, 0);
+  const pctLu = possedes ? Math.round(lusPossedes / possedes * 100) : 0;
+  return '<div class="kpis">' +
+    '<div class="kpi"><strong>' + series.length + '</strong><span>' + pluriel(series.length, 'série') + '</span></div>' +
+    '<div class="kpi k-own"><strong>' + possedes + '</strong><span>' + pluriel(possedes, 'album possédé', 'albums possédés') + '</span></div>' +
+    '<div class="kpi k-read"><strong>' + lus + '</strong><span>' + pluriel(lus, 'album lu', 'albums lus') + '</span></div>' +
+    '<div class="kpi k-read"><strong>' + pctLu + ' %</strong><span>de la collection lue</span>' +
+      '<div class="bar" role="img" aria-label="' + pctLu + ' % lus, ' + (100 - pctLu) + ' % à lire">' +
+      '<span class="seg-read" style="width:' + pct(lusPossedes, possedes) + '"></span>' +
+      '<span class="seg-toread" style="width:' + pct(possedes - lusPossedes, possedes) + '"></span></div></div>' +
+  '</div>';
+}
+
+function reste(liste, unite) {
+  if (liste.length <= NB_LIGNES_PANNEAU) return '';
+  const autres = liste.slice(NB_LIGNES_PANNEAU);
+  const total = autres.reduce((n, x) => n + x.nombre, 0);
+  return '<p class="panel-foot">+ ' + total + ' ' + unite(total) + ' dans ' + autres.length + ' ' +
+    pluriel(autres.length, 'autre série', 'autres séries') + '</p>';
+}
+
+function pileHTML(series) {
+  const pile = series.filter(s => s.alire > 0)
+    .map(s => ({ s, nombre: s.alire }))
+    .sort((a, b) => b.nombre - a.nombre || collator.compare(a.s.titre, b.s.titre));
+  const total = pile.reduce((n, x) => n + x.nombre, 0);
+  const max = pile.length ? pile[0].nombre : 1;
+  const lignes = pile.slice(0, NB_LIGNES_PANNEAU).map(({ s, nombre }) =>
+    '<li><a href="' + lienSerie(s) + '"><strong class="r-titre">' + esc(s.titre) + '</strong>' +
+    '<span class="r-toread">' + nombre + '</span>' +
+    '<span class="bar" aria-hidden="true"><span class="seg-toread" style="width:' + pct(nombre, max) + '"></span></span></a></li>'
+  ).join('');
+  return '<section class="panel" aria-labelledby="t-pile">' +
+    '<div class="panel-head"><div><h2 id="t-pile">Pile à lire</h2><p>Albums possédés, pas encore lus</p></div>' +
+    '<span class="pile-total" aria-label="' + total + ' albums à lire">' + total + '</span></div>' +
+    (pile.length ? '<ul class="rows">' + lignes + '</ul>' + reste(pile, n => pluriel(n, 'album')) : '<p>Rien à lire : tout est lu !</p>') +
+  '</section>';
+}
+
+function incompletesHTML(series) {
+  // Les plus proches d'être complètes d'abord : c'est là qu'un achat compte le plus.
+  const inc = series.filter(s => s.incomplete)
+    .map(s => ({ s, nombre: s.manquants }))
+    .sort((a, b) => a.nombre - b.nombre || collator.compare(a.s.titre, b.s.titre));
+  const total = inc.reduce((n, x) => n + x.nombre, 0);
+  const lignes = inc.slice(0, NB_LIGNES_PANNEAU).map(({ s, nombre }) =>
+    '<li><a href="' + lienSerie(s) + '"><span class="r-titre"><strong>' + esc(s.titre) + '</strong> ' +
+    '<span class="r-own">' + s.possedes + '/' + s.parus + '</span></span>' +
+    '<span class="r-miss">' + nombre + ' ' + pluriel(nombre, 'manquant') + '</span>' +
+    '<span class="bar" role="img" aria-label="' + s.possedes + ' possédés sur ' + s.parus + ', ' + nombre + ' ' + pluriel(nombre, 'manquant') + '">' +
+    '<span class="seg-own" style="width:' + pct(s.possedes, s.parus) + '"></span>' +
+    '<span class="seg-miss" style="width:' + pct(nombre, s.parus) + '"></span></span></a></li>'
+  ).join('');
+  return '<section class="panel" aria-labelledby="t-inc">' +
+    '<div class="panel-head"><div><h2 id="t-inc">Séries incomplètes</h2>' +
+    '<p>' + inc.length + ' ' + pluriel(inc.length, 'série') + ' · ' + total + ' ' + pluriel(total, 'tome manquant', 'tomes manquants') +
+    ' · les plus proches d’être complètes d’abord</p></div></div>' +
+    (inc.length ? '<ul class="rows">' + lignes + '</ul>' + reste(inc, n => pluriel(n, 'tome manquant', 'tomes manquants')) : '<p>Toutes les séries sont complètes.</p>') +
+  '</section>';
+}
+
+function notesHTML(series) {
+  const notees = series.filter(s => s.note != null);
+  const compte = {};
+  notees.forEach(s => { compte[s.note] = (compte[s.note] || 0) + 1; });
+  const echelle = compte[0] ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const max = Math.max(1, ...Object.values(compte));
+  const moyenne = notees.length ? (notees.reduce((n, s) => n + s.note, 0) / notees.length).toFixed(1).replace('.', ',') : null;
+  const barres = echelle.map(n => {
+    const c = compte[n] || 0;
+    const classe = !c ? 'zero' : (n >= 9 ? 'top' : '');
+    return '<div><b>' + (c || '') + '</b><i class="' + classe + '" style="height:' + (c ? Math.round(c / max * 130) : 2) + 'px"></i></div>';
+  }).join('');
+  const aria = 'Répartition des notes : ' + echelle.slice().reverse().filter(n => compte[n])
+    .map(n => n + '/10 : ' + compte[n] + ' ' + pluriel(compte[n], 'série')).join(', ') + '.';
+  return '<section class="panel" aria-labelledby="t-notes">' +
+    '<div><h2 id="t-notes">Répartition des notes</h2><p class="histo-note" style="font-size:14px">' +
+    notees.length + ' ' + pluriel(notees.length, 'série notée', 'séries notées') + ' sur ' + series.length +
+    (moyenne ? ' · moyenne ' + moyenne + '/10' : '') + '</p></div>' +
+    '<div class="histo" role="img" aria-label="' + esc(aria) + '" style="--cols:' + echelle.length + '">' + barres + '</div>' +
+    '<div class="histo-axis" aria-hidden="true" style="--cols:' + echelle.length + '">' + echelle.map(n => '<span>' + n + '</span>').join('') + '</div>' +
+    '<p class="histo-note">Note sur 10 · nombre de séries au-dessus des barres</p>' +
+  '</section>';
+}
+
+function pageStats(series) {
+  const conteneur = document.getElementById('stats');
+  conteneur.innerHTML = '<h1 class="page-title">Tableau de bord</h1>' + kpisHTML(series) +
+    '<div class="panels">' + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + '</div>';
+}
+
 /* ---------- Démarrage ---------- */
 
 async function demarrer() {
@@ -380,6 +482,7 @@ async function demarrer() {
     afficherStatsEnTete(series);
     if (page === 'collection') pageCollection(series);
     if (page === 'serie') pageSerie(series);
+    if (page === 'stats') pageStats(series);
   } catch (erreur) {
     afficherErreur(contenu, erreur);
   }
