@@ -257,6 +257,118 @@ function pageCollection(series) {
   afficher();
 }
 
+/* ---------- Page : série (serie.html?id=…) ---------- */
+
+const STATUTS_TOME = {
+  lu: 'Possédé · lu',
+  alire: 'Possédé · à lire',
+  lnp: 'Lu, non possédé',
+  manquant: 'Manquant'
+};
+
+const ICONE_MANQUANT = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>';
+
+const LEGENDE_HTML = '<div class="legend boxed" aria-label="Légende des couleurs">' +
+  '<span><span class="swatch swatch-own" aria-hidden="true"></span>Possédé</span>' +
+  '<span><span class="swatch swatch-read" aria-hidden="true"></span>Lu</span>' +
+  '<span><span class="swatch swatch-toread" aria-hidden="true"></span>À lire</span>' +
+  '<span><span class="swatch swatch-lnp" aria-hidden="true"></span>Lu, non possédé</span>' +
+  '<span><span class="swatch swatch-miss" aria-hidden="true"></span>Manquant</span></div>';
+
+/** Regroupe les manquants consécutifs (3 ou plus) en une seule ligne pour les longues séries. */
+function lignesDeTomes(tomes) {
+  const lignes = [];
+  for (let i = 0; i < tomes.length; i++) {
+    const t = tomes[i];
+    if (t.statut === 'manquant') {
+      let j = i;
+      while (j + 1 < tomes.length && tomes[j + 1].statut === 'manquant') j++;
+      if (j - i + 1 >= 3) {
+        lignes.push({ plage: true, de: t.tome, a: tomes[j].tome, nombre: j - i + 1 });
+        i = j;
+        continue;
+      }
+    }
+    lignes.push(t);
+  }
+  return lignes;
+}
+
+function ligneTomeHTML(l) {
+  if (l.plage) {
+    return '<li class="tome-row st-manquant">' +
+      '<span class="cell range" aria-hidden="true">' + l.de + '–' + l.a + '</span>' +
+      '<span class="tome-titre"><span class="num">T' + l.de + ' à T' + l.a + '</span> <strong>' + l.nombre + ' tomes</strong></span>' +
+      '<span class="tome-tag">' + ICONE_MANQUANT + 'Manquants</span></li>';
+  }
+  const titre = l.album && l.album.titre;
+  return '<li class="tome-row st-' + l.statut + '">' +
+    '<span class="cell" aria-hidden="true">' + l.tome + '</span>' +
+    '<span class="tome-titre"><span class="num">T' + l.tome + '</span>' + (titre ? ' <strong>' + esc(titre) + '</strong>' : '') + '</span>' +
+    '<span class="tome-tag">' + (l.statut === 'manquant' ? ICONE_MANQUANT : '') + STATUTS_TOME[l.statut] + '</span></li>';
+}
+
+function noteHTML(s) {
+  if (s.note == null) {
+    return '<div class="note-empty"><strong>Pas encore noté</strong><span>' +
+      (s.avis ? esc(s.avis) : 'Aucun avis pour cette série.') + '</span></div>';
+  }
+  return '<div class="note-box"><div class="note-line"><span class="label">Ma note</span>' +
+    '<span class="valeur">' + s.note + '</span><span class="sur">/10</span></div>' +
+    (s.avis ? '<blockquote>« ' + esc(s.avis.trim()) + ' »</blockquote>' : '') + '</div>';
+}
+
+function compteursHTML(s) {
+  let html = '<span class="c-own"><strong>' + s.possedes + '</strong> ' + pluriel(s.possedes, 'possédé') + ' / ' + s.parus + ' parus</span>' +
+    '<span class="c-read"><strong>' + s.lus + '</strong> ' + pluriel(s.lus, 'lu') + '</span>';
+  if (s.alire) html += '<span class="c-toread"><strong>' + s.alire + '</strong> à lire</span>';
+  if (s.lnp) html += '<span class="c-lnp"><strong>' + s.lnp + '</strong> ' + pluriel(s.lnp, 'lu, non possédé', 'lus, non possédés') + '</span>';
+  if (s.manquants) html += '<span class="c-miss"><strong>' + s.manquants + '</strong> ' + pluriel(s.manquants, 'manquant') + '</span>';
+  return '<div class="serie-counts">' + html + '</div>';
+}
+
+function serieHTML(s) {
+  const statut = s.statut ? s.statut.charAt(0).toUpperCase() + s.statut.slice(1) : '';
+  const tags = (statut ? '<span class="tag tag-statut">' + esc(statut) + '</span>' : '') +
+    (s.genres || []).map(g => '<span class="tag">' + esc(g.charAt(0).toUpperCase() + g.slice(1)) + '</span>').join('');
+  return '<div class="serie-layout">' +
+    '<section class="serie-info">' +
+      '<div class="serie-head">' +
+        '<div class="book-cover" aria-hidden="true"><span>' + esc(initiales(s.titre)) + '</span><span>Couverture</span></div>' +
+        '<div class="serie-title"><h1>' + esc(s.titre) + '</h1>' +
+          '<p>' + esc((s.auteurs || []).join(', ')) + '</p>' +
+          (s.editeur ? '<p class="editeur">' + esc(s.editeur) + '</p>' : '') +
+          (tags ? '<div class="tags">' + tags + '</div>' : '') +
+        '</div>' +
+      '</div>' +
+      noteHTML(s) +
+      compteursHTML(s) +
+    '</section>' +
+    '<section class="serie-tomes" aria-labelledby="titre-tomes">' +
+      '<div class="tomes-head"><h2 id="titre-tomes">Tomes</h2><span>' + s.parus + ' parus</span></div>' +
+      '<ul class="tomes-grid" aria-hidden="true">' +
+        s.tomes.map(t => '<li class="st-' + t.statut + '"><span class="cell">' + t.tome + '</span></li>').join('') +
+      '</ul>' +
+      '<ol class="tomes-list">' + lignesDeTomes(s.tomes).map(ligneTomeHTML).join('') + '</ol>' +
+    '</section>' +
+  '</div>' + LEGENDE_HTML;
+}
+
+function pageSerie(series) {
+  const conteneur = document.getElementById('serie');
+  const id = new URLSearchParams(location.search).get('id');
+  const serie = series.find(s => s.id === id);
+  if (!serie) {
+    document.title = 'Série introuvable — Bibliothèque BD d’Arnaud';
+    conteneur.innerHTML = '<div class="message" role="alert"><h2>Série introuvable</h2>' +
+      '<p>' + (id ? 'Aucune série ne correspond à l’identifiant « ' + esc(id) + ' ».' : 'Aucune série n’est indiquée dans l’adresse.') + '</p>' +
+      '<a class="btn-primary" href="index.html">Retour à la collection</a></div>';
+    return;
+  }
+  document.title = serie.titre + ' — Bibliothèque BD d’Arnaud';
+  conteneur.innerHTML = serieHTML(serie);
+}
+
 /* ---------- Démarrage ---------- */
 
 async function demarrer() {
@@ -267,6 +379,7 @@ async function demarrer() {
     const series = enrichirTout(await chargerDonnees());
     afficherStatsEnTete(series);
     if (page === 'collection') pageCollection(series);
+    if (page === 'serie') pageSerie(series);
   } catch (erreur) {
     afficherErreur(contenu, erreur);
   }
