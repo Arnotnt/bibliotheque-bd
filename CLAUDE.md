@@ -201,43 +201,15 @@ Déclencheur : « Fais la veille des nouveautés ».
   - `genres: []` (absent de l'export, à compléter). Catégorie Bubble « Mangas » → `Manga`.
   - Champs vides (titre d'album, date d'ajout) → `null`.
 
----
+## Historique des sprints
 
-## Sprint 0 — mise en place (section à supprimer une fois terminé)
+Le backlog vit dans les issues GitHub et le [kanban](https://github.com/users/Arnotnt/projects/2) ; le détail de chaque ticket soldé est dans `docs/JOURNAL.md`, les rétros dans `docs/retro.md`.
 
-1. Créer `scripts/setup_github.sh` qui, avec `gh` :
-   - crée tous les labels ci-dessus (`gh label create … --color … --force`) ;
-   - crée les milestones `Sprint 1` à `Sprint 4` (via `gh api repos/{owner}/{repo}/milestones`) ;
-   - crée les 12 issues du backlog ci-dessous, au format de la skill, avec leurs labels, **sans milestone** ;
-   - les ajoute au Project « Bibliothèque BD ».
-   Me montrer le script avant de l'exécuter.
-2. Créer `.github/ISSUE_TEMPLATE/user-story.md` (format de la skill) et `.github/pull_request_template.md` (Definition of Done).
-3. Créer `docs/JOURNAL.md`, `docs/retro.md` et `docs/mockups/`.
-4. Mockups (3 écrans : Accueil, Page série, Tableau de bord) : réalisés à part dans Claude Design, captures déposées dans `docs/mockups/` puis liées aux issues US-02, US-04 et US-08. ✅ fait le 2026-11-14 (captures, sources et charte dans `docs/mockups/`).
-5. Sprint planning du Sprint 1 : ✅ fait le 2026-11-14, élargi à US-01 → US-05 (15 pts) car la charge est calculée sur la capacité de Claude.
-
-### Backlog initial
-
-| ID | Epic | Prio | Pts | User story | Critères d'acceptance clés |
-|---|---|---|---|---|---|
-| US-01 | socle | must | 3 | En tant que PO, je veux importer mon export Bubble en JSON afin de ne rien ressaisir | 60 séries / 308 albums générés ; notes converties sur 10 ; noms nettoyés ; script relançable |
-| US-02 | collection | must | 3 | En tant que lecteur, je veux voir la liste de mes séries afin d'avoir une vue d'ensemble | Carte par série : titre, auteurs, possédés / parus, lus, note ; tri alphabétique |
-| US-03 | collection | must | 3 | En tant que lecteur, je veux filtrer et rechercher afin de trouver vite une série | Filtres possédé / lu / à lire / incomplète ; recherche titre + auteur, sans accents ni casse |
-| US-04 | collection | must | 5 | En tant que lecteur, je veux une page série afin de voir les tomes et les manquants | Liste des tomes 1..N avec statut possédé / lu / manquant ; note et avis affichés ; lien retour |
-| US-05 | socle | must | 1 | En tant que PO, je veux le site sur GitHub Pages afin de le partager | URL publique fonctionnelle ; lien dans le README |
-| US-06 | lecture | must | 2 | En tant que lecteur, je veux enregistrer une BD lue non achetée afin de tracer toutes mes lectures | Demande type à Claude Code documentée et testée ; badge « lu, non possédé » visible sur le site |
-| US-07 | notation | must | 2 | En tant que lecteur, je veux noter une série sur 10 avec un avis afin de garder mon ressenti | Note 0–10 + avis court affichés sur la carte et la page série ; demande type documentée |
-| US-08 | collection | should | 3 | En tant que lecteur, je veux un tableau de bord afin de suivre ma collection | Totaux, % lu, pile à lire, séries incomplètes, répartition des notes |
-| US-09 | veille | should | 3 | En tant que lecteur, je veux une veille des prochains tomes de mes séries suivies afin de ne rien rater | Procédure de veille documentée ; `tomes_parus` mis à jour avec la source ; résumé des sorties à venir |
-| US-10 | reco | should | 5 | En tant que lecteur, je veux des recommandations basées sur mes goûts afin de découvrir des séries | 5 séries non possédées, chacune justifiée par mes notes / avis ; écrites dans `data/reco.json` |
-| US-11 | reco | could | 3 | En tant que lecteur, je veux une page Recommandations afin de les consulter et les trier | Liste des recos avec justification ; statut à découvrir / intéressé / rejeté |
-| US-12 | collection | could | 3 | En tant que lecteur, je veux voir les couvertures afin de rendre le site plus visuel | Couverture via l'EAN si disponible, sinon visuel par défaut ; aucun lien cassé |
-
-### Plan de sprints (révisé le 2026-11-14 : capacité Claude, le goulot est la revue du PO)
-
-| Sprint | Sprint Goal | US | Pts |
+| Sprint | Sprint Goal | Tickets | Pts |
 |---|---|---|---|
+| 0 | Mise en place : labels, milestones, templates, docs, maquettes | — | — |
 | 1 | « Je vois ma collection en ligne et ce qui me manque » | US-01, US-02, US-03, US-04, US-05 | 15 |
 | 2 | « Je suis ma collection et Claude me conseille » | US-06, US-07, US-08, US-09, US-10 | 15 |
-| 3 | à définir (pistes : US-11, US-12, après validation du PO) | — | — |
-| Backlog | — | US-12 | 3 |
+| 3 | « Le site est complet et les données sont fiables » | OPT-01, DATA-01, DATA-02, US-13, US-11, US-12, OPT-02 | 18 |
+
+Capacité : la charge se calcule sur la capacité de Claude ; le goulot est la revue du PO (rétros des sprints 1 et 2).
