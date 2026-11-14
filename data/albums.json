@@ -1,0 +1,2774 @@
+[
+  {
+    "serie_id": "1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta",
+    "tome": 1,
+    "titre": "L'apothicaire du diable",
+    "ean": "9782344045107",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2024-07-06"
+  },
+  {
+    "serie_id": "1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta",
+    "tome": 2,
+    "titre": "L'île rouge",
+    "ean": "9782344058138",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2024-12-29"
+  },
+  {
+    "serie_id": "24-heures-chrono",
+    "tome": 1,
+    "titre": null,
+    "ean": "9782203392311",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "achille-talon",
+    "tome": 11,
+    "titre": "Brave et Honnete Achille Talon",
+    "ean": "9782205008630",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "achille-talon",
+    "tome": 34,
+    "titre": "L'incorrigible Achille Talon",
+    "ean": "9782205025125",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "adele-blanc-sec",
+    "tome": 8,
+    "titre": "Le Mystère des Profondeurs",
+    "ean": "9782203150140",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "aquablue",
+    "tome": 5,
+    "titre": "Projet Atalanta",
+    "ean": "9782840552277",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 1,
+    "titre": "Astérix le Gaulois",
+    "ean": "9782012101333",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 3,
+    "titre": "Astérix et les Goths",
+    "ean": "9782012101357",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2023-10-30"
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 4,
+    "titre": "Astérix gladiateur",
+    "ean": "9782012101364",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 5,
+    "titre": "Le tour de Gaule d'Astérix",
+    "ean": "9782012101371",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 6,
+    "titre": "Astérix et Cléopâtre",
+    "ean": "9782012101388",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 7,
+    "titre": "Le combat des chefs",
+    "ean": "9782012101395",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 8,
+    "titre": "Astérix chez les Bretons",
+    "ean": "9782012101401",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 12,
+    "titre": "Astérix aux jeux olympiques",
+    "ean": "9782012101449",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 13,
+    "titre": "Astérix et le chaudron",
+    "ean": "9782012101456",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 15,
+    "titre": "La zizanie",
+    "ean": "9782012101470",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2023-10-30"
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 17,
+    "titre": "Le domaine des dieux",
+    "ean": "9782012101494",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2023-10-30"
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 20,
+    "titre": "Astérix en Corse",
+    "ean": "9782012101524",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 22,
+    "titre": "La grande traversée",
+    "ean": "9782012101548",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 23,
+    "titre": "Obélix et compagnie",
+    "ean": "9782012101555",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 27,
+    "titre": "Le fils d'Astérix",
+    "ean": "9782864970118",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 28,
+    "titre": "Astérix chez Rahazade",
+    "ean": "9782864970200",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 29,
+    "titre": "La Rose et le Glaive",
+    "ean": "9782864970538",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 30,
+    "titre": "La galère d'Obélix",
+    "ean": "9782864970965",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 33,
+    "titre": "Le ciel lui tombe sur la tête",
+    "ean": "9782864971702",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 36,
+    "titre": "Le papyrus de César",
+    "ean": "9782864972716",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 37,
+    "titre": "Astérix et la Transitalique",
+    "ean": "9782864973270",
+    "possede": true,
+    "lu": false,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 38,
+    "titre": "La fille de Vercingétorix",
+    "ean": "9782864973423",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2019-11-17"
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 39,
+    "titre": "Astérix et le griffon",
+    "ean": "9782864973492",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2021-11-01"
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 40,
+    "titre": "L'iris blanc",
+    "ean": "9782014001334",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2023-10-30"
+  },
+  {
+    "serie_id": "asterix",
+    "tome": 41,
+    "titre": "Astérix en Lusitanie",
+    "ean": "9782017253709",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-11-05"
+  },
+  {
+    "serie_id": "blacksad",
+    "tome": 1,
+    "titre": "Quelque part entre les ombres",
+    "ean": "9782205049657",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "blacksad",
+    "tome": 2,
+    "titre": "Arctic-Nation",
+    "ean": "9782205051995",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "blacksad",
+    "tome": 3,
+    "titre": "Âme rouge",
+    "ean": "9782205055641",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "blacksad",
+    "tome": 4,
+    "titre": "L'enfer, le silence",
+    "ean": "9782205063134",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "blacksad",
+    "tome": 5,
+    "titre": "Amarillo",
+    "ean": "9782205071801",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "blacksad",
+    "tome": 6,
+    "titre": "Alors, tout tombe : première partie",
+    "ean": "9782205078046",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2021-11-01"
+  },
+  {
+    "serie_id": "blacksad",
+    "tome": 7,
+    "titre": "Alors, tout tombe : seconde partie",
+    "ean": "9782205085334",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2023-12-28"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 1,
+    "titre": "Le Secret de l'Espadon - La poursuite fantastique",
+    "ean": "9782870971659",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-02-12"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 2,
+    "titre": "Le Secret de l'Espadon - Tome 2",
+    "ean": "9782870971666",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 3,
+    "titre": "Le Secret de l'Espadon - Tome 3",
+    "ean": "9782870971673",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 4,
+    "titre": "Le Mystère de la Grande Pyramide - Tome 1",
+    "ean": "9782870971680",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-02-12"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 5,
+    "titre": "Le Mystère de la Grande Pyramide - Tome 2",
+    "ean": "9782870971697",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 6,
+    "titre": "La Marque Jaune",
+    "ean": "9782870971703",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 7,
+    "titre": "L'Enigme de l'Atlantide",
+    "ean": "9782870971710",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-12-28"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 8,
+    "titre": "S.O.S Météores",
+    "ean": "9782870971727",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 9,
+    "titre": "Le Piège Diabolique",
+    "ean": "9782870971734",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-07-24"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 10,
+    "titre": "L'Affaire du Collier",
+    "ean": "9782870971741",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-07-24"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 11,
+    "titre": "Les 3 Formules du Professeur Satô - Mortimer à Tokyo",
+    "ean": "9782870971758",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 12,
+    "titre": "Les 3 Formules du Professeur Satô - Tome 2",
+    "ean": "9782870971765",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 13,
+    "titre": "L'Affaire Francis Blake",
+    "ean": "9782870971772",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-07-24"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 14,
+    "titre": "La Machination Voronov",
+    "ean": "9782870971789",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-12-28"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 15,
+    "titre": "L'Etrange Rendez-vous",
+    "ean": "9782870971796",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-12-28"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 16,
+    "titre": "Les Sarcophages du 6e Continent - Tome 1",
+    "ean": "9782870971802",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-12-28"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 17,
+    "titre": "Les Sarcophages du 6e Continent - Tome 2",
+    "ean": "9782870971819",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-12-28"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 18,
+    "titre": "Le Sanctuaire de Gondwana",
+    "ean": "9782870971826",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2021-02-14"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 19,
+    "titre": "La Malédiction des Trente Deniers - Tome 1",
+    "ean": "9782870971833",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2021-02-14"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 20,
+    "titre": "La Malédiction des Trente Deniers - Tome 2",
+    "ean": "9782870971840",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2021-02-14"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 21,
+    "titre": "Le Serment des Cinq Lords",
+    "ean": "9782870971642",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 22,
+    "titre": "L'Onde Septimus",
+    "ean": "9782870971895",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 23,
+    "titre": "Le Bâton de Plutarque",
+    "ean": "9782870971932",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 24,
+    "titre": "Le Testament de William S.",
+    "ean": "9782870972427",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 25,
+    "titre": "La Vallée des Immortels - Tome 1",
+    "ean": "9782870972441",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-02-12"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 26,
+    "titre": "La Vallée des Immortels - Tome 2",
+    "ean": "9782870972816",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-02-12"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 27,
+    "titre": "Le Cri du Moloch",
+    "ean": "9782870972922",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2021-02-14"
+  },
+  {
+    "serie_id": "blake-et-mortimer",
+    "tome": 28,
+    "titre": "Le Dernier Espadon",
+    "ean": "9782870972854",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2022-10-27"
+  },
+  {
+    "serie_id": "blueberry",
+    "tome": 26,
+    "titre": "Geronimo l'Apache",
+    "ean": "9782205048735",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "boule-et-bill",
+    "tome": 1,
+    "titre": "60 Gags n°1",
+    "ean": "9782800100302",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "boule-et-bill",
+    "tome": 2,
+    "titre": "60 Gags n°2",
+    "ean": "9782800100319",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "boule-et-bill",
+    "tome": 3,
+    "titre": "60 Gags n°3",
+    "ean": "9782800100326",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "boule-et-bill",
+    "tome": 4,
+    "titre": "60 Gags n°4",
+    "ean": "9782800100333",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "boule-et-bill",
+    "tome": 5,
+    "titre": "60 Gags n°5",
+    "ean": "9782800100340",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "boule-et-bill",
+    "tome": 11,
+    "titre": "Jeux de Bill",
+    "ean": "9791034751204",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "boule-et-bill",
+    "tome": 13,
+    "titre": "Carnets de Bill",
+    "ean": "9782800105093",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "boule-et-bill",
+    "tome": 22,
+    "titre": "22 ! v'la Boule & Bill !",
+    "ean": "9782871290483",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "cedric",
+    "tome": 5,
+    "titre": "Quelle mouche le pique ?",
+    "ean": "9782800155517",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "dans-la-tete-de-sherlock-holmes",
+    "tome": 1,
+    "titre": "L'Affaire du Ticket Scandaleux",
+    "ean": "9791033509721",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-12-31"
+  },
+  {
+    "serie_id": "dans-la-tete-de-sherlock-holmes",
+    "tome": 2,
+    "titre": "L'Affaire du Ticket Scandaleux",
+    "ean": "9791033512547",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-12-31"
+  },
+  {
+    "serie_id": "death-note-black-edition",
+    "tome": 1,
+    "titre": null,
+    "ean": "9782505009054",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "death-note-black-edition",
+    "tome": 2,
+    "titre": null,
+    "ean": "9782505009061",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "death-note-black-edition",
+    "tome": 3,
+    "titre": null,
+    "ean": "9782505009986",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "death-note-black-edition",
+    "tome": 4,
+    "titre": null,
+    "ean": "9782505010326",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "death-note-black-edition",
+    "tome": 5,
+    "titre": null,
+    "ean": "9782505010692",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "death-note-black-edition",
+    "tome": 6,
+    "titre": null,
+    "ean": "9782505010951",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "dossiers-michel-vaillant",
+    "tome": 6,
+    "titre": "Ayrton Senna - le Feu Sacré",
+    "ean": "9782870980514",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-04-15"
+  },
+  {
+    "serie_id": "dossiers-michel-vaillant",
+    "tome": 12,
+    "titre": "Alain Prost",
+    "ean": "9782800147994",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "dossiers-michel-vaillant",
+    "tome": 13,
+    "titre": "Michael Schumacher",
+    "ean": "9782800150901",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "durandal-la-marche-de-bretagne",
+    "tome": 1,
+    "titre": "La Marche de Bretagne",
+    "ean": "9782302010864",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "durandal-la-marche-de-bretagne",
+    "tome": 2,
+    "titre": null,
+    "ean": "9782302014558",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "focu",
+    "tome": 1,
+    "titre": "Le Guide du Savoir-Dire",
+    "ean": "9782940199884",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "gaston-lagaffe",
+    "tome": 5,
+    "titre": "Le Lourd Passé de Lagaffe",
+    "ean": "9782800137353",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "gaston-lagaffe",
+    "tome": 6,
+    "titre": "Des Gaffes et des Dégats",
+    "ean": "9791034754007",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "gaston-lagaffe",
+    "tome": 7,
+    "titre": "Un Gaffeur Sachant Gaffer",
+    "ean": "9782800137377",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "gaston-lagaffe",
+    "tome": 8,
+    "titre": "Lagaffe nous Gâte",
+    "ean": "9782800100906",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "gaston-lagaffe",
+    "tome": 10,
+    "titre": "Le Géant de la Gaffe",
+    "ean": "9782800137407",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "gaston-lagaffe",
+    "tome": 14,
+    "titre": "La Saga des Gaffes",
+    "ean": "9782800137445",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "gaston-lagaffe",
+    "tome": 15,
+    "titre": "Gaffe à Lagaffe",
+    "ean": "9782912536730",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "goldorak",
+    "tome": 1,
+    "titre": "Goldorak",
+    "ean": "9782505078463",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2021-12-29"
+  },
+  {
+    "serie_id": "habemus-bastard",
+    "tome": 1,
+    "titre": "L'être nécessaire",
+    "ean": "9782205089943",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2024-12-02"
+  },
+  {
+    "serie_id": "habemus-bastard",
+    "tome": 2,
+    "titre": "Un cœur sous une soutane",
+    "ean": "9782205211306",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2024-12-02"
+  },
+  {
+    "serie_id": "hoka-hey",
+    "tome": 1,
+    "titre": "Hoka Hey",
+    "ean": "9782810202294",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2023-02-18"
+  },
+  {
+    "serie_id": "il-faut-flinguer-ramirez",
+    "tome": 1,
+    "titre": "Acte 1",
+    "ean": "9782344011881",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2024-12-29"
+  },
+  {
+    "serie_id": "il-faut-flinguer-ramirez",
+    "tome": 2,
+    "titre": "Acte 2",
+    "ean": "9782344018743",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-02-12"
+  },
+  {
+    "serie_id": "islander",
+    "tome": 1,
+    "titre": "L'exil",
+    "ean": "9782344043042",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-05-06"
+  },
+  {
+    "serie_id": "iznogoud",
+    "tome": 13,
+    "titre": "Iznogoud je Veux Etre Calife",
+    "ean": "9782904799099",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "jerry-spring",
+    "tome": 10,
+    "titre": "Le Maître de la Sierra",
+    "ean": "9782800109688",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "jusqu-au-dernier",
+    "tome": 1,
+    "titre": null,
+    "ean": "9791041104437",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-06-16"
+  },
+  {
+    "serie_id": "l-enfer-du-trome",
+    "tome": 1,
+    "titre": "L'Enfer du Tromé (arthur Leboss .)",
+    "ean": "9782906765009",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 1,
+    "titre": "Génèse",
+    "ean": "9782847896312",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 2,
+    "titre": "Le Château des Djinns",
+    "ean": "9782847896329",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 3,
+    "titre": "Le Graal de Montségur",
+    "ean": "9782847896336",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 4,
+    "titre": "Les Clés de St Pierre",
+    "ean": "9782847896411",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 5,
+    "titre": "1666",
+    "ean": "9782847898606",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 6,
+    "titre": "L'Aigle et le Sphinx",
+    "ean": "9782847898613",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 7,
+    "titre": "Notre-Dame des Ténèbres",
+    "ean": "9782756000466",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 8,
+    "titre": "Les 7 Piliers de la Sagesse",
+    "ean": "9782756004679",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 9,
+    "titre": "La Loge Thule",
+    "ean": "9782756005386",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 10,
+    "titre": "La Pierre Noire",
+    "ean": "9782756005393",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 11,
+    "titre": "Nadja",
+    "ean": "9782756005409",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 12,
+    "titre": "Lucky Point",
+    "ean": "9782756005416",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 13,
+    "titre": "Le Crépuscule des Dieux",
+    "ean": "9782756009353",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 14,
+    "titre": "Les Veilleurs",
+    "ean": "9782756013220",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 15,
+    "titre": "La Chambre d'Ambre",
+    "ean": "9782756014999",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 16,
+    "titre": "Sion",
+    "ean": "9782756015262",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 17,
+    "titre": "Opération Kadesh",
+    "ean": "9782756015279",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 18,
+    "titre": "La fin de camelot",
+    "ean": "9782756015286",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 19,
+    "titre": "L'Age du Verseau",
+    "ean": "9782756015293",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 20,
+    "titre": "La Porte de l'Eau",
+    "ean": "9782756015309",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 21,
+    "titre": "Le Mahdi",
+    "ean": "9782756015316",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-histoire-secrete",
+    "tome": 22,
+    "titre": "Le Roi du Monde",
+    "ean": "9782756020099",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "l-homme-qui-tua-chris-kyle",
+    "tome": 1,
+    "titre": "L’Homme qui tua Chris Kyle",
+    "ean": "9782205084672",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-12-25"
+  },
+  {
+    "serie_id": "la-bombe",
+    "tome": 1,
+    "titre": "La Bombe",
+    "ean": "9782344020630",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-07-17"
+  },
+  {
+    "serie_id": "lanfeust-de-troy",
+    "tome": 1,
+    "titre": "L'Ivoire du Magohamoth",
+    "ean": "9782302015906",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2022-05-30"
+  },
+  {
+    "serie_id": "lanfeust-de-troy",
+    "tome": 2,
+    "titre": "Thanos l'Incongru",
+    "ean": "9782302015913",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2022-05-30"
+  },
+  {
+    "serie_id": "lanfeust-de-troy",
+    "tome": 3,
+    "titre": "Castel Or-Azur",
+    "ean": "9782302015920",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2023-12-28"
+  },
+  {
+    "serie_id": "lanfeust-de-troy",
+    "tome": 4,
+    "titre": "Le Paladin d'Eckmül",
+    "ean": "9782302015937",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-06-16"
+  },
+  {
+    "serie_id": "lanfeust-de-troy",
+    "tome": 5,
+    "titre": "Le Frisson de l'Haruspice",
+    "ean": "9782302015944",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-06-16"
+  },
+  {
+    "serie_id": "lanfeust-de-troy",
+    "tome": 6,
+    "titre": "Cixi Impératrice",
+    "ean": "9782302015951",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-06-16"
+  },
+  {
+    "serie_id": "lanfeust-de-troy",
+    "tome": 7,
+    "titre": "Les Pétaures se Cachent pour Mourir",
+    "ean": "9782302015968",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-06-16"
+  },
+  {
+    "serie_id": "lanfeust-de-troy",
+    "tome": 8,
+    "titre": "La Bête Fabuleuse",
+    "ean": "9782302015975",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-10-11"
+  },
+  {
+    "serie_id": "lanfeust-de-troy",
+    "tome": 9,
+    "titre": "La Forêt Noiseuse",
+    "ean": "9782302092037",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2026-03-07"
+  },
+  {
+    "serie_id": "lanfeust-des-etoiles",
+    "tome": 1,
+    "titre": "Un, Deux... Troy",
+    "ean": "9782845652217",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-des-etoiles",
+    "tome": 2,
+    "titre": "Les Tours de Meirrion",
+    "ean": "9782845654051",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-des-etoiles",
+    "tome": 3,
+    "titre": "Les Sables d'Abraxar",
+    "ean": "9782845656833",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-des-etoiles",
+    "tome": 4,
+    "titre": "Les Buveurs de Mondes",
+    "ean": "9782845659001",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-des-etoiles",
+    "tome": 5,
+    "titre": "La Chevauchée des Bactéries",
+    "ean": "9782849463185",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-des-etoiles",
+    "tome": 6,
+    "titre": "Le Râle du Flibustier",
+    "ean": "9782849466414",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-des-etoiles",
+    "tome": 7,
+    "titre": "Le Secret des Dolphantes",
+    "ean": "9782302000315",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-des-etoiles",
+    "tome": 8,
+    "titre": "Le Sang des Comètes",
+    "ean": "9782302003828",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-odyssey",
+    "tome": 1,
+    "titre": "L'Énigme Or-Azur - 1ère Partie",
+    "ean": "9782302014510",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-odyssey",
+    "tome": 2,
+    "titre": "L'Enigme Or-Azur-2e partie",
+    "ean": "9782302012516",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-odyssey",
+    "tome": 3,
+    "titre": "Le Banni d'Eckmül",
+    "ean": "9782302018556",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-odyssey",
+    "tome": 4,
+    "titre": "La Grande Traque",
+    "ean": "9782302024243",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-odyssey",
+    "tome": 5,
+    "titre": "Le Piège des Sables",
+    "ean": "9782302036314",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-odyssey",
+    "tome": 6,
+    "titre": "Le Delta Bilieux",
+    "ean": "9782302042667",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-odyssey",
+    "tome": 7,
+    "titre": "La Méphitique Armada",
+    "ean": "9782302048515",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-odyssey",
+    "tome": 8,
+    "titre": "Tseu-Hi la Gardienne",
+    "ean": "9782302055926",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-odyssey",
+    "tome": 9,
+    "titre": "Le Stratège Ingénu",
+    "ean": "9782302062917",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lanfeust-odyssey",
+    "tome": 10,
+    "titre": "Un Destin Karaxastin",
+    "ean": "9782302072794",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "largo-winch",
+    "tome": 1,
+    "titre": "L'Héritier",
+    "ean": "9782800159454",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-chant-d-excalibur",
+    "tome": 1,
+    "titre": "Le Réveil de Merlin",
+    "ean": "9782845658820",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-chant-d-excalibur",
+    "tome": 2,
+    "titre": "Le Sidhe aux Mille Charmes",
+    "ean": "9782845659353",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-chant-d-excalibur",
+    "tome": 3,
+    "titre": "La Griffe de Rome",
+    "ean": "9782845659407",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-chant-d-excalibur",
+    "tome": 4,
+    "titre": "La Colère de Merlin",
+    "ean": "9782845654815",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-chant-d-excalibur",
+    "tome": 5,
+    "titre": "Ys la magnifique",
+    "ean": "9782849467893",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-chant-d-excalibur",
+    "tome": 6,
+    "titre": "Les Gardiennes De...",
+    "ean": "9782302002920",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-chat",
+    "tome": 15,
+    "titre": "Une vie de Chat",
+    "ean": "9782203017825",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 1,
+    "titre": "La Marque du Diable",
+    "ean": "9782871293729",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 2,
+    "titre": "Le Secret du Pape",
+    "ean": "9782871293521",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 3,
+    "titre": "La Croix de Pierre",
+    "ean": "9782871294634",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 4,
+    "titre": "Le Démon au Vatican",
+    "ean": "9782871295709",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 5,
+    "titre": "La Vallée Sacrée",
+    "ean": "9782871296775",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 6,
+    "titre": "Le Trésor du Temple",
+    "ean": "9782505016793",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 7,
+    "titre": "Au Nom du Père",
+    "ean": "9782505016809",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 8,
+    "titre": "L'Ombre de l'Ange",
+    "ean": "9782505004745",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 9,
+    "titre": "Le Masque de la Vérité",
+    "ean": "9782505009146",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 10,
+    "titre": "Au Nom du Fils",
+    "ean": "9782505015031",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 11,
+    "titre": "La Neuvième Famille",
+    "ean": "9782505019923",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 12,
+    "titre": "Le Mauvais Augure",
+    "ean": "9782505070863",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "le-scorpion",
+    "tome": 13,
+    "titre": "Tamose l'égyptien",
+    "ean": "9782505083313",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-12-25"
+  },
+  {
+    "serie_id": "le-scorpion-le-proces-scorpion",
+    "tome": 1,
+    "titre": null,
+    "ean": "9782505061816",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-troisieme-testament",
+    "tome": 1,
+    "titre": "Marc ou le réveil du Lion",
+    "ean": "9782723423250",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-troisieme-testament",
+    "tome": 2,
+    "titre": "Matthieu ou le visage de l'ange",
+    "ean": "9782723426596",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-troisieme-testament",
+    "tome": 3,
+    "titre": "Luc ou le souffle du taureau",
+    "ean": "9782723430005",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-troisieme-testament",
+    "tome": 4,
+    "titre": "Jean ou le jour du corbeau",
+    "ean": "9782723437325",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-troisieme-testament-julius",
+    "tome": 1,
+    "titre": "Julius I",
+    "ean": "9782723464475",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-troisieme-testament-julius",
+    "tome": 2,
+    "titre": "Julius II (La révélation 1/2)",
+    "ean": "9782723485043",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-troisieme-testament-julius",
+    "tome": 3,
+    "titre": "Julius III (La révélation 2/2)",
+    "ean": "9782723494700",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-troisieme-testament-julius",
+    "tome": 4,
+    "titre": "Julius IV",
+    "ean": "9782344001592",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "le-troisieme-testament-julius",
+    "tome": 5,
+    "titre": "Julius V",
+    "ean": "9782344012277",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "legende",
+    "tome": 1,
+    "titre": "L'Enfant Loup",
+    "ean": "9782845654655",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "legende",
+    "tome": 2,
+    "titre": "Les Forêts Profondes",
+    "ean": "9782845657922",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "legende",
+    "tome": 3,
+    "titre": "La Grande Battue",
+    "ean": "9782849463819",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "legende",
+    "tome": 4,
+    "titre": "Le Maître des Songes",
+    "ean": "9782302003675",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "legende",
+    "tome": 5,
+    "titre": "Hauteterres",
+    "ean": "9782302013841",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "legende",
+    "tome": 6,
+    "titre": "Le Secret des Éïles",
+    "ean": "9782302024380",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "leonard",
+    "tome": 2,
+    "titre": "Léonard est toujours un génie",
+    "ean": "9782803617005",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "leonard",
+    "tome": 22,
+    "titre": "Cadeau de génie",
+    "ean": "9782803617203",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
+    "tome": 1,
+    "titre": "Ile aux Requins",
+    "ean": "9782221045008",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
+    "tome": 2,
+    "titre": "Jungle du Corail",
+    "ean": "9782221048825",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
+    "tome": 5,
+    "titre": "Les Lions de la Calypso",
+    "ean": "9782221054253",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "les-indes-fourbes",
+    "tome": 1,
+    "titre": "Les Indes Fourbes",
+    "ean": "9782756035734",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2020-05-21"
+  },
+  {
+    "serie_id": "les-tuniques-bleues",
+    "tome": 6,
+    "titre": "La prison de Robertsonville",
+    "ean": "9782800108636",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "les-tuniques-bleues",
+    "tome": 28,
+    "titre": "Les bleus de la balle",
+    "ean": "9782800115993",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "les-tuniques-bleues",
+    "tome": 34,
+    "titre": "Vertes années",
+    "ean": "9782800119595",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "logicomix",
+    "tome": 1,
+    "titre": null,
+    "ean": "9782311102321",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lucky-luke-dargaud",
+    "tome": 1,
+    "titre": "La Diligence",
+    "ean": "9782884710138",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-11-05"
+  },
+  {
+    "serie_id": "lucky-luke-dargaud",
+    "tome": 3,
+    "titre": "Dalton City",
+    "ean": "9782884710107",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-11-05"
+  },
+  {
+    "serie_id": "lucky-luke-dargaud",
+    "tome": 4,
+    "titre": "Jesse James",
+    "ean": "9782884710251",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-11-05"
+  },
+  {
+    "serie_id": "lucky-luke-dargaud",
+    "tome": 5,
+    "titre": "Western Circus",
+    "ean": "9782884715249",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-11-05"
+  },
+  {
+    "serie_id": "lucky-luke-dargaud",
+    "tome": 9,
+    "titre": "Le Grand Duc",
+    "ean": "9782884710282",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "lucky-luke-dargaud",
+    "tome": 29,
+    "titre": "L'Amnésie des Dalton",
+    "ean": "9782940012008",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "marsupilami",
+    "tome": 3,
+    "titre": "Mars le noir",
+    "ean": "9782908462111",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "marsupilami",
+    "tome": 4,
+    "titre": "Le pollen du Monte Urticando",
+    "ean": "9782908462128",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "marsupilami",
+    "tome": 7,
+    "titre": "L'Or de Boavista",
+    "ean": "9782908462470",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "michel-vaillant",
+    "tome": 3,
+    "titre": "Le circuit de la peur",
+    "ean": "9782390600886",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "michel-vaillant",
+    "tome": 31,
+    "titre": "Les jeunes loups",
+    "ean": "9782800151182",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "michel-vaillant",
+    "tome": 32,
+    "titre": "La révolte des rois",
+    "ean": "9782800151199",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "michel-vaillant",
+    "tome": 33,
+    "titre": "La silhouette en colère",
+    "ean": "9782800150802",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "michel-vaillant",
+    "tome": 36,
+    "titre": "Un pilote a disparu",
+    "ean": "9782800152028",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "modeste-et-pompon-himalaya",
+    "tome": 4,
+    "titre": "Tais-toi, Modeste ! (R4)",
+    "ean": "9782803502318",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "noir-burlesque",
+    "tome": 1,
+    "titre": "Noir Burlesque",
+    "ean": "9782505083733",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2024-05-18"
+  },
+  {
+    "serie_id": "noir-burlesque",
+    "tome": 2,
+    "titre": null,
+    "ean": "9782505113997",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2024-05-18"
+  },
+  {
+    "serie_id": "okko",
+    "tome": 1,
+    "titre": "Le cycle de l'eau 1",
+    "ean": "9782847891645",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "okko",
+    "tome": 2,
+    "titre": "Le cycle de l'eau 2",
+    "ean": "9782756000596",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "okko",
+    "tome": 3,
+    "titre": "Le cycle de la terre 1",
+    "ean": "9782756003207",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "okko",
+    "tome": 4,
+    "titre": "Le cycle de la terre 2",
+    "ean": "9782756008677",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "okko",
+    "tome": 5,
+    "titre": "Le cycle de l'air 1",
+    "ean": "9782756015859",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "okko",
+    "tome": 6,
+    "titre": "Le cycle de l'air 2",
+    "ean": "9782756019864",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "okko",
+    "tome": 7,
+    "titre": "Le cycle de feu 1",
+    "ean": "9782756024363",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "okko",
+    "tome": 8,
+    "titre": "Le cycle de feu 2",
+    "ean": "9782756024370",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "okko",
+    "tome": 9,
+    "titre": "Le cycle du vide 1",
+    "ean": "9782756032610",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "okko",
+    "tome": 10,
+    "titre": "Le cycle du vide 2",
+    "ean": "9782756041315",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "saint-seiya-time-odyssey",
+    "tome": 1,
+    "titre": "Ikki dans les flammes du destin",
+    "ean": "9782505088349",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2023-10-30"
+  },
+  {
+    "serie_id": "saint-seiya-time-odyssey",
+    "tome": 2,
+    "titre": "Shun et la chaine du souvenir",
+    "ean": "9782505088356",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2023-10-30"
+  },
+  {
+    "serie_id": "saint-seiya-time-odyssey",
+    "tome": 3,
+    "titre": null,
+    "ean": "9782505126799",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2024-12-02"
+  },
+  {
+    "serie_id": "saint-seiya-time-odyssey",
+    "tome": 4,
+    "titre": null,
+    "ean": "9782505088370",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2025-11-26"
+  },
+  {
+    "serie_id": "sammy",
+    "tome": 11,
+    "titre": "Deux histoires de gorilles",
+    "ean": "9782800106007",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "sangoma-les-damnes-de-cape-town",
+    "tome": 1,
+    "titre": "Les damnés de Cape Town",
+    "ean": "9782344034200",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2022-06-04"
+  },
+  {
+    "serie_id": "spirou-et-fantasio",
+    "tome": 2,
+    "titre": "Il y a un sorcier à Champignac",
+    "ean": "9782800100043",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "spirou-et-fantasio",
+    "tome": 15,
+    "titre": "Z comme Zorglub",
+    "ean": "9782800100173",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "spirou-et-fantasio",
+    "tome": 16,
+    "titre": "L'Ombre du Z",
+    "ean": "9782800100180",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "spirou-et-fantasio",
+    "tome": 21,
+    "titre": "Du Glucose pour Noémie",
+    "ean": "9782800100234",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "spirou-et-fantasio",
+    "tome": 28,
+    "titre": "Kodo le Tyran",
+    "ean": "9782800106441",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "spirou-et-fantasio",
+    "tome": 33,
+    "titre": "Virus",
+    "ean": "9782800110363",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "spirou-et-fantasio",
+    "tome": 37,
+    "titre": "Le Réveil du Z",
+    "ean": "9782800113869",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "spirou-et-fantasio",
+    "tome": 39,
+    "titre": "Spirou et Fantasio à New York",
+    "ean": "9782800115184",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "spirou-et-fantasio",
+    "tome": 41,
+    "titre": "La Vallée des Bannis",
+    "ean": "9782800117041",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tanguy-et-laverdure-charlier",
+    "tome": 1,
+    "titre": "L’école des Aigles",
+    "ean": null,
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tanguy-et-laverdure-charlier",
+    "tome": 11,
+    "titre": "Destination Pacifique",
+    "ean": null,
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 2,
+    "titre": "Tintin au Congo",
+    "ean": "9782203001015",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 3,
+    "titre": "Tintin en Amérique",
+    "ean": "9782203001022",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 4,
+    "titre": "Les cigares du Pharaon",
+    "ean": "9782203001039",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 5,
+    "titre": "Le Lotus bleu",
+    "ean": "9782203001046",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 6,
+    "titre": "L'oreille cassée",
+    "ean": "9782203001053",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 7,
+    "titre": "L'île noire",
+    "ean": "9782203001060",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 8,
+    "titre": "Le sceptre d'Ottokar",
+    "ean": "9782203001077",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 9,
+    "titre": "Le crabe aux pinces d'or",
+    "ean": "9782203001084",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 10,
+    "titre": "L'étoile mystérieuse",
+    "ean": "9782203001091",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 11,
+    "titre": "Le secret de la Licorne",
+    "ean": "9782203001107",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 12,
+    "titre": "Le trésor de Rackham le Rouge",
+    "ean": "9782203001114",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 13,
+    "titre": "Les 7 boules de cristal",
+    "ean": "9782203001121",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 14,
+    "titre": "Le temple du Soleil",
+    "ean": "9782203001138",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 15,
+    "titre": "Au pays de l'or noir",
+    "ean": "9782203001145",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 16,
+    "titre": "Objectif Lune",
+    "ean": "9782203001152",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 17,
+    "titre": "On a marché sur la Lune",
+    "ean": "9782203001169",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 18,
+    "titre": "L'affaire Tournesol",
+    "ean": "9782203001176",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 19,
+    "titre": "Coke en stock",
+    "ean": "9782203001183",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 20,
+    "titre": "Tintin au Tibet",
+    "ean": "9782203001190",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 21,
+    "titre": "Les bijoux de la Castafiore",
+    "ean": "9782203001206",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 22,
+    "titre": "Vol 714 pour Sydney",
+    "ean": "9782203001213",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tintin",
+    "tome": 23,
+    "titre": "Tintin et les Picaros",
+    "ean": "9782203001237",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tyler-cross",
+    "tome": 1,
+    "titre": "Tyler Cross 1",
+    "ean": "9782205070064",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tyler-cross",
+    "tome": 2,
+    "titre": "Angola",
+    "ean": "9782205072853",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "tyler-cross",
+    "tome": 3,
+    "titre": "Miami",
+    "ean": "9782205077032",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 1,
+    "titre": "Le jour du soleil noir",
+    "ean": "9782505067573",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 2,
+    "titre": "Là où va l'indien...",
+    "ean": "9782871290018",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 3,
+    "titre": "Toutes les larmes de l'enfer",
+    "ean": "9782505068037",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 4,
+    "titre": "Spads",
+    "ean": "9782871290230",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 5,
+    "titre": "Rouge total",
+    "ean": "9782871290445",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 6,
+    "titre": "Le dossier Jason Fly",
+    "ean": "9782871290599",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 7,
+    "titre": "La nuit du 3 août",
+    "ean": "9782871290629",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 8,
+    "titre": "Treize contre Un",
+    "ean": "9782871290650",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 9,
+    "titre": "Pour Maria",
+    "ean": "9782871290667",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 10,
+    "titre": "El Cascador",
+    "ean": "9782871290728",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 11,
+    "titre": "Trois montres d'argent",
+    "ean": "9782871290810",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 12,
+    "titre": "Le jugement",
+    "ean": "9782505068129",
+    "possede": true,
+    "lu": true,
+    "date_ajout": "2020-04-03"
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 13,
+    "titre": "The XIII mystery - L'enquête",
+    "ean": "9782871290919",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 14,
+    "titre": "Secret défense",
+    "ean": "9782505068143",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 15,
+    "titre": "Lâchez les chiens !",
+    "ean": "9782505068150",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 16,
+    "titre": "Opération Montecristo",
+    "ean": "9782871295921",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 17,
+    "titre": "L'or de Maximilien",
+    "ean": "9782871297550",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 18,
+    "titre": "La version irlandaise",
+    "ean": "9782505068181",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 19,
+    "titre": "Le dernier round",
+    "ean": "9782505068198",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 20,
+    "titre": "Le jour du Mayflower",
+    "ean": "9782505012948",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 21,
+    "titre": "L'appât",
+    "ean": "9782505067672",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "xiii",
+    "tome": 22,
+    "titre": "Retour à Greenfalls",
+    "ean": "9782505067689",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "yakari",
+    "tome": 1,
+    "titre": "Et Grand Aigle",
+    "ean": "9782803631391",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "yakari",
+    "tome": 2,
+    "titre": "Et le bison blanc",
+    "ean": "9782803631407",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "yakari",
+    "tome": 4,
+    "titre": "Et Nanabozo",
+    "ean": "9782803631421",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "yakari",
+    "tome": 6,
+    "titre": "Et le secret de Petit Tonnerre",
+    "ean": "9782803631445",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "yakari",
+    "tome": 8,
+    "titre": "Au pays des loups",
+    "ean": "9782803631469",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "yakari",
+    "tome": 12,
+    "titre": "Et le coyote",
+    "ean": "9782808203272",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "yakari",
+    "tome": 15,
+    "titre": "La rivière de l'oubli",
+    "ean": "9782803628988",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "yakari",
+    "tome": 16,
+    "titre": "Le premier galop",
+    "ean": "9782803631544",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "yakari",
+    "tome": 18,
+    "titre": "L'oiseau de neige",
+    "ean": "9782803631568",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  },
+  {
+    "serie_id": "yakari",
+    "tome": 20,
+    "titre": "Le diable des bois",
+    "ean": "9782803631582",
+    "possede": true,
+    "lu": true,
+    "date_ajout": null
+  }
+]
