@@ -12,9 +12,9 @@ Ma collection de BD : séries, albums possédés, lus et manquants, notes et avi
 ## Fonctionnement
 
 - Site statique en HTML, CSS et JavaScript, sans build ni dépendance, publié par GitHub Pages depuis `main`.
-- Les données sont dans `data/` (`series.json`, `albums.json`, `reco.json`, `couvertures.json`). La collection se gère avec Claude Code dans ce dépôt (voir `CLAUDE.md`).
+- Les données sont dans `data/` (`series.json`, `albums.json`, `reco.json`, `couvertures.json`, `couvertures_manuelles.json`). La collection se gère avec Claude Code dans ce dépôt (voir `CLAUDE.md`).
 - `python3 scripts/verifier_donnees.py` contrôle les données ; une GitHub Action le lance sur chaque pull request.
-- Couvertures : [Open Library](https://openlibrary.org), choisies par `python3 scripts/couvertures.py`.
+- Couvertures : [Open Library](https://openlibrary.org) et sites des éditeurs, choisies par `python3 scripts/couvertures.py` (surcharges manuelles dans `data/couvertures_manuelles.json`).
 - Le projet est mené en mode agile : issues, sprints (milestones), pull requests et [kanban](https://github.com/users/Arnotnt/projects/2).
 
 ## Lancer le site en local

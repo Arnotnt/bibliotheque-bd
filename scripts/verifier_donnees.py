@@ -260,9 +260,8 @@ def verifier_reco(recos, series_par_id):
             erreur(f, f"{libelle} : date_reco « {date} » invalide (AAAA-MM-JJ)")
 
 
-def verifier_couvertures(series_par_id, albums):
-    """data/couvertures.json (US-12, facultatif) : { serie_id: EAN d'un album de la série }."""
-    f = "couvertures.json"
+def verifier_fichier_couvertures(f, series_par_id):
+    """{ serie_id: URL https d'une image } : couvertures.json (généré) ou couvertures_manuelles.json."""
     chemin = DATA / f
     if not chemin.exists():
         return
@@ -272,14 +271,34 @@ def verifier_couvertures(series_par_id, albums):
         erreur(f, f"JSON invalide (ligne {e.lineno}, colonne {e.colno}) : {e.msg}")
         return
     if not isinstance(couvertures, dict):
-        erreur(f, "le contenu doit être un objet { serie_id: ean }")
+        erreur(f, "le contenu doit être un objet { serie_id: url }")
         return
-    eans = {(a.get("serie_id"), a.get("ean")) for a in albums if isinstance(a, dict)}
-    for sid, ean in couvertures.items():
+    for sid, url in couvertures.items():
         if sid not in series_par_id:
-            erreur(f, f"« {sid} » absent de series.json (relancer scripts/couvertures.py)")
-        elif (sid, ean) not in eans:
-            erreur(f, f"« {sid} » : EAN {ean} ne correspond à aucun album de la série (relancer scripts/couvertures.py)")
+            erreur(f, f"« {sid} » absent de series.json")
+        if not isinstance(url, str) or not re.fullmatch(r"https://\S+", url):
+            erreur(f, f"« {sid} » : URL « {url} » invalide (https:// attendu)")
+
+
+def verifier_couvertures(series_par_id, albums):
+    """US-12, US-15 : surcharges manuelles et fichier généré, cohérents entre eux."""
+    verifier_fichier_couvertures("couvertures_manuelles.json", series_par_id)
+    verifier_fichier_couvertures("couvertures.json", series_par_id)
+    try:
+        manuelles = json.loads((DATA / "couvertures_manuelles.json").read_text(encoding="utf-8"))
+        generees = json.loads((DATA / "couvertures.json").read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return
+    if isinstance(manuelles, dict) and isinstance(generees, dict):
+        for sid, url in manuelles.items():
+            if generees.get(sid) != url:
+                erreur("couvertures.json", f"« {sid} » : surcharge manuelle non reprise (relancer scripts/couvertures.py)")
+    eans = {(a.get("serie_id"), a.get("ean")) for a in albums if isinstance(a, dict)}
+    if isinstance(generees, dict):
+        for sid, url in generees.items():
+            m = re.fullmatch(r"https://covers\.openlibrary\.org/b/isbn/(\d{13})-M\.jpg", str(url))
+            if m and (sid, m.group(1)) not in eans:
+                erreur("couvertures.json", f"« {sid} » : EAN {m.group(1)} ne correspond à aucun album de la série (relancer scripts/couvertures.py)")
 
 
 def main():
