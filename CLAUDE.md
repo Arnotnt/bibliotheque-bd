@@ -137,6 +137,14 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - Saint Seiya : Time Odyssey tome 3 apparaît deux fois (standard + collector) : garder une seule ligne.
 - 2 albums sans EAN (Tanguy et Laverdure) : garder avec `ean: null`.
 - `tomes_parus` initialisé au plus grand numéro de tome possédé (à corriger par la veille).
+- Script : `python3 scripts/import_bubble.py`. Il **écrase** `data/*.json` : ne plus le relancer une fois la collection modifiée à la main.
+- Choix faits à l'import (2026-11-14) :
+  - One-shots (album sans numéro de tome, 10 séries) : `tome: 1`, `statut: terminée`, `suivie: false`. Toutes les autres séries : `en cours`, `suivie: true`.
+  - XIII « 13.1 » = The XIII Mystery - L'enquête → tome 13.
+  - Saint Seiya T3 : on garde l'édition collector (EAN 9782505126799, porte l'avis).
+  - `avis` : avis de série, sinon premier avis d'album. `auteurs` : union des auteurs des albums, du plus fréquent au moins fréquent. `editeur` : le plus fréquent.
+  - `genres: []` (absent de l'export, à compléter). Catégorie Bubble « Mangas » → `Manga`.
+  - Champs vides (titre d'album, date d'ajout) → `null`.
 
 ---
 
@@ -151,7 +159,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 2. Créer `.github/ISSUE_TEMPLATE/user-story.md` (format de la skill) et `.github/pull_request_template.md` (Definition of Done).
 3. Créer `docs/JOURNAL.md`, `docs/retro.md` et `docs/mockups/`.
 4. Mockups (3 écrans : Accueil, Page série, Tableau de bord) : réalisés à part dans Claude Design, captures déposées dans `docs/mockups/` puis liées aux issues US-02, US-04 et US-08. ✅ fait le 2026-11-14 (captures, sources et charte dans `docs/mockups/`).
-5. Sprint planning du Sprint 1 : je pose le milestone sur US-01, US-02 et US-05.
+5. Sprint planning du Sprint 1 : ✅ fait le 2026-11-14, élargi à US-01 → US-05 (15 pts) car la charge est calculée sur la capacité de Claude.
 
 ### Backlog initial
 
@@ -170,12 +178,10 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 | US-11 | reco | could | 3 | En tant que lecteur, je veux une page Recommandations afin de les consulter et les trier | Liste des recos avec justification ; statut à découvrir / intéressé / rejeté |
 | US-12 | collection | could | 3 | En tant que lecteur, je veux voir les couvertures afin de rendre le site plus visuel | Couverture via l'EAN si disponible, sinon visuel par défaut ; aucun lien cassé |
 
-### Plan de sprints (vélocité visée : 7–8 pts)
+### Plan de sprints (révisé le 2026-11-14 : capacité Claude, le goulot est la revue du PO)
 
 | Sprint | Sprint Goal | US | Pts |
 |---|---|---|---|
-| 1 | « Je vois ma collection en ligne » | US-01, US-02, US-05 | 7 |
-| 2 | « Je sais ce qui me manque » | US-03, US-04 | 8 |
-| 3 | « Mes lectures et mes notes sont complètes » | US-06, US-07, US-08 | 7 |
-| 4 | « Claude me conseille » | US-09, US-10, US-11 | 11 → à réduire au planning |
+| 1 | « Je vois ma collection en ligne et ce qui me manque » | US-01, US-02, US-03, US-04, US-05 | 15 |
+| 2 | à redéfinir au planning (pistes : US-06, US-07, US-08, puis US-09 à US-11) | — | — |
 | Backlog | — | US-12 | 3 |

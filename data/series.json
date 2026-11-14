@@ -1,0 +1,978 @@
+[
+  {
+    "id": "1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta",
+    "titre": "1629... ou l’effrayante histoire des naufragés du Jakarta",
+    "auteurs": [
+      "Thimothée Montaigne",
+      "Xavier Dorison"
+    ],
+    "editeur": "Glénat",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 2,
+    "suivie": true,
+    "note": 10,
+    "avis": "Un superbe BD qui se lit et se suffit à elle même tellement les planches sont bien faite avec tant de détails et une histoire dense. Alors la perspective de la suite va nous tenir en haleine jusqu’à sa sortie, avec le plaisir de la lire et relire à nouveau."
+  },
+  {
+    "id": "24-heures-chrono",
+    "titre": "24 Heures Chrono",
+    "auteurs": [
+      "Mark L. Haynes",
+      "Alain David",
+      "J. C. Vaughn",
+      "Renato Guedes"
+    ],
+    "editeur": "Casterman",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "terminée",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "achille-talon",
+    "titre": "Achille Talon",
+    "auteurs": [],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 34,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "adele-blanc-sec",
+    "titre": "Adèle Blanc-Sec",
+    "auteurs": [
+      "Jacques Tardi"
+    ],
+    "editeur": "Casterman",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 8,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "aquablue",
+    "titre": "Aquablue",
+    "auteurs": [
+      "Thierry Cailleteau",
+      "Florence Breton",
+      "Ciro Tota"
+    ],
+    "editeur": "Delcourt",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 5,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "asterix",
+    "titre": "Astérix",
+    "auteurs": [
+      "Albert Uderzo",
+      "René Goscinny",
+      "Didier Conrad",
+      "Jean-Yves Ferri",
+      "Fabrice Caro"
+    ],
+    "editeur": "Hachette",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 41,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "blacksad",
+    "titre": "Blacksad",
+    "auteurs": [
+      "Juan Díaz Canales",
+      "Juanjo Guarnido"
+    ],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 7,
+    "suivie": true,
+    "note": 10,
+    "avis": "Des planches splendides et une histoire parfaite. On peut les lire et relire."
+  },
+  {
+    "id": "blake-et-mortimer",
+    "titre": "Blake et Mortimer",
+    "auteurs": [
+      "Edgar Pierre Jacobs",
+      "Yves Sente",
+      "André Juillard",
+      "Jean Van Hamme",
+      "Antoine Aubin",
+      "Bob De Moor",
+      "Ted Benoit",
+      "Teun Berserik",
+      "Peter van Dongen",
+      "Laurent Verron",
+      "Pierre Bailly",
+      "Céline Fraipont",
+      "Francis Nicole",
+      "Gisèle George",
+      "Chantal De Spiegeleer",
+      "Étienne Schréder",
+      "Jean Dufaux"
+    ],
+    "editeur": "Blake Et Mortimer",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 28,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "blueberry",
+    "titre": "Blueberry",
+    "auteurs": [
+      "Jean Giraud",
+      "Jean-Michel Charlier"
+    ],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 26,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "boule-et-bill",
+    "titre": "Boule et Bill",
+    "auteurs": [
+      "Jean Roba"
+    ],
+    "editeur": "Dupuis",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 22,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "cedric",
+    "titre": "Cédric",
+    "auteurs": [
+      "Raoul Cauvin"
+    ],
+    "editeur": "Dupuis",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 5,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "dans-la-tete-de-sherlock-holmes",
+    "titre": "Dans la Tête de Sherlock Holmes",
+    "auteurs": [
+      "Cyril Lieron",
+      "Arthur Conan Doyle",
+      "Benoît Dahan"
+    ],
+    "editeur": "Ankama",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 2,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "death-note-black-edition",
+    "titre": "Death Note - Black edition",
+    "auteurs": [
+      "Takeshi Obata",
+      "Tsugumi Ōba",
+      "Shinya Seto",
+      "Myloo Anhmet"
+    ],
+    "editeur": "Kana",
+    "categorie": "Manga",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 6,
+    "suivie": true,
+    "note": 10,
+    "avis": "Le meilleur manga!!"
+  },
+  {
+    "id": "dossiers-michel-vaillant",
+    "titre": "Dossiers Michel Vaillant",
+    "auteurs": [
+      "Lionel Froissart",
+      "Jean Graton",
+      "Stephen Richard Lyster Clark",
+      "Xavier Chimits",
+      "Philippe Graton"
+    ],
+    "editeur": "Graton",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 13,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "durandal-la-marche-de-bretagne",
+    "titre": "Durandal - la Marche de Bretagne",
+    "auteurs": [
+      "Gwendal Lemercier",
+      "Nicolas Jarry"
+    ],
+    "editeur": "Soleil",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 2,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "focu",
+    "titre": "Focu",
+    "auteurs": [],
+    "editeur": "Paquet",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 1,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "gaston-lagaffe",
+    "titre": "Gaston Lagaffe",
+    "auteurs": [
+      "André Franquin",
+      "Francisco Lopez",
+      "Frédéric Thome",
+      "Maurice Rosy"
+    ],
+    "editeur": "Dupuis",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 15,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "goldorak",
+    "titre": "Goldorak",
+    "auteurs": [
+      "Alexis Sentenac",
+      "Denis Bajram",
+      "Brice Cossu",
+      "Xavier Dorison",
+      "Yoann Guillo"
+    ],
+    "editeur": "Kana",
+    "categorie": "Manga",
+    "genres": [],
+    "statut": "terminée",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": 10,
+    "avis": "Une superbe BD -dessins, scénarios , tout est top.\nPas grand fan mais enfant ayant grandit avec le dessin animé, c est un plaisir d y replonger le temps d une lecture. Le bonus de l explication du projet est aussi très bien. Foncez, ça vaut le coup"
+  },
+  {
+    "id": "habemus-bastard",
+    "titre": "Habemus Bastard",
+    "auteurs": [
+      "Sylvain Vallée",
+      "Jacky Schwartzmann"
+    ],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 2,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "hoka-hey",
+    "titre": "Hoka Hey",
+    "auteurs": [],
+    "editeur": "Rue De Sevres",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "terminée",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": 10,
+    "avis": null
+  },
+  {
+    "id": "il-faut-flinguer-ramirez",
+    "titre": "Il Faut Flinguer Ramirez",
+    "auteurs": [
+      "Nicolas Petrimaux"
+    ],
+    "editeur": "Glénat",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 2,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "islander",
+    "titre": "Islander",
+    "auteurs": [
+      "Corentin Rouge",
+      "Caryl Férey"
+    ],
+    "editeur": "Glénat",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 1,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "iznogoud",
+    "titre": "Iznogoud",
+    "auteurs": [
+      "Jean Tabary"
+    ],
+    "editeur": "Tabary",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 13,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "jerry-spring",
+    "titre": "Jerry Spring",
+    "auteurs": [],
+    "editeur": "Dupuis",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 10,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "jusqu-au-dernier",
+    "titre": "Jusqu'au dernier",
+    "auteurs": [
+      "Paul Gastine",
+      "Jérôme Félix"
+    ],
+    "editeur": "Bamboo",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "terminée",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": 10,
+    "avis": "J’ai adoré Jusqu’au Dernier. Une BD à la fois poignante et renversante, avec un scénario magistral et un dessin à couper le souffle. On est happé dès les premières pages et le suspense ne retombe jamais. Un western aussi émouvant qu’intense, qui laisse une vraie empreinte. À lire absolument !"
+  },
+  {
+    "id": "l-enfer-du-trome",
+    "titre": "L'Enfer du Tromé",
+    "auteurs": [],
+    "editeur": "Philippe Renaux / Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "terminée",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": 6,
+    "avis": "Dessin moyen mais à son style. Histoire et récit plutôt bon"
+  },
+  {
+    "id": "l-histoire-secrete",
+    "titre": "L'Histoire Secrète",
+    "auteurs": [
+      "Jean-Pierre Pécau",
+      "Igor Kordey",
+      "Carole Beau",
+      "Leo Pilipovic",
+      "Goran Sudžuka"
+    ],
+    "editeur": "Delcourt",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 22,
+    "suivie": true,
+    "note": 2,
+    "avis": "Beaucoup trop long - plus de 35 tomes sur une histoire qui s étire sans fin. Décourageant et devient sans intérêt à suivre - sauf de finir la série mais au prix d acheter d autre bd bien mieux"
+  },
+  {
+    "id": "l-homme-qui-tua-chris-kyle",
+    "titre": "L’homme qui tua Chris Kyle",
+    "auteurs": [
+      "Fabien Nury"
+    ],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "terminée",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": 6,
+    "avis": "Dessin top et mise en scène du documentaire bien. \nApres cela manque de narration à mon goût, j ai un peu décroché à partir du milieu de la bd et certaines cases de répète de trop dans les interviews, c est long. Mais cela se lit bien."
+  },
+  {
+    "id": "la-bombe",
+    "titre": "La Bombe",
+    "auteurs": [
+      "Laurent-Frédéric Bollée",
+      "Denis Rodier",
+      "Didier Swysen"
+    ],
+    "editeur": "Glénat",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "terminée",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": 10,
+    "avis": null
+  },
+  {
+    "id": "lanfeust-de-troy",
+    "titre": "Lanfeust de Troy",
+    "auteurs": [
+      "Christophe Arleston",
+      "Didier Tarquin",
+      "Luca Saponti",
+      "Claude Ponti",
+      "Agnès Desarthe"
+    ],
+    "editeur": "Soleil",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 9,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "lanfeust-des-etoiles",
+    "titre": "Lanfeust des Étoiles",
+    "auteurs": [
+      "Christophe Arleston",
+      "Didier Tarquin",
+      "Claude Guth",
+      "Sébastien Lamirand"
+    ],
+    "editeur": "Soleil",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 8,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "lanfeust-odyssey",
+    "titre": "Lanfeust Odyssey",
+    "auteurs": [
+      "Didier Tarquin",
+      "Christophe Arleston"
+    ],
+    "editeur": "Soleil",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 10,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "largo-winch",
+    "titre": "Largo Winch",
+    "auteurs": [
+      "Jean Van Hamme",
+      "Philippe Francq"
+    ],
+    "editeur": "Dupuis",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 1,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "le-chant-d-excalibur",
+    "titre": "Le Chant d'Excalibur",
+    "auteurs": [
+      "Éric Hübsch",
+      "Christophe Arleston"
+    ],
+    "editeur": "Soleil",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 6,
+    "suivie": true,
+    "note": 8,
+    "avis": "Bien - en plus une histoire qui finit en 6 tomes, ne tombe pas dans le travers d ajouter des histoires sans intérêt."
+  },
+  {
+    "id": "le-chat",
+    "titre": "Le Chat",
+    "auteurs": [
+      "Philippe Geluck"
+    ],
+    "editeur": "Casterman",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 15,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "le-scorpion",
+    "titre": "Le Scorpion",
+    "auteurs": [
+      "Stephen Desberg",
+      "Enrico Marini",
+      "Luigi Critone"
+    ],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 13,
+    "suivie": true,
+    "note": 8,
+    "avis": "Bien mais commence à trop durer dans le temps"
+  },
+  {
+    "id": "le-scorpion-le-proces-scorpion",
+    "titre": "Le Scorpion - Le procès Scorpion",
+    "auteurs": [],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "terminée",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "le-troisieme-testament",
+    "titre": "Le troisième testament",
+    "auteurs": [
+      "Xavier Dorison",
+      "Alex Alice"
+    ],
+    "editeur": "Glénat",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 4,
+    "suivie": true,
+    "note": 10,
+    "avis": "Tout est parfait dans cette série - dessins, scénarios - chaque tome vaut le coup"
+  },
+  {
+    "id": "le-troisieme-testament-julius",
+    "titre": "Le troisième testament (Julius)",
+    "auteurs": [
+      "Xavier Dorison",
+      "Alex Alice",
+      "Thimothée Montaigne",
+      "Robin Recht"
+    ],
+    "editeur": "Glénat",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 5,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "legende",
+    "titre": "Légende",
+    "auteurs": [
+      "Yves Swolfs",
+      "Sophie Swolfs"
+    ],
+    "editeur": "Soleil",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 6,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "leonard",
+    "titre": "Léonard",
+    "auteurs": [
+      "Bob De Groot"
+    ],
+    "editeur": null,
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 22,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
+    "titre": "Les aventures de l'équipe COUSTEAU en bande dessinée",
+    "auteurs": [
+      "Dominique Sérafini",
+      "Yves Paccalet"
+    ],
+    "editeur": "Robert Laffont",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 5,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "les-indes-fourbes",
+    "titre": "Les Indes Fourbes",
+    "auteurs": [
+      "Juanjo Guarnido",
+      "Alain Ayroles"
+    ],
+    "editeur": "Delcourt",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 1,
+    "suivie": true,
+    "note": 10,
+    "avis": "De très jolies dessins - histoire prenante - à lire et relire"
+  },
+  {
+    "id": "les-tuniques-bleues",
+    "titre": "Les tuniques bleues",
+    "auteurs": [
+      "Raoul Cauvin",
+      "Willy Lambil"
+    ],
+    "editeur": "Dupuis",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 34,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "logicomix",
+    "titre": "Logicomix",
+    "auteurs": [
+      "Alékos Papadátos",
+      "Apóstolos K. Doxiádīs",
+      "Chrístos Ch. Papadīmītríou"
+    ],
+    "editeur": "Vuibert",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "terminée",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "lucky-luke-dargaud",
+    "titre": "Lucky Luke (Dargaud)",
+    "auteurs": [
+      "René Goscinny",
+      "Roland Lièvremont"
+    ],
+    "editeur": "Lucky",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 29,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "marsupilami",
+    "titre": "Marsupilami",
+    "auteurs": [
+      "André Franquin",
+      "Yann Le Pennetier"
+    ],
+    "editeur": "Marsu",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 7,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "michel-vaillant",
+    "titre": "Michel Vaillant",
+    "auteurs": [
+      "Jean Graton"
+    ],
+    "editeur": "Graton",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 36,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "modeste-et-pompon-himalaya",
+    "titre": "Modeste et Pompon (Himalaya)",
+    "auteurs": [
+      "René Goscinny",
+      "André Franquin"
+    ],
+    "editeur": "Himalaya",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 4,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "noir-burlesque",
+    "titre": "Noir Burlesque",
+    "auteurs": [
+      "Enrico Marini"
+    ],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 2,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "okko",
+    "titre": "Okko",
+    "auteurs": [
+      "Emmanuel Michalak",
+      "Peter David"
+    ],
+    "editeur": "Delcourt",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 10,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "saint-seiya-time-odyssey",
+    "titre": "Saint Seiya : Time Odyssey",
+    "auteurs": [
+      "Arnaud Dollen",
+      "Jérôme Alquié",
+      "Masami Kurumada"
+    ],
+    "editeur": "Kana",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 4,
+    "suivie": true,
+    "note": 10,
+    "avis": "Toujours aussi bien. \nL’histoire trouve sa place parfaitement dans l’oeuvre original, en apportant des informations , explications qui sont fluides.\nAvec l’édition collector, on a en plus le plaisir de comprendre le cheminement des réflexions et choix.\nJuste hâte de la suite"
+  },
+  {
+    "id": "sammy",
+    "titre": "Sammy",
+    "auteurs": [
+      "Raoul Cauvin"
+    ],
+    "editeur": "Dupuis",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 11,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "sangoma-les-damnes-de-cape-town",
+    "titre": "Sangoma, les damnés de Cape Town",
+    "auteurs": [
+      "Caryl Férey",
+      "Corentin Rouge"
+    ],
+    "editeur": "Glénat",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "terminée",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": 8,
+    "avis": "Une bonne histoire et de beaux dessin pour se plonger dans l ambiance. Efficace - un bon moment passé"
+  },
+  {
+    "id": "spirou-et-fantasio",
+    "titre": "Spirou et Fantasio",
+    "auteurs": [
+      "Philippe Vandevelde",
+      "André Franquin",
+      "Jean-Claude Fournier"
+    ],
+    "editeur": "Dupuis",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 41,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "tanguy-et-laverdure-charlier",
+    "titre": "Tanguy et Laverdure (Charlier)",
+    "auteurs": [
+      "Jean-Michel Charlier",
+      "Albert Uderzo"
+    ],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 11,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "tintin",
+    "titre": "Tintin",
+    "auteurs": [],
+    "editeur": "Casterman",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 23,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  },
+  {
+    "id": "tyler-cross",
+    "titre": "Tyler Cross",
+    "auteurs": [
+      "Fabien Nury"
+    ],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 3,
+    "suivie": true,
+    "note": 10,
+    "avis": "J’ai hésité au début car pas fan du dessin quand je le feuilletais mais en fait - le dessin est parfait avec l’histoire et l’ambiance que cela crée. Vraiment allez y , vous allez adorer."
+  },
+  {
+    "id": "xiii",
+    "titre": "XIII",
+    "auteurs": [
+      "Jean Van Hamme",
+      "William Vance",
+      "Iouri Jigounov",
+      "Yves Sente",
+      "Jean Giraud"
+    ],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 22,
+    "suivie": true,
+    "note": 8,
+    "avis": "Excellent"
+  },
+  {
+    "id": "yakari",
+    "titre": "Yakari",
+    "auteurs": [
+      "Dominique de Ribaupierre"
+    ],
+    "editeur": null,
+    "categorie": "BD",
+    "genres": [],
+    "statut": "en cours",
+    "tomes_parus": 20,
+    "suivie": true,
+    "note": null,
+    "avis": null
+  }
+]
