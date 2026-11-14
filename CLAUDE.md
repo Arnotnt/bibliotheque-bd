@@ -48,8 +48,7 @@ Chaque issue porte exactement un label type, un epic, une priorité et une estim
 - [ ] Tous les critères d'acceptance de l'issue sont vérifiés
 - [ ] Testé en local (`python3 -m http.server` puis http://localhost:8000)
 - [ ] Aucune erreur dans la console du navigateur
-- [ ] `python3 scripts/couvertures.py     choisit une couverture par série sur Open Library → data/couvertures.json
-scripts/verifier_donnees.py` passe (0 erreur ; vérifié aussi par l'Action sur la PR)
+- [ ] `python3 scripts/verifier_donnees.py` passe (0 erreur ; vérifié aussi par l'Action sur la PR)
 - [ ] `docs/JOURNAL.md` mis à jour
 - [ ] La description de la PR contient `Closes #N`
 
@@ -69,7 +68,9 @@ js/app.js
 data/series.json    une entrée par série
 data/albums.json    une entrée par album
 data/reco.json      recommandations issues des veilles
-data/couvertures.json  couverture de chaque série (EAN vérifié sur Open Library), généré
+data/couvertures.json  URL de la couverture de chaque série, généré
+data/couvertures_manuelles.json  couvertures choisies à la main, prioritaires
+scripts/couvertures.py     fusionne surcharges manuelles et Open Library → data/couvertures.json
 scripts/import_bubble.py   import unique de l'export Bubble (CSV)
 scripts/setup_github.sh    création des labels, milestones et issues du Sprint 0
 scripts/verifier_donnees.py  vérification de data/*.json (format, doublons, cohérence)
@@ -128,9 +129,13 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - Lu sans être acheté : `possede: false, lu: true`.
 - Les manquants ne sont pas stockés : ce sont les tomes de 1 à `tomes_parus` absents de `albums.json` ou avec `possede: false`.
 
-`data/couvertures.json` (US-12) : `{ "blacksad": "9782205049657", … }`, généré par `python3 scripts/couvertures.py`, jamais édité à la main.
-- Pour chaque série, le premier album (par numéro de tome) dont l'EAN a une image sur [Open Library](https://openlibrary.org/dev/docs/api/covers) ; le site affiche `https://covers.openlibrary.org/b/isbn/<EAN>-M.jpg`. Aucune image n'est stockée dans le repo.
-- Série absente du fichier = visuel par défaut (initiales). Couverture d'environ 60 % des séries au 2026-11-14 (37 sur 61).
+`data/couvertures.json` (US-12, US-15) : `{ "blacksad": "https://covers.openlibrary.org/b/isbn/9782205049657-M.jpg", … }`, généré par `python3 scripts/couvertures.py`, jamais édité à la main. Le site affiche l'URL telle quelle ; aucune image n'est stockée dans le repo.
+- Sources, par ordre de priorité :
+  1. `data/couvertures_manuelles.json` (`{ serie_id: url }`, édité à la main) : image choisie par Claude et validée par moi, de préférence sur [Open Library](https://openlibrary.org) (autre édition, `…/b/id/<n°>-M.jpg`) ou sur le site de l'éditeur (image de la fiche album, en taille moyenne). Open Library n'est pas interrogé pour ces séries.
+  2. Open Library : le premier album (par numéro de tome) dont l'EAN a une image ([API Covers](https://openlibrary.org/dev/docs/api/covers)).
+- Écartés (US-15) : scraping de la Fnac (interdit par ses conditions, anti-robots) et Google Books (clé d'API et attribution Google obligatoires).
+- Série absente du fichier = visuel par défaut (initiales). 58 séries sur 61 au 2026-11-14 (37 Open Library, 21 manuelles) ; sans couverture : 24 Heures Chrono, Durandal, L'Enfer du Tromé.
+- Une image liée sur un site d'éditeur peut disparaître : le site réaffiche alors les initiales. Il suffit de remplacer l'URL dans `couvertures_manuelles.json` et de relancer le script.
 - Open Library limite les requêtes par ISBN (environ 100 toutes les 5 minutes par adresse IP) : ne pas relancer le script en boucle.
 
 `data/reco.json` (US-10) : une entrée par série recommandée, jamais une série déjà dans `series.json`.

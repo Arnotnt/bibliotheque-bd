@@ -126,13 +126,13 @@ function enrichirTout({ series, albums, couvertures = {} }) {
 
 /* ---------- Affichage commun ---------- */
 
-/* Couvertures (US-12) : images d'Open Library à partir de l'EAN, sans clé ni image stockée dans le repo.
-   data/couvertures.json (généré par scripts/couvertures.py) ne contient que des EAN dont l'image
-   existe : pas de lien cassé. Sinon, le visuel par défaut (initiales) reste affiché. */
+/* Couvertures (US-12, US-15) : data/couvertures.json (généré par scripts/couvertures.py) donne l'URL
+   de l'image de chaque série : Open Library (EAN vérifié) ou surcharge manuelle. Aucune image n'est
+   stockée dans le repo. Série absente : le visuel par défaut (initiales) reste affiché. */
 function imageCouvertureHTML(s) {
   if (!s.couverture) return '';
   return '<img class="cover-img" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"' +
-    ' src="https://covers.openlibrary.org/b/isbn/' + encodeURIComponent(s.couverture) + '-M.jpg">';
+    ' src="' + esc(s.couverture) + '">';
 }
 
 // Filet de sécurité si le service ne répond pas : on retire l'image, les initiales réapparaissent.
