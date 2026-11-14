@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup US-14 — Badges regard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap">
+<style>/* Copie de css/style.css au moment du mockup */
+/* Bibliothèque BD d'Arnaud — charte : docs/mockups/README.md */
+
+:root {
+  --bg: #F5EFE3; --surf: #FFFCF6; --surf2: #EDE4D3; --line: #D9CBB2;
+  --ink: #2B2119; --ink2: #62564A;
+  --own: #6B4A2F; --read: #2C5F8F; --onread: #FFFFFF; --readtint: #DDE8F3;
+  --toread: #E3A43A; --ontoread: #2B2119; --toreadtxt: #875810; --toreadtint: #F7EAD0;
+  --miss: #A8352A; --misstint: #F5DDD7;
+  --cover: #E4D8C3; --covertxt: #6E604F;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1612; --surf: #231E19; --surf2: #2E2720; --line: #463B30;
+    --ink: #F2EADD; --ink2: #BCAF9D;
+    --own: #D6B38E; --read: #8DB8E6; --onread: #10202F; --readtint: #1F3247;
+    --toread: #E9B455; --ontoread: #1A1612; --toreadtxt: #F0C470; --toreadtint: #3A2D17;
+    --miss: #EE8270; --misstint: #47231D;
+    --cover: #342C24; --covertxt: #A89880;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1A1612; --surf: #231E19; --surf2: #2E2720; --line: #463B30;
+  --ink: #F2EADD; --ink2: #BCAF9D;
+  --own: #D6B38E; --read: #8DB8E6; --onread: #10202F; --readtint: #1F3247;
+  --toread: #E9B455; --ontoread: #1A1612; --toreadtxt: #F0C470; --toreadtint: #3A2D17;
+  --miss: #EE8270; --misstint: #47231D;
+  --cover: #342C24; --covertxt: #A89880;
+  color-scheme: dark;
+}
+
+/* Motif « manquant » : hachures à 135° */
+:root { --hatch: repeating-linear-gradient(135deg, var(--miss) 0 1.5px, var(--misstint) 1.5px 4px); }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+h1, h2, h3 { font-family: Literata, Georgia, serif; font-weight: 700; }
+
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--read); outline-offset: 2px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+.container { max-width: 1120px; margin: 0 auto; padding-left: 16px; padding-right: 16px; width: 100%; }
+
+/* ---------- En-tête ---------- */
+.site-header { background: var(--surf); border-bottom: 1px solid var(--line); }
+.site-header .container { padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.header-top { display: flex; align-items: flex-start; gap: 12px; }
+.brand { flex: 1 1 auto; display: flex; gap: 10px; align-items: flex-start; }
+.brand svg { flex: 0 0 auto; margin-top: 2px; }
+.brand h1 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; }
+.brand h1 a { text-decoration: none; }
+.brand p { margin: 0; font-size: 14px; color: var(--ink2); }
+.stat-own { color: var(--own); font-weight: 700; }
+.stat-read { color: var(--read); font-weight: 700; }
+
+.theme-toggle {
+  flex: 0 0 auto; width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surf2); color: var(--ink); cursor: pointer;
+}
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+.main-nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
+.main-nav a {
+  min-height: 44px; display: flex; align-items: center; padding: 0 14px; white-space: nowrap; flex: 0 0 auto;
+  text-decoration: none; color: var(--ink2); border-bottom: 3px solid transparent;
+}
+.main-nav a[aria-current="page"] { color: var(--ink); font-weight: 700; border-bottom-color: var(--ink); }
+
+/* ---------- Contenu ---------- */
+main.container { flex: 1 0 auto; padding-top: 18px; padding-bottom: 40px; display: flex; flex-direction: column; gap: 16px; }
+
+/* ---------- Recherche et filtres ---------- */
+.search { display: flex; flex-direction: column; gap: 6px; }
+.search label { font-size: 15px; font-weight: 700; }
+.search-field { position: relative; max-width: 640px; }
+.search-field svg { position: absolute; left: 16px; top: 16px; color: var(--ink2); pointer-events: none; }
+.search-field input {
+  width: 100%; height: 52px; padding: 0 16px 0 48px;
+  border: 2px solid var(--ink2); border-radius: 12px;
+  background: var(--surf); color: var(--ink); font: inherit; font-size: 17px;
+}
+.search-field input:focus { border-color: var(--read); outline: none; box-shadow: 0 0 0 3px var(--readtint); }
+
+.chips { display: flex; gap: 8px; overflow-x: auto; margin: 0 -16px; padding: 0 16px 4px; }
+.chips button {
+  flex: 0 0 auto; min-height: 44px; padding: 0 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surf); color: var(--ink);
+  font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.chips button[aria-pressed="true"] { background: var(--ink); color: var(--surf); border-color: var(--ink); }
+
+.btn-primary {
+  margin-top: 6px; min-height: 44px; padding: 0 20px; border-radius: 999px;
+  border: 1px solid var(--ink); background: var(--ink); color: var(--surf);
+  font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+  display: inline-flex; align-items: center; text-decoration: none;
+}
+
+[hidden] { display: none !important; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--ink2); }
+.legend span { display: flex; align-items: center; gap: 6px; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; }
+.swatch-own { background: var(--own); }
+.swatch-read { background: var(--read); }
+.swatch-toread { background: var(--toread); }
+.swatch-lnp { background: var(--readtint); border: 2px solid var(--read); }
+.swatch-miss { background: var(--hatch); border: 2px dashed var(--miss); }
+
+.count { margin: 0; font-size: 14px; color: var(--ink2); }
+
+.message {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+  padding: 48px 20px; background: var(--surf); border: 1px dashed var(--line); border-radius: 16px;
+}
+.message h2 { margin: 0; font-size: 22px; }
+.message p { margin: 0; max-width: 360px; font-size: 15px; color: var(--ink2); }
+
+/* ---------- Cartes série ---------- */
+.series-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px;
+  margin: 0; padding: 0; list-style: none;
+}
+.card {
+  height: 100%; display: flex; flex-direction: column;
+  background: var(--surf); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  text-decoration: none; color: var(--ink);
+}
+.card:hover { border-color: var(--ink2); }
+.cover {
+  position: relative; aspect-ratio: 3 / 4; background: var(--cover); border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+}
+.cover, .book-cover { position: relative; overflow: hidden; }
+.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.note-badge { z-index: 1; }
+.cover-initials { font-family: Literata, Georgia, serif; font-size: 30px; font-weight: 700; color: var(--covertxt); }
+.note-badge {
+  position: absolute; top: 8px; right: 8px; padding: 3px 8px; border-radius: 6px;
+  background: var(--surf); color: var(--ink); font-weight: 700; font-size: 14px; box-shadow: var(--shadow);
+}
+.card-body { flex: 1 1 auto; padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; }
+.card-body h2 { margin: 0; font-size: 16px; line-height: 1.25; }
+.card-authors { margin: 0; font-size: 13px; line-height: 1.3; color: var(--ink2); }
+.card-stats { margin-top: auto; padding-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.card-own { font-size: 14px; color: var(--own); }
+.card-own strong { font-size: 17px; }
+.card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; font-size: 13px; }
+.card-read { color: var(--read); }
+.card-incomplete { display: flex; align-items: center; gap: 4px; color: var(--miss); }
+.card-incomplete::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%; border: 1.5px dashed var(--miss);
+}
+.badge-lnp {
+  align-self: flex-start; padding: 2px 8px; border-radius: 6px;
+  background: var(--readtint); border: 1.5px solid var(--read); color: var(--read);
+  font-size: 13px; font-weight: 700;
+}
+
+/* Barre de progression d'une série */
+.bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--surf2); }
+.bar span { display: block; height: 100%; }
+.bar .seg-read { background: var(--read); }
+.bar .seg-toread { background: var(--toread); }
+.bar .seg-lnp { background: var(--readtint); box-shadow: inset 0 0 0 2px var(--read); }
+.bar .seg-miss { background: var(--hatch); }
+
+/* ---------- Page série ---------- */
+main.page-serie { padding-top: 8px; }
+.back-link {
+  align-self: flex-start; min-height: 44px; display: flex; align-items: center; gap: 6px;
+  color: var(--ink); text-decoration: none; font-weight: 700;
+}
+.serie-layout { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+.serie-info { flex: 1 1 320px; display: flex; flex-direction: column; gap: 16px; }
+.serie-tomes { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+
+.serie-head { display: flex; gap: 16px; align-items: flex-start; }
+.book-cover {
+  flex: 0 0 auto; width: 112px; height: 150px; border-radius: 3px 8px 8px 3px;
+  background: var(--cover); border-left: 7px solid var(--line); color: var(--covertxt);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+}
+.book-cover span:first-child { font-family: Literata, Georgia, serif; font-weight: 700; font-size: 28px; }
+.book-cover span:last-child { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+.serie-title { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.serie-title h1 { margin: 0; font-size: 28px; line-height: 1.15; overflow-wrap: anywhere; }
+.serie-title p { margin: 0; font-size: 15px; }
+.serie-title .editeur { font-size: 14px; color: var(--ink2); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.tag { padding: 2px 10px; border-radius: 999px; border: 1px solid var(--line); font-size: 13px; }
+.tag-statut { background: var(--ink); color: var(--surf); border-color: var(--ink); font-weight: 700; }
+
+.note-box {
+  display: flex; flex-direction: column; gap: 10px; padding: 18px;
+  background: var(--surf); border: 1px solid var(--line); border-radius: 14px;
+}
+.note-line { display: flex; align-items: baseline; gap: 4px; }
+.note-line .label { font-size: 14px; color: var(--ink2); margin-right: 8px; }
+.note-line .valeur { font-family: Literata, Georgia, serif; font-size: 52px; font-weight: 700; line-height: 1; }
+.note-line .sur { font-family: Literata, Georgia, serif; font-size: 22px; color: var(--ink2); }
+.note-box blockquote {
+  margin: 0; padding: 0 0 0 14px; border-left: 3px solid var(--line);
+  font-family: Literata, Georgia, serif; font-style: italic; font-size: 18px; line-height: 1.4;
+  white-space: pre-line;
+}
+.note-empty {
+  display: flex; flex-direction: column; gap: 2px; padding: 14px 18px;
+  border: 1px dashed var(--line); border-radius: 14px; color: var(--ink2);
+}
+.note-empty strong { font-size: 15px; }
+.note-empty span { font-size: 14px; }
+
+.serie-counts { display: flex; flex-wrap: wrap; gap: 8px; }
+.serie-counts span {
+  padding: 8px 12px; border-radius: 10px; background: var(--surf); border: 1px solid var(--line); font-size: 15px;
+}
+.serie-counts strong { font-size: 20px; }
+.serie-counts .c-own { color: var(--own); }
+.serie-counts .c-read { color: var(--read); }
+.serie-counts .c-toread { color: var(--toreadtxt); }
+.serie-counts .c-lnp { color: var(--read); background: var(--readtint); border: 1.5px solid var(--read); }
+.serie-counts .c-miss { color: var(--miss); background: var(--misstint); border: 1.5px dashed var(--miss); }
+
+.tomes-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.tomes-head h2 { margin: 0; font-size: 22px; }
+.tomes-head span { font-size: 14px; color: var(--ink2); }
+
+/* Pastille de tome (grille et liste) selon son statut */
+.cell { display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.st-lu .cell { background: var(--read); color: var(--onread); }
+.st-alire .cell { background: var(--toread); color: var(--ontoread); }
+.st-lnp .cell { background: var(--readtint); color: var(--read); border: 2px solid var(--read); }
+.st-manquant .cell {
+  background: repeating-linear-gradient(135deg, var(--misstint) 0 4px, var(--surf) 4px 7px);
+  color: var(--miss); border: 2px dashed var(--miss);
+}
+
+.tomes-grid { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.tomes-grid .cell { width: 30px; height: 30px; border-radius: 5px; font-size: 12px; }
+
+.tomes-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.tome-row {
+  display: flex; align-items: center; gap: 12px; padding: 8px 12px 8px 8px; border-radius: 10px;
+  background: var(--surf); border: 1px solid var(--line);
+}
+.tome-row.st-manquant { background: var(--misstint); border: 2px dashed var(--miss); }
+.tome-row .cell { flex: 0 0 auto; width: 34px; height: 44px; border-radius: 2px 5px 5px 2px; font-size: 14px; }
+.tome-row .cell.range { width: auto; min-width: 34px; padding: 0 6px; font-size: 12px; }
+.tome-titre { flex: 1 1 auto; min-width: 0; font-size: 15px; }
+.tome-titre .num { color: var(--ink2); }
+.tome-tag {
+  flex: 0 0 auto; display: flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px;
+  font-size: 13px; font-weight: 700; white-space: nowrap;
+}
+.st-lu .tome-tag { background: var(--read); color: var(--onread); }
+.st-alire .tome-tag { background: var(--toreadtint); color: var(--toreadtxt); border: 1px solid var(--toread); }
+.st-lnp .tome-tag { background: var(--readtint); color: var(--read); border: 1.5px solid var(--read); }
+.st-manquant .tome-tag { background: var(--miss); color: var(--surf); }
+
+.legend.boxed { padding: 10px 12px; background: var(--surf2); border-radius: 10px; color: var(--ink); }
+
+/* ---------- Tableau de bord ---------- */
+main.page-stats { padding-top: 20px; gap: 18px; }
+.page-title { margin: 0; font-size: 28px; line-height: 1.2; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.kpi {
+  padding: 14px; background: var(--surf); border: 1px solid var(--line); border-radius: 12px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.kpi.k-own { border-top: 4px solid var(--own); }
+.kpi.k-read { border-top: 4px solid var(--read); }
+.kpi strong { font-family: Literata, Georgia, serif; font-size: 34px; line-height: 1.1; }
+.kpi.k-own strong { color: var(--own); }
+.kpi.k-read strong { color: var(--read); }
+.kpi span { font-size: 14px; color: var(--ink2); }
+.kpi .bar { margin-top: 4px; }
+
+.panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 12px; align-items: start; }
+.panel {
+  padding: 16px; background: var(--surf); border: 1px solid var(--line); border-radius: 12px;
+  display: flex; flex-direction: column; gap: 12px; min-width: 0;
+}
+.panel-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.panel h2 { margin: 0; font-size: 20px; }
+.panel-head p, .panel-foot { margin: 0; font-size: 14px; color: var(--ink2); }
+.panel-foot { padding-top: 8px; border-top: 1px solid var(--line); }
+.pile-total {
+  flex: 0 0 auto; padding: 4px 12px; border-radius: 10px;
+  background: var(--toreadtint); border: 1px solid var(--toread); color: var(--toreadtxt);
+  font-family: Literata, Georgia, serif; font-size: 26px; font-weight: 700; line-height: 1.1;
+}
+.rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.rows a {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center;
+  min-height: 44px; padding: 4px 0; text-decoration: none; color: var(--ink);
+}
+.rows .r-titre { font-size: 15px; }
+.rows .r-own { font-size: 13px; color: var(--own); }
+.rows .r-toread { font-weight: 700; color: var(--toreadtxt); }
+.rows .r-miss { font-size: 14px; font-weight: 700; color: var(--miss); }
+.rows .bar { grid-column: 1 / -1; }
+.rows .r-tome { font-size: 13px; color: var(--ink2); }
+.rows .r-date { font-size: 14px; font-weight: 700; text-align: right; }
+
+/* Tomes annoncés (US-13) */
+.tag-averifier {
+  display: inline-block; margin-left: 6px; padding: 0 6px; border-radius: 6px;
+  border: 1px dashed var(--ink2); color: var(--ink2); font-size: 12px; font-weight: 400; white-space: nowrap;
+}
+.annonces { display: flex; flex-direction: column; gap: 6px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surf); }
+.annonces h2 { margin: 0; font-size: 18px; }
+.annonces ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.annonces li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: 15px; }
+.annonces li span { color: var(--ink2); }
+.rows .seg-own { background: var(--own); }
+
+.histo {
+  display: grid; grid-template-columns: repeat(var(--cols, 10), minmax(0, 1fr)); gap: 6px; align-items: end;
+  height: 170px; padding-bottom: 4px; border-bottom: 1px solid var(--line);
+}
+.histo div { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%; }
+.histo b { font-size: 13px; }
+.histo i { display: block; width: 100%; border-radius: 4px 4px 0 0; background: var(--ink2); }
+.histo i.top { background: var(--ink); }
+.histo i.zero { background: var(--line); }
+.histo-axis { display: grid; grid-template-columns: repeat(var(--cols, 10), minmax(0, 1fr)); gap: 6px; margin-top: -6px; }
+.histo-axis span { text-align: center; font-size: 13px; color: var(--ink2); }
+.histo-note { margin: 0; font-size: 13px; color: var(--ink2); }
+
+/* ---------- Recommandations (US-11) ---------- */
+main.page-reco { padding-top: 20px; }
+.reco-intro { margin: -8px 0 0; color: var(--ink2); font-size: 15px; }
+.reco-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 12px; align-items: start; }
+.reco-card {
+  padding: 16px; background: var(--surf); border: 1px solid var(--line); border-radius: 12px;
+  display: flex; flex-direction: column; gap: 8px; min-width: 0;
+}
+.reco-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.reco-head h2 { margin: 0; font-size: 20px; line-height: 1.25; }
+.reco-statut {
+  flex: 0 0 auto; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700;
+  border: 1px solid var(--line); color: var(--ink2); white-space: nowrap;
+}
+.statut-interesse .reco-statut { background: var(--readtint); border-color: var(--read); color: var(--read); }
+.statut-decouvrir .reco-statut { background: var(--toreadtint); border-color: var(--toread); color: var(--toreadtxt); }
+.reco-meta { margin: 0; font-size: 14px; color: var(--ink2); }
+.reco-pourquoi { margin: 0; font-size: 15px; }
+.reco-liees { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; }
+.reco-liees span:first-child { color: var(--ink2); }
+.reco-liees a { padding: 2px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+.reco-liees a:hover { border-color: var(--ink2); }
+.reco-liees .r-note { font-weight: 700; color: var(--read); }
+.reco-foot { margin: 0; padding-top: 8px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink2); }
+.reco-foot a { color: var(--ink2); }
+/* Reco rejetée : grisée mais toujours lisible et filtrable. */
+.statut-rejete { opacity: .55; background: var(--bg); border-style: dashed; }
+.statut-rejete:hover, .statut-rejete:focus-within { opacity: .85; }
+
+/* ---------- Pied de page ---------- */
+.site-footer { border-top: 1px solid var(--line); padding: 16px; text-align: center; font-size: 13px; color: var(--ink2); }
+</style>
+<style>
+/* Variables sombres reprises de css/style.css, appliquées au seul panneau sombre */
+.theme-dark {
+  --bg: #1A1612; --surf: #231E19; --surf2: #2E2720; --line: #463B30;
+  --ink: #F2EADD; --ink2: #BCAF9D;
+  --own: #D6B38E; --read: #8DB8E6; --onread: #10202F; --readtint: #1F3247;
+  --toread: #E9B455; --ontoread: #1A1612; --toreadtxt: #F0C470; --toreadtint: #3A2D17;
+  --miss: #EE8270; --misstint: #47231D; --cover: #342C24; --covertxt: #A89880;
+  --hatch: repeating-linear-gradient(135deg, var(--miss) 0 1.5px, var(--misstint) 1.5px 4px);
+  color-scheme: dark;
+}
+body { margin: 0; background: #D9CFBE; font-family: "Atkinson Hyperlegible", system-ui, sans-serif; }
+.mock-head { max-width: 1240px; margin: 0 auto; padding: 24px 16px 8px; color: #2B2119; }
+.mock-head h1 { font-family: Literata, Georgia, serif; font-size: 26px; margin: 0 0 6px; }
+.mock-head p { margin: 0 0 6px; font-size: 15px; max-width: 900px; }
+.panel { max-width: 1240px; margin: 16px auto; padding: 20px; background: var(--bg); color: var(--ink); border-radius: 16px; }
+.panel-title { font-family: Literata, Georgia, serif; font-size: 20px; margin: 0 0 8px; }
+.variante h3 { font-size: 16px; margin: 16px 0 2px; }
+.variante .desc { margin: 0 0 10px; font-size: 14px; color: var(--ink2); }
+.panel .series-grid { grid-template-columns: repeat(7, minmax(150px, 1fr)); }
+
+/* ---------- Proposition de style du badge (US-14) ---------- */
+.regard-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px 2px 6px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; line-height: 1.4; white-space: nowrap;
+}
+.regard-badge svg { width: 14px; height: 14px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+/* A : posé sur la couverture, comme la pastille de note */
+.regard-a { position: absolute; left: 8px; bottom: 8px; z-index: 1; background: var(--surf); color: var(--ink); box-shadow: var(--shadow); }
+/* B : étiquette neutre sous les auteurs (pas de couleur de statut, pas de pointillés) */
+.regard-b { align-self: flex-start; margin-top: 2px; background: var(--surf2); color: var(--ink2); border: 1px solid var(--line); }
+.legende { max-width: 1240px; margin: 0 auto 24px; padding: 0 16px; color: #2B2119; font-size: 14px; }
+.legende span.regard-badge { background: #FFFCF6; color: #2B2119; border: 1px solid #D9CBB2; margin-right: 6px; }
+</style>
+</head>
+<body>
+<header class="mock-head">
+<h1>US-14 — Badges Classique, Jeunesse, Hors goût</h1>
+<p>Le badge n'apparaît que si la série a un champ <code>regard</code> (DATA-03). Blacksad, sans <code>regard</code>, sert de témoin : rien ne change.
+Au survol et pour les lecteurs d'écran : « Classique : ne compte pas dans les recommandations ».</p>
+<p><strong>Notes et regards fictifs</strong>, à titre d'exemple : ils seront fixés avec le PO dans DATA-03.</p>
+</header>
+<div class="legende"><span class="regard-badge" title="Classique : ne compte pas dans les recommandations" aria-label="Classique : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg>Classique</span><span class="regard-badge" title="Jeunesse : ne compte pas dans les recommandations" aria-label="Jeunesse : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5l-1 1.5h2zM12 17c-1 2 1 3 0 5"/></svg>Jeunesse</span><span class="regard-badge" title="Hors goût : ne compte pas dans les recommandations" aria-label="Hors goût : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 6h7l2 2.5-2 2.5h-7M12 13H5l-2 2.5L5 18h7"/></svg>Hors goût</span> une icône et un libellé par valeur, en tons neutres pour ne pas se confondre avec possédé, lu, à lire ou manquant.</div>
+<div class="panel theme-light"><h2 class="panel-title">Mode clair</h2><section class="variante"><h3>Variante A — sur la couverture</h3><p class="desc">En bas à gauche de la couverture, en face de la note : visible d'un coup d'œil, même style que la pastille de note.</p><ul class="series-grid"><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">A</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782012101333-M.jpg"><span class="note-badge">9/10</span><span class="regard-badge regard-a" title="Classique : ne compte pas dans les recommandations" aria-label="Classique : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg>Classique</span></div><div class="card-body"><h2>Astérix</h2><p class="card-authors">René Goscinny, Albert Uderzo, Fabcaro et al.</p><div class="card-stats"><span class="card-own"><strong>25</strong>/41 possédés</span><div class="bar"><span class="seg-read" style="width:0.0%"></span><span class="seg-toread" style="width:61.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:39.0%"></span></div><div class="card-meta"><span class="card-read"><strong>0</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">T</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782203001015-M.jpg"><span class="note-badge">9/10</span><span class="regard-badge regard-a" title="Classique : ne compte pas dans les recommandations" aria-label="Classique : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg>Classique</span></div><div class="card-body"><h2>Tintin</h2><p class="card-authors">Hergé</p><div class="card-stats"><span class="card-own"><strong>22</strong>/23 possédés</span><div class="bar"><span class="seg-read" style="width:95.7%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:4.3%"></span></div><div class="card-meta"><span class="card-read"><strong>22</strong> lus</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">Y</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782803631445-M.jpg"><span class="note-badge">8/10</span><span class="regard-badge regard-a" title="Jeunesse : ne compte pas dans les recommandations" aria-label="Jeunesse : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5l-1 1.5h2zM12 17c-1 2 1 3 0 5"/></svg>Jeunesse</span></div><div class="card-body"><h2>Yakari</h2><p class="card-authors">Job, Derib, Xavier Giacometti</p><div class="card-stats"><span class="card-own"><strong>10</strong>/20 possédés</span><div class="bar"><span class="seg-read" style="width:50.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:50.0%"></span></div><div class="card-meta"><span class="card-read"><strong>10</strong> lus</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">C</span><span class="note-badge">7/10</span><span class="regard-badge regard-a" title="Jeunesse : ne compte pas dans les recommandations" aria-label="Jeunesse : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5l-1 1.5h2zM12 17c-1 2 1 3 0 5"/></svg>Jeunesse</span></div><div class="card-body"><h2>Cédric</h2><p class="card-authors">Raoul Cauvin, Laudec</p><div class="card-stats"><span class="card-own"><strong>1</strong>/5 possédés</span><div class="bar"><span class="seg-read" style="width:20.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:80.0%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">F</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782940199884-M.jpg"><span class="note-badge">6/10</span><span class="regard-badge regard-a" title="Hors goût : ne compte pas dans les recommandations" aria-label="Hors goût : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 6h7l2 2.5-2 2.5h-7M12 13H5l-2 2.5L5 18h7"/></svg>Hors goût</span></div><div class="card-body"><h2>Focu</h2><p class="card-authors">Diego Aranega</p><div class="card-stats"><span class="card-own"><strong>1</strong>/1 possédés</span><div class="bar"><span class="seg-read" style="width:100.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:0.0%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">AB</span><span class="note-badge">7/10</span><span class="regard-badge regard-a" title="Hors goût : ne compte pas dans les recommandations" aria-label="Hors goût : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 6h7l2 2.5-2 2.5h-7M12 13H5l-2 2.5L5 18h7"/></svg>Hors goût</span></div><div class="card-body"><h2>Adèle Blanc-Sec</h2><p class="card-authors">Jacques Tardi</p><div class="card-stats"><span class="card-own"><strong>1</strong>/8 possédés</span><div class="bar"><span class="seg-read" style="width:12.5%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:87.5%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">B</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782205049657-M.jpg"><span class="note-badge">10/10</span></div><div class="card-body"><h2>Blacksad</h2><p class="card-authors">Juan Díaz Canales, Juanjo Guarnido</p><div class="card-stats"><span class="card-own"><strong>7</strong>/7 possédés</span><div class="bar"><span class="seg-read" style="width:71.4%"></span><span class="seg-toread" style="width:28.6%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:0.0%"></span></div><div class="card-meta"><span class="card-read"><strong>5</strong> lus</span></div></div></div></a></li></ul></section><section class="variante"><h3>Variante B — dans le corps de la carte</h3><p class="desc">Sous les auteurs, en étiquette discrète : la couverture reste dégagée.</p><ul class="series-grid"><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">A</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782012101333-M.jpg"><span class="note-badge">9/10</span></div><div class="card-body"><h2>Astérix</h2><p class="card-authors">René Goscinny, Albert Uderzo, Fabcaro et al.</p><span class="regard-badge regard-b" title="Classique : ne compte pas dans les recommandations" aria-label="Classique : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg>Classique</span><div class="card-stats"><span class="card-own"><strong>25</strong>/41 possédés</span><div class="bar"><span class="seg-read" style="width:0.0%"></span><span class="seg-toread" style="width:61.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:39.0%"></span></div><div class="card-meta"><span class="card-read"><strong>0</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">T</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782203001015-M.jpg"><span class="note-badge">9/10</span></div><div class="card-body"><h2>Tintin</h2><p class="card-authors">Hergé</p><span class="regard-badge regard-b" title="Classique : ne compte pas dans les recommandations" aria-label="Classique : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg>Classique</span><div class="card-stats"><span class="card-own"><strong>22</strong>/23 possédés</span><div class="bar"><span class="seg-read" style="width:95.7%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:4.3%"></span></div><div class="card-meta"><span class="card-read"><strong>22</strong> lus</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">Y</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782803631445-M.jpg"><span class="note-badge">8/10</span></div><div class="card-body"><h2>Yakari</h2><p class="card-authors">Job, Derib, Xavier Giacometti</p><span class="regard-badge regard-b" title="Jeunesse : ne compte pas dans les recommandations" aria-label="Jeunesse : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5l-1 1.5h2zM12 17c-1 2 1 3 0 5"/></svg>Jeunesse</span><div class="card-stats"><span class="card-own"><strong>10</strong>/20 possédés</span><div class="bar"><span class="seg-read" style="width:50.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:50.0%"></span></div><div class="card-meta"><span class="card-read"><strong>10</strong> lus</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">C</span><span class="note-badge">7/10</span></div><div class="card-body"><h2>Cédric</h2><p class="card-authors">Raoul Cauvin, Laudec</p><span class="regard-badge regard-b" title="Jeunesse : ne compte pas dans les recommandations" aria-label="Jeunesse : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5l-1 1.5h2zM12 17c-1 2 1 3 0 5"/></svg>Jeunesse</span><div class="card-stats"><span class="card-own"><strong>1</strong>/5 possédés</span><div class="bar"><span class="seg-read" style="width:20.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:80.0%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">F</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782940199884-M.jpg"><span class="note-badge">6/10</span></div><div class="card-body"><h2>Focu</h2><p class="card-authors">Diego Aranega</p><span class="regard-badge regard-b" title="Hors goût : ne compte pas dans les recommandations" aria-label="Hors goût : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 6h7l2 2.5-2 2.5h-7M12 13H5l-2 2.5L5 18h7"/></svg>Hors goût</span><div class="card-stats"><span class="card-own"><strong>1</strong>/1 possédés</span><div class="bar"><span class="seg-read" style="width:100.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:0.0%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">AB</span><span class="note-badge">7/10</span></div><div class="card-body"><h2>Adèle Blanc-Sec</h2><p class="card-authors">Jacques Tardi</p><span class="regard-badge regard-b" title="Hors goût : ne compte pas dans les recommandations" aria-label="Hors goût : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 6h7l2 2.5-2 2.5h-7M12 13H5l-2 2.5L5 18h7"/></svg>Hors goût</span><div class="card-stats"><span class="card-own"><strong>1</strong>/8 possédés</span><div class="bar"><span class="seg-read" style="width:12.5%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:87.5%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">B</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782205049657-M.jpg"><span class="note-badge">10/10</span></div><div class="card-body"><h2>Blacksad</h2><p class="card-authors">Juan Díaz Canales, Juanjo Guarnido</p><div class="card-stats"><span class="card-own"><strong>7</strong>/7 possédés</span><div class="bar"><span class="seg-read" style="width:71.4%"></span><span class="seg-toread" style="width:28.6%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:0.0%"></span></div><div class="card-meta"><span class="card-read"><strong>5</strong> lus</span></div></div></div></a></li></ul></section></div>
+<div class="panel theme-dark"><h2 class="panel-title">Mode sombre</h2><section class="variante"><h3>Variante A — sur la couverture</h3><p class="desc">En bas à gauche de la couverture, en face de la note : visible d'un coup d'œil, même style que la pastille de note.</p><ul class="series-grid"><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">A</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782012101333-M.jpg"><span class="note-badge">9/10</span><span class="regard-badge regard-a" title="Classique : ne compte pas dans les recommandations" aria-label="Classique : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg>Classique</span></div><div class="card-body"><h2>Astérix</h2><p class="card-authors">René Goscinny, Albert Uderzo, Fabcaro et al.</p><div class="card-stats"><span class="card-own"><strong>25</strong>/41 possédés</span><div class="bar"><span class="seg-read" style="width:0.0%"></span><span class="seg-toread" style="width:61.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:39.0%"></span></div><div class="card-meta"><span class="card-read"><strong>0</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">T</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782203001015-M.jpg"><span class="note-badge">9/10</span><span class="regard-badge regard-a" title="Classique : ne compte pas dans les recommandations" aria-label="Classique : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg>Classique</span></div><div class="card-body"><h2>Tintin</h2><p class="card-authors">Hergé</p><div class="card-stats"><span class="card-own"><strong>22</strong>/23 possédés</span><div class="bar"><span class="seg-read" style="width:95.7%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:4.3%"></span></div><div class="card-meta"><span class="card-read"><strong>22</strong> lus</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">Y</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782803631445-M.jpg"><span class="note-badge">8/10</span><span class="regard-badge regard-a" title="Jeunesse : ne compte pas dans les recommandations" aria-label="Jeunesse : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5l-1 1.5h2zM12 17c-1 2 1 3 0 5"/></svg>Jeunesse</span></div><div class="card-body"><h2>Yakari</h2><p class="card-authors">Job, Derib, Xavier Giacometti</p><div class="card-stats"><span class="card-own"><strong>10</strong>/20 possédés</span><div class="bar"><span class="seg-read" style="width:50.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:50.0%"></span></div><div class="card-meta"><span class="card-read"><strong>10</strong> lus</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">C</span><span class="note-badge">7/10</span><span class="regard-badge regard-a" title="Jeunesse : ne compte pas dans les recommandations" aria-label="Jeunesse : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5l-1 1.5h2zM12 17c-1 2 1 3 0 5"/></svg>Jeunesse</span></div><div class="card-body"><h2>Cédric</h2><p class="card-authors">Raoul Cauvin, Laudec</p><div class="card-stats"><span class="card-own"><strong>1</strong>/5 possédés</span><div class="bar"><span class="seg-read" style="width:20.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:80.0%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">F</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782940199884-M.jpg"><span class="note-badge">6/10</span><span class="regard-badge regard-a" title="Hors goût : ne compte pas dans les recommandations" aria-label="Hors goût : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 6h7l2 2.5-2 2.5h-7M12 13H5l-2 2.5L5 18h7"/></svg>Hors goût</span></div><div class="card-body"><h2>Focu</h2><p class="card-authors">Diego Aranega</p><div class="card-stats"><span class="card-own"><strong>1</strong>/1 possédés</span><div class="bar"><span class="seg-read" style="width:100.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:0.0%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">AB</span><span class="note-badge">7/10</span><span class="regard-badge regard-a" title="Hors goût : ne compte pas dans les recommandations" aria-label="Hors goût : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 6h7l2 2.5-2 2.5h-7M12 13H5l-2 2.5L5 18h7"/></svg>Hors goût</span></div><div class="card-body"><h2>Adèle Blanc-Sec</h2><p class="card-authors">Jacques Tardi</p><div class="card-stats"><span class="card-own"><strong>1</strong>/8 possédés</span><div class="bar"><span class="seg-read" style="width:12.5%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:87.5%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">B</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782205049657-M.jpg"><span class="note-badge">10/10</span></div><div class="card-body"><h2>Blacksad</h2><p class="card-authors">Juan Díaz Canales, Juanjo Guarnido</p><div class="card-stats"><span class="card-own"><strong>7</strong>/7 possédés</span><div class="bar"><span class="seg-read" style="width:71.4%"></span><span class="seg-toread" style="width:28.6%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:0.0%"></span></div><div class="card-meta"><span class="card-read"><strong>5</strong> lus</span></div></div></div></a></li></ul></section><section class="variante"><h3>Variante B — dans le corps de la carte</h3><p class="desc">Sous les auteurs, en étiquette discrète : la couverture reste dégagée.</p><ul class="series-grid"><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">A</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782012101333-M.jpg"><span class="note-badge">9/10</span></div><div class="card-body"><h2>Astérix</h2><p class="card-authors">René Goscinny, Albert Uderzo, Fabcaro et al.</p><span class="regard-badge regard-b" title="Classique : ne compte pas dans les recommandations" aria-label="Classique : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg>Classique</span><div class="card-stats"><span class="card-own"><strong>25</strong>/41 possédés</span><div class="bar"><span class="seg-read" style="width:0.0%"></span><span class="seg-toread" style="width:61.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:39.0%"></span></div><div class="card-meta"><span class="card-read"><strong>0</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">T</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782203001015-M.jpg"><span class="note-badge">9/10</span></div><div class="card-body"><h2>Tintin</h2><p class="card-authors">Hergé</p><span class="regard-badge regard-b" title="Classique : ne compte pas dans les recommandations" aria-label="Classique : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5"/></svg>Classique</span><div class="card-stats"><span class="card-own"><strong>22</strong>/23 possédés</span><div class="bar"><span class="seg-read" style="width:95.7%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:4.3%"></span></div><div class="card-meta"><span class="card-read"><strong>22</strong> lus</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">Y</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782803631445-M.jpg"><span class="note-badge">8/10</span></div><div class="card-body"><h2>Yakari</h2><p class="card-authors">Job, Derib, Xavier Giacometti</p><span class="regard-badge regard-b" title="Jeunesse : ne compte pas dans les recommandations" aria-label="Jeunesse : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5l-1 1.5h2zM12 17c-1 2 1 3 0 5"/></svg>Jeunesse</span><div class="card-stats"><span class="card-own"><strong>10</strong>/20 possédés</span><div class="bar"><span class="seg-read" style="width:50.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:50.0%"></span></div><div class="card-meta"><span class="card-read"><strong>10</strong> lus</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">C</span><span class="note-badge">7/10</span></div><div class="card-body"><h2>Cédric</h2><p class="card-authors">Raoul Cauvin, Laudec</p><span class="regard-badge regard-b" title="Jeunesse : ne compte pas dans les recommandations" aria-label="Jeunesse : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5l-1 1.5h2zM12 17c-1 2 1 3 0 5"/></svg>Jeunesse</span><div class="card-stats"><span class="card-own"><strong>1</strong>/5 possédés</span><div class="bar"><span class="seg-read" style="width:20.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:80.0%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">F</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782940199884-M.jpg"><span class="note-badge">6/10</span></div><div class="card-body"><h2>Focu</h2><p class="card-authors">Diego Aranega</p><span class="regard-badge regard-b" title="Hors goût : ne compte pas dans les recommandations" aria-label="Hors goût : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 6h7l2 2.5-2 2.5h-7M12 13H5l-2 2.5L5 18h7"/></svg>Hors goût</span><div class="card-stats"><span class="card-own"><strong>1</strong>/1 possédés</span><div class="bar"><span class="seg-read" style="width:100.0%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:0.0%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">AB</span><span class="note-badge">7/10</span></div><div class="card-body"><h2>Adèle Blanc-Sec</h2><p class="card-authors">Jacques Tardi</p><span class="regard-badge regard-b" title="Hors goût : ne compte pas dans les recommandations" aria-label="Hors goût : ne compte pas dans les recommandations"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 6h7l2 2.5-2 2.5h-7M12 13H5l-2 2.5L5 18h7"/></svg>Hors goût</span><div class="card-stats"><span class="card-own"><strong>1</strong>/8 possédés</span><div class="bar"><span class="seg-read" style="width:12.5%"></span><span class="seg-toread" style="width:0.0%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:87.5%"></span></div><div class="card-meta"><span class="card-read"><strong>1</strong> lu</span><span class="card-incomplete">Incomplète</span></div></div></div></a></li><li><a class="card" href="#"><div class="cover"><span class="cover-initials" aria-hidden="true">B</span><img class="cover-img" alt="" src="https://covers.openlibrary.org/b/isbn/9782205049657-M.jpg"><span class="note-badge">10/10</span></div><div class="card-body"><h2>Blacksad</h2><p class="card-authors">Juan Díaz Canales, Juanjo Guarnido</p><div class="card-stats"><span class="card-own"><strong>7</strong>/7 possédés</span><div class="bar"><span class="seg-read" style="width:71.4%"></span><span class="seg-toread" style="width:28.6%"></span><span class="seg-lnp" style="width:0.0%"></span><span class="seg-miss" style="width:0.0%"></span></div><div class="card-meta"><span class="card-read"><strong>5</strong> lus</span></div></div></div></a></li></ul></section></div>
+</body>
+</html>

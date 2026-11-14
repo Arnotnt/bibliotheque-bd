@@ -20,6 +20,12 @@ Maquettes réalisées dans Claude Design et validées par Arnaud le 2026-11-14.
 
 Les autres variantes (mobile, sombre, aucun résultat, Undertaker) sont sur le canvas.
 
+### Badges « regard » (US-14, 2026-11-14)
+
+[![Badges regard](04-badges-regard.png)](04-badges-regard.png)
+
+Variante A (sur la couverture) et variante B (sous les auteurs), en mode clair et en mode sombre, à départager par le PO. Source : [`04-badges-regard.html`](source/04-badges-regard.html), une page HTML qui s'ouvre directement dans le navigateur (styles du site recopiés). Notes et regards fictifs.
+
 ## Charte
 
 ### Typographie (Google Fonts)
