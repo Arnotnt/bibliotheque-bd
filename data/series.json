@@ -35,8 +35,8 @@
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 5,
+    "avis": "En BD, cela ne marche pas."
   },
   {
     "id": "achille-talon",
@@ -52,8 +52,8 @@
     "statut": "terminée",
     "tomes_parus": 34,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien mais j'ai arrêté de suivre."
   },
   {
     "id": "adele-blanc-sec",
@@ -70,8 +70,8 @@
     "statut": "terminée",
     "tomes_parus": 8,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Mais non suivi."
   },
   {
     "id": "aquablue",
@@ -91,8 +91,8 @@
     "statut": "en cours",
     "tomes_parus": 5,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Sans plus."
   },
   {
     "id": "asterix",
@@ -112,9 +112,9 @@
     ],
     "statut": "en cours",
     "tomes_parus": 41,
-    "suivie": false,
-    "note": null,
-    "avis": null
+    "suivie": true,
+    "note": 9,
+    "avis": "Classique incontournable."
   },
   {
     "id": "blacksad",
@@ -152,9 +152,9 @@
     ],
     "statut": "en cours",
     "tomes_parus": 31,
-    "suivie": true,
-    "note": null,
-    "avis": null
+    "suivie": false,
+    "note": 8,
+    "avis": "Bien mais répétitif - j'ai arrêté de suivre."
   },
   {
     "id": "blueberry",
@@ -171,8 +171,8 @@
     "statut": "en cours",
     "tomes_parus": 26,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Bien mais je n'ai pas accroché - à ne pas suivre."
   },
   {
     "id": "boule-et-bill",
@@ -192,8 +192,8 @@
     "statut": "en cours",
     "tomes_parus": 22,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien pour la jeunesse."
   },
   {
     "id": "cedric",
@@ -211,8 +211,8 @@
     "statut": "en cours",
     "tomes_parus": 5,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien pour la jeunesse."
   },
   {
     "id": "dans-la-tete-de-sherlock-holmes",
@@ -229,8 +229,8 @@
     "statut": "en cours",
     "tomes_parus": 3,
     "suivie": true,
-    "note": null,
-    "avis": null,
+    "note": 9,
+    "avis": "J'adore le découpage des pages.",
     "a_paraitre": [
       {
         "tome": 4,
@@ -279,8 +279,8 @@
     "statut": "en cours",
     "tomes_parus": 13,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Bien selon les dossiers - à ne pas suivre."
   },
   {
     "id": "durandal-la-marche-de-bretagne",
@@ -298,8 +298,8 @@
     "statut": "terminée",
     "tomes_parus": 4,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Sans plus."
   },
   {
     "id": "focu",
@@ -315,8 +315,8 @@
     "statut": "en cours",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 5,
+    "avis": "Pas mon style."
   },
   {
     "id": "gaston-lagaffe",
@@ -333,8 +333,8 @@
     "statut": "en cours",
     "tomes_parus": 15,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 9,
+    "avis": "Classique incontournable."
   },
   {
     "id": "goldorak",
@@ -372,8 +372,8 @@
     "statut": "terminée",
     "tomes_parus": 2,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Très bien dans l'ensemble, à lire."
   },
   {
     "id": "hoka-hey",
@@ -407,8 +407,8 @@
     "statut": "en cours",
     "tomes_parus": 2,
     "suivie": true,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Très bien dans l'ensemble - à suivre."
   },
   {
     "id": "islander",
@@ -425,9 +425,9 @@
     ],
     "statut": "en cours",
     "tomes_parus": 1,
-    "suivie": false,
-    "note": null,
-    "avis": null
+    "suivie": true,
+    "note": 7,
+    "avis": "Idée intéressante, j'espère plus de la suite."
   },
   {
     "id": "iznogoud",
@@ -445,8 +445,8 @@
     "statut": "en cours",
     "tomes_parus": 13,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Sans plus."
   },
   {
     "id": "jerry-spring",
@@ -462,8 +462,8 @@
     "statut": "terminée",
     "tomes_parus": 10,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien, sans plus - à ne pas suivre."
   },
   {
     "id": "jusqu-au-dernier",
@@ -574,8 +574,8 @@
     "statut": "en cours",
     "tomes_parus": 10,
     "suivie": true,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Incontournable."
   },
   {
     "id": "lanfeust-des-etoiles",
@@ -593,8 +593,8 @@
     "statut": "terminée",
     "tomes_parus": 8,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Incontournable."
   },
   {
     "id": "lanfeust-odyssey",
@@ -612,8 +612,8 @@
     "statut": "en cours",
     "tomes_parus": 10,
     "suivie": true,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Incontournable."
   },
   {
     "id": "largo-winch",
@@ -632,8 +632,8 @@
     "statut": "en cours",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Classique mais pas suivi."
   },
   {
     "id": "le-chant-d-excalibur",
@@ -668,8 +668,8 @@
     "statut": "en cours",
     "tomes_parus": 15,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Pas mon style."
   },
   {
     "id": "le-scorpion",
@@ -718,8 +718,8 @@
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Spin-off du Scorpion, à avoir pour la collection."
   },
   {
     "id": "le-troisieme-testament",
@@ -759,8 +759,8 @@
     "statut": "terminée",
     "tomes_parus": 5,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Dommage en comparaison à la première série."
   },
   {
     "id": "legende",
@@ -776,8 +776,8 @@
     "statut": "terminée",
     "tomes_parus": 6,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Sans plus."
   },
   {
     "id": "leonard",
@@ -795,8 +795,8 @@
     "statut": "en cours",
     "tomes_parus": 22,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Très bien pour la jeunesse."
   },
   {
     "id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
@@ -814,8 +814,8 @@
     "statut": "en cours",
     "tomes_parus": 5,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien, de jeunesse - à ne pas suivre."
   },
   {
     "id": "les-indes-fourbes",
@@ -856,8 +856,8 @@
     "statut": "en cours",
     "tomes_parus": 34,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Très bien, des aventures et de l'humour, parfait pour la jeunesse."
   },
   {
     "id": "logicomix",
@@ -876,8 +876,8 @@
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 10,
+    "avis": "Roman BD excellent sur l'histoire des mathématiques."
   },
   {
     "id": "lucky-luke-dargaud",
@@ -897,8 +897,8 @@
     "statut": "en cours",
     "tomes_parus": 29,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Très bien mais j'ai arrêté de suivre."
   },
   {
     "id": "marsupilami",
@@ -919,8 +919,8 @@
     "statut": "en cours",
     "tomes_parus": 7,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien pour la jeunesse."
   },
   {
     "id": "michel-vaillant",
@@ -938,8 +938,8 @@
     "statut": "en cours",
     "tomes_parus": 36,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Bien mais j'ai arrêté de suivre."
   },
   {
     "id": "modeste-et-pompon-himalaya",
@@ -956,8 +956,8 @@
     "statut": "en cours",
     "tomes_parus": 4,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Sans plus."
   },
   {
     "id": "noir-burlesque",
@@ -973,8 +973,8 @@
     "statut": "terminée",
     "tomes_parus": 2,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 9,
+    "avis": "Dessin excellent avec ce rouge qui pointe le détail qu'il faut."
   },
   {
     "id": "okko",
@@ -1043,8 +1043,8 @@
     "statut": "en cours",
     "tomes_parus": 11,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Jeunesse, sans plus."
   },
   {
     "id": "sangoma-les-damnes-de-cape-town",
@@ -1083,8 +1083,8 @@
     "statut": "en cours",
     "tomes_parus": 41,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Très bien, des aventures et de l'humour, parfait pour la jeunesse."
   },
   {
     "id": "tanguy-et-laverdure-charlier",
@@ -1103,8 +1103,8 @@
     "statut": "terminée",
     "tomes_parus": 11,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Classique - vieux, suivi arrêté."
   },
   {
     "id": "tintin",
@@ -1120,8 +1120,8 @@
     "statut": "terminée",
     "tomes_parus": 23,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 9,
+    "avis": "Classique incontournable."
   },
   {
     "id": "tyler-cross",
@@ -1155,9 +1155,9 @@
     ],
     "statut": "en cours",
     "tomes_parus": 8,
-    "suivie": false,
-    "note": null,
-    "avis": null
+    "suivie": true,
+    "note": 8,
+    "avis": "Super ambiance et beau dessin - à suivre."
   },
   {
     "id": "xiii",
@@ -1198,7 +1198,7 @@
     "statut": "en cours",
     "tomes_parus": 20,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Très bien pour la jeunesse."
   }
 ]
