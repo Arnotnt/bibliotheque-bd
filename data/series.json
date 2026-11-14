@@ -52,8 +52,8 @@
     "statut": "terminée",
     "tomes_parus": 34,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien mais j'ai arrété de suivre."
   },
   {
     "id": "adele-blanc-sec",
@@ -113,8 +113,8 @@
     "statut": "en cours",
     "tomes_parus": 41,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 9,
+    "avis": "Classique incontournable."
   },
   {
     "id": "blacksad",
@@ -152,9 +152,9 @@
     ],
     "statut": "en cours",
     "tomes_parus": 31,
-    "suivie": true,
-    "note": null,
-    "avis": null
+    "suivie": false,
+    "note": 8,
+    "avis": "Bien mais répétitif - j'ai arrété de suivre."
   },
   {
     "id": "blueberry",
@@ -333,8 +333,8 @@
     "statut": "en cours",
     "tomes_parus": 15,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 9,
+    "avis": "Classique incontournable."
   },
   {
     "id": "goldorak",
@@ -445,8 +445,8 @@
     "statut": "en cours",
     "tomes_parus": 13,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Sans plus."
   },
   {
     "id": "jerry-spring",
@@ -856,8 +856,8 @@
     "statut": "en cours",
     "tomes_parus": 34,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Trés bien , des aventures et de l'humour parfait pour la jeunesse."
   },
   {
     "id": "logicomix",
@@ -897,8 +897,8 @@
     "statut": "en cours",
     "tomes_parus": 29,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Trés bien mais j'ai arrété de suivre."
   },
   {
     "id": "marsupilami",
@@ -919,8 +919,8 @@
     "statut": "en cours",
     "tomes_parus": 7,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien pour la jeunesse."
   },
   {
     "id": "michel-vaillant",
@@ -938,8 +938,8 @@
     "statut": "en cours",
     "tomes_parus": 36,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Bien mais j'ai arrété de suivre."
   },
   {
     "id": "modeste-et-pompon-himalaya",
@@ -956,8 +956,8 @@
     "statut": "en cours",
     "tomes_parus": 4,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Sans plus."
   },
   {
     "id": "noir-burlesque",
@@ -1083,8 +1083,8 @@
     "statut": "en cours",
     "tomes_parus": 41,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Trés bien , des aventures et de l'humour parfait pour la jeunesse."
   },
   {
     "id": "tanguy-et-laverdure-charlier",
@@ -1103,8 +1103,8 @@
     "statut": "terminée",
     "tomes_parus": 11,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Classique - vieux, suivi arreté."
   },
   {
     "id": "tintin",
@@ -1120,8 +1120,8 @@
     "statut": "terminée",
     "tomes_parus": 23,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 9,
+    "avis": "Classique incontournable."
   },
   {
     "id": "tyler-cross",
