@@ -11,6 +11,7 @@ Maquettes réalisées dans Claude Design et validées par Arnaud le 2026-11-14.
 | 1. Ma collection | `index.html` | [`01-collection.dc.html`](source/01-collection.dc.html) | mobile, aucun résultat, sombre, desktop | US-02, US-03, US-06, US-07 |
 | 2. Page série | `serie.html?id=…` | [`02-page-serie.dc.html`](source/02-page-serie.dc.html) | Blacksad (noté, 1 manquant), Undertaker (lu non possédé), Blake et Mortimer (sans note, à lire), sombre, desktop | US-04, US-06, US-07 |
 | 3. Tableau de bord | `stats.html` | [`03-tableau-de-bord.dc.html`](source/03-tableau-de-bord.dc.html) | mobile, sombre, desktop | US-08 |
+| 5. À acheter | `envies.html` | [`05-envies.html`](source/05-envies.html) (HTML statique, données réelles du 2026-11-14) | captures : défaut, avec classiques, mobile, sombre | US-18 |
 
 ### Captures (desktop, mode clair)
 
@@ -84,6 +85,17 @@ Les autres variantes (mobile, sombre, aucun résultat, Undertaker) sont sur le c
 - **Pile à lire** : total, top des séries par nombre d'albums possédés non lus, avec barre ; « + N albums dans N autres séries ».
 - **Séries incomplètes** : nombre de séries et de tomes manquants, barre possédé / manquant par série.
 - **Répartition des notes** : histogramme 1 à 10, nombre de séries au-dessus des barres, moyenne.
+
+## Écran 5 — À acheter (`envies.html`, US-18)
+Validée par Arnaud le 2026-11-14. Maquette en HTML statique sur la vraie feuille de style (`css/style.css`), à ouvrir via `python3 -m http.server` : `docs/mockups/source/05-envies.html` (`?classiques=1`, `?theme=dark`).
+
+| Défaut | Avec les classiques | Mobile | Sombre |
+|---|---|---|---|
+| [![À acheter](05-envies.png)](05-envies.png) | [![Avec classiques](05-envies-classiques.png)](05-envies-classiques.png) | [![Mobile](05-envies-mobile.png)](05-envies-mobile.png) | [![Sombre](05-envies-sombre.png)](05-envies-sombre.png) |
+
+- Total en tête (tomes et séries), case « Ajouter les classiques », bouton « Imprimer la liste ».
+- Une carte par série, triées par note : mini-couverture, titre, auteurs, note, pastilles des tomes à acheter (style « manquant »), tomes lus non possédés en style « lu, non possédé », résumé « Tomes 1 à 8 · 8 tomes, dont 3 déjà lus ».
+- Encart « Bientôt en librairie » : les tomes annoncés (`a_paraitre`) des séries sans `regard`.
 
 ## Écarts assumés avec les maquettes
 - Les données affichées dans les maquettes sont un échantillon de 12 séries : le site utilisera `data/*.json`.

@@ -669,6 +669,101 @@ function pageStats(series) {
     '<div class="panels">' + aParaitreHTML(series) + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + '</div>';
 }
 
+/* ---------- Page : à acheter (envies.html, US-18) ---------- */
+
+/** « 1 à 4, 9, 11 à 13 » à partir d'une liste triée de numéros. */
+function plagesDeTomes(nums) {
+  const plages = [];
+  nums.forEach(n => {
+    const der = plages[plages.length - 1];
+    if (der && n === der[1] + 1) der[1] = n; else plages.push([n, n]);
+  });
+  return plages.map(([a, b]) => (a === b ? String(a) : a + (b === a + 1 ? ', ' : ' à ') + b)).join(', ');
+}
+
+/** Tomes parus non possédés (manquants ou lus non possédés) : ceux à acheter. */
+function tomesAAcheter(s) {
+  return s.tomes.filter(t => t.statut === 'manquant' || t.statut === 'lnp');
+}
+
+function envieHTML({ s, tomes }) {
+  const nums = tomes.map(t => t.tome);
+  const dejaLus = tomes.filter(t => t.statut === 'lnp').length;
+  const cases = tomes.map(t =>
+    '<li class="st-' + t.statut + '"><span class="cell" title="' + (t.statut === 'lnp' ? 'Tome ' + t.tome + ', déjà lu' : 'Tome ' + t.tome) + '">' + t.tome + '</span></li>').join('');
+  return '<li class="envie">' +
+    '<div class="mini-cover" aria-hidden="true"><span class="cover-initials">' + esc(initiales(s.titre)) + '</span>' + imageCouvertureHTML(s) + '</div>' +
+    '<div><h3><a href="' + lienSerie(s) + '">' + esc(s.titre) + '</a></h3>' +
+      '<p class="auteurs">' + esc(auteursCourts(s.auteurs)) + '</p></div>' +
+    (s.note != null ? '<span class="note" aria-label="Note ' + s.note + ' sur 10">' + s.note + '/10</span>' : '<span></span>') +
+    '<div class="tomes">' +
+      '<ul class="tomes-grid" aria-hidden="true">' + cases + '</ul>' +
+      '<p class="detail">' + pluriel(nums.length, 'Tome', 'Tomes') + ' ' + plagesDeTomes(nums) +
+        ' <span class="dispo">· ' + nums.length + ' ' + pluriel(nums.length, 'tome') + (dejaLus ? ', dont' : '') + '</span>' +
+        (dejaLus ? ' <span class="lnp">' + dejaLus + ' déjà ' + pluriel(dejaLus, 'lu') + '</span>' : '') + '</p>' +
+    '</div></li>';
+}
+
+function groupeEnviesHTML(titre, sousTitre, groupe) {
+  const total = groupe.reduce((n, x) => n + x.tomes.length, 0);
+  return '<section class="groupe-envies">' +
+    '<h2 class="groupe-titre">' + titre + ' <span>' + total + ' ' + pluriel(total, 'tome') + (sousTitre ? ' · ' + sousTitre : '') + '</span></h2>' +
+    (groupe.length ? '<ul class="envies">' + groupe.map(envieHTML).join('') + '</ul>' : '<p class="count">Rien à acheter : ces séries sont complètes.</p>') +
+  '</section>';
+}
+
+function pageEnvies(series) {
+  const conteneur = document.getElementById('envies');
+  const aAcheter = filtre => series.filter(filtre)
+    .map(s => ({ s, tomes: tomesAAcheter(s) }))
+    .filter(x => x.tomes.length)
+    .sort((a, b) => TRIS.note.comparer(a.s, b.s));
+  // Les séries jeunesse, hors goût et non suivi ne sont jamais proposées (validé par le PO, #50).
+  const gouts = aAcheter(s => !s.regard);
+  const classiques = aAcheter(s => s.regard === 'classique');
+  const compter = g => g.reduce((n, x) => n + x.tomes.length, 0);
+
+  const annonces = series.filter(s => !s.regard).flatMap(s => (s.a_paraitre || []).map(a => ({ s, a })))
+    .sort((x, y) => cleDateAnnonce(x.a.date).localeCompare(cleDateAnnonce(y.a.date)) || collator.compare(x.s.titre, y.s.titre));
+  const annoncesHTML = annonces.length
+    ? '<section class="annonces" aria-labelledby="t-annonces"><h2 id="t-annonces">Bientôt en librairie</h2><ul>' +
+      annonces.map(({ s, a }) => '<li><a href="' + lienSerie(s) + '">' + esc(s.titre) + ' · ' + libelleTomeAnnonce(a) + '</a>' +
+        '<span>' + dateAnnonce(a.date) + aVerifierHTML(a) + '</span></li>').join('') + '</ul></section>'
+    : '';
+
+  const params = new URLSearchParams(location.search);
+  conteneur.innerHTML =
+    '<div class="envies-head"><div><h1 class="page-title">À acheter</h1>' +
+      '<p>Les tomes parus qui me manquent, dans les séries qui me plaisent. Triés par note.</p></div>' +
+      '<div class="envies-total" id="total-envies" aria-live="polite"></div></div>' +
+    '<div class="envies-options">' +
+      '<label><input type="checkbox" id="avec-classiques"> <span>Ajouter les classiques <span class="hint">(' +
+        esc(classiques.slice(0, 3).map(x => x.s.titre).join(', ')) + (classiques.length > 3 ? '…' : '') + ' · ' +
+        compter(classiques) + ' ' + pluriel(compter(classiques), 'tome') + ')</span></span></label>' +
+      '<button type="button" class="btn-print" id="imprimer">' +
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg>' +
+        'Imprimer la liste</button>' +
+    '</div>' +
+    groupeEnviesHTML('Mes séries', '', gouts) +
+    '<div id="groupe-classiques" hidden>' + groupeEnviesHTML('Classiques', 'achetés par fidélité', classiques) + '</div>' +
+    annoncesHTML;
+
+  const caseClassiques = document.getElementById('avec-classiques');
+  const total = document.getElementById('total-envies');
+  caseClassiques.checked = params.get('classiques') === '1';
+  function maj() {
+    const avec = caseClassiques.checked;
+    document.getElementById('groupe-classiques').hidden = !avec;
+    const nbTomes = compter(gouts) + (avec ? compter(classiques) : 0);
+    const nbSeries = gouts.length + (avec ? classiques.length : 0);
+    total.innerHTML = nbTomes + '<small>' + pluriel(nbTomes, 'tome') + ' · ' + nbSeries + ' ' + pluriel(nbSeries, 'série') + '</small>';
+    history.replaceState(null, '', avec ? '?classiques=1' : location.pathname);
+  }
+  caseClassiques.addEventListener('change', maj);
+  document.getElementById('imprimer').addEventListener('click', () => window.print());
+  maj();
+}
+
 /* ---------- Page : recommandations (reco.html) ---------- */
 
 // Ordre d'affichage : ce qui m'intéresse d'abord, les recos rejetées en dernier (grisées).
@@ -749,6 +844,7 @@ async function demarrer() {
     if (page === 'collection') pageCollection(series);
     if (page === 'serie') pageSerie(series);
     if (page === 'stats') pageStats(series);
+    if (page === 'envies') pageEnvies(series);
     if (page === 'reco') pageReco(series, await chargerJSON('data/reco.json'));
   } catch (erreur) {
     afficherErreur(contenu, erreur);
