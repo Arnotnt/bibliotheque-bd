@@ -2,6 +2,15 @@
 
 Une section par fin de sprint, la plus récente en haut.
 
+## Sprint 5 — 2026-11-14
+Sprint Goal : « Je trouve vite ce que je cherche, et je sais quoi acheter » — atteint
+Vélocité : 19 pts livrés sur 19 engagés (BUG-01, US-16, US-17, US-20, US-18, US-19, US-22 ; PR #55 à #61, fusionnées par Claude à la demande du PO, exceptionnellement)
+Démo : https://arnotnt.github.io/bibliotheque-bd/ (« Mes goûts » triés par note, vue Couvertures, page « À acheter », page auteur, encart « Mes goûts en chiffres »)
+
+- **Garder** : la maquette validée avant de coder une nouvelle page (US-18), le test dans le navigateur avant chaque PR, et le numéro de version `?v=N` contrôlé par le script.
+- **Arrêter** : livrer 7 PR empilées d'un coup : c'est lourd à relire, et une seule à corriger aurait bloqué toutes les suivantes (déjà relevé au Sprint 3).
+- **Essayer** : fusionner au fil de l'eau, une PR relue avant d'ouvrir la suivante sur les mêmes fichiers ; et donner à l'app l'accès au dossier Documents pour que son serveur local (`.claude/launch.json`) démarre.
+
 ## Sprint 3 — 2026-11-14
 Sprint Goal : « Le site est complet et les données sont fiables » — atteint, avec une réserve : couvertures pour 37 séries sur 61 seulement (limite d'Open Library)
 Vélocité : 18 pts livrés sur 18 engagés (OPT-01, DATA-01, DATA-02, US-13, US-11, US-12, OPT-02 ; PR #32 à #37)

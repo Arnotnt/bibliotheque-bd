@@ -222,5 +222,7 @@ Le backlog vit dans les issues GitHub et le [kanban](https://github.com/users/Ar
 | 1 | « Je vois ma collection en ligne et ce qui me manque » | US-01, US-02, US-03, US-04, US-05 | 15 |
 | 2 | « Je suis ma collection et Claude me conseille » | US-06, US-07, US-08, US-09, US-10 | 15 |
 | 3 | « Le site est complet et les données sont fiables » | OPT-01, DATA-01, DATA-02, US-13, US-11, US-12, OPT-02 | 18 |
+| 4 | « Mes notes reflètent mes goûts d'aujourd'hui, et le site explique pourquoi une série ne guide pas mes recos » | DATA-03, US-14, US-15 | 6 |
+| 5 | « Je trouve vite ce que je cherche, et je sais quoi acheter » | BUG-01, US-16, US-17, US-20, US-18, US-19, US-22 | 19 |
 
 Capacité : la charge se calcule sur la capacité de Claude ; le goulot est la revue du PO (rétros des sprints 1 et 2).
