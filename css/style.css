@@ -1,0 +1,163 @@
+/* Bibliothèque BD d'Arnaud — charte : docs/mockups/README.md */
+
+:root {
+  --bg: #F5EFE3; --surf: #FFFCF6; --surf2: #EDE4D3; --line: #D9CBB2;
+  --ink: #2B2119; --ink2: #62564A;
+  --own: #6B4A2F; --read: #2C5F8F; --onread: #FFFFFF; --readtint: #DDE8F3;
+  --toread: #E3A43A; --ontoread: #2B2119; --toreadtxt: #875810; --toreadtint: #F7EAD0;
+  --miss: #A8352A; --misstint: #F5DDD7;
+  --cover: #E4D8C3; --covertxt: #6E604F;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1612; --surf: #231E19; --surf2: #2E2720; --line: #463B30;
+    --ink: #F2EADD; --ink2: #BCAF9D;
+    --own: #D6B38E; --read: #8DB8E6; --onread: #10202F; --readtint: #1F3247;
+    --toread: #E9B455; --ontoread: #1A1612; --toreadtxt: #F0C470; --toreadtint: #3A2D17;
+    --miss: #EE8270; --misstint: #47231D;
+    --cover: #342C24; --covertxt: #A89880;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1A1612; --surf: #231E19; --surf2: #2E2720; --line: #463B30;
+  --ink: #F2EADD; --ink2: #BCAF9D;
+  --own: #D6B38E; --read: #8DB8E6; --onread: #10202F; --readtint: #1F3247;
+  --toread: #E9B455; --ontoread: #1A1612; --toreadtxt: #F0C470; --toreadtint: #3A2D17;
+  --miss: #EE8270; --misstint: #47231D;
+  --cover: #342C24; --covertxt: #A89880;
+  color-scheme: dark;
+}
+
+/* Motif « manquant » : hachures à 135° */
+:root { --hatch: repeating-linear-gradient(135deg, var(--miss) 0 1.5px, var(--misstint) 1.5px 4px); }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+h1, h2, h3 { font-family: Literata, Georgia, serif; font-weight: 700; }
+
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--read); outline-offset: 2px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+.container { max-width: 1120px; margin: 0 auto; padding-left: 16px; padding-right: 16px; width: 100%; }
+
+/* ---------- En-tête ---------- */
+.site-header { background: var(--surf); border-bottom: 1px solid var(--line); }
+.site-header .container { padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.header-top { display: flex; align-items: flex-start; gap: 12px; }
+.brand { flex: 1 1 auto; display: flex; gap: 10px; align-items: flex-start; }
+.brand svg { flex: 0 0 auto; margin-top: 2px; }
+.brand h1 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; }
+.brand h1 a { text-decoration: none; }
+.brand p { margin: 0; font-size: 14px; color: var(--ink2); }
+.stat-own { color: var(--own); font-weight: 700; }
+.stat-read { color: var(--read); font-weight: 700; }
+
+.theme-toggle {
+  flex: 0 0 auto; width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surf2); color: var(--ink); cursor: pointer;
+}
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+.main-nav { display: flex; gap: 4px; }
+.main-nav a {
+  min-height: 44px; display: flex; align-items: center; padding: 0 14px;
+  text-decoration: none; color: var(--ink2); border-bottom: 3px solid transparent;
+}
+.main-nav a[aria-current="page"] { color: var(--ink); font-weight: 700; border-bottom-color: var(--ink); }
+
+/* ---------- Contenu ---------- */
+main.container { flex: 1 0 auto; padding-top: 18px; padding-bottom: 40px; display: flex; flex-direction: column; gap: 16px; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--ink2); }
+.legend span { display: flex; align-items: center; gap: 6px; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; }
+.swatch-own { background: var(--own); }
+.swatch-read { background: var(--read); }
+.swatch-toread { background: var(--toread); }
+.swatch-lnp { background: var(--readtint); border: 2px solid var(--read); }
+.swatch-miss { background: var(--hatch); border: 2px dashed var(--miss); }
+
+.count { margin: 0; font-size: 14px; color: var(--ink2); }
+
+.message {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+  padding: 48px 20px; background: var(--surf); border: 1px dashed var(--line); border-radius: 16px;
+}
+.message h2 { margin: 0; font-size: 22px; }
+.message p { margin: 0; max-width: 360px; font-size: 15px; color: var(--ink2); }
+
+/* ---------- Cartes série ---------- */
+.series-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px;
+  margin: 0; padding: 0; list-style: none;
+}
+.card {
+  height: 100%; display: flex; flex-direction: column;
+  background: var(--surf); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  text-decoration: none; color: var(--ink);
+}
+.card:hover { border-color: var(--ink2); }
+.cover {
+  position: relative; aspect-ratio: 3 / 4; background: var(--cover); border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+}
+.cover-initials { font-family: Literata, Georgia, serif; font-size: 30px; font-weight: 700; color: var(--covertxt); }
+.note-badge {
+  position: absolute; top: 8px; right: 8px; padding: 3px 8px; border-radius: 6px;
+  background: var(--surf); color: var(--ink); font-weight: 700; font-size: 14px; box-shadow: var(--shadow);
+}
+.card-body { flex: 1 1 auto; padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; }
+.card-body h2 { margin: 0; font-size: 16px; line-height: 1.25; }
+.card-authors { margin: 0; font-size: 13px; line-height: 1.3; color: var(--ink2); }
+.card-stats { margin-top: auto; padding-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.card-own { font-size: 14px; color: var(--own); }
+.card-own strong { font-size: 17px; }
+.card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; font-size: 13px; }
+.card-read { color: var(--read); }
+.card-incomplete { display: flex; align-items: center; gap: 4px; color: var(--miss); }
+.card-incomplete::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%; border: 1.5px dashed var(--miss);
+}
+.badge-lnp {
+  align-self: flex-start; padding: 2px 8px; border-radius: 6px;
+  background: var(--readtint); border: 1.5px solid var(--read); color: var(--read);
+  font-size: 13px; font-weight: 700;
+}
+
+/* Barre de progression d'une série */
+.bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--surf2); }
+.bar span { display: block; height: 100%; }
+.bar .seg-read { background: var(--read); }
+.bar .seg-toread { background: var(--toread); }
+.bar .seg-lnp { background: var(--readtint); box-shadow: inset 0 0 0 2px var(--read); }
+.bar .seg-miss { background: var(--hatch); }
+
+/* ---------- Pied de page ---------- */
+.site-footer { border-top: 1px solid var(--line); padding: 16px; text-align: center; font-size: 13px; color: var(--ink2); }
