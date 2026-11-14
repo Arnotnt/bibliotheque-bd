@@ -442,5 +442,61 @@ main.page-reco { padding-top: 20px; }
 .statut-rejete { opacity: .55; background: var(--bg); border-style: dashed; }
 .statut-rejete:hover, .statut-rejete:focus-within { opacity: .85; }
 
+/* ---------- À acheter (envies.html, US-18) — maquette docs/mockups/05-envies.png ---------- */
+main.page-envies { padding-top: 20px; gap: 16px; }
+.envies-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+.envies-head p { margin: 4px 0 0; color: var(--ink2); font-size: 15px; }
+.envies-total {
+  padding: 6px 14px; border-radius: 10px; background: var(--misstint); border: 2px dashed var(--miss);
+  color: var(--miss); font-family: Literata, Georgia, serif; font-weight: 700; font-size: 26px; line-height: 1.1; text-align: center;
+}
+.envies-total small { display: block; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; font-weight: 700; }
+.envies-options {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px;
+  padding: 10px 12px; background: var(--surf2); border-radius: 10px;
+}
+.envies-options label { display: flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; font-size: 15px; }
+.envies-options input { width: 20px; height: 20px; flex: none; accent-color: var(--read); }
+.envies-options .hint { color: var(--ink2); font-size: 14px; }
+.btn-print {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--surf); color: var(--ink); font: inherit; font-weight: 700; cursor: pointer;
+}
+.groupe-envies { display: flex; flex-direction: column; gap: 8px; }
+.groupe-titre { margin: 8px 0 0; font-size: 20px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.groupe-titre span { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 14px; font-weight: 400; color: var(--ink2); }
+.envies { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.envie {
+  display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 4px 14px; align-items: start;
+  padding: 12px; background: var(--surf); border: 1px solid var(--line); border-radius: 12px;
+}
+.envie .mini-cover {
+  grid-row: span 2; width: 54px; aspect-ratio: 3 / 4; border-radius: 3px 6px 6px 3px; background: var(--cover);
+  position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);
+}
+.envie .mini-cover .cover-initials { font-size: 16px; }
+.envie h3 { margin: 0; font-size: 17px; line-height: 1.25; }
+.envie h3 a { text-decoration: none; }
+.envie h3 a:hover { text-decoration: underline; }
+.envie .auteurs { margin: 0; font-size: 13px; color: var(--ink2); }
+.envie .note { padding: 2px 8px; border-radius: 6px; background: var(--surf2); font-weight: 700; font-size: 14px; white-space: nowrap; }
+.envie .tomes { grid-column: 2 / -1; display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.envie .tomes-grid .cell { width: 34px; height: 34px; border-radius: 5px; font-size: 13px; }
+.envie .detail { margin: 0; font-size: 14px; }
+.envie .detail .lnp { color: var(--read); font-weight: 700; }
+.envie .detail .dispo { color: var(--ink2); }
+.annonces a { color: var(--ink); }
+@media (max-width: 520px) {
+  .envie { grid-template-columns: 44px minmax(0, 1fr) auto; gap: 2px 10px; }
+  .envie .mini-cover { width: 44px; grid-row: span 1; }
+  .envie .tomes { grid-column: 1 / -1; }
+}
+@media print {
+  .site-header, .envies-options, .site-footer, .envie .mini-cover { display: none !important; }
+  body { background: #fff; }
+  .envie { grid-template-columns: minmax(0, 1fr) auto; break-inside: avoid; border: none; padding: 4px 0; }
+  .envie .tomes { grid-column: 1 / -1; }
+}
+
 /* ---------- Pied de page ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 16px; text-align: center; font-size: 13px; color: var(--ink2); }
