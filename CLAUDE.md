@@ -148,6 +148,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - « J'ai lu Undertaker 1 à 3 chez un ami » → albums `possede: false, lu: true`.
   Si la série n'existe pas encore : la créer (`suivie: false`, `note: null`, `tomes_parus` d'après une source), puis ajouter les albums avec `date_ajout` du jour et `ean: null` si inconnu. Testé le 2026-11-14 sur Undertaker.
 - « Note Tyler Cross 9/10 : ambiance géniale » → mettre à jour la série.
+  `note` : entier de 0 à 10 ; `avis` : le texte donné, avec une majuscule et un point final, sans le réécrire. Testé le 2026-11-14 sur Okko.
 - « Fais la veille des nouveautés » → pour chaque série `suivie`, chercher les tomes à paraître et mettre à jour `tomes_parus`.
 - « Recommande-moi 5 séries » → partir de mes séries notées ≥ 8 (auteurs, genres, ton de mes avis), proposer des séries que je n'ai pas, écrire le résultat dans `data/reco.json`.
 
