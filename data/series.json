@@ -9,9 +9,9 @@
     "editeur": "Glénat",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 2,
-    "suivie": true,
+    "suivie": false,
     "note": 10,
     "avis": "Un superbe BD qui se lit et se suffit à elle même tellement les planches sont bien faite avec tant de détails et une histoire dense. Alors la perspective de la suite va nous tenir en haleine jusqu’à sa sortie, avec le plaisir de la lire et relire à nouveau."
   },
@@ -40,9 +40,9 @@
     "editeur": "Dargaud",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 34,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -55,9 +55,9 @@
     "editeur": "Casterman",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 8,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -74,7 +74,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 5,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -93,7 +93,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 41,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -139,7 +139,7 @@
     "categorie": "BD",
     "genres": [],
     "statut": "en cours",
-    "tomes_parus": 28,
+    "tomes_parus": 31,
     "suivie": true,
     "note": null,
     "avis": null
@@ -156,7 +156,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 26,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -171,7 +171,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 22,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -186,7 +186,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 5,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -202,7 +202,7 @@
     "categorie": "BD",
     "genres": [],
     "statut": "en cours",
-    "tomes_parus": 2,
+    "tomes_parus": 3,
     "suivie": true,
     "note": null,
     "avis": null
@@ -219,9 +219,9 @@
     "editeur": "Kana",
     "categorie": "Manga",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 6,
-    "suivie": true,
+    "suivie": false,
     "note": 10,
     "avis": "Le meilleur manga!!"
   },
@@ -240,7 +240,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 13,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -254,9 +254,9 @@
     "editeur": "Soleil",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
-    "tomes_parus": 2,
-    "suivie": true,
+    "statut": "terminée",
+    "tomes_parus": 4,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -269,7 +269,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 1,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -287,7 +287,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 15,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -320,9 +320,9 @@
     "editeur": "Dargaud",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 2,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -366,7 +366,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 1,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -381,7 +381,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 13,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -392,9 +392,9 @@
     "editeur": "Dupuis",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 10,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -442,7 +442,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 22,
-    "suivie": true,
+    "suivie": false,
     "note": 2,
     "avis": "Beaucoup trop long - plus de 35 tomes sur une histoire qui s étire sans fin. Décourageant et devient sans intérêt à suivre - sauf de finir la série mais au prix d acheter d autre bd bien mieux"
   },
@@ -492,7 +492,7 @@
     "categorie": "BD",
     "genres": [],
     "statut": "en cours",
-    "tomes_parus": 9,
+    "tomes_parus": 10,
     "suivie": true,
     "note": null,
     "avis": null
@@ -509,9 +509,9 @@
     "editeur": "Soleil",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 8,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -543,7 +543,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 1,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -557,9 +557,9 @@
     "editeur": "Soleil",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 6,
-    "suivie": true,
+    "suivie": false,
     "note": 8,
     "avis": "Bien - en plus une histoire qui finit en 6 tomes, ne tombe pas dans le travers d ajouter des histoires sans intérêt."
   },
@@ -574,7 +574,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 15,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -590,7 +590,7 @@
     "categorie": "BD",
     "genres": [],
     "statut": "en cours",
-    "tomes_parus": 13,
+    "tomes_parus": 14,
     "suivie": true,
     "note": 8,
     "avis": "Bien mais commence à trop durer dans le temps"
@@ -618,9 +618,9 @@
     "editeur": "Glénat",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 4,
-    "suivie": true,
+    "suivie": false,
     "note": 10,
     "avis": "Tout est parfait dans cette série - dessins, scénarios - chaque tome vaut le coup"
   },
@@ -636,9 +636,9 @@
     "editeur": "Glénat",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 5,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -652,9 +652,9 @@
     "editeur": "Soleil",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 6,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -669,7 +669,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 22,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -685,7 +685,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 5,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -701,7 +701,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 1,
-    "suivie": true,
+    "suivie": false,
     "note": 10,
     "avis": "De très jolies dessins - histoire prenante - à lire et relire"
   },
@@ -717,7 +717,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 34,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -750,7 +750,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 29,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -766,7 +766,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 7,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -781,7 +781,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 36,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -797,7 +797,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 4,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -810,9 +810,9 @@
     "editeur": "Dargaud",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 2,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -828,7 +828,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 10,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -860,7 +860,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 11,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -893,7 +893,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 41,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -907,9 +907,9 @@
     "editeur": "Dargaud",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 11,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -920,9 +920,9 @@
     "editeur": "Casterman",
     "categorie": "BD",
     "genres": [],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 23,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   },
@@ -956,7 +956,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 22,
-    "suivie": true,
+    "suivie": false,
     "note": 8,
     "avis": "Excellent"
   },
@@ -971,7 +971,7 @@
     "genres": [],
     "statut": "en cours",
     "tomes_parus": 20,
-    "suivie": true,
+    "suivie": false,
     "note": null,
     "avis": null
   }

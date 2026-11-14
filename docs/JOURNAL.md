@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-14 — US-09 — Veille des prochains tomes : 9 séries suivies, 15 passées en terminée, 5 `tomes_parus` corrigés, compte rendu dans `docs/veille/` (#22)
 - 2026-11-14 — US-08 — Tableau de bord de la collection : totaux, % lu, pile à lire, séries incomplètes, répartition des notes (#21)
 - 2026-11-14 — US-05 — Publier le site sur GitHub Pages : https://arnotnt.github.io/bibliotheque-bd/, lien dans le README (#18)
 - 2026-11-14 — US-04 — Page série avec tomes et manquants : statut tome par tome, note et avis, manquants consécutifs regroupés (#17)

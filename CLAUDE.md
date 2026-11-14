@@ -129,6 +129,14 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - « Fais la veille des nouveautés » → pour chaque série `suivie`, chercher les tomes à paraître et mettre à jour `tomes_parus`.
 - « Recommande-moi 5 séries » → partir de mes séries notées ≥ 8 (auteurs, genres, ton de mes avis), proposer des séries que je n'ai pas, écrire le résultat dans `data/reco.json`.
 
+## Procédure de veille (US-09)
+Déclencheur : « Fais la veille des nouveautés ».
+1. Lister les séries `suivie: true` de `data/series.json`.
+2. Pour chacune, une recherche web : dernier tome paru (numéro, titre, date) et tomes annoncés. Sources à privilégier : éditeur, Bédéthèque, libraires.
+3. Mettre à jour `tomes_parus` (tomes **déjà parus** seulement) et `statut` si la série est finie (alors `suivie: false`).
+4. Écrire le compte rendu dans `docs/veille/AAAA-MM-JJ.md` : sorties à venir (série, tome, date, source), mises à jour, séries sans nouveauté. Une date issue d'une seule source ou d'une précommande est marquée « à vérifier ».
+5. Montrer les changements au PO, puis commiter `data/series.json` et le compte rendu avec un message qui cite les principales sources.
+
 ## Import Bubble (US-01)
 - Source : `import/export-bubble.csv` (séparateur `;`, UTF-8 avec BOM, champs texte sur plusieurs lignes).
 - 309 albums, 60 séries, tous possédés, 226 lus. 18 séries notées.
