@@ -109,6 +109,8 @@ function enrichir(serie, albumsDeLaSerie) {
     lus: lu + lnp,
     manquants,
     incomplete: possedes > 0 && possedes < tomes.length,
+    // Date d'ajout la plus récente d'un album de la série (tri « ajout récent », US-16).
+    dateAjout: albumsDeLaSerie.reduce((m, a) => (a.date_ajout && a.date_ajout > m ? a.date_ajout : m), ''),
     texteRecherche: normaliser(serie.titre + ' ' + (serie.auteurs || []).join(' '))
   });
 }
@@ -252,11 +254,38 @@ const FILTRES = {
   incompletes: s => s.incomplete
 };
 
-/** Séries retenues par un filtre et une recherche (titre + auteurs, sans accents ni casse). */
-function filtrerSeries(series, filtre, recherche) {
+/* Regard (US-16) : valeur dans l'URL → test sur le champ `regard` (DATA-03). */
+const FILTRES_REGARD = {
+  toutes: () => true,
+  gouts: s => !s.regard,
+  classique: s => s.regard === 'classique',
+  jeunesse: s => s.regard === 'jeunesse',
+  'hors-gout': s => s.regard === 'hors goût',
+  'non-suivi': s => s.regard === 'non suivi'
+};
+
+/* Tris (US-16) : à valeur égale, on départage toujours par titre. */
+const parTitre = (a, b) => collator.compare(normaliser(a.titre), normaliser(b.titre));
+const TRIS = {
+  titre: { libelle: 'ordre alphabétique', comparer: parTitre },
+  note: { libelle: 'par note', comparer: (a, b) => (b.note == null ? -1 : b.note) - (a.note == null ? -1 : a.note) || parTitre(a, b) },
+  tomes: { libelle: 'par nombre de tomes', comparer: (a, b) => b.parus - a.parus || parTitre(a, b) },
+  manquants: { libelle: 'par tomes manquants', comparer: (a, b) => b.manquants - a.manquants || parTitre(a, b) },
+  ajout: { libelle: 'par ajout récent', comparer: (a, b) => b.dateAjout.localeCompare(a.dateAjout) || parTitre(a, b) }
+};
+
+/**
+ * Séries retenues par les réglages de l'accueil, dans l'ordre demandé.
+ * Recherche : titre + auteurs, sans accents ni casse.
+ */
+function filtrerSeries(series, { filtre = 'tout', recherche = '', regard = 'toutes', suivies = false, tri = 'titre' } = {}) {
   const garder = FILTRES[filtre] || FILTRES.tout;
+  const garderRegard = FILTRES_REGARD[regard] || FILTRES_REGARD.toutes;
   const mots = normaliser(recherche).split(/\s+/).filter(Boolean);
-  return series.filter(s => garder(s) && mots.every(m => s.texteRecherche.includes(m)));
+  return series
+    .filter(s => garder(s) && garderRegard(s) && (!suivies || s.suivie === true) &&
+      mots.every(m => s.texteRecherche.includes(m)))
+    .sort((TRIS[tri] || TRIS.titre).comparer);
 }
 
 function pageCollection(series) {
@@ -264,46 +293,70 @@ function pageCollection(series) {
   const compteur = document.getElementById('compteur');
   const champ = document.getElementById('recherche');
   const puces = [...document.querySelectorAll('.chips [data-filtre]')];
+  const choixRegard = document.getElementById('f-regard');
+  const boutonSuivies = document.getElementById('f-suivies');
+  const choixTri = document.getElementById('f-tri');
+  const reinit = document.getElementById('reinitialiser');
   const vide = document.getElementById('aucun-resultat');
   const videTexte = document.getElementById('aucun-resultat-texte');
 
-  // État initial lu dans l'URL (?q=…&filtre=…) pour pouvoir partager une vue filtrée.
+  // État initial lu dans l'URL (?q=…&filtre=…&regard=…&suivies=1&tri=…) pour pouvoir partager une vue.
   const params = new URLSearchParams(location.search);
   let filtre = FILTRES[params.get('filtre')] ? params.get('filtre') : 'tout';
+  let suivies = params.get('suivies') === '1';
   champ.value = params.get('q') || '';
+  choixRegard.value = FILTRES_REGARD[params.get('regard')] ? params.get('regard') : 'toutes';
+  choixTri.value = TRIS[params.get('tri')] ? params.get('tri') : 'titre';
+
+  const reglagesParDefaut = () =>
+    !champ.value.trim() && filtre === 'tout' && choixRegard.value === 'toutes' && !suivies && choixTri.value === 'titre';
 
   function majURL() {
     const p = new URLSearchParams();
     if (champ.value.trim()) p.set('q', champ.value.trim());
     if (filtre !== 'tout') p.set('filtre', filtre);
+    if (choixRegard.value !== 'toutes') p.set('regard', choixRegard.value);
+    if (suivies) p.set('suivies', '1');
+    if (choixTri.value !== 'titre') p.set('tri', choixTri.value);
     const qs = p.toString();
     history.replaceState(null, '', qs ? '?' + qs : location.pathname);
   }
 
   function afficher() {
     const q = champ.value.trim();
-    const resultats = filtrerSeries(series, filtre, q);
+    const resultats = filtrerSeries(series, { filtre, recherche: q, regard: choixRegard.value, suivies, tri: choixTri.value });
     puces.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filtre === filtre)));
-    compteur.textContent = resultats.length + ' ' + pluriel(resultats.length, 'série') + ' · ordre alphabétique';
+    boutonSuivies.setAttribute('aria-pressed', String(suivies));
+    reinit.hidden = reglagesParDefaut();
+    compteur.textContent = resultats.length + ' ' + pluriel(resultats.length, 'série') + ' · ' + (TRIS[choixTri.value] || TRIS.titre).libelle;
     liste.innerHTML = resultats.map(carteHTML).join('');
     liste.hidden = resultats.length === 0;
     vide.hidden = resultats.length > 0;
     if (!resultats.length) {
+      const autresReglages = filtre !== 'tout' || choixRegard.value !== 'toutes' || suivies;
       videTexte.textContent = q
-        ? 'Aucun titre ni auteur ne correspond à « ' + q + ' »' + (filtre !== 'tout' ? ' avec ce filtre.' : '.')
-        : 'Aucune série ne correspond à ce filtre.';
+        ? 'Aucun titre ni auteur ne correspond à « ' + q + ' »' + (autresReglages ? ' avec ces filtres.' : '.')
+        : 'Aucune série ne correspond à ces filtres.';
     }
     majURL();
   }
 
-  champ.addEventListener('input', afficher);
-  puces.forEach(b => b.addEventListener('click', () => { filtre = b.dataset.filtre; afficher(); }));
-  document.getElementById('effacer').addEventListener('click', () => {
+  function toutEffacer() {
     champ.value = '';
     filtre = 'tout';
+    suivies = false;
+    choixRegard.value = 'toutes';
+    choixTri.value = 'titre';
     afficher();
-    champ.focus();
-  });
+  }
+
+  champ.addEventListener('input', afficher);
+  puces.forEach(b => b.addEventListener('click', () => { filtre = b.dataset.filtre; afficher(); }));
+  choixRegard.addEventListener('change', afficher);
+  choixTri.addEventListener('change', afficher);
+  boutonSuivies.addEventListener('click', () => { suivies = !suivies; afficher(); });
+  reinit.addEventListener('click', () => { toutEffacer(); champ.focus(); });
+  document.getElementById('effacer').addEventListener('click', () => { toutEffacer(); champ.focus(); });
   afficher();
 }
 
