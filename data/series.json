@@ -35,8 +35,8 @@
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 5,
+    "avis": "En bd cela marche pas."
   },
   {
     "id": "achille-talon",
@@ -171,8 +171,8 @@
     "statut": "en cours",
     "tomes_parus": 26,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Bien mais j'ai pas accroché - à ne pas suivre."
   },
   {
     "id": "boule-et-bill",
@@ -229,8 +229,8 @@
     "statut": "en cours",
     "tomes_parus": 3,
     "suivie": true,
-    "note": null,
-    "avis": null,
+    "note": 9,
+    "avis": "J'adore le decoupage des pages.",
     "a_paraitre": [
       {
         "tome": 4,
@@ -279,8 +279,8 @@
     "statut": "en cours",
     "tomes_parus": 13,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Bien selon les dossiers - à ne pas suivre."
   },
   {
     "id": "durandal-la-marche-de-bretagne",
@@ -372,8 +372,8 @@
     "statut": "terminée",
     "tomes_parus": 2,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Trés bien dans l'ensemble à lire."
   },
   {
     "id": "hoka-hey",
@@ -407,8 +407,8 @@
     "statut": "en cours",
     "tomes_parus": 2,
     "suivie": true,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Trés bien dans l'ensemble - a suivre."
   },
   {
     "id": "islander",
@@ -462,8 +462,8 @@
     "statut": "terminée",
     "tomes_parus": 10,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien sans plus  - à ne pas suivre."
   },
   {
     "id": "jusqu-au-dernier",
@@ -632,8 +632,8 @@
     "statut": "en cours",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Classique mas pas suivi."
   },
   {
     "id": "le-chant-d-excalibur",
@@ -718,8 +718,8 @@
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Spin off du Scorpion à avoir pour la collection."
   },
   {
     "id": "le-troisieme-testament",
@@ -759,8 +759,8 @@
     "statut": "terminée",
     "tomes_parus": 5,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Dommage en comparaison à la première série."
   },
   {
     "id": "legende",
@@ -814,8 +814,8 @@
     "statut": "en cours",
     "tomes_parus": 5,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bie de jeunesse - à ne pas suivre."
   },
   {
     "id": "les-indes-fourbes",
@@ -876,8 +876,8 @@
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 10,
+    "avis": "Roman bd excellent sur l'histoire des mathématiques."
   },
   {
     "id": "lucky-luke-dargaud",
@@ -973,8 +973,8 @@
     "statut": "terminée",
     "tomes_parus": 2,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 9,
+    "avis": "Dessein excellent avec ce rouge qui pointe le détail qu'il faut."
   },
   {
     "id": "okko",
@@ -1155,9 +1155,9 @@
     ],
     "statut": "en cours",
     "tomes_parus": 8,
-    "suivie": false,
-    "note": null,
-    "avis": null
+    "suivie": true,
+    "note": 8,
+    "avis": "Super ambiance et beau dessin - a suivre."
   },
   {
     "id": "xiii",
