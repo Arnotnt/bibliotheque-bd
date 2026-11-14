@@ -192,8 +192,8 @@
     "statut": "en cours",
     "tomes_parus": 22,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien pour la jeunesse."
   },
   {
     "id": "cedric",
@@ -211,8 +211,8 @@
     "statut": "en cours",
     "tomes_parus": 5,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 7,
+    "avis": "Bien pour la jeunesse."
   },
   {
     "id": "dans-la-tete-de-sherlock-holmes",
@@ -315,8 +315,8 @@
     "statut": "en cours",
     "tomes_parus": 1,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 5,
+    "avis": "Pas mon style."
   },
   {
     "id": "gaston-lagaffe",
@@ -668,8 +668,8 @@
     "statut": "en cours",
     "tomes_parus": 15,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Pas mon style."
   },
   {
     "id": "le-scorpion",
@@ -795,8 +795,8 @@
     "statut": "en cours",
     "tomes_parus": 22,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Trés bien pour la jeunesse."
   },
   {
     "id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
@@ -1043,8 +1043,8 @@
     "statut": "en cours",
     "tomes_parus": 11,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 6,
+    "avis": "Jeunesse sans plus."
   },
   {
     "id": "sangoma-les-damnes-de-cape-town",
@@ -1198,7 +1198,7 @@
     "statut": "en cours",
     "tomes_parus": 20,
     "suivie": false,
-    "note": null,
-    "avis": null
+    "note": 8,
+    "avis": "Trés bien pour la jeunesse."
   }
 ]
