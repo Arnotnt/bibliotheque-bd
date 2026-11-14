@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-14 — US-07 — Noter une série sur 10 avec un avis : demande type testée sur Okko 9/10 (#25)
 - 2026-11-14 — US-06 — Enregistrer une BD lue non achetée : demande type testée sur Undertaker T1–T3 (#24)
 - 2026-11-14 — US-10 — Recommandations basées sur mes goûts : 4 séries dans `data/reco.json` (Undertaker retirée, déjà lue), format documenté (#23)
 - 2026-11-14 — US-09 — Veille des prochains tomes : 9 séries suivies, 15 passées en terminée, 5 `tomes_parus` corrigés, compte rendu dans `docs/veille/` (#22)
