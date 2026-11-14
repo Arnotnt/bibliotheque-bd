@@ -63,8 +63,12 @@ async function chargerJSON(chemin) {
 }
 
 async function chargerDonnees() {
-  const [series, albums] = await Promise.all([chargerJSON('data/series.json'), chargerJSON('data/albums.json')]);
-  return { series, albums };
+  const [series, albums, couvertures] = await Promise.all([
+    chargerJSON('data/series.json'),
+    chargerJSON('data/albums.json'),
+    chargerJSON('data/couvertures.json').catch(() => ({})) // facultatif : sans lui, visuels par défaut
+  ]);
+  return { series, albums, couvertures };
 }
 
 /**
@@ -109,18 +113,33 @@ function enrichir(serie, albumsDeLaSerie) {
   });
 }
 
-function enrichirTout({ series, albums }) {
+function enrichirTout({ series, albums, couvertures = {} }) {
   const parSerie = new Map();
   for (const a of albums) {
     if (!parSerie.has(a.serie_id)) parSerie.set(a.serie_id, []);
     parSerie.get(a.serie_id).push(a);
   }
   return series
-    .map(s => enrichir(s, parSerie.get(s.id) || []))
+    .map(s => Object.assign(enrichir(s, parSerie.get(s.id) || []), { couverture: couvertures[s.id] || null }))
     .sort((a, b) => collator.compare(normaliser(a.titre), normaliser(b.titre)));
 }
 
 /* ---------- Affichage commun ---------- */
+
+/* Couvertures (US-12) : images d'Open Library à partir de l'EAN, sans clé ni image stockée dans le repo.
+   data/couvertures.json (généré par scripts/couvertures.py) ne contient que des EAN dont l'image
+   existe : pas de lien cassé. Sinon, le visuel par défaut (initiales) reste affiché. */
+function imageCouvertureHTML(s) {
+  if (!s.couverture) return '';
+  return '<img class="cover-img" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer"' +
+    ' src="https://covers.openlibrary.org/b/isbn/' + encodeURIComponent(s.couverture) + '-M.jpg">';
+}
+
+// Filet de sécurité si le service ne répond pas : on retire l'image, les initiales réapparaissent.
+// (Les événements error ne remontent pas : écoute en phase de capture.)
+document.addEventListener('error', e => {
+  if (e.target.classList && e.target.classList.contains('cover-img')) e.target.remove();
+}, true);
 
 const MOTS_IGNORES = new Set(['le', 'la', 'les', 'l', 'de', 'des', 'du', 'd', 'et', 'un', 'une', 'en', 'a', 'au', 'aux', 'ou']);
 
@@ -162,7 +181,7 @@ function noteBadgeHTML(note) {
 function carteHTML(s) {
   return '<li><a class="card" href="serie.html?id=' + encodeURIComponent(s.id) + '">' +
     '<div class="cover"><span class="cover-initials" aria-hidden="true">' + esc(initiales(s.titre)) + '</span>' +
-    noteBadgeHTML(s.note) + '</div>' +
+    imageCouvertureHTML(s) + noteBadgeHTML(s.note) + '</div>' +
     '<div class="card-body">' +
     '<h2>' + esc(s.titre) + '</h2>' +
     '<p class="card-authors">' + esc(auteursCourts(s.auteurs)) + '</p>' +
@@ -342,7 +361,8 @@ function serieHTML(s) {
   return '<div class="serie-layout">' +
     '<section class="serie-info">' +
       '<div class="serie-head">' +
-        '<div class="book-cover" aria-hidden="true"><span>' + esc(initiales(s.titre)) + '</span><span>Couverture</span></div>' +
+        '<div class="book-cover" aria-hidden="true"><span>' + esc(initiales(s.titre)) + '</span><span>Couverture</span>' +
+          imageCouvertureHTML(s) + '</div>' +
         '<div class="serie-title"><h1>' + esc(s.titre) + '</h1>' +
           '<p>' + esc((s.auteurs || []).join(', ')) + '</p>' +
           (s.editeur ? '<p class="editeur">' + esc(s.editeur) + '</p>' : '') +
@@ -522,10 +542,78 @@ function pageStats(series) {
     '<div class="panels">' + aParaitreHTML(series) + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + '</div>';
 }
 
+/* ---------- Page : recommandations (reco.html) ---------- */
+
+// Ordre d'affichage : ce qui m'intéresse d'abord, les recos rejetées en dernier (grisées).
+const STATUTS_RECO = ['intéressé', 'à découvrir', 'rejeté'];
+const LIBELLES_STATUT_RECO = { 'intéressé': 'Intéressé', 'à découvrir': 'À découvrir', 'rejeté': 'Rejetée' };
+
+function domaine(url) {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return url; }
+}
+
+function dateCourte(iso) {
+  const [a, m, j] = (iso || '').split('-').map(Number);
+  return j ? j + (j === 1 ? 'er' : '') + ' ' + MOIS[m - 1] + ' ' + a : '';
+}
+
+function recoHTML(r, seriesParId) {
+  const statut = STATUTS_RECO.includes(r.statut) ? r.statut : 'à découvrir';
+  const liees = (r.series_liees || []).map(id => seriesParId.get(id)).filter(Boolean).map(s =>
+    '<a href="' + lienSerie(s) + '">' + esc(s.titre) + (s.note != null ? ' <span class="r-note">' + s.note + '/10</span>' : '') + '</a>'
+  ).join('');
+  const sources = (r.sources || []).map(u =>
+    '<a href="' + esc(u) + '" rel="noopener" target="_blank">' + esc(domaine(u)) + '</a>').join(', ');
+  const meta = [r.editeur, r.tomes_parus ? r.tomes_parus + ' ' + pluriel(r.tomes_parus, 'tome') : '', r.statut_serie ? 'série ' + r.statut_serie : '']
+    .filter(Boolean).map(esc).join(' · ');
+  return '<li class="reco-card statut-' + (statut === 'rejeté' ? 'rejete' : statut === 'intéressé' ? 'interesse' : 'decouvrir') + '">' +
+    '<div class="reco-head"><div><h2>' + esc(r.titre) + '</h2>' +
+      '<p class="card-authors">' + esc((r.auteurs || []).join(', ')) + '</p></div>' +
+      '<span class="reco-statut">' + LIBELLES_STATUT_RECO[statut] + '</span></div>' +
+    (meta ? '<p class="reco-meta">' + meta + '</p>' : '') +
+    (r.parution ? '<p class="reco-meta">' + esc(r.parution) + '</p>' : '') +
+    '<p class="reco-pourquoi">' + esc(r.pourquoi) + '</p>' +
+    (liees ? '<div class="reco-liees"><span>Parce que j’ai aimé</span>' + liees + '</div>' : '') +
+    '<p class="reco-foot">Recommandée le ' + dateCourte(r.date_reco) + (sources ? ' · Sources : ' + sources : '') + '</p>' +
+  '</li>';
+}
+
+function pageReco(series, recos) {
+  const liste = document.getElementById('liste-recos');
+  const compteur = document.getElementById('compteur');
+  const puces = [...document.querySelectorAll('.chips [data-filtre]')];
+  const seriesParId = new Map(series.map(s => [s.id, s]));
+  const triees = recos.slice().sort((a, b) =>
+    STATUTS_RECO.indexOf(a.statut) - STATUTS_RECO.indexOf(b.statut) ||
+    (b.date_reco || '').localeCompare(a.date_reco || '') || collator.compare(a.titre, b.titre));
+
+  const params = new URLSearchParams(location.search);
+  let filtre = STATUTS_RECO.includes(params.get('statut')) ? params.get('statut') : 'tout';
+
+  function afficher() {
+    const resultats = filtre === 'tout' ? triees : triees.filter(r => r.statut === filtre);
+    puces.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filtre === filtre)));
+    compteur.textContent = resultats.length + ' ' + pluriel(resultats.length, 'recommandation') +
+      (filtre === 'tout' ? '' : ' · ' + LIBELLES_STATUT_RECO[filtre].toLowerCase());
+    liste.innerHTML = resultats.length
+      ? resultats.map(r => recoHTML(r, seriesParId)).join('')
+      : '<li class="message"><p>Aucune recommandation avec ce statut.</p></li>';
+    const p = new URLSearchParams();
+    if (filtre !== 'tout') p.set('statut', filtre);
+    history.replaceState(null, '', p.toString() ? '?' + p : location.pathname);
+  }
+
+  puces.forEach(b => b.addEventListener('click', () => { filtre = b.dataset.filtre; afficher(); }));
+  afficher();
+}
+
 /* ---------- Démarrage ---------- */
 
 async function demarrer() {
   initTheme();
+  // Sur mobile, la navigation défile horizontalement : on garde l'onglet courant visible.
+  const courant = document.querySelector('.main-nav [aria-current="page"]');
+  if (courant) courant.parentElement.scrollLeft = courant.offsetLeft - courant.parentElement.offsetLeft - 16;
   const page = document.body.dataset.page;
   const contenu = document.querySelector('main');
   try {
@@ -534,6 +622,7 @@ async function demarrer() {
     if (page === 'collection') pageCollection(series);
     if (page === 'serie') pageSerie(series);
     if (page === 'stats') pageStats(series);
+    if (page === 'reco') pageReco(series, await chargerJSON('data/reco.json'));
   } catch (erreur) {
     afficherErreur(contenu, erreur);
   }

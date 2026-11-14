@@ -20,6 +20,7 @@ DATA = RACINE / "data"
 FORMAT_ID = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 STATUTS_SERIE = {"en cours", "terminée", "abandonnée par moi"}
 STATUTS_RECO = {"en cours", "terminée"}
+STATUTS_AVIS_RECO = {"à découvrir", "intéressé", "rejeté"}
 # Liste fermée des genres (DATA-02), à garder identique à CLAUDE.md.
 GENRES = {
     "aventure", "fantasy", "science-fiction", "polar", "thriller", "historique",
@@ -235,6 +236,8 @@ def verifier_reco(recos, series_par_id):
             erreur(f, f"{libelle} : au moins une source est obligatoire")
         if r.get("statut_serie") not in STATUTS_RECO:
             erreur(f, f"{libelle} : statut_serie « {r.get('statut_serie')} » non autorisé")
+        if r.get("statut") not in STATUTS_AVIS_RECO:
+            erreur(f, f"{libelle} : statut « {r.get('statut')} » non autorisé ({', '.join(sorted(STATUTS_AVIS_RECO))})")
         liees = r.get("series_liees")
         if not est_liste_de_textes(liees):
             erreur(f, f"{libelle} : series_liees doit être une liste d'id")
@@ -249,6 +252,28 @@ def verifier_reco(recos, series_par_id):
             erreur(f, f"{libelle} : date_reco « {date} » invalide (AAAA-MM-JJ)")
 
 
+def verifier_couvertures(series_par_id, albums):
+    """data/couvertures.json (US-12, facultatif) : { serie_id: EAN d'un album de la série }."""
+    f = "couvertures.json"
+    chemin = DATA / f
+    if not chemin.exists():
+        return
+    try:
+        couvertures = json.loads(chemin.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        erreur(f, f"JSON invalide (ligne {e.lineno}, colonne {e.colno}) : {e.msg}")
+        return
+    if not isinstance(couvertures, dict):
+        erreur(f, "le contenu doit être un objet { serie_id: ean }")
+        return
+    eans = {(a.get("serie_id"), a.get("ean")) for a in albums if isinstance(a, dict)}
+    for sid, ean in couvertures.items():
+        if sid not in series_par_id:
+            erreur(f, f"« {sid} » absent de series.json (relancer scripts/couvertures.py)")
+        elif (sid, ean) not in eans:
+            erreur(f, f"« {sid} » : EAN {ean} ne correspond à aucun album de la série (relancer scripts/couvertures.py)")
+
+
 def main():
     series = charger("series.json")
     albums = charger("albums.json")
@@ -259,6 +284,8 @@ def main():
         verifier_albums(albums, series_par_id)
     if recos is not None and series is not None:
         verifier_reco(recos, series_par_id)
+    if albums is not None and series is not None:
+        verifier_couvertures(series_par_id, albums)
 
     for a in avertissements:
         print(f"⚠️  {a}")

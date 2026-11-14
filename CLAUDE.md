@@ -48,7 +48,8 @@ Chaque issue porte exactement un label type, un epic, une priorité et une estim
 - [ ] Tous les critères d'acceptance de l'issue sont vérifiés
 - [ ] Testé en local (`python3 -m http.server` puis http://localhost:8000)
 - [ ] Aucune erreur dans la console du navigateur
-- [ ] `python3 scripts/verifier_donnees.py` passe (0 erreur ; vérifié aussi par l'Action sur la PR)
+- [ ] `python3 scripts/couvertures.py     choisit une couverture par série sur Open Library → data/couvertures.json
+scripts/verifier_donnees.py` passe (0 erreur ; vérifié aussi par l'Action sur la PR)
 - [ ] `docs/JOURNAL.md` mis à jour
 - [ ] La description de la PR contient `Closes #N`
 
@@ -62,11 +63,13 @@ Chaque issue porte exactement un label type, un epic, une priorité et une estim
 index.html          accueil : liste des séries, filtres, recherche
 serie.html          détail d'une série (?id=...)
 stats.html          tableau de bord
+reco.html           recommandations (data/reco.json), filtrables par statut
 css/style.css
 js/app.js
 data/series.json    une entrée par série
 data/albums.json    une entrée par album
 data/reco.json      recommandations issues des veilles
+data/couvertures.json  couverture de chaque série (EAN vérifié sur Open Library), généré
 scripts/import_bubble.py   import unique de l'export Bubble (CSV)
 scripts/setup_github.sh    création des labels, milestones et issues du Sprint 0
 scripts/verifier_donnees.py  vérification de data/*.json (format, doublons, cohérence)
@@ -123,6 +126,11 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - Lu sans être acheté : `possede: false, lu: true`.
 - Les manquants ne sont pas stockés : ce sont les tomes de 1 à `tomes_parus` absents de `albums.json` ou avec `possede: false`.
 
+`data/couvertures.json` (US-12) : `{ "blacksad": "9782205049657", … }`, généré par `python3 scripts/couvertures.py`, jamais édité à la main.
+- Pour chaque série, le premier album (par numéro de tome) dont l'EAN a une image sur [Open Library](https://openlibrary.org/dev/docs/api/covers) ; le site affiche `https://covers.openlibrary.org/b/isbn/<EAN>-M.jpg`. Aucune image n'est stockée dans le repo.
+- Série absente du fichier = visuel par défaut (initiales). Couverture d'environ 60 % des séries au 2026-11-14 (37 sur 61).
+- Open Library limite les requêtes par ISBN (environ 100 toutes les 5 minutes par adresse IP) : ne pas relancer le script en boucle.
+
 `data/reco.json` (US-10) : une entrée par série recommandée, jamais une série déjà dans `series.json`.
 ```json
 {
@@ -136,13 +144,15 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
   "pourquoi": "Justification à partir de mes notes et avis.",
   "series_liees": ["1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta"],
   "sources": ["https://…"],
-  "date_reco": "2026-11-14"
+  "date_reco": "2026-11-14",
+  "statut": "à découvrir"
 }
 ```
 - Une série que je lis ou ajoute à ma collection sort de `reco.json`.
 - `series_liees` : `id` de mes séries (notées ≥ 8 de préférence) qui justifient la recommandation.
 - `sources` : au moins une URL qui confirme les tomes et les dates.
 - Une nouvelle demande de recommandations ajoute des entrées ; on ne supprime une reco qu'avec mon accord.
+- `statut` (US-11) : `à découvrir` (par défaut à la création) | `intéressé` | `rejeté`. Une reco rejetée reste dans le fichier et s'affiche grisée sur la page Recommandations, filtrable par statut.
 
 ## Règles pour Claude
 - Toujours répondre en français.
@@ -158,9 +168,11 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - « J'ai acheté et lu Blacksad tome 8 » → ajouter ou mettre à jour l'album.
 - « J'ai lu Undertaker 1 à 3 chez un ami » → albums `possede: false, lu: true`.
   Si la série n'existe pas encore : la créer (`suivie: false`, `note: null`, `tomes_parus` d'après une source), puis ajouter les albums avec `date_ajout` du jour et `ean: null` si inconnu. Testé le 2026-11-14 sur Undertaker.
+  Après l'ajout d'albums ou d'une série, relancer `python3 scripts/couvertures.py` pour lui trouver une couverture.
 - « Note Tyler Cross 9/10 : ambiance géniale » → mettre à jour la série.
   `note` : entier de 0 à 10 ; `avis` : le texte donné, avec une majuscule et un point final, sans le réécrire. Testé le 2026-11-14 sur Okko.
 - « Fais la veille des nouveautés » → pour chaque série `suivie`, chercher les tomes à paraître et mettre à jour `tomes_parus`.
+- « Long John Silver m'intéresse » / « Rejette De Cape et de Crocs » → mettre à jour `statut` dans `data/reco.json` (`intéressé` ou `rejeté`), sans supprimer l'entrée.
 - « Recommande-moi 5 séries » → partir de mes séries notées ≥ 8 (auteurs, genres, ton de mes avis), proposer des séries que je n'ai pas, écrire le résultat dans `data/reco.json`.
 
 ## Procédure de veille (US-09)

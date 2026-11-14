@@ -20,7 +20,8 @@
       "https://www.senscritique.com/groupe/Il_etait_une_fois_en_France/4939",
       "https://www.rtbf.be/article/il-etait-une-fois-en-france-6-la-terre-promise-7870578"
     ],
-    "date_reco": "2026-11-14"
+    "date_reco": "2026-11-14",
+    "statut": "à découvrir"
   },
   {
     "id": "long-john-silver",
@@ -42,7 +43,8 @@
       "https://www.laprocure.com/product/534256/lauffray-mathieu-long-john-silver-vol-4-guyanacapac",
       "https://en.wikipedia.com/wiki/Long_John_Silver_(comics)"
     ],
-    "date_reco": "2026-11-14"
+    "date_reco": "2026-11-14",
+    "statut": "à découvrir"
   },
   {
     "id": "le-chateau-des-animaux",
@@ -64,7 +66,8 @@
       "https://www.critiqueslibres.com/livre/72992-le-chateau-des-animaux-tome-4-le-sang-du-roi",
       "https://www.rtbf.be/article/le-chateau-des-animaux-un-conte-animalier-touchant-sur-fond-de-dictature-11119113"
     ],
-    "date_reco": "2026-11-14"
+    "date_reco": "2026-11-14",
+    "statut": "à découvrir"
   },
   {
     "id": "de-cape-et-de-crocs",
@@ -86,6 +89,7 @@
       "https://comicbooks.com/series/de-cape-et-de-crocs-1995",
       "https://leclaireur.fnac.com/article/cp32793-de-cape-et-de-crocs-deux-decennies-daventures/"
     ],
-    "date_reco": "2026-11-14"
+    "date_reco": "2026-11-14",
+    "statut": "à découvrir"
   }
 ]
