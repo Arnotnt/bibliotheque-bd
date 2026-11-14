@@ -1,0 +1,91 @@
+[
+  {
+    "id": "il-etait-une-fois-en-france",
+    "titre": "Il était une fois en France",
+    "auteurs": [
+      "Fabien Nury",
+      "Sylvain Vallée"
+    ],
+    "editeur": "Glénat",
+    "tomes_parus": 6,
+    "statut_serie": "terminée",
+    "parution": "6 tomes, du 02/10/2007 au 24/10/2012 ; intégrale disponible",
+    "pourquoi": "Le scénariste de Tyler Cross (10/10) et le dessinateur de Habemus Bastard réunis : une fresque noire sous l'Occupation, finie en 6 tomes. Le même goût pour les anti-héros que Le Scorpion (8/10).",
+    "series_liees": [
+      "tyler-cross",
+      "habemus-bastard",
+      "le-scorpion"
+    ],
+    "sources": [
+      "https://www.senscritique.com/groupe/Il_etait_une_fois_en_France/4939",
+      "https://www.rtbf.be/article/il-etait-une-fois-en-france-6-la-terre-promise-7870578"
+    ],
+    "date_reco": "2026-11-14"
+  },
+  {
+    "id": "long-john-silver",
+    "titre": "Long John Silver",
+    "auteurs": [
+      "Xavier Dorison",
+      "Mathieu Lauffray"
+    ],
+    "editeur": "Dargaud",
+    "tomes_parus": 4,
+    "statut_serie": "terminée",
+    "parution": "4 tomes, le dernier (« Guyanacapac ») en novembre 2013 ; intégrale disponible",
+    "pourquoi": "Aventure maritime de Dorison, dans la veine de 1629 (10/10) : naufrages, équipages et trésor maudit, en 4 tomes finis avec des planches très soignées.",
+    "series_liees": [
+      "1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta",
+      "le-troisieme-testament"
+    ],
+    "sources": [
+      "https://www.laprocure.com/product/534256/lauffray-mathieu-long-john-silver-vol-4-guyanacapac",
+      "https://en.wikipedia.com/wiki/Long_John_Silver_(comics)"
+    ],
+    "date_reco": "2026-11-14"
+  },
+  {
+    "id": "le-chateau-des-animaux",
+    "titre": "Le Château des animaux",
+    "auteurs": [
+      "Xavier Dorison",
+      "Félix Delep"
+    ],
+    "editeur": "Casterman",
+    "tomes_parus": 4,
+    "statut_serie": "terminée",
+    "parution": "4 tomes, le dernier (« Le Sang du roi ») le 12/11/2025",
+    "pourquoi": "Une fable animalière politique : pour le lecteur de Blacksad (10/10), c'est l'animalier mis au service d'une grande histoire. Elle est encore signée Dorison, et finie en 4 tomes.",
+    "series_liees": [
+      "blacksad",
+      "le-troisieme-testament"
+    ],
+    "sources": [
+      "https://www.critiqueslibres.com/livre/72992-le-chateau-des-animaux-tome-4-le-sang-du-roi",
+      "https://www.rtbf.be/article/le-chateau-des-animaux-un-conte-animalier-touchant-sur-fond-de-dictature-11119113"
+    ],
+    "date_reco": "2026-11-14"
+  },
+  {
+    "id": "de-cape-et-de-crocs",
+    "titre": "De cape et de crocs",
+    "auteurs": [
+      "Alain Ayroles",
+      "Jean-Luc Masbou"
+    ],
+    "editeur": "Delcourt",
+    "tomes_parus": 12,
+    "statut_serie": "terminée",
+    "parution": "12 tomes, de 1995 à 2016",
+    "pourquoi": "Du scénariste des Indes fourbes (10/10) : le même panache picaresque et les mêmes dialogues en vers, avec un duo de cape et d'épée animalier qui plaira aussi au lecteur de Blacksad.",
+    "series_liees": [
+      "les-indes-fourbes",
+      "blacksad"
+    ],
+    "sources": [
+      "https://comicbooks.com/series/de-cape-et-de-crocs-1995",
+      "https://leclaireur.fnac.com/article/cp32793-de-cape-et-de-crocs-deux-decennies-daventures/"
+    ],
+    "date_reco": "2026-11-14"
+  }
+]

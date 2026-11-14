@@ -112,6 +112,27 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - Lu sans être acheté : `possede: false, lu: true`.
 - Les manquants ne sont pas stockés : ce sont les tomes de 1 à `tomes_parus` absents de `albums.json` ou avec `possede: false`.
 
+`data/reco.json` (US-10) : une entrée par série recommandée, jamais une série déjà dans `series.json`.
+```json
+{
+  "id": "long-john-silver",
+  "titre": "Long John Silver",
+  "auteurs": ["Xavier Dorison", "Mathieu Lauffray"],
+  "editeur": "Dargaud",
+  "tomes_parus": 4,
+  "statut_serie": "terminée",
+  "parution": "4 tomes, le dernier en novembre 2013",
+  "pourquoi": "Justification à partir de mes notes et avis.",
+  "series_liees": ["1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta"],
+  "sources": ["https://…"],
+  "date_reco": "2026-11-14"
+}
+```
+- Une série que je lis ou ajoute à ma collection sort de `reco.json`.
+- `series_liees` : `id` de mes séries (notées ≥ 8 de préférence) qui justifient la recommandation.
+- `sources` : au moins une URL qui confirme les tomes et les dates.
+- Une nouvelle demande de recommandations ajoute des entrées ; on ne supprime une reco qu'avec mon accord.
+
 ## Règles pour Claude
 - Toujours répondre en français.
 - Avant toute modification de `data/`, montrer ce qui change, puis commiter avec un message clair (ex. « Ajout Blacksad T8, lu, possédé »).
