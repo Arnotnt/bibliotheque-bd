@@ -27,6 +27,8 @@ GENRES = {
     "western", "humour", "jeunesse", "espionnage", "fantastique", "animalier",
     "guerre", "aviation", "shōnen", "sport", "documentaire",
 }
+# Valeurs du champ facultatif `regard` (DATA-03) : la série ne guide pas les recos.
+REGARDS = {"classique", "jeunesse", "hors goût", "non suivi"}
 
 erreurs = []
 avertissements = []
@@ -169,6 +171,9 @@ def verifier_series(series):
         note = s.get("note")
         if note is not None and not (est_entier(note) and 0 <= note <= 10):
             erreur(f, f"{libelle} : note « {note} » invalide (entier de 0 à 10, ou null)")
+        if "regard" in s and s["regard"] not in REGARDS:
+            erreur(f, f"{libelle} : regard « {s['regard']} » non autorisé ({', '.join(sorted(REGARDS))}), "
+                      "ou champ absent si la série reflète mes goûts actuels")
         if "a_paraitre" in s:
             verifier_a_paraitre(f, libelle, s)
         if s.get("suivie") is True and s.get("statut") != "en cours":
@@ -245,6 +250,9 @@ def verifier_reco(recos, series_par_id):
             for sid in liees:
                 if sid not in series_par_id:
                     erreur(f, f"{libelle} : series_liees « {sid} » absent de series.json")
+                elif "regard" in series_par_id[sid]:
+                    erreur(f, f"{libelle} : series_liees « {sid} » a un regard "
+                              f"« {series_par_id[sid]['regard']} », elle ne peut pas justifier une reco")
         date = r.get("date_reco")
         try:
             datetime.date.fromisoformat(date)

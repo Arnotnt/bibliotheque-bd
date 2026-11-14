@@ -36,7 +36,8 @@
     "tomes_parus": 1,
     "suivie": false,
     "note": 5,
-    "avis": "En BD, cela ne marche pas."
+    "avis": "En BD, cela ne marche pas.",
+    "regard": "hors goût"
   },
   {
     "id": "achille-talon",
@@ -53,7 +54,8 @@
     "tomes_parus": 34,
     "suivie": false,
     "note": 7,
-    "avis": "Bien mais j'ai arrêté de suivre."
+    "avis": "Bien mais j'ai arrêté de suivre.",
+    "regard": "non suivi"
   },
   {
     "id": "adele-blanc-sec",
@@ -71,7 +73,8 @@
     "tomes_parus": 8,
     "suivie": false,
     "note": 7,
-    "avis": "Mais non suivi."
+    "avis": "Mais non suivi.",
+    "regard": "non suivi"
   },
   {
     "id": "aquablue",
@@ -92,7 +95,8 @@
     "tomes_parus": 5,
     "suivie": false,
     "note": 6,
-    "avis": "Sans plus."
+    "avis": "Sans plus.",
+    "regard": "non suivi"
   },
   {
     "id": "asterix",
@@ -114,7 +118,8 @@
     "tomes_parus": 41,
     "suivie": true,
     "note": 9,
-    "avis": "Classique incontournable."
+    "avis": "Classique incontournable.",
+    "regard": "classique"
   },
   {
     "id": "blacksad",
@@ -154,7 +159,8 @@
     "tomes_parus": 31,
     "suivie": false,
     "note": 8,
-    "avis": "Bien mais répétitif - j'ai arrêté de suivre."
+    "avis": "Bien mais répétitif - j'ai arrêté de suivre.",
+    "regard": "non suivi"
   },
   {
     "id": "blueberry",
@@ -172,7 +178,8 @@
     "tomes_parus": 26,
     "suivie": false,
     "note": 8,
-    "avis": "Bien mais je n'ai pas accroché - à ne pas suivre."
+    "avis": "Bien mais je n'ai pas accroché - à ne pas suivre.",
+    "regard": "hors goût"
   },
   {
     "id": "boule-et-bill",
@@ -193,7 +200,8 @@
     "tomes_parus": 22,
     "suivie": false,
     "note": 7,
-    "avis": "Bien pour la jeunesse."
+    "avis": "Bien pour la jeunesse.",
+    "regard": "jeunesse"
   },
   {
     "id": "cedric",
@@ -212,7 +220,8 @@
     "tomes_parus": 5,
     "suivie": false,
     "note": 7,
-    "avis": "Bien pour la jeunesse."
+    "avis": "Bien pour la jeunesse.",
+    "regard": "jeunesse"
   },
   {
     "id": "dans-la-tete-de-sherlock-holmes",
@@ -280,7 +289,8 @@
     "tomes_parus": 13,
     "suivie": false,
     "note": 8,
-    "avis": "Bien selon les dossiers - à ne pas suivre."
+    "avis": "Bien selon les dossiers - à ne pas suivre.",
+    "regard": "non suivi"
   },
   {
     "id": "durandal-la-marche-de-bretagne",
@@ -299,7 +309,8 @@
     "tomes_parus": 4,
     "suivie": false,
     "note": 6,
-    "avis": "Sans plus."
+    "avis": "Sans plus.",
+    "regard": "non suivi"
   },
   {
     "id": "focu",
@@ -316,7 +327,8 @@
     "tomes_parus": 1,
     "suivie": false,
     "note": 5,
-    "avis": "Pas mon style."
+    "avis": "Pas mon style.",
+    "regard": "hors goût"
   },
   {
     "id": "gaston-lagaffe",
@@ -334,7 +346,8 @@
     "tomes_parus": 15,
     "suivie": false,
     "note": 9,
-    "avis": "Classique incontournable."
+    "avis": "Classique incontournable.",
+    "regard": "classique"
   },
   {
     "id": "goldorak",
@@ -446,7 +459,8 @@
     "tomes_parus": 13,
     "suivie": false,
     "note": 6,
-    "avis": "Sans plus."
+    "avis": "Sans plus.",
+    "regard": "non suivi"
   },
   {
     "id": "jerry-spring",
@@ -463,7 +477,8 @@
     "tomes_parus": 10,
     "suivie": false,
     "note": 7,
-    "avis": "Bien, sans plus - à ne pas suivre."
+    "avis": "Bien, sans plus - à ne pas suivre.",
+    "regard": "non suivi"
   },
   {
     "id": "jusqu-au-dernier",
@@ -633,7 +648,8 @@
     "tomes_parus": 1,
     "suivie": false,
     "note": 7,
-    "avis": "Classique mais pas suivi."
+    "avis": "Classique mais pas suivi.",
+    "regard": "non suivi"
   },
   {
     "id": "le-chant-d-excalibur",
@@ -669,7 +685,8 @@
     "tomes_parus": 15,
     "suivie": false,
     "note": 6,
-    "avis": "Pas mon style."
+    "avis": "Pas mon style.",
+    "regard": "hors goût"
   },
   {
     "id": "le-scorpion",
@@ -777,7 +794,8 @@
     "tomes_parus": 6,
     "suivie": false,
     "note": 6,
-    "avis": "Sans plus."
+    "avis": "Sans plus.",
+    "regard": "non suivi"
   },
   {
     "id": "leonard",
@@ -796,7 +814,8 @@
     "tomes_parus": 22,
     "suivie": false,
     "note": 8,
-    "avis": "Très bien pour la jeunesse."
+    "avis": "Très bien pour la jeunesse.",
+    "regard": "jeunesse"
   },
   {
     "id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
@@ -815,7 +834,8 @@
     "tomes_parus": 5,
     "suivie": false,
     "note": 7,
-    "avis": "Bien, de jeunesse - à ne pas suivre."
+    "avis": "Bien, de jeunesse - à ne pas suivre.",
+    "regard": "jeunesse"
   },
   {
     "id": "les-indes-fourbes",
@@ -857,7 +877,8 @@
     "tomes_parus": 34,
     "suivie": false,
     "note": 8,
-    "avis": "Très bien, des aventures et de l'humour, parfait pour la jeunesse."
+    "avis": "Très bien, des aventures et de l'humour, parfait pour la jeunesse.",
+    "regard": "jeunesse"
   },
   {
     "id": "logicomix",
@@ -898,7 +919,8 @@
     "tomes_parus": 29,
     "suivie": false,
     "note": 8,
-    "avis": "Très bien mais j'ai arrêté de suivre."
+    "avis": "Très bien mais j'ai arrêté de suivre.",
+    "regard": "non suivi"
   },
   {
     "id": "marsupilami",
@@ -920,7 +942,8 @@
     "tomes_parus": 7,
     "suivie": false,
     "note": 7,
-    "avis": "Bien pour la jeunesse."
+    "avis": "Bien pour la jeunesse.",
+    "regard": "jeunesse"
   },
   {
     "id": "michel-vaillant",
@@ -939,7 +962,8 @@
     "tomes_parus": 36,
     "suivie": false,
     "note": 8,
-    "avis": "Bien mais j'ai arrêté de suivre."
+    "avis": "Bien mais j'ai arrêté de suivre.",
+    "regard": "non suivi"
   },
   {
     "id": "modeste-et-pompon-himalaya",
@@ -957,7 +981,8 @@
     "tomes_parus": 4,
     "suivie": false,
     "note": 6,
-    "avis": "Sans plus."
+    "avis": "Sans plus.",
+    "regard": "non suivi"
   },
   {
     "id": "noir-burlesque",
@@ -1044,7 +1069,8 @@
     "tomes_parus": 11,
     "suivie": false,
     "note": 6,
-    "avis": "Jeunesse, sans plus."
+    "avis": "Jeunesse, sans plus.",
+    "regard": "jeunesse"
   },
   {
     "id": "sangoma-les-damnes-de-cape-town",
@@ -1084,7 +1110,8 @@
     "tomes_parus": 41,
     "suivie": false,
     "note": 8,
-    "avis": "Très bien, des aventures et de l'humour, parfait pour la jeunesse."
+    "avis": "Très bien, des aventures et de l'humour, parfait pour la jeunesse.",
+    "regard": "jeunesse"
   },
   {
     "id": "tanguy-et-laverdure-charlier",
@@ -1104,7 +1131,8 @@
     "tomes_parus": 11,
     "suivie": false,
     "note": 8,
-    "avis": "Classique - vieux, suivi arrêté."
+    "avis": "Classique - vieux, suivi arrêté.",
+    "regard": "classique"
   },
   {
     "id": "tintin",
@@ -1121,7 +1149,8 @@
     "tomes_parus": 23,
     "suivie": false,
     "note": 9,
-    "avis": "Classique incontournable."
+    "avis": "Classique incontournable.",
+    "regard": "classique"
   },
   {
     "id": "tyler-cross",
@@ -1199,6 +1228,7 @@
     "tomes_parus": 20,
     "suivie": false,
     "note": 8,
-    "avis": "Très bien pour la jeunesse."
+    "avis": "Très bien pour la jeunesse.",
+    "regard": "jeunesse"
   }
 ]
