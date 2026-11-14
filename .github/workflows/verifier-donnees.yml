@@ -1,0 +1,21 @@
+# Vérifie data/*.json à chaque PR et à chaque push sur main (OPT-01).
+name: Vérifier les données
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Vérifier data/*.json
+        run: python3 scripts/verifier_donnees.py
