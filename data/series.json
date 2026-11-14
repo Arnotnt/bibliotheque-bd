@@ -112,7 +112,7 @@
     ],
     "statut": "en cours",
     "tomes_parus": 41,
-    "suivie": false,
+    "suivie": true,
     "note": 9,
     "avis": "Classique incontournable."
   },
