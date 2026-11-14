@@ -425,7 +425,7 @@
     ],
     "statut": "en cours",
     "tomes_parus": 1,
-    "suivie": false,
+    "suivie": true,
     "note": 7,
     "avis": "Idée interessante, j'espere plus de la suite."
   },
