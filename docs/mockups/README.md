@@ -24,7 +24,7 @@ Les autres variantes (mobile, sombre, aucun résultat, Undertaker) sont sur le c
 
 [![Badges regard](04-badges-regard.png)](04-badges-regard.png)
 
-**Variante B retenue** par le PO le 2026-11-14 (badge sous les auteurs). La variante A (sur la couverture) est gardée pour mémoire. Modes clair et sombre. Source : [`04-badges-regard.html`](source/04-badges-regard.html), une page HTML qui s'ouvre directement dans le navigateur (styles du site recopiés). Notes et regards fictifs.
+**Variante B retenue** par le PO le 2026-11-14 (badges sous les auteurs, avec « Terminée » pour les séries finies). La variante A (sur la couverture) est gardée pour mémoire. Modes clair et sombre. Source : [`04-badges-regard.html`](source/04-badges-regard.html), une page HTML qui s'ouvre directement dans le navigateur (styles du site recopiés). Notes et regards fictifs.
 
 ## Charte
 
