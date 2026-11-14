@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquette US-18 — À acheter</title>
+<!-- Maquette statique de la page « À acheter » (US-18, issue #50).
+     Données réelles au 2026-11-14, écrites en dur. À ouvrir via python3 -m http.server :
+     http://localhost:8000/docs/mockups/source/05-envies.html (?classiques=1, ?theme=dark) -->
+<script>
+  (function () {
+    var p = new URLSearchParams(location.search);
+    document.documentElement.dataset.theme = p.get('theme') === 'dark' ? 'dark' : 'light';
+  })();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap">
+<link rel="stylesheet" href="../../../css/style.css">
+<style>
+  /* Styles propres à la page « À acheter » (à reporter dans css/style.css). */
+  main.page-envies { padding-top: 20px; gap: 16px; }
+  .envies-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+  .envies-head p { margin: 4px 0 0; color: var(--ink2); font-size: 15px; }
+  .envies-total {
+    padding: 6px 14px; border-radius: 10px; background: var(--misstint); border: 2px dashed var(--miss);
+    color: var(--miss); font-family: Literata, Georgia, serif; font-weight: 700; font-size: 26px; line-height: 1.1; text-align: center;
+  }
+  .envies-total small { display: block; font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; font-weight: 700; }
+  .envies-options { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px;
+    padding: 10px 12px; background: var(--surf2); border-radius: 10px; }
+  .envies-options label { display: flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; font-size: 15px; }
+  .envies-options input { width: 20px; height: 20px; accent-color: var(--read); }
+  .envies-options .hint { color: var(--ink2); font-size: 14px; }
+  .btn-print { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--surf); color: var(--ink); font: inherit; font-weight: 700; cursor: pointer; }
+  .groupe-titre { margin: 8px 0 0; font-size: 20px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .groupe-titre span { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 14px; font-weight: 400; color: var(--ink2); }
+  .envies { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .envie { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 4px 14px; align-items: start;
+    padding: 12px; background: var(--surf); border: 1px solid var(--line); border-radius: 12px; }
+  .envie .mini-cover { grid-row: span 2; width: 54px; aspect-ratio: 3 / 4; border-radius: 3px 6px 6px 3px; background: var(--cover);
+    position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
+  .envie .mini-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .envie h3 { margin: 0; font-size: 17px; line-height: 1.25; }
+  .envie h3 a { text-decoration: none; }
+  .envie h3 a:hover { text-decoration: underline; }
+  .envie .auteurs { margin: 0; font-size: 13px; color: var(--ink2); }
+  .envie .note { padding: 2px 8px; border-radius: 6px; background: var(--surf2); font-weight: 700; font-size: 14px; white-space: nowrap; }
+  .envie .tomes { grid-column: 2 / -1; display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+  .envie .tomes-grid .cell { width: 34px; height: 34px; font-size: 13px; }
+  .envie .detail { margin: 0; font-size: 14px; }
+  .envie .detail .lnp { color: var(--read); font-weight: 700; }
+  .envie .detail .dispo { color: var(--ink2); }
+  .groupe-classiques[hidden] { display: none; }
+  @media (max-width: 520px) {
+    .envie { grid-template-columns: 44px minmax(0, 1fr) auto; gap: 2px 10px; }
+    .envie .mini-cover { width: 44px; grid-row: span 1; }
+    .envie .tomes { grid-column: 1 / -1; }
+  }
+  @media print {
+    .site-header, .envies-options, .site-footer, .mini-cover { display: none !important; }
+    .envie { grid-template-columns: minmax(0, 1fr) auto; break-inside: avoid; border: none; padding: 4px 0; }
+    .envie .tomes { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body data-page="envies">
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-top">
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="4" height="16" rx="1"/><rect x="9" y="6" width="4" height="14" rx="1"/><path d="M15.2 6.6l3.9-1 3 13.6-3.9 1z"/></svg>
+        <div>
+          <h1><a href="#">Bibliothèque BD d'Arnaud</a></h1>
+          <p>61 séries · <span class="stat-own">300 albums</span> · <span class="stat-read">76 % lus</span></p>
+        </div>
+      </div>
+      <button type="button" class="theme-toggle" aria-label="Changer de thème">
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <a href="#">Collection</a>
+      <a href="#" aria-current="page">À acheter</a>
+      <a href="#">Tableau de bord</a>
+      <a href="#">Recommandations</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container page-envies">
+  <div class="envies-head">
+    <div>
+      <h1 class="page-title">À acheter</h1>
+      <p>Les tomes parus qui me manquent, dans les séries qui me plaisent. Triés par note.</p>
+    </div>
+    <div class="envies-total" id="total">11<small>tomes · 4 séries</small></div>
+  </div>
+
+  <div class="envies-options">
+    <label><input type="checkbox" id="classiques"> <span>Ajouter les classiques <span class="hint">(Astérix, Gaston, Tintin… · 34 tomes)</span></span></label>
+    <button type="button" class="btn-print" onclick="window.print()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg>
+      Imprimer la liste
+    </button>
+  </div>
+
+  <h2 class="groupe-titre">Mes séries <span>11 tomes</span></h2>
+  <ul class="envies">
+    <li class="envie">
+      <div class="mini-cover"><img src="https://cdn1.ankama-shop.com/3133-large_default/dans-la-tete-de-sherlock-holmes-tome-1.jpg" alt=""></div>
+      <div><h3><a href="#">Dans la Tête de Sherlock Holmes</a></h3><p class="auteurs">Cyril Lieron, Benoît Dahan</p></div>
+      <span class="note">9/10</span>
+      <div class="tomes">
+        <ul class="tomes-grid"><li class="st-manquant"><span class="cell">3</span></li></ul>
+        <p class="detail">Tome 3 <span class="dispo">· 1 tome</span></p>
+      </div>
+    </li>
+    <li class="envie">
+      <div class="mini-cover"><img src="https://covers.openlibrary.org/b/isbn/9782302015906-M.jpg" alt=""></div>
+      <div><h3><a href="#">Lanfeust de Troy</a></h3><p class="auteurs">Christophe Arleston, Didier Tarquin</p></div>
+      <span class="note">8/10</span>
+      <div class="tomes">
+        <ul class="tomes-grid"><li class="st-manquant"><span class="cell">10</span></li></ul>
+        <p class="detail">Tome 10 <span class="dispo">· 1 tome</span></p>
+      </div>
+    </li>
+    <li class="envie">
+      <div class="mini-cover"><img src="https://covers.openlibrary.org/b/isbn/9782871293729-M.jpg" alt=""></div>
+      <div><h3><a href="#">Le Scorpion</a></h3><p class="auteurs">Stephen Desberg, Enrico Marini, Luigi Critone</p></div>
+      <span class="note">8/10</span>
+      <div class="tomes">
+        <ul class="tomes-grid"><li class="st-manquant"><span class="cell">14</span></li></ul>
+        <p class="detail">Tome 14 <span class="dispo">· 1 tome</span></p>
+      </div>
+    </li>
+    <li class="envie">
+      <div class="mini-cover"><img src="https://covers.openlibrary.org/b/id/10846130-M.jpg" alt=""></div>
+      <div><h3><a href="#">Undertaker</a></h3><p class="auteurs">Xavier Dorison, Ralph Meyer</p></div>
+      <span class="note">8/10</span>
+      <div class="tomes">
+        <ul class="tomes-grid">
+          <li class="st-lnp"><span class="cell">1</span></li><li class="st-lnp"><span class="cell">2</span></li><li class="st-lnp"><span class="cell">3</span></li>
+          <li class="st-manquant"><span class="cell">4</span></li><li class="st-manquant"><span class="cell">5</span></li><li class="st-manquant"><span class="cell">6</span></li>
+          <li class="st-manquant"><span class="cell">7</span></li><li class="st-manquant"><span class="cell">8</span></li>
+        </ul>
+        <p class="detail">Tomes 1 à 8 <span class="dispo">· 8 tomes, dont</span> <span class="lnp">3 déjà lus</span></p>
+      </div>
+    </li>
+  </ul>
+
+  <div class="groupe-classiques" id="groupe-classiques" hidden>
+    <h2 class="groupe-titre">Classiques <span>34 tomes · achetés par fidélité</span></h2>
+    <ul class="envies">
+      <li class="envie">
+        <div class="mini-cover"><img src="https://covers.openlibrary.org/b/isbn/9782012101333-M.jpg" alt=""></div>
+        <div><h3><a href="#">Astérix</a></h3><p class="auteurs">René Goscinny, Albert Uderzo, Fabcaro, Didier Conrad</p></div>
+        <span class="note">9/10</span>
+        <div class="tomes">
+          <ul class="tomes-grid">
+            <li class="st-manquant"><span class="cell">2</span></li><li class="st-manquant"><span class="cell">9</span></li><li class="st-manquant"><span class="cell">10</span></li><li class="st-manquant"><span class="cell">11</span></li>
+            <li class="st-manquant"><span class="cell">14</span></li><li class="st-manquant"><span class="cell">16</span></li><li class="st-manquant"><span class="cell">18</span></li><li class="st-manquant"><span class="cell">19</span></li>
+            <li class="st-manquant"><span class="cell">21</span></li><li class="st-manquant"><span class="cell">24</span></li><li class="st-manquant"><span class="cell">25</span></li><li class="st-manquant"><span class="cell">26</span></li>
+            <li class="st-manquant"><span class="cell">31</span></li><li class="st-manquant"><span class="cell">32</span></li><li class="st-manquant"><span class="cell">34</span></li><li class="st-manquant"><span class="cell">35</span></li>
+          </ul>
+          <p class="detail">Tomes 2, 9 à 11, 14, 16, 18, 19, 21, 24 à 26, 31, 32, 34, 35 <span class="dispo">· 16 tomes</span></p>
+        </div>
+      </li>
+      <li class="envie">
+        <div class="mini-cover"><img src="https://covers.openlibrary.org/b/isbn/9782800137445-M.jpg" alt=""></div>
+        <div><h3><a href="#">Gaston Lagaffe</a></h3><p class="auteurs">André Franquin, Delaf</p></div>
+        <span class="note">9/10</span>
+        <div class="tomes">
+          <ul class="tomes-grid">
+            <li class="st-manquant"><span class="cell">1</span></li><li class="st-manquant"><span class="cell">2</span></li><li class="st-manquant"><span class="cell">3</span></li><li class="st-manquant"><span class="cell">4</span></li>
+            <li class="st-manquant"><span class="cell">9</span></li><li class="st-manquant"><span class="cell">11</span></li><li class="st-manquant"><span class="cell">12</span></li><li class="st-manquant"><span class="cell">13</span></li>
+          </ul>
+          <p class="detail">Tomes 1 à 4, 9, 11 à 13 <span class="dispo">· 8 tomes</span></p>
+        </div>
+      </li>
+      <li class="envie">
+        <div class="mini-cover"><img src="https://covers.openlibrary.org/b/isbn/9782203001015-M.jpg" alt=""></div>
+        <div><h3><a href="#">Tintin</a></h3><p class="auteurs">Hergé</p></div>
+        <span class="note">9/10</span>
+        <div class="tomes">
+          <ul class="tomes-grid"><li class="st-manquant"><span class="cell">1</span></li></ul>
+          <p class="detail">Tome 1 <span class="dispo">· 1 tome</span></p>
+        </div>
+      </li>
+      <li class="envie">
+        <div class="mini-cover"><img src="https://covers.openlibrary.org/b/id/3090655-M.jpg" alt=""></div>
+        <div><h3><a href="#">Tanguy et Laverdure (Charlier)</a></h3><p class="auteurs">Jean-Michel Charlier, Albert Uderzo, Jijé</p></div>
+        <span class="note">8/10</span>
+        <div class="tomes">
+          <ul class="tomes-grid">
+            <li class="st-manquant"><span class="cell">2</span></li><li class="st-manquant"><span class="cell">3</span></li><li class="st-manquant"><span class="cell">4</span></li><li class="st-manquant"><span class="cell">5</span></li>
+            <li class="st-manquant"><span class="cell">6</span></li><li class="st-manquant"><span class="cell">7</span></li><li class="st-manquant"><span class="cell">8</span></li><li class="st-manquant"><span class="cell">9</span></li>
+            <li class="st-manquant"><span class="cell">10</span></li>
+          </ul>
+          <p class="detail">Tomes 2 à 10 <span class="dispo">· 9 tomes</span></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <section class="annonces" aria-labelledby="t-annonces">
+    <h2 id="t-annonces">Bientôt en librairie</h2>
+    <ul>
+      <li><a href="#">Le Scorpion · T15 Le secret du Scorpion</a><span>2026 <span class="tag-averifier">à vérifier</span></span></li>
+      <li><a href="#">Dans la Tête de Sherlock Holmes · T4 Le cauchemar du Loch Leathan 2/2</a><span>date inconnue</span></li>
+      <li><a href="#">Saint Seiya : Time Odyssey · T5</a><span>date inconnue <span class="tag-averifier">à vérifier</span></span></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">Consultation seule</footer>
+
+<script>
+  // Maquette : la case « classiques » affiche le second groupe et met le total à jour.
+  (function () {
+    var c = document.getElementById('classiques');
+    var g = document.getElementById('groupe-classiques');
+    var t = document.getElementById('total');
+    function maj() {
+      g.hidden = !c.checked;
+      t.innerHTML = c.checked ? '45<small>tomes · 8 séries</small>' : '11<small>tomes · 4 séries</small>';
+    }
+    c.checked = new URLSearchParams(location.search).get('classiques') === '1';
+    c.addEventListener('change', maj);
+    maj();
+  })();
+</script>
+</body>
+</html>
