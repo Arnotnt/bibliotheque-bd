@@ -2484,6 +2484,33 @@
     "date_ajout": null
   },
   {
+    "serie_id": "undertaker",
+    "tome": 1,
+    "titre": "Le Mangeur d'or",
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-14"
+  },
+  {
+    "serie_id": "undertaker",
+    "tome": 2,
+    "titre": "La Danse des vautours",
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-14"
+  },
+  {
+    "serie_id": "undertaker",
+    "tome": 3,
+    "titre": "L'Ogre de Sutter Camp",
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-14"
+  },
+  {
     "serie_id": "xiii",
     "tome": 1,
     "titre": "Le jour du soleil noir",

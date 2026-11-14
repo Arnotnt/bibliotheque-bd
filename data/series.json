@@ -942,6 +942,24 @@
     "avis": "J’ai hésité au début car pas fan du dessin quand je le feuilletais mais en fait - le dessin est parfait avec l’histoire et l’ambiance que cela crée. Vraiment allez y , vous allez adorer."
   },
   {
+    "id": "undertaker",
+    "titre": "Undertaker",
+    "auteurs": [
+      "Xavier Dorison",
+      "Ralph Meyer"
+    ],
+    "editeur": "Dargaud",
+    "categorie": "BD",
+    "genres": [
+      "western"
+    ],
+    "statut": "en cours",
+    "tomes_parus": 8,
+    "suivie": false,
+    "note": null,
+    "avis": null
+  },
+  {
     "id": "xiii",
     "titre": "XIII",
     "auteurs": [
