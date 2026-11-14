@@ -79,6 +79,59 @@ def verifier_id(fichier, ident, deja_vus, libelle):
     deja_vus.add(ident)
 
 
+FORMAT_DATE_ANNONCE = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?$")
+
+
+def fin_de_periode(date):
+    """Dernier jour couvert par une date partielle : « 2026 » → 31/12/2026, « 2026-03 » → 31/03/2026."""
+    morceaux = [int(x) for x in date.split("-")]
+    if len(morceaux) == 3:
+        return datetime.date(*morceaux)
+    if len(morceaux) == 2:
+        annee, mois = morceaux
+        return datetime.date(annee + mois // 12, mois % 12 + 1, 1) - datetime.timedelta(days=1)
+    return datetime.date(morceaux[0], 12, 31)
+
+
+def verifier_a_paraitre(f, libelle, s):
+    """Tomes annoncés (US-13) : liste de {tome, titre, date, a_verifier, sources}."""
+    annonces = s["a_paraitre"]
+    if not isinstance(annonces, list) or not annonces:
+        erreur(f, f"{libelle} : a_paraitre doit être une liste non vide (ou absent)")
+        return
+    tp = s.get("tomes_parus")
+    vus = set()
+    for a in annonces:
+        if not isinstance(a, dict):
+            erreur(f, f"{libelle} : chaque entrée de a_paraitre doit être un objet")
+            continue
+        tome = a.get("tome")
+        lib = f"{libelle} T{tome} à paraître"
+        if not (est_entier(tome) and tome >= 1):
+            erreur(f, f"{lib} : tome doit être un entier ≥ 1")
+        elif tome in vus:
+            erreur(f, f"{lib} : annoncé deux fois")
+        elif est_entier(tp) and tome <= tp:
+            erreur(f, f"{lib} : déjà compté dans tomes_parus ({tp}), à retirer de a_paraitre")
+        vus.add(tome)
+        if a.get("titre") is not None and not (isinstance(a["titre"], str) and a["titre"].strip()):
+            erreur(f, f"{lib} : titre doit être un texte ou null")
+        date = a.get("date")
+        if date is not None:
+            if not (isinstance(date, str) and FORMAT_DATE_ANNONCE.match(date)):
+                erreur(f, f"{lib} : date « {date} » invalide (AAAA, AAAA-MM, AAAA-MM-JJ ou null)")
+            else:
+                try:
+                    if fin_de_periode(date) < datetime.date.today():
+                        avertir(f, f"{lib} : date {date} dépassée, à vérifier lors de la prochaine veille")
+                except ValueError:
+                    erreur(f, f"{lib} : date « {date} » invalide")
+        if not isinstance(a.get("a_verifier"), bool):
+            erreur(f, f"{lib} : a_verifier doit valoir true ou false")
+        if not est_liste_de_textes(a.get("sources")) or not a["sources"]:
+            erreur(f, f"{lib} : au moins une source est obligatoire")
+
+
 def verifier_series(series):
     f = "series.json"
     ids = set()
@@ -115,6 +168,8 @@ def verifier_series(series):
         note = s.get("note")
         if note is not None and not (est_entier(note) and 0 <= note <= 10):
             erreur(f, f"{libelle} : note « {note} » invalide (entier de 0 à 10, ou null)")
+        if "a_paraitre" in s:
+            verifier_a_paraitre(f, libelle, s)
         if s.get("suivie") is True and s.get("statut") != "en cours":
             avertir(f, f"{libelle} : suivie alors que la série est « {s.get('statut')} »")
     return {s["id"]: s for s in series if isinstance(s, dict) and isinstance(s.get("id"), str)}

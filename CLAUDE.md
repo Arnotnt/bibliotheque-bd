@@ -99,6 +99,13 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - `suivie` : `true` si je veux être alerté des nouveaux tomes.
 - `note` : entier de 0 à 10, ou `null`.
 - `auteurs` (règle DATA-01, 2026-11-14) : scénaristes et dessinateurs principaux, **sans les coloristes** ni les auteurs du roman ou de la licence d'origine. Ordre : scénariste puis dessinateur. Séries reprises par plusieurs équipes : les **créateurs**, puis l'**équipe du dernier album paru** de la série principale numérotée (hors-séries et spin-offs exclus). Noms de plume tels que signés (`Hergé`, `Jijé`, `Fabcaro`). Au moins un auteur par série.
+- `a_paraitre` (US-13, facultatif) : tomes **annoncés mais pas encore parus**, renseignés par la veille et affichés sur le tableau de bord et la page série.
+  ```json
+  "a_paraitre": [
+    { "tome": 15, "titre": "Le secret du Scorpion", "date": "2026", "a_verifier": true, "sources": ["https://…"] }
+  ]
+  ```
+  `tome` > `tomes_parus` ; `titre` ou `null` ; `date` au format `AAAA`, `AAAA-MM` ou `AAAA-MM-JJ`, ou `null` si inconnue ; `a_verifier` : `true` si la date vient d'une seule source ou d'une précommande ; au moins une source. Champ absent quand rien n'est annoncé (pas de liste vide).
 - `genres` (règle DATA-02, 2026-11-14) : de 1 à 3 genres, du plus au moins marquant, choisis dans cette liste fermée : `aventure`, `fantasy`, `science-fiction`, `polar`, `thriller`, `historique`, `western`, `humour`, `jeunesse`, `espionnage`, `fantastique`, `animalier`, `guerre`, `aviation`, `shōnen`, `sport`, `documentaire`. Ajouter un genre demande l'accord du PO et la mise à jour de `GENRES` dans `scripts/verifier_donnees.py`.
 
 `data/albums.json`
@@ -161,6 +168,7 @@ Déclencheur : « Fais la veille des nouveautés ».
 1. Lister les séries `suivie: true` de `data/series.json`.
 2. Pour chacune, une recherche web : dernier tome paru (numéro, titre, date) et tomes annoncés. Sources à privilégier : éditeur, Bédéthèque, libraires.
 3. Mettre à jour `tomes_parus` (tomes **déjà parus** seulement) et `statut` si la série est finie (alors `suivie: false`).
+   Mettre à jour `a_paraitre` : ajouter les tomes annoncés (avec date, titre et source), et retirer ceux qui sont parus (ils passent dans `tomes_parus`). Le script de vérification signale les dates dépassées.
 4. Écrire le compte rendu dans `docs/veille/AAAA-MM-JJ.md` : sorties à venir (série, tome, date, source), mises à jour, séries sans nouveauté. Une date issue d'une seule source ou d'une précommande est marquée « à vérifier ».
 5. Montrer les changements au PO, puis commiter `data/series.json` et le compte rendu avec un message qui cite les principales sources.
 

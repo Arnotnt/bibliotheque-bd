@@ -327,6 +327,14 @@ function compteursHTML(s) {
   return '<div class="serie-counts">' + html + '</div>';
 }
 
+function annoncesSerieHTML(s) {
+  const annonces = (s.a_paraitre || []).slice().sort((x, y) => x.tome - y.tome);
+  if (!annonces.length) return '';
+  return '<div class="annonces"><h2>À paraître</h2><ul>' + annonces.map(a =>
+    '<li><strong>' + libelleTomeAnnonce(a) + '</strong><span>' + dateAnnonce(a.date) + aVerifierHTML(a) + '</span></li>'
+  ).join('') + '</ul></div>';
+}
+
 function serieHTML(s) {
   const statut = s.statut ? s.statut.charAt(0).toUpperCase() + s.statut.slice(1) : '';
   const tags = (statut ? '<span class="tag tag-statut">' + esc(statut) + '</span>' : '') +
@@ -343,6 +351,7 @@ function serieHTML(s) {
       '</div>' +
       noteHTML(s) +
       compteursHTML(s) +
+      annoncesSerieHTML(s) +
     '</section>' +
     '<section class="serie-tomes" aria-labelledby="titre-tomes">' +
       '<div class="tomes-head"><h2 id="titre-tomes">Tomes</h2><span>' + s.parus + ' parus</span></div>' +
@@ -375,6 +384,48 @@ const NB_LIGNES_PANNEAU = 6;
 
 function lienSerie(s) {
   return 'serie.html?id=' + encodeURIComponent(s.id);
+}
+
+/* Tomes annoncés (US-13) : date « AAAA », « AAAA-MM » ou « AAAA-MM-JJ », ou null. */
+const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+
+function dateAnnonce(date) {
+  if (!date) return 'Date inconnue';
+  const [a, m, j] = date.split('-').map(Number);
+  if (j) return j + (j === 1 ? 'er' : '') + ' ' + MOIS[m - 1] + ' ' + a;
+  if (m) return MOIS[m - 1].charAt(0).toUpperCase() + MOIS[m - 1].slice(1) + ' ' + a;
+  return String(a);
+}
+
+/** Clé de tri : par date (les dates partielles en fin de période), « date inconnue » en dernier. */
+function cleDateAnnonce(date) {
+  if (!date) return '9999-99-99';
+  const [a, m, j] = date.split('-');
+  return a + '-' + (m || '12') + '-' + (j || '31');
+}
+
+function libelleTomeAnnonce(a) {
+  return 'T' + a.tome + (a.titre ? ' · ' + esc(a.titre) : '');
+}
+
+function aVerifierHTML(a) {
+  return a.a_verifier ? '<span class="tag-averifier" title="Date issue d’une seule source ou d’une précommande">à vérifier</span>' : '';
+}
+
+function aParaitreHTML(series) {
+  const annonces = series.flatMap(s => (s.a_paraitre || []).map(a => ({ s, a })))
+    .sort((x, y) => cleDateAnnonce(x.a.date).localeCompare(cleDateAnnonce(y.a.date)) ||
+      collator.compare(x.s.titre, y.s.titre) || x.a.tome - y.a.tome);
+  const lignes = annonces.map(({ s, a }) =>
+    '<li><a href="' + lienSerie(s) + '"><span class="r-titre"><strong>' + esc(s.titre) + '</strong> ' +
+    '<span class="r-tome">' + libelleTomeAnnonce(a) + '</span></span>' +
+    '<span class="r-date">' + dateAnnonce(a.date) + aVerifierHTML(a) + '</span></a></li>'
+  ).join('');
+  return '<section class="panel" aria-labelledby="t-aparaitre">' +
+    '<div class="panel-head"><div><h2 id="t-aparaitre">À paraître</h2>' +
+    '<p>Prochains tomes annoncés, d’après la dernière veille</p></div></div>' +
+    (annonces.length ? '<ul class="rows">' + lignes + '</ul>' : '<p>Aucune sortie annoncée pour le moment.</p>') +
+  '</section>';
 }
 
 function kpisHTML(series) {
@@ -468,7 +519,7 @@ function notesHTML(series) {
 function pageStats(series) {
   const conteneur = document.getElementById('stats');
   conteneur.innerHTML = '<h1 class="page-title">Tableau de bord</h1>' + kpisHTML(series) +
-    '<div class="panels">' + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + '</div>';
+    '<div class="panels">' + aParaitreHTML(series) + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + '</div>';
 }
 
 /* ---------- Démarrage ---------- */

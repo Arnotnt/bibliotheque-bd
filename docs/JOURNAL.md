@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-14 — US-13 — Prochaines sorties visibles sur le site : champ `a_paraitre`, bloc « À paraître » sur le tableau de bord et la page série, 3 sorties de la veille saisies (#PR)
 - 2026-11-14 — DATA-01 + DATA-02 — Auteurs corrigés et genres complétés pour les 61 séries, règles dans CLAUDE.md, contrôlées par le script (#33)
 - 2026-11-14 — OPT-01 — Script de vérification des données : `scripts/verifier_donnees.py` + Action sur chaque PR, 0 erreur sur les données actuelles (#32)
 - 2026-11-14 — US-07 — Noter une série sur 10 avec un avis : demande type testée sur Okko 9/10 (#25)
