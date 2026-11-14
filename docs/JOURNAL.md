@@ -3,7 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
-- 2026-11-14 — US-17 — Accueil : pastilles des genres présents avec leur nombre de séries (un genre à la fois, dans l’URL) ; genres cliquables sur la page série (#PR)
+- 2026-11-14 — US-17 — Accueil : pastilles des genres présents avec leur nombre de séries (un genre à la fois, dans l’URL) ; genres cliquables sur la page série (#57)
 - 2026-11-14 — US-16 — Accueil : filtre Regard (toutes, mes goûts, classiques, jeunesse, hors goût, non suivi), « Suivies seulement », tri par titre, note, tomes, manquants ou ajout récent, le tout gardé dans l’URL (#56)
 - 2026-11-14 — BUG-01 — Cache navigateur : `css/style.css?v=N` et `js/app.js?v=N` sur toutes les pages, même N contrôlé par `scripts/verifier_donnees.py`, ligne ajoutée à la Definition of Done (#55)
 - 2026-11-14 — US-15 — Couvertures : surcharges manuelles (`data/couvertures_manuelles.json`) prioritaires sur Open Library, `couvertures.json` en URL complètes ; 58 séries sur 61 couvertes au lieu de 37 (#46)
