@@ -129,6 +129,12 @@ main.container { flex: 1 0 auto; padding-top: 18px; padding-bottom: 40px; displa
   font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
 }
 .toggle[aria-pressed="true"] { background: var(--ink); color: var(--surf); border-color: var(--ink); }
+/* Pastilles de genre (US-17) : plus discrètes que les filtres principaux */
+.chips-genres button { min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 400; }
+.chips-genres button .nb { margin-left: 2px; font-size: 12px; font-weight: 700; color: var(--ink2); }
+.chips-genres button[aria-pressed="true"] .nb { color: var(--surf); }
+.tag-genre { color: var(--ink); text-decoration: none; }
+.tag-genre:hover { border-color: var(--ink2); text-decoration: underline; }
 .lien-reinit {
   min-height: 44px; padding: 0 4px; border: 0; background: none; color: var(--ink);
   font: inherit; font-size: 14px; text-decoration: underline; cursor: pointer;

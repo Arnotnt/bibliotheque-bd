@@ -278,12 +278,13 @@ const TRIS = {
  * Séries retenues par les réglages de l'accueil, dans l'ordre demandé.
  * Recherche : titre + auteurs, sans accents ni casse.
  */
-function filtrerSeries(series, { filtre = 'tout', recherche = '', regard = 'toutes', suivies = false, tri = 'titre' } = {}) {
+function filtrerSeries(series, { filtre = 'tout', recherche = '', regard = 'toutes', suivies = false, tri = 'titre', genre = '' } = {}) {
   const garder = FILTRES[filtre] || FILTRES.tout;
   const garderRegard = FILTRES_REGARD[regard] || FILTRES_REGARD.toutes;
   const mots = normaliser(recherche).split(/\s+/).filter(Boolean);
   return series
     .filter(s => garder(s) && garderRegard(s) && (!suivies || s.suivie === true) &&
+      (!genre || (s.genres || []).includes(genre)) &&
       mots.every(m => s.texteRecherche.includes(m)))
     .sort((TRIS[tri] || TRIS.titre).comparer);
 }
@@ -297,6 +298,7 @@ function pageCollection(series) {
   const boutonSuivies = document.getElementById('f-suivies');
   const choixTri = document.getElementById('f-tri');
   const reinit = document.getElementById('reinitialiser');
+  const zoneGenres = document.getElementById('genres');
   const vide = document.getElementById('aucun-resultat');
   const videTexte = document.getElementById('aucun-resultat-texte');
 
@@ -308,8 +310,18 @@ function pageCollection(series) {
   choixRegard.value = FILTRES_REGARD[params.get('regard')] ? params.get('regard') : 'toutes';
   choixTri.value = TRIS[params.get('tri')] ? params.get('tri') : 'titre';
 
+  // Genres (US-17) : pastilles des seuls genres présents, avec leur nombre de séries.
+  const nbParGenre = new Map();
+  series.forEach(s => (s.genres || []).forEach(g => nbParGenre.set(g, (nbParGenre.get(g) || 0) + 1)));
+  const genresPresents = [...nbParGenre.keys()].sort((a, b) => nbParGenre.get(b) - nbParGenre.get(a) || collator.compare(a, b));
+  let genre = nbParGenre.has(params.get('genre')) ? params.get('genre') : '';
+  zoneGenres.innerHTML = genresPresents.map(g =>
+    '<button type="button" data-genre="' + esc(g) + '" aria-pressed="false">' + esc(g.charAt(0).toUpperCase() + g.slice(1)) +
+    ' <span class="nb">' + nbParGenre.get(g) + '</span></button>').join('');
+  const pucesGenre = [...zoneGenres.querySelectorAll('[data-genre]')];
+
   const reglagesParDefaut = () =>
-    !champ.value.trim() && filtre === 'tout' && choixRegard.value === 'toutes' && !suivies && choixTri.value === 'titre';
+    !champ.value.trim() && filtre === 'tout' && choixRegard.value === 'toutes' && !suivies && choixTri.value === 'titre' && !genre;
 
   function majURL() {
     const p = new URLSearchParams();
@@ -318,14 +330,16 @@ function pageCollection(series) {
     if (choixRegard.value !== 'toutes') p.set('regard', choixRegard.value);
     if (suivies) p.set('suivies', '1');
     if (choixTri.value !== 'titre') p.set('tri', choixTri.value);
+    if (genre) p.set('genre', genre);
     const qs = p.toString();
     history.replaceState(null, '', qs ? '?' + qs : location.pathname);
   }
 
   function afficher() {
     const q = champ.value.trim();
-    const resultats = filtrerSeries(series, { filtre, recherche: q, regard: choixRegard.value, suivies, tri: choixTri.value });
+    const resultats = filtrerSeries(series, { filtre, recherche: q, regard: choixRegard.value, suivies, tri: choixTri.value, genre });
     puces.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filtre === filtre)));
+    pucesGenre.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.genre === genre)));
     boutonSuivies.setAttribute('aria-pressed', String(suivies));
     reinit.hidden = reglagesParDefaut();
     compteur.textContent = resultats.length + ' ' + pluriel(resultats.length, 'série') + ' · ' + (TRIS[choixTri.value] || TRIS.titre).libelle;
@@ -333,7 +347,7 @@ function pageCollection(series) {
     liste.hidden = resultats.length === 0;
     vide.hidden = resultats.length > 0;
     if (!resultats.length) {
-      const autresReglages = filtre !== 'tout' || choixRegard.value !== 'toutes' || suivies;
+      const autresReglages = filtre !== 'tout' || choixRegard.value !== 'toutes' || suivies || genre;
       videTexte.textContent = q
         ? 'Aucun titre ni auteur ne correspond à « ' + q + ' »' + (autresReglages ? ' avec ces filtres.' : '.')
         : 'Aucune série ne correspond à ces filtres.';
@@ -347,6 +361,7 @@ function pageCollection(series) {
     suivies = false;
     choixRegard.value = 'toutes';
     choixTri.value = 'titre';
+    genre = '';
     afficher();
   }
 
@@ -355,6 +370,8 @@ function pageCollection(series) {
   choixRegard.addEventListener('change', afficher);
   choixTri.addEventListener('change', afficher);
   boutonSuivies.addEventListener('click', () => { suivies = !suivies; afficher(); });
+  // Un seul genre à la fois ; re-cliquer le genre actif le désélectionne.
+  pucesGenre.forEach(b => b.addEventListener('click', () => { genre = genre === b.dataset.genre ? '' : b.dataset.genre; afficher(); }));
   reinit.addEventListener('click', () => { toutEffacer(); champ.focus(); });
   document.getElementById('effacer').addEventListener('click', () => { toutEffacer(); champ.focus(); });
   afficher();
@@ -441,7 +458,8 @@ function annoncesSerieHTML(s) {
 function serieHTML(s) {
   const statut = s.statut ? s.statut.charAt(0).toUpperCase() + s.statut.slice(1) : '';
   const tags = (statut ? '<span class="tag tag-statut">' + esc(statut) + '</span>' : '') +
-    (s.genres || []).map(g => '<span class="tag">' + esc(g.charAt(0).toUpperCase() + g.slice(1)) + '</span>').join('') +
+    (s.genres || []).map(g => '<a class="tag tag-genre" href="index.html?genre=' + encodeURIComponent(g) + '" title="Toutes mes séries de ce genre">' +
+      esc(g.charAt(0).toUpperCase() + g.slice(1)) + '</a>').join('') +
     regardBadgeHTML(s);
   return '<div class="serie-layout">' +
     '<section class="serie-info">' +
