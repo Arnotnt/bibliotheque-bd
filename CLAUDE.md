@@ -146,6 +146,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 ## Demandes types (gestion courante, sans issue)
 - « J'ai acheté et lu Blacksad tome 8 » → ajouter ou mettre à jour l'album.
 - « J'ai lu Undertaker 1 à 3 chez un ami » → albums `possede: false, lu: true`.
+  Si la série n'existe pas encore : la créer (`suivie: false`, `note: null`, `tomes_parus` d'après une source), puis ajouter les albums avec `date_ajout` du jour et `ean: null` si inconnu. Testé le 2026-11-14 sur Undertaker.
 - « Note Tyler Cross 9/10 : ambiance géniale » → mettre à jour la série.
 - « Fais la veille des nouveautés » → pour chaque série `suivie`, chercher les tomes à paraître et mettre à jour `tomes_parus`.
 - « Recommande-moi 5 séries » → partir de mes séries notées ≥ 8 (auteurs, genres, ton de mes avis), proposer des séries que je n'ai pas, écrire le résultat dans `data/reco.json`.
