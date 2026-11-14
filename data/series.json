@@ -3,12 +3,15 @@
     "id": "1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta",
     "titre": "1629... ou l’effrayante histoire des naufragés du Jakarta",
     "auteurs": [
-      "Thimothée Montaigne",
-      "Xavier Dorison"
+      "Xavier Dorison",
+      "Thimothée Montaigne"
     ],
     "editeur": "Glénat",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "historique",
+      "aventure"
+    ],
     "statut": "terminée",
     "tomes_parus": 2,
     "suivie": false,
@@ -19,14 +22,16 @@
     "id": "24-heures-chrono",
     "titre": "24 Heures Chrono",
     "auteurs": [
-      "Mark L. Haynes",
-      "Alain David",
       "J. C. Vaughn",
+      "Mark L. Haynes",
       "Renato Guedes"
     ],
     "editeur": "Casterman",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "thriller",
+      "espionnage"
+    ],
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
@@ -36,10 +41,14 @@
   {
     "id": "achille-talon",
     "titre": "Achille Talon",
-    "auteurs": [],
+    "auteurs": [
+      "Greg"
+    ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour"
+    ],
     "statut": "terminée",
     "tomes_parus": 34,
     "suivie": false,
@@ -54,7 +63,10 @@
     ],
     "editeur": "Casterman",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "fantastique",
+      "aventure"
+    ],
     "statut": "terminée",
     "tomes_parus": 8,
     "suivie": false,
@@ -66,12 +78,16 @@
     "titre": "Aquablue",
     "auteurs": [
       "Thierry Cailleteau",
-      "Florence Breton",
-      "Ciro Tota"
+      "Olivier Vatine",
+      "Régis Hautière",
+      "Reno"
     ],
     "editeur": "Delcourt",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "science-fiction",
+      "aventure"
+    ],
     "statut": "en cours",
     "tomes_parus": 5,
     "suivie": false,
@@ -82,15 +98,18 @@
     "id": "asterix",
     "titre": "Astérix",
     "auteurs": [
-      "Albert Uderzo",
       "René Goscinny",
-      "Didier Conrad",
-      "Jean-Yves Ferri",
-      "Fabrice Caro"
+      "Albert Uderzo",
+      "Fabcaro",
+      "Didier Conrad"
     ],
     "editeur": "Hachette",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour",
+      "historique",
+      "aventure"
+    ],
     "statut": "en cours",
     "tomes_parus": 41,
     "suivie": false,
@@ -106,7 +125,10 @@
     ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "polar",
+      "animalier"
+    ],
     "statut": "en cours",
     "tomes_parus": 7,
     "suivie": true,
@@ -117,27 +139,17 @@
     "id": "blake-et-mortimer",
     "titre": "Blake et Mortimer",
     "auteurs": [
-      "Edgar Pierre Jacobs",
+      "Edgar P. Jacobs",
       "Yves Sente",
-      "André Juillard",
-      "Jean Van Hamme",
-      "Antoine Aubin",
-      "Bob De Moor",
-      "Ted Benoit",
-      "Teun Berserik",
-      "Peter van Dongen",
-      "Laurent Verron",
-      "Pierre Bailly",
-      "Céline Fraipont",
-      "Francis Nicole",
-      "Gisèle George",
-      "Chantal De Spiegeleer",
-      "Étienne Schréder",
-      "Jean Dufaux"
+      "Peter van Dongen"
     ],
     "editeur": "Blake Et Mortimer",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "aventure",
+      "science-fiction",
+      "espionnage"
+    ],
     "statut": "en cours",
     "tomes_parus": 31,
     "suivie": true,
@@ -148,12 +160,14 @@
     "id": "blueberry",
     "titre": "Blueberry",
     "auteurs": [
-      "Jean Giraud",
-      "Jean-Michel Charlier"
+      "Jean-Michel Charlier",
+      "Jean Giraud"
     ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "western"
+    ],
     "statut": "en cours",
     "tomes_parus": 26,
     "suivie": false,
@@ -164,11 +178,17 @@
     "id": "boule-et-bill",
     "titre": "Boule et Bill",
     "auteurs": [
-      "Jean Roba"
+      "Jean Roba",
+      "Christophe Cazenove",
+      "Jean Bastide"
     ],
     "editeur": "Dupuis",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour",
+      "jeunesse",
+      "animalier"
+    ],
     "statut": "en cours",
     "tomes_parus": 22,
     "suivie": false,
@@ -179,11 +199,15 @@
     "id": "cedric",
     "titre": "Cédric",
     "auteurs": [
-      "Raoul Cauvin"
+      "Raoul Cauvin",
+      "Laudec"
     ],
     "editeur": "Dupuis",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour",
+      "jeunesse"
+    ],
     "statut": "en cours",
     "tomes_parus": 5,
     "suivie": false,
@@ -195,12 +219,13 @@
     "titre": "Dans la Tête de Sherlock Holmes",
     "auteurs": [
       "Cyril Lieron",
-      "Arthur Conan Doyle",
       "Benoît Dahan"
     ],
     "editeur": "Ankama",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "polar"
+    ],
     "statut": "en cours",
     "tomes_parus": 3,
     "suivie": true,
@@ -211,14 +236,16 @@
     "id": "death-note-black-edition",
     "titre": "Death Note - Black edition",
     "auteurs": [
-      "Takeshi Obata",
       "Tsugumi Ōba",
-      "Shinya Seto",
-      "Myloo Anhmet"
+      "Takeshi Obata"
     ],
     "editeur": "Kana",
     "categorie": "Manga",
-    "genres": [],
+    "genres": [
+      "shōnen",
+      "thriller",
+      "fantastique"
+    ],
     "statut": "terminée",
     "tomes_parus": 6,
     "suivie": false,
@@ -229,15 +256,15 @@
     "id": "dossiers-michel-vaillant",
     "titre": "Dossiers Michel Vaillant",
     "auteurs": [
-      "Lionel Froissart",
       "Jean Graton",
-      "Stephen Richard Lyster Clark",
-      "Xavier Chimits",
       "Philippe Graton"
     ],
     "editeur": "Graton",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "sport",
+      "documentaire"
+    ],
     "statut": "en cours",
     "tomes_parus": 13,
     "suivie": false,
@@ -248,12 +275,15 @@
     "id": "durandal-la-marche-de-bretagne",
     "titre": "Durandal - la Marche de Bretagne",
     "auteurs": [
-      "Gwendal Lemercier",
-      "Nicolas Jarry"
+      "Nicolas Jarry",
+      "Gwendal Lemercier"
     ],
     "editeur": "Soleil",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "historique",
+      "aventure"
+    ],
     "statut": "terminée",
     "tomes_parus": 4,
     "suivie": false,
@@ -263,10 +293,14 @@
   {
     "id": "focu",
     "titre": "Focu",
-    "auteurs": [],
+    "auteurs": [
+      "Diego Aranega"
+    ],
     "editeur": "Paquet",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 1,
     "suivie": false,
@@ -278,13 +312,13 @@
     "titre": "Gaston Lagaffe",
     "auteurs": [
       "André Franquin",
-      "Francisco Lopez",
-      "Frédéric Thome",
-      "Maurice Rosy"
+      "Delaf"
     ],
     "editeur": "Dupuis",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 15,
     "suivie": false,
@@ -295,15 +329,16 @@
     "id": "goldorak",
     "titre": "Goldorak",
     "auteurs": [
-      "Alexis Sentenac",
+      "Xavier Dorison",
       "Denis Bajram",
       "Brice Cossu",
-      "Xavier Dorison",
-      "Yoann Guillo"
+      "Alexis Sentenac"
     ],
     "editeur": "Kana",
     "categorie": "Manga",
-    "genres": [],
+    "genres": [
+      "science-fiction"
+    ],
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
@@ -314,12 +349,15 @@
     "id": "habemus-bastard",
     "titre": "Habemus Bastard",
     "auteurs": [
-      "Sylvain Vallée",
-      "Jacky Schwartzmann"
+      "Jacky Schwartzmann",
+      "Sylvain Vallée"
     ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "polar",
+      "humour"
+    ],
     "statut": "terminée",
     "tomes_parus": 2,
     "suivie": false,
@@ -329,10 +367,14 @@
   {
     "id": "hoka-hey",
     "titre": "Hoka Hey",
-    "auteurs": [],
+    "auteurs": [
+      "Neyef"
+    ],
     "editeur": "Rue De Sevres",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "western"
+    ],
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
@@ -347,7 +389,10 @@
     ],
     "editeur": "Glénat",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "polar",
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 2,
     "suivie": true,
@@ -358,12 +403,15 @@
     "id": "islander",
     "titre": "Islander",
     "auteurs": [
-      "Corentin Rouge",
-      "Caryl Férey"
+      "Caryl Férey",
+      "Corentin Rouge"
     ],
     "editeur": "Glénat",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "science-fiction",
+      "thriller"
+    ],
     "statut": "en cours",
     "tomes_parus": 1,
     "suivie": false,
@@ -374,11 +422,15 @@
     "id": "iznogoud",
     "titre": "Iznogoud",
     "auteurs": [
-      "Jean Tabary"
+      "René Goscinny",
+      "Jean Tabary",
+      "Elric"
     ],
     "editeur": "Tabary",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 13,
     "suivie": false,
@@ -388,10 +440,14 @@
   {
     "id": "jerry-spring",
     "titre": "Jerry Spring",
-    "auteurs": [],
+    "auteurs": [
+      "Jijé"
+    ],
     "editeur": "Dupuis",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "western"
+    ],
     "statut": "terminée",
     "tomes_parus": 10,
     "suivie": false,
@@ -402,12 +458,14 @@
     "id": "jusqu-au-dernier",
     "titre": "Jusqu'au dernier",
     "auteurs": [
-      "Paul Gastine",
-      "Jérôme Félix"
+      "Jérôme Félix",
+      "Paul Gastine"
     ],
     "editeur": "Bamboo",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "western"
+    ],
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
@@ -417,10 +475,14 @@
   {
     "id": "l-enfer-du-trome",
     "titre": "L'Enfer du Tromé",
-    "auteurs": [],
+    "auteurs": [
+      "Coucho"
+    ],
     "editeur": "Philippe Renaux / Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "aventure"
+    ],
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
@@ -432,14 +494,14 @@
     "titre": "L'Histoire Secrète",
     "auteurs": [
       "Jean-Pierre Pécau",
-      "Igor Kordey",
-      "Carole Beau",
-      "Leo Pilipovic",
-      "Goran Sudžuka"
+      "Igor Kordey"
     ],
     "editeur": "Delcourt",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "fantastique",
+      "historique"
+    ],
     "statut": "en cours",
     "tomes_parus": 22,
     "suivie": false,
@@ -450,11 +512,15 @@
     "id": "l-homme-qui-tua-chris-kyle",
     "titre": "L’homme qui tua Chris Kyle",
     "auteurs": [
-      "Fabien Nury"
+      "Fabien Nury",
+      "Brüno"
     ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "documentaire",
+      "guerre"
+    ],
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
@@ -465,13 +531,16 @@
     "id": "la-bombe",
     "titre": "La Bombe",
     "auteurs": [
+      "Alcante",
       "Laurent-Frédéric Bollée",
-      "Denis Rodier",
-      "Didier Swysen"
+      "Denis Rodier"
     ],
     "editeur": "Glénat",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "historique",
+      "guerre"
+    ],
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
@@ -483,14 +552,14 @@
     "titre": "Lanfeust de Troy",
     "auteurs": [
       "Christophe Arleston",
-      "Didier Tarquin",
-      "Luca Saponti",
-      "Claude Ponti",
-      "Agnès Desarthe"
+      "Didier Tarquin"
     ],
     "editeur": "Soleil",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "fantasy",
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 10,
     "suivie": true,
@@ -502,13 +571,14 @@
     "titre": "Lanfeust des Étoiles",
     "auteurs": [
       "Christophe Arleston",
-      "Didier Tarquin",
-      "Claude Guth",
-      "Sébastien Lamirand"
+      "Didier Tarquin"
     ],
     "editeur": "Soleil",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "science-fiction",
+      "humour"
+    ],
     "statut": "terminée",
     "tomes_parus": 8,
     "suivie": false,
@@ -519,12 +589,15 @@
     "id": "lanfeust-odyssey",
     "titre": "Lanfeust Odyssey",
     "auteurs": [
-      "Didier Tarquin",
-      "Christophe Arleston"
+      "Christophe Arleston",
+      "Didier Tarquin"
     ],
     "editeur": "Soleil",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "fantasy",
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 10,
     "suivie": true,
@@ -536,11 +609,15 @@
     "titre": "Largo Winch",
     "auteurs": [
       "Jean Van Hamme",
-      "Philippe Francq"
+      "Philippe Francq",
+      "Éric Giacometti"
     ],
     "editeur": "Dupuis",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "thriller",
+      "aventure"
+    ],
     "statut": "en cours",
     "tomes_parus": 1,
     "suivie": false,
@@ -551,12 +628,15 @@
     "id": "le-chant-d-excalibur",
     "titre": "Le Chant d'Excalibur",
     "auteurs": [
-      "Éric Hübsch",
-      "Christophe Arleston"
+      "Christophe Arleston",
+      "Éric Hübsch"
     ],
     "editeur": "Soleil",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "fantasy",
+      "humour"
+    ],
     "statut": "terminée",
     "tomes_parus": 6,
     "suivie": false,
@@ -571,7 +651,9 @@
     ],
     "editeur": "Casterman",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 15,
     "suivie": false,
@@ -588,7 +670,10 @@
     ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "historique",
+      "aventure"
+    ],
     "statut": "en cours",
     "tomes_parus": 14,
     "suivie": true,
@@ -598,10 +683,16 @@
   {
     "id": "le-scorpion-le-proces-scorpion",
     "titre": "Le Scorpion - Le procès Scorpion",
-    "auteurs": [],
+    "auteurs": [
+      "Stephen Desberg",
+      "Enrico Marini"
+    ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "historique",
+      "aventure"
+    ],
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
@@ -617,7 +708,11 @@
     ],
     "editeur": "Glénat",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "historique",
+      "fantastique",
+      "thriller"
+    ],
     "statut": "terminée",
     "tomes_parus": 4,
     "suivie": false,
@@ -630,12 +725,15 @@
     "auteurs": [
       "Xavier Dorison",
       "Alex Alice",
-      "Thimothée Montaigne",
-      "Robin Recht"
+      "Robin Recht",
+      "Thimothée Montaigne"
     ],
     "editeur": "Glénat",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "historique",
+      "fantastique"
+    ],
     "statut": "terminée",
     "tomes_parus": 5,
     "suivie": false,
@@ -646,12 +744,13 @@
     "id": "legende",
     "titre": "Légende",
     "auteurs": [
-      "Yves Swolfs",
-      "Sophie Swolfs"
+      "Yves Swolfs"
     ],
     "editeur": "Soleil",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "fantasy"
+    ],
     "statut": "terminée",
     "tomes_parus": 6,
     "suivie": false,
@@ -662,11 +761,15 @@
     "id": "leonard",
     "titre": "Léonard",
     "auteurs": [
-      "Bob De Groot"
+      "Bob de Groot",
+      "Turk",
+      "Zidrou"
     ],
     "editeur": null,
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 22,
     "suivie": false,
@@ -677,12 +780,15 @@
     "id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
     "titre": "Les aventures de l'équipe COUSTEAU en bande dessinée",
     "auteurs": [
-      "Dominique Sérafini",
-      "Yves Paccalet"
+      "Yves Paccalet",
+      "Dominique Sérafini"
     ],
     "editeur": "Robert Laffont",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "documentaire",
+      "aventure"
+    ],
     "statut": "en cours",
     "tomes_parus": 5,
     "suivie": false,
@@ -693,12 +799,16 @@
     "id": "les-indes-fourbes",
     "titre": "Les Indes Fourbes",
     "auteurs": [
-      "Juanjo Guarnido",
-      "Alain Ayroles"
+      "Alain Ayroles",
+      "Juanjo Guarnido"
     ],
     "editeur": "Delcourt",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "aventure",
+      "historique",
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 1,
     "suivie": false,
@@ -710,11 +820,17 @@
     "titre": "Les tuniques bleues",
     "auteurs": [
       "Raoul Cauvin",
+      "Louis Salvérius",
+      "Fred Neidhardt",
       "Willy Lambil"
     ],
     "editeur": "Dupuis",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "western",
+      "humour",
+      "historique"
+    ],
     "statut": "en cours",
     "tomes_parus": 34,
     "suivie": false,
@@ -725,13 +841,16 @@
     "id": "logicomix",
     "titre": "Logicomix",
     "auteurs": [
-      "Alékos Papadátos",
-      "Apóstolos K. Doxiádīs",
-      "Chrístos Ch. Papadīmītríou"
+      "Apostolos Doxiadis",
+      "Christos Papadimitriou",
+      "Alecos Papadatos"
     ],
     "editeur": "Vuibert",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "historique",
+      "documentaire"
+    ],
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
@@ -743,11 +862,16 @@
     "titre": "Lucky Luke (Dargaud)",
     "auteurs": [
       "René Goscinny",
-      "Roland Lièvremont"
+      "Morris",
+      "Jul",
+      "Achdé"
     ],
     "editeur": "Lucky",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "western",
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 29,
     "suivie": false,
@@ -759,11 +883,17 @@
     "titre": "Marsupilami",
     "auteurs": [
       "André Franquin",
-      "Yann Le Pennetier"
+      "Greg",
+      "Stéphane Colman",
+      "Batem"
     ],
     "editeur": "Marsu",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour",
+      "aventure",
+      "animalier"
+    ],
     "statut": "en cours",
     "tomes_parus": 7,
     "suivie": false,
@@ -774,11 +904,15 @@
     "id": "michel-vaillant",
     "titre": "Michel Vaillant",
     "auteurs": [
-      "Jean Graton"
+      "Jean Graton",
+      "Philippe Graton"
     ],
     "editeur": "Graton",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "sport",
+      "aventure"
+    ],
     "statut": "en cours",
     "tomes_parus": 36,
     "suivie": false,
@@ -789,12 +923,14 @@
     "id": "modeste-et-pompon-himalaya",
     "titre": "Modeste et Pompon (Himalaya)",
     "auteurs": [
-      "René Goscinny",
-      "André Franquin"
+      "André Franquin",
+      "René Goscinny"
     ],
     "editeur": "Himalaya",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 4,
     "suivie": false,
@@ -809,7 +945,9 @@
     ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "polar"
+    ],
     "statut": "terminée",
     "tomes_parus": 2,
     "suivie": false,
@@ -820,12 +958,15 @@
     "id": "okko",
     "titre": "Okko",
     "auteurs": [
-      "Emmanuel Michalak",
-      "Peter David"
+      "Hub",
+      "Emmanuel Michalak"
     ],
     "editeur": "Delcourt",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "fantasy",
+      "aventure"
+    ],
     "statut": "en cours",
     "tomes_parus": 10,
     "suivie": false,
@@ -837,12 +978,14 @@
     "titre": "Saint Seiya : Time Odyssey",
     "auteurs": [
       "Arnaud Dollen",
-      "Jérôme Alquié",
-      "Masami Kurumada"
+      "Jérôme Alquié"
     ],
     "editeur": "Kana",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "shōnen",
+      "fantasy"
+    ],
     "statut": "en cours",
     "tomes_parus": 4,
     "suivie": true,
@@ -853,11 +996,16 @@
     "id": "sammy",
     "titre": "Sammy",
     "auteurs": [
-      "Raoul Cauvin"
+      "Raoul Cauvin",
+      "Berck",
+      "Jean-Pol"
     ],
     "editeur": "Dupuis",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "humour",
+      "polar"
+    ],
     "statut": "en cours",
     "tomes_parus": 11,
     "suivie": false,
@@ -873,7 +1021,10 @@
     ],
     "editeur": "Glénat",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "polar",
+      "thriller"
+    ],
     "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
@@ -884,13 +1035,17 @@
     "id": "spirou-et-fantasio",
     "titre": "Spirou et Fantasio",
     "auteurs": [
-      "Philippe Vandevelde",
       "André Franquin",
-      "Jean-Claude Fournier"
+      "Benjamin Abitan",
+      "Sophie Guerrive",
+      "Olivier Schwartz"
     ],
     "editeur": "Dupuis",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "aventure",
+      "humour"
+    ],
     "statut": "en cours",
     "tomes_parus": 41,
     "suivie": false,
@@ -902,11 +1057,15 @@
     "titre": "Tanguy et Laverdure (Charlier)",
     "auteurs": [
       "Jean-Michel Charlier",
-      "Albert Uderzo"
+      "Albert Uderzo",
+      "Jijé"
     ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "aviation",
+      "aventure"
+    ],
     "statut": "terminée",
     "tomes_parus": 11,
     "suivie": false,
@@ -916,10 +1075,14 @@
   {
     "id": "tintin",
     "titre": "Tintin",
-    "auteurs": [],
+    "auteurs": [
+      "Hergé"
+    ],
     "editeur": "Casterman",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "aventure"
+    ],
     "statut": "terminée",
     "tomes_parus": 23,
     "suivie": false,
@@ -930,11 +1093,14 @@
     "id": "tyler-cross",
     "titre": "Tyler Cross",
     "auteurs": [
-      "Fabien Nury"
+      "Fabien Nury",
+      "Brüno"
     ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "polar"
+    ],
     "statut": "en cours",
     "tomes_parus": 3,
     "suivie": true,
@@ -965,13 +1131,15 @@
     "auteurs": [
       "Jean Van Hamme",
       "William Vance",
-      "Iouri Jigounov",
       "Yves Sente",
-      "Jean Giraud"
+      "Iouri Jigounov"
     ],
     "editeur": "Dargaud",
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "thriller",
+      "espionnage"
+    ],
     "statut": "en cours",
     "tomes_parus": 22,
     "suivie": false,
@@ -982,11 +1150,17 @@
     "id": "yakari",
     "titre": "Yakari",
     "auteurs": [
-      "Dominique de Ribaupierre"
+      "Job",
+      "Derib",
+      "Xavier Giacometti"
     ],
     "editeur": null,
     "categorie": "BD",
-    "genres": [],
+    "genres": [
+      "jeunesse",
+      "aventure",
+      "animalier"
+    ],
     "statut": "en cours",
     "tomes_parus": 20,
     "suivie": false,
