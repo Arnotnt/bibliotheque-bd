@@ -442,6 +442,14 @@ main.page-reco { padding-top: 20px; }
 .statut-rejete { opacity: .55; background: var(--bg); border-style: dashed; }
 .statut-rejete:hover, .statut-rejete:focus-within { opacity: .85; }
 
+/* ---------- Page auteur (auteur.html, US-19) ---------- */
+main.page-auteur { padding-top: 8px; gap: 18px; }
+.auteur-resume { margin-top: 4px; font-size: 15px; }
+.auteur-section { display: flex; flex-direction: column; gap: 10px; }
+.auteur-section h2 { margin: 0; font-size: 20px; }
+.lien-auteur { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.lien-auteur:hover { text-decoration-color: currentColor; }
+
 /* ---------- À acheter (envies.html, US-18) — maquette docs/mockups/05-envies.png ---------- */
 main.page-envies { padding-top: 20px; gap: 16px; }
 .envies-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
