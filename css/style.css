@@ -95,6 +95,34 @@ a { color: inherit; }
 /* ---------- Contenu ---------- */
 main.container { flex: 1 0 auto; padding-top: 18px; padding-bottom: 40px; display: flex; flex-direction: column; gap: 16px; }
 
+/* ---------- Recherche et filtres ---------- */
+.search { display: flex; flex-direction: column; gap: 6px; }
+.search label { font-size: 15px; font-weight: 700; }
+.search-field { position: relative; max-width: 640px; }
+.search-field svg { position: absolute; left: 16px; top: 16px; color: var(--ink2); pointer-events: none; }
+.search-field input {
+  width: 100%; height: 52px; padding: 0 16px 0 48px;
+  border: 2px solid var(--ink2); border-radius: 12px;
+  background: var(--surf); color: var(--ink); font: inherit; font-size: 17px;
+}
+.search-field input:focus { border-color: var(--read); outline: none; box-shadow: 0 0 0 3px var(--readtint); }
+
+.chips { display: flex; gap: 8px; overflow-x: auto; margin: 0 -16px; padding: 0 16px 4px; }
+.chips button {
+  flex: 0 0 auto; min-height: 44px; padding: 0 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surf); color: var(--ink);
+  font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.chips button[aria-pressed="true"] { background: var(--ink); color: var(--surf); border-color: var(--ink); }
+
+.btn-primary {
+  margin-top: 6px; min-height: 44px; padding: 0 20px; border-radius: 999px;
+  border: 1px solid var(--ink); background: var(--ink); color: var(--surf);
+  font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+}
+
+[hidden] { display: none !important; }
+
 .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--ink2); }
 .legend span { display: flex; align-items: center; gap: 6px; }
 .swatch { width: 12px; height: 12px; border-radius: 3px; }

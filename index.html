@@ -44,6 +44,22 @@
 </header>
 
 <main class="container">
+  <div class="search">
+    <label for="recherche">Rechercher une série</label>
+    <div class="search-field">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="recherche" type="search" placeholder="Titre ou auteur" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  <div class="chips" role="group" aria-label="Filtrer les séries">
+    <button type="button" data-filtre="tout" aria-pressed="true">Tout</button>
+    <button type="button" data-filtre="possedees" aria-pressed="false">Possédées</button>
+    <button type="button" data-filtre="lues" aria-pressed="false">Lues</button>
+    <button type="button" data-filtre="alire" aria-pressed="false">À lire</button>
+    <button type="button" data-filtre="incompletes" aria-pressed="false">Incomplètes</button>
+  </div>
+
   <div class="legend" aria-label="Légende des couleurs">
     <span><span class="swatch swatch-own" aria-hidden="true"></span>Possédé</span>
     <span><span class="swatch swatch-read" aria-hidden="true"></span>Lu</span>
@@ -54,6 +70,14 @@
 
   <p class="count" id="compteur" aria-live="polite"></p>
   <ul class="series-grid" id="liste-series"></ul>
+
+  <div class="message" id="aucun-resultat" role="status" hidden>
+    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="4" height="16" rx="1"/><rect x="9" y="6" width="4" height="14" rx="1"/><circle cx="17.5" cy="13.5" r="3.5"/><path d="M20 16l2 2"/></svg>
+    <h2>Aucune série trouvée</h2>
+    <p id="aucun-resultat-texte"></p>
+    <p>Vérifiez l’orthographe ou essayez le nom d’un auteur.</p>
+    <button type="button" class="btn-primary" id="effacer">Effacer la recherche</button>
+  </div>
 </main>
 
 <footer class="site-footer">Consultation seule</footer>
