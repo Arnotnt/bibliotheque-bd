@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Vérifie la validité et la cohérence des fichiers data/*.json (OPT-01).
+"""Vérifie la validité et la cohérence des fichiers data/*.json (OPT-01),
+et le numéro de version des fichiers statiques dans les pages HTML (BUG-01).
 
 Usage : python3 scripts/verifier_donnees.py
 Code de sortie 0 si tout est bon, 1 s'il y a au moins une erreur.
@@ -301,6 +302,32 @@ def verifier_couvertures(series_par_id, albums):
                 erreur("couvertures.json", f"« {sid} » : EAN {m.group(1)} ne correspond à aucun album de la série (relancer scripts/couvertures.py)")
 
 
+# BUG-01 : chaque page référence css/style.css?v=N et js/app.js?v=N, avec le même N
+# partout. On incrémente N quand l'un des deux fichiers change, pour que les
+# navigateurs ne gardent pas l'ancienne version en cache après un déploiement.
+FICHIERS_VERSIONNES = ("css/style.css", "js/app.js")
+
+
+def verifier_versions_statiques():
+    versions = {}
+    for page in sorted(RACINE.glob("*.html")):
+        texte = page.read_text(encoding="utf-8")
+        for fichier in FICHIERS_VERSIONNES:
+            motif = re.compile(r'(?:href|src)="' + re.escape(fichier) + r'(\?v=(\d+))?"')
+            trouves = motif.findall(texte)
+            if not trouves:
+                erreur(page.name, f"ne référence pas {fichier}")
+            for avec_version, n in trouves:
+                if not avec_version:
+                    erreur(page.name, f"{fichier} sans numéro de version (attendu {fichier}?v=N)")
+                else:
+                    versions.setdefault(int(n), []).append(f"{page.name} ({fichier})")
+    if len(versions) > 1:
+        detail = " ; ".join(f"v={n} : {', '.join(refs)}" for n, refs in sorted(versions.items()))
+        erreur("pages HTML", f"numéros de version différents pour css/style.css et js/app.js — {detail}")
+    return max(versions) if versions else None
+
+
 def main():
     series = charger("series.json")
     albums = charger("albums.json")
@@ -313,13 +340,14 @@ def main():
         verifier_reco(recos, series_par_id)
     if albums is not None and series is not None:
         verifier_couvertures(series_par_id, albums)
+    version = verifier_versions_statiques()
 
     for a in avertissements:
         print(f"⚠️  {a}")
     for e in erreurs:
         print(f"❌ {e}")
     resume = (f"{len(series or [])} séries, {len(albums or [])} albums, {len(recos or [])} recos — "
-              f"{len(erreurs)} erreur(s), {len(avertissements)} avertissement(s)")
+              f"fichiers statiques v={version} — {len(erreurs)} erreur(s), {len(avertissements)} avertissement(s)")
     print(("✅ " if not erreurs else "") + resume)
     return 1 if erreurs else 0
 
