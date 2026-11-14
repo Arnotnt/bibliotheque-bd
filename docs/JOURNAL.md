@@ -3,7 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
-- 2026-11-14 — US-15 — Couvertures : surcharges manuelles (`data/couvertures_manuelles.json`) prioritaires sur Open Library, `couvertures.json` en URL complètes ; 58 séries sur 61 couvertes au lieu de 37 (#PR)
+- 2026-11-14 — US-15 — Couvertures : surcharges manuelles (`data/couvertures_manuelles.json`) prioritaires sur Open Library, `couvertures.json` en URL complètes ; 58 séries sur 61 couvertes au lieu de 37 (#46)
 - 2026-11-14 — US-14 — Badges Classique, Jeunesse, Hors goût, Non suivi et Terminée sur les cartes (sous les auteurs) et badge regard sur la page série, info-bulle « ne compte pas dans les recommandations » (#45)
 - 2026-11-14 — DATA-03 — Note « dans son genre » (barème 9-10 / 7-8 / 5-6 / ≤ 4) et champ `regard` (classique, jeunesse, hors goût, non suivi) sur 30 séries, exclues des recos et contrôlées par le script (#43)
 - 2026-11-14 — OPT-02 — Documentation à jour : section Sprint 0 retirée de CLAUDE.md au profit d'un historique des sprints, README avec toutes les pages (#37)
