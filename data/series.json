@@ -36,7 +36,7 @@
     "tomes_parus": 1,
     "suivie": false,
     "note": 5,
-    "avis": "En bd cela marche pas."
+    "avis": "En BD, cela ne marche pas."
   },
   {
     "id": "achille-talon",
@@ -53,7 +53,7 @@
     "tomes_parus": 34,
     "suivie": false,
     "note": 7,
-    "avis": "Bien mais j'ai arrété de suivre."
+    "avis": "Bien mais j'ai arrêté de suivre."
   },
   {
     "id": "adele-blanc-sec",
@@ -154,7 +154,7 @@
     "tomes_parus": 31,
     "suivie": false,
     "note": 8,
-    "avis": "Bien mais répétitif - j'ai arrété de suivre."
+    "avis": "Bien mais répétitif - j'ai arrêté de suivre."
   },
   {
     "id": "blueberry",
@@ -172,7 +172,7 @@
     "tomes_parus": 26,
     "suivie": false,
     "note": 8,
-    "avis": "Bien mais j'ai pas accroché - à ne pas suivre."
+    "avis": "Bien mais je n'ai pas accroché - à ne pas suivre."
   },
   {
     "id": "boule-et-bill",
@@ -230,7 +230,7 @@
     "tomes_parus": 3,
     "suivie": true,
     "note": 9,
-    "avis": "J'adore le decoupage des pages.",
+    "avis": "J'adore le découpage des pages.",
     "a_paraitre": [
       {
         "tome": 4,
@@ -373,7 +373,7 @@
     "tomes_parus": 2,
     "suivie": false,
     "note": 8,
-    "avis": "Trés bien dans l'ensemble à lire."
+    "avis": "Très bien dans l'ensemble, à lire."
   },
   {
     "id": "hoka-hey",
@@ -408,7 +408,7 @@
     "tomes_parus": 2,
     "suivie": true,
     "note": 8,
-    "avis": "Trés bien dans l'ensemble - a suivre."
+    "avis": "Très bien dans l'ensemble - à suivre."
   },
   {
     "id": "islander",
@@ -427,7 +427,7 @@
     "tomes_parus": 1,
     "suivie": true,
     "note": 7,
-    "avis": "Idée interessante, j'espere plus de la suite."
+    "avis": "Idée intéressante, j'espère plus de la suite."
   },
   {
     "id": "iznogoud",
@@ -463,7 +463,7 @@
     "tomes_parus": 10,
     "suivie": false,
     "note": 7,
-    "avis": "Bien sans plus  - à ne pas suivre."
+    "avis": "Bien, sans plus - à ne pas suivre."
   },
   {
     "id": "jusqu-au-dernier",
@@ -633,7 +633,7 @@
     "tomes_parus": 1,
     "suivie": false,
     "note": 7,
-    "avis": "Classique mas pas suivi."
+    "avis": "Classique mais pas suivi."
   },
   {
     "id": "le-chant-d-excalibur",
@@ -719,7 +719,7 @@
     "tomes_parus": 1,
     "suivie": false,
     "note": 8,
-    "avis": "Spin off du Scorpion à avoir pour la collection."
+    "avis": "Spin-off du Scorpion, à avoir pour la collection."
   },
   {
     "id": "le-troisieme-testament",
@@ -796,7 +796,7 @@
     "tomes_parus": 22,
     "suivie": false,
     "note": 8,
-    "avis": "Trés bien pour la jeunesse."
+    "avis": "Très bien pour la jeunesse."
   },
   {
     "id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
@@ -815,7 +815,7 @@
     "tomes_parus": 5,
     "suivie": false,
     "note": 7,
-    "avis": "Bie de jeunesse - à ne pas suivre."
+    "avis": "BD de jeunesse - à ne pas suivre."
   },
   {
     "id": "les-indes-fourbes",
@@ -857,7 +857,7 @@
     "tomes_parus": 34,
     "suivie": false,
     "note": 8,
-    "avis": "Trés bien , des aventures et de l'humour parfait pour la jeunesse."
+    "avis": "Très bien, des aventures et de l'humour, parfait pour la jeunesse."
   },
   {
     "id": "logicomix",
@@ -877,7 +877,7 @@
     "tomes_parus": 1,
     "suivie": false,
     "note": 10,
-    "avis": "Roman bd excellent sur l'histoire des mathématiques."
+    "avis": "Roman BD excellent sur l'histoire des mathématiques."
   },
   {
     "id": "lucky-luke-dargaud",
@@ -898,7 +898,7 @@
     "tomes_parus": 29,
     "suivie": false,
     "note": 8,
-    "avis": "Trés bien mais j'ai arrété de suivre."
+    "avis": "Très bien mais j'ai arrêté de suivre."
   },
   {
     "id": "marsupilami",
@@ -939,7 +939,7 @@
     "tomes_parus": 36,
     "suivie": false,
     "note": 8,
-    "avis": "Bien mais j'ai arrété de suivre."
+    "avis": "Bien mais j'ai arrêté de suivre."
   },
   {
     "id": "modeste-et-pompon-himalaya",
@@ -974,7 +974,7 @@
     "tomes_parus": 2,
     "suivie": false,
     "note": 9,
-    "avis": "Dessein excellent avec ce rouge qui pointe le détail qu'il faut."
+    "avis": "Dessin excellent avec ce rouge qui pointe le détail qu'il faut."
   },
   {
     "id": "okko",
@@ -1044,7 +1044,7 @@
     "tomes_parus": 11,
     "suivie": false,
     "note": 6,
-    "avis": "Jeunesse sans plus."
+    "avis": "Jeunesse, sans plus."
   },
   {
     "id": "sangoma-les-damnes-de-cape-town",
@@ -1084,7 +1084,7 @@
     "tomes_parus": 41,
     "suivie": false,
     "note": 8,
-    "avis": "Trés bien , des aventures et de l'humour parfait pour la jeunesse."
+    "avis": "Très bien, des aventures et de l'humour, parfait pour la jeunesse."
   },
   {
     "id": "tanguy-et-laverdure-charlier",
@@ -1104,7 +1104,7 @@
     "tomes_parus": 11,
     "suivie": false,
     "note": 8,
-    "avis": "Classique - vieux, suivi arreté."
+    "avis": "Classique - vieux, suivi arrêté."
   },
   {
     "id": "tintin",
@@ -1157,7 +1157,7 @@
     "tomes_parus": 8,
     "suivie": true,
     "note": 8,
-    "avis": "Super ambiance et beau dessin - a suivre."
+    "avis": "Super ambiance et beau dessin - à suivre."
   },
   {
     "id": "xiii",
@@ -1199,6 +1199,6 @@
     "tomes_parus": 20,
     "suivie": false,
     "note": 8,
-    "avis": "Trés bien pour la jeunesse."
+    "avis": "Très bien pour la jeunesse."
   }
 ]
