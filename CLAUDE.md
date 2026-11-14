@@ -183,5 +183,6 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 | Sprint | Sprint Goal | US | Pts |
 |---|---|---|---|
 | 1 | « Je vois ma collection en ligne et ce qui me manque » | US-01, US-02, US-03, US-04, US-05 | 15 |
-| 2 | à redéfinir au planning (pistes : US-06, US-07, US-08, puis US-09 à US-11) | — | — |
+| 2 | « Je suis ma collection et Claude me conseille » | US-06, US-07, US-08, US-09, US-10 | 15 |
+| 3 | à définir (pistes : US-11, US-12, après validation du PO) | — | — |
 | Backlog | — | US-12 | 3 |
