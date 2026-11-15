@@ -1,0 +1,158 @@
+/* Maquette « Planche » — surcouche de style.css (proposition, non intégrée)
+   Idée : chaque écran est une planche. Papier tramé (points Ben-Day), traits encrés,
+   cases à ombre portée dure, cartouches de récitatif, bulles pour les avis,
+   note en « explosion » façon onomatopée. Les couleurs de statut de la charte sont conservées. */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap');
+
+:root {
+  --bg: #F3EAD3; --surf: #FFFDF5; --surf2: #F7E7B5; --line: #1B1B1B;
+  --ink: #1B1B1B; --ink2: #4A4339;
+  --jaune: #FFD23F; --rouge: #E63B2E; --cyan: #2FA4D9;
+  --trame: rgba(27, 27, 27, 0.10);
+  --encre: 2.5px solid var(--ink);
+  --ombre: 4px 4px 0 var(--ink);
+  --ombre-s: 3px 3px 0 var(--ink);
+}
+:root[data-theme="dark"] {
+  --bg: #14171F; --surf: #1E2230; --surf2: #2A2F40; --line: #F2EADD;
+  --ink: #F2EADD; --ink2: #BDB4A6;
+  --jaune: #FFC930; --rouge: #FF6A5A; --cyan: #5BC2EE;
+  --trame: rgba(242, 234, 221, 0.07);
+}
+
+/* ---------- Papier ---------- */
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--trame) 1.2px, transparent 1.6px);
+  background-size: 9px 9px;
+}
+h1, h2, h3 { font-family: 'Comic Neue', 'Comic Sans MS', sans-serif; font-weight: 700; letter-spacing: 0.01em; }
+
+/* ---------- En-tête : bandeau de couverture ---------- */
+.site-header {
+  background: var(--jaune);
+  background-image: radial-gradient(rgba(230, 59, 46, 0.22) 1.6px, transparent 2px);
+  background-size: 8px 8px;
+  border-bottom: 4px solid #1B1B1B;
+  color: #1B1B1B;
+}
+.brand svg { display: none; }
+.brand h1 {
+  font-family: Bangers, Impact, sans-serif; font-weight: 400;
+  font-size: clamp(30px, 6vw, 46px); letter-spacing: 0.04em; line-height: 1;
+  color: #fff; -webkit-text-stroke: 2px #1B1B1B; paint-order: stroke fill;
+  text-shadow: 3px 3px 0 #1B1B1B; transform: rotate(-1.5deg); transform-origin: left;
+}
+.brand p {
+  display: inline-block; margin-top: 8px; padding: 3px 10px;
+  background: #FFFDF5; color: #1B1B1B; border: 2px solid #1B1B1B; box-shadow: 2px 2px 0 #1B1B1B;
+  font-size: 13px;
+}
+.brand p .stat-own, .brand p .stat-read { color: #1B1B1B; }
+.theme-toggle { background: #FFFDF5; color: #1B1B1B; border: 2.5px solid #1B1B1B; border-radius: 50%; box-shadow: 2px 2px 0 #1B1B1B; }
+
+.main-nav { gap: 8px; padding-top: 6px; padding-bottom: 10px; }
+.main-nav a {
+  min-height: 40px; color: #1B1B1B; background: #FFFDF5; border: 2.5px solid #1B1B1B;
+  box-shadow: 3px 3px 0 #1B1B1B; font-family: 'Comic Neue', sans-serif; font-weight: 700;
+  text-transform: uppercase; font-size: 14px; letter-spacing: 0.04em;
+}
+.main-nav a[aria-current="page"] { background: #1B1B1B; color: var(--jaune); border-bottom-color: #1B1B1B; transform: rotate(-1deg); }
+
+/* ---------- Titres de page : cartouche de récitatif ---------- */
+.page-title, .panel h2, .tomes-head h2, .auteur-section h2, .annonces h2 {
+  align-self: flex-start; display: inline-block; padding: 4px 12px;
+  background: var(--jaune); color: #1B1B1B; border: var(--encre); box-shadow: var(--ombre-s);
+  text-transform: uppercase;
+}
+.page-title { font-family: Bangers, Impact, sans-serif; font-weight: 400; font-size: 34px; letter-spacing: 0.05em; }
+
+/* ---------- Recherche : une bulle ---------- */
+.search label { font-family: 'Comic Neue', sans-serif; text-transform: uppercase; }
+.search-field { margin-bottom: 10px; }
+.search-field input { border: var(--encre); border-radius: 26px; box-shadow: var(--ombre-s); }
+.search-field::after {
+  content: ""; position: absolute; left: 34px; bottom: -13px; width: 18px; height: 16px;
+  background: var(--surf); border-left: var(--encre); border-bottom: var(--encre);
+  transform: skewX(-30deg); pointer-events: none;
+}
+.search-field input:focus { border-color: var(--ink); box-shadow: var(--ombre-s), 0 0 0 4px var(--cyan); }
+
+/* ---------- Filtres et réglages ---------- */
+.chips button, .toggle, .reglage select, .vues, .btn-primary {
+  border: 2px solid var(--ink); border-radius: 4px; box-shadow: 2px 2px 0 var(--ink);
+}
+.chips { padding-bottom: 6px; }
+.chips button[aria-pressed="true"], .toggle[aria-pressed="true"], .vues button[aria-pressed="true"] {
+  background: var(--rouge); color: #fff; border-color: var(--ink);
+}
+.vues button + button { border-left: 2px solid var(--ink); }
+
+/* ---------- Cartes : des cases ---------- */
+.series-grid { gap: 18px; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+.card {
+  border: 3px solid var(--ink); border-radius: 2px; box-shadow: var(--ombre);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.series-grid li:nth-child(3n+1) .card { transform: rotate(-0.6deg); }
+.series-grid li:nth-child(3n+2) .card { transform: rotate(0.5deg); }
+.card:hover, .series-grid li .card:hover { transform: translate(-2px, -2px) rotate(0deg); box-shadow: 7px 7px 0 var(--ink); border-color: var(--ink); }
+.cover { border-bottom: 3px solid var(--ink); background: var(--cover); }
+.cover-initials { font-family: Bangers, Impact, sans-serif; font-weight: 400; font-size: 44px; letter-spacing: 0.05em; color: var(--ink2); }
+.card-body h2 { font-size: 17px; text-transform: uppercase; line-height: 1.15; }
+
+/* Note : explosion façon onomatopée */
+.note-badge {
+  top: 2px; right: 2px; width: 70px; height: 70px; padding: 0; border-radius: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,3 60,20 80,9 78,31 97,34 84,50 97,66 78,69 80,91 60,80 50,97 40,80 20,91 22,69 3,66 16,50 3,34 22,31 20,9 40,20' fill='%23FFD23F' stroke='%231B1B1B' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  color: #1B1B1B; box-shadow: none;
+  font-family: Bangers, Impact, sans-serif; font-weight: 400; font-size: 17px; letter-spacing: 0.02em;
+  transform: rotate(8deg);
+}
+
+/* Badges */
+.badge-regard { border: 1.5px solid var(--ink); border-radius: 3px; background: var(--surf2); color: var(--ink); }
+.badge-coeur { background: var(--rouge); color: #fff; border-color: var(--ink); }
+
+/* ---------- Page série ---------- */
+.book-cover { border: 3px solid var(--ink); border-left-width: 8px; border-radius: 2px; box-shadow: var(--ombre); }
+.serie-title h1 { font-family: Bangers, Impact, sans-serif; font-weight: 400; font-size: 40px; letter-spacing: 0.04em; line-height: 1; }
+.tag { border: 1.5px solid var(--ink); border-radius: 3px; }
+.tag-statut { background: var(--ink); color: var(--bg); }
+
+/* L'avis devient une bulle */
+.note-box { position: relative; border: var(--encre); border-radius: 4px; box-shadow: var(--ombre); }
+.note-line .valeur { font-family: Bangers, Impact, sans-serif; font-weight: 400; font-size: 64px; color: var(--rouge); -webkit-text-stroke: 1.5px var(--ink); paint-order: stroke fill; }
+.note-line .sur { font-family: Bangers, Impact, sans-serif; }
+.note-box blockquote {
+  position: relative; margin: 6px 0 14px; padding: 14px 18px; border: var(--encre); border-radius: 50% / 40%;
+  background: var(--surf); font-family: 'Comic Neue', sans-serif; font-style: normal; font-weight: 700; font-size: 17px; text-align: center;
+}
+.note-box blockquote::before, .note-box blockquote::after {
+  content: ""; position: absolute; clip-path: polygon(0 0, 100% 0, 15% 100%);
+}
+.note-box blockquote::before { left: 26%; bottom: -22px; width: 30px; height: 24px; background: var(--ink); }
+.note-box blockquote::after { left: calc(26% + 4px); bottom: -15px; width: 21px; height: 18px; background: var(--surf); }
+.serie-counts span { border: 2px solid var(--ink); border-radius: 3px; box-shadow: 2px 2px 0 var(--ink); }
+
+.cell { border: 2px solid var(--ink); }
+.tomes-grid .cell { width: 32px; height: 32px; border-radius: 2px; }
+.tome-row { border: 2px solid var(--ink); border-radius: 2px; box-shadow: 2px 2px 0 var(--ink); }
+
+/* ---------- Tableau de bord ---------- */
+.kpi, .panel, .reco-card, .message, .envie {
+  border: 3px solid var(--ink); border-radius: 2px; box-shadow: var(--ombre);
+}
+.kpi strong { font-family: Bangers, Impact, sans-serif; font-weight: 400; font-size: 46px; letter-spacing: 0.03em; }
+.bar { border: 1.5px solid var(--ink); border-radius: 0; height: 10px; }
+.panel-foot { border-top: 2px dashed var(--ink); }
+.reco-card h2 { text-transform: uppercase; }
+
+/* ---------- Pied de page ---------- */
+.site-footer { border-top: 4px solid var(--ink); background: var(--ink); color: var(--bg); font-family: 'Comic Neue', sans-serif; }
+.site-footer a { color: var(--jaune); }
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .series-grid li .card { transition: none; transform: none; }
+}

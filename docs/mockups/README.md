@@ -12,6 +12,7 @@ Maquettes réalisées dans Claude Design et validées par Arnaud le 2026-11-14.
 | 2. Page série | `serie.html?id=…` | [`02-page-serie.dc.html`](source/02-page-serie.dc.html) | Blacksad (noté, 1 manquant), Undertaker (lu non possédé), Blake et Mortimer (sans note, à lire), sombre, desktop | US-04, US-06, US-07 |
 | 3. Tableau de bord | `stats.html` | [`03-tableau-de-bord.dc.html`](source/03-tableau-de-bord.dc.html) | mobile, sombre, desktop | US-08 |
 | 5. À acheter | `envies.html` | [`05-envies.html`](source/05-envies.html) (HTML statique, données réelles du 2026-11-14) | captures : défaut, avec classiques, mobile, sombre | US-18 |
+| 7. Thème « Planche » (proposition, à valider) | toutes les pages | [`07-theme-planche.css`](source/07-theme-planche.css) (surcouche chargée après `css/style.css`) | captures : [collection](07-planche-collection.png), [série Blacksad](07-planche-serie-blacksad.png), [tableau de bord sombre](07-planche-tableau-sombre.png), [mobile](07-planche-mobile.png) | US-27 |
 
 ### Captures (desktop, mode clair)
 
