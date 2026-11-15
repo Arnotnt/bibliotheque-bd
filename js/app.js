@@ -190,6 +190,14 @@ const REGARDS = {
   'non suivi': { libelle: 'Non suivi', icone: '<circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/>' }
 };
 const ICONE_TERMINEE = '<path d="M5 12.5l4.5 4.5L19 7.5"/>';
+const ICONE_COEUR = '<path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/>';
+
+/** Badge « Coup de cœur » (US-26) : donné au cas par cas par Arnaud, indépendant de la note. */
+function coeurBadgeHTML(s) {
+  return s.coup_de_coeur
+    ? '<span class="badge-regard badge-coeur" title="Coup de cœur" aria-label="Coup de cœur">' + SVG_BADGE + ICONE_COEUR + '</svg>Coup de cœur</span>'
+    : '';
+}
 
 /** Badge du champ `regard` (DATA-03), ou '' si la série reflète les goûts actuels. */
 function regardBadgeHTML(s) {
@@ -200,13 +208,13 @@ function regardBadgeHTML(s) {
     SVG_BADGE + r.icone + '</svg>' + r.libelle + '</span>';
 }
 
-/** Badges de la carte : regard puis « Terminée ». */
+/** Badges de la carte : coup de cœur, regard puis « Terminée ». */
 function badgesCarteHTML(s) {
   const fin = s.statut === 'terminée'
     ? '<span class="badge-regard badge-terminee" title="Série terminée" aria-label="Série terminée">' +
       SVG_BADGE + ICONE_TERMINEE + '</svg>Terminée</span>'
     : '';
-  const html = regardBadgeHTML(s) + fin;
+  const html = coeurBadgeHTML(s) + regardBadgeHTML(s) + fin;
   return html ? '<div class="card-badges">' + html + '</div>' : '';
 }
 
@@ -251,7 +259,8 @@ const FILTRES = {
   possedees: s => s.possedes > 0,
   lues: s => s.lus > 0 && s.alire === 0,
   alire: s => s.alire > 0,
-  incompletes: s => s.incomplete
+  incompletes: s => s.incomplete,
+  'coups-de-coeur': s => s.coup_de_coeur === true
 };
 
 /* Vue de l'accueil (US-20) : cartes détaillées ou mur de couvertures. */
@@ -481,7 +490,7 @@ function serieHTML(s) {
   const tags = (statut ? '<span class="tag tag-statut">' + esc(statut) + '</span>' : '') +
     (s.genres || []).map(g => '<a class="tag tag-genre" href="index.html?genre=' + encodeURIComponent(g) + '" title="Toutes mes séries de ce genre">' +
       esc(g.charAt(0).toUpperCase() + g.slice(1)) + '</a>').join('') +
-    regardBadgeHTML(s);
+    coeurBadgeHTML(s) + regardBadgeHTML(s);
   return '<div class="serie-layout">' +
     '<section class="serie-info">' +
       '<div class="serie-head">' +

@@ -175,6 +175,9 @@ def verifier_series(series):
         if "regard" in s and s["regard"] not in REGARDS:
             erreur(f, f"{libelle} : regard « {s['regard']} » non autorisé ({', '.join(sorted(REGARDS))}), "
                       "ou champ absent si la série reflète mes goûts actuels")
+        # US-26 : coup de cœur donné au cas par cas par Arnaud ; champ absent sinon, jamais false.
+        if "coup_de_coeur" in s and s["coup_de_coeur"] is not True:
+            erreur(f, f"{libelle} : coup_de_coeur doit valoir true, ou champ absent")
         if "a_paraitre" in s:
             verifier_a_paraitre(f, libelle, s)
         if s.get("suivie") is True and s.get("statut") != "en cours":
