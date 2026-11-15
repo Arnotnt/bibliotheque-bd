@@ -3,7 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
-- 2026-11-15 — US-25 — Tableau de bord refait : liste « À acheter » intégrée (page `envies.html` supprimée), un seul « À paraître », encarts « À lire » (séries lues ailleurs et leur suite) et « Derniers ajouts », « Séries incomplètes » retiré, « Pile à lire » masquée quand tout est lu (#PR)
+- 2026-11-15 — US-25 — Tableau de bord refait : liste « À acheter » intégrée (page `envies.html` supprimée), un seul « À paraître », encarts « À lire » (séries lues ailleurs et leur suite) et « Derniers ajouts », « Séries incomplètes » retiré, « Pile à lire » masquée quand tout est lu (#73)
 - 2026-11-15 — OPT-03 — Skill `ajout-bd` : série, albums, EAN (BnF, libraires), titres, couverture ajoutée par Claude si Open Library ne trouve rien ; testée sur Les 5 Terres, Dead Train, Cyborgs et RIP (28 EAN et titres, 4 couvertures, 62 séries sur 65 couvertes) (#70)
 - 2026-11-15 — US-24 — « À acheter » ignore les séries dont je ne possède aucun album (lues ailleurs : Undertaker, et les 4 séries ajoutées le 2026-11-15), y compris dans « Bientôt en librairie » (#66)
 - 2026-11-15 — US-23 — Filtre de genre en liste déroulante dans les réglages (genres présents avec leur nombre de séries), à la place des pastilles à défilement horizontal (#64)
