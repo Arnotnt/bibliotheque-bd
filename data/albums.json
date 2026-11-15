@@ -2764,6 +2764,15 @@
   },
   {
     "serie_id": "undertaker",
+    "tome": 4,
+    "titre": "L'Ombre d'Hippocrate",
+    "ean": "9782505068204",
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "undertaker",
     "tome": 5,
     "titre": "L'Indien blanc",
     "ean": "9782505075318",
