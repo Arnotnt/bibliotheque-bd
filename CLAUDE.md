@@ -138,7 +138,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
   1. `data/couvertures_manuelles.json` (`{ serie_id: url }`, édité à la main) : image choisie par Claude et validée par moi, de préférence sur [Open Library](https://openlibrary.org) (autre édition, `…/b/id/<n°>-M.jpg`) ou sur le site de l'éditeur (image de la fiche album, en taille moyenne). Open Library n'est pas interrogé pour ces séries.
   2. Open Library : le premier album (par numéro de tome) dont l'EAN a une image ([API Covers](https://openlibrary.org/dev/docs/api/covers)).
 - Écartés (US-15) : scraping de la Fnac (interdit par ses conditions, anti-robots) et Google Books (clé d'API et attribution Google obligatoires).
-- Série absente du fichier = visuel par défaut (initiales). 62 séries sur 65 au 2026-11-15 (38 Open Library, 24 manuelles) ; sans couverture : 24 Heures Chrono, Durandal, L'Enfer du Tromé.
+- Série absente du fichier = visuel par défaut (initiales). 65 séries sur 65 au 2026-11-15 (38 Open Library, 27 manuelles).
 - Une image liée sur un site d'éditeur peut disparaître : le site réaffiche alors les initiales. Il suffit de remplacer l'URL dans `couvertures_manuelles.json` et de relancer le script.
 - Open Library limite les requêtes par ISBN (environ 100 toutes les 5 minutes par adresse IP) : ne pas relancer le script en boucle.
 
