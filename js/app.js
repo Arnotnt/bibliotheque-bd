@@ -833,12 +833,14 @@ function pageEnvies(series) {
     .map(s => ({ s, tomes: tomesAAcheter(s) }))
     .filter(x => x.tomes.length)
     .sort((a, b) => TRIS.note.comparer(a.s, b.s));
-  // Les séries jeunesse, hors goût et non suivi ne sont jamais proposées (validé par le PO, #50).
-  const gouts = aAcheter(s => !s.regard);
-  const classiques = aAcheter(s => s.regard === 'classique');
+  // Les séries jeunesse, hors goût et non suivi ne sont jamais proposées (validé par le PO, #50),
+  // ni celles dont je ne possède aucun album, même lues ailleurs (US-24, #65).
+  const collectionnee = s => s.possedes > 0;
+  const gouts = aAcheter(s => !s.regard && collectionnee(s));
+  const classiques = aAcheter(s => s.regard === 'classique' && collectionnee(s));
   const compter = g => g.reduce((n, x) => n + x.tomes.length, 0);
 
-  const annonces = series.filter(s => !s.regard).flatMap(s => (s.a_paraitre || []).map(a => ({ s, a })))
+  const annonces = series.filter(s => !s.regard && collectionnee(s)).flatMap(s => (s.a_paraitre || []).map(a => ({ s, a })))
     .sort((x, y) => cleDateAnnonce(x.a.date).localeCompare(cleDateAnnonce(y.a.date)) || collator.compare(x.s.titre, y.s.titre));
   const annoncesHTML = annonces.length
     ? '<section class="annonces" aria-labelledby="t-annonces"><h2 id="t-annonces">Bientôt en librairie</h2><ul>' +
