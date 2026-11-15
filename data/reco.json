@@ -91,5 +91,144 @@
     ],
     "date_reco": "2026-11-14",
     "statut": "à découvrir"
+  },
+  {
+    "id": "aristophania",
+    "titre": "Aristophania",
+    "auteurs": [
+      "Xavier Dorison",
+      "Joël Parnotte"
+    ],
+    "editeur": "Dargaud",
+    "tomes_parus": 4,
+    "statut_serie": "terminée",
+    "parution": "4 tomes, de 2019 à 2022, le dernier : La Montagne rouge",
+    "pourquoi": "Dorison, ton scénariste fétiche (1629, Le Troisième Testament et Goldorak à 10/10, Undertaker à 8/10), dans une aventure fantastique à Marseille au début du XXe siècle. Elle est finie en 4 tomes, et le dessin de Parnotte est très détaillé, comme celui de 1629.",
+    "series_liees": [
+      "1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta",
+      "le-troisieme-testament",
+      "goldorak"
+    ],
+    "sources": [
+      "https://www.ludum.fr/11401-serie-aristophania",
+      "https://www.ludum.fr/bd/aristophania-tome-4-la-montagne-rouge-1010207"
+    ],
+    "date_reco": "2026-11-15",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "monster",
+    "titre": "Monster",
+    "auteurs": [
+      "Naoki Urasawa"
+    ],
+    "editeur": "Kana",
+    "tomes_parus": 9,
+    "statut_serie": "terminée",
+    "parution": "Édition Deluxe en 9 tomes doubles, de novembre 2010 à août 2012",
+    "pourquoi": "Si Death Note est « le meilleur manga » (10/10), Monster est son grand rival : même duel du chat et de la souris entre un médecin et un tueur, mais en thriller adulte et réaliste. 9 tomes et une vraie fin.",
+    "series_liees": [
+      "death-note-black-edition",
+      "dead-train"
+    ],
+    "sources": [
+      "https://www.manga-news.com/index.php/report/Monster",
+      "https://leclaireur.fnac.com/selection/cp60918-tout-savoir-sur-monster-la-saga-manga-qui-fait-peur/"
+    ],
+    "date_reco": "2026-11-15",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "duke",
+    "titre": "Duke",
+    "auteurs": [
+      "Yves H.",
+      "Hermann"
+    ],
+    "editeur": "Le Lombard",
+    "tomes_parus": 7,
+    "statut_serie": "terminée",
+    "parution": "7 tomes, de 2017 au 13/01/2023 (Ce monde n'est pas le mien)",
+    "pourquoi": "Un western sombre et violent, comme Jusqu'au dernier et Hoka Hey (10/10) ou Undertaker (8/10), signé par Hermann, un maître du genre mort en 2026. Clos en 7 tomes, donc pas de série qui s'étire sans fin.",
+    "series_liees": [
+      "jusqu-au-dernier",
+      "hoka-hey",
+      "undertaker"
+    ],
+    "sources": [
+      "https://www.mediatoon-foreignrights.com/serie/duke",
+      "https://www.livreshebdo.fr/article/hermann-figure-de-la-bd-franco-belge-sest-eteint"
+    ],
+    "date_reco": "2026-11-15",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "le-serpent-et-la-lance",
+    "titre": "Le Serpent et la Lance",
+    "auteurs": [
+      "Hub"
+    ],
+    "editeur": "Delcourt",
+    "tomes_parus": 4,
+    "statut_serie": "en cours",
+    "parution": "4 tomes parus : 2019, 2021, 15/11/2023, 2025 (Papillon-Tonnerre)",
+    "pourquoi": "Le nouveau cycle de Hub, l'auteur d'Okko (9/10) : une enquête sur un tueur de jeunes filles chez les Aztèques. On y retrouve le dessin somptueux qui t'a plongé dans Okko, avec l'intrigue d'un polar comme Dans la tête de Sherlock Holmes.",
+    "series_liees": [
+      "okko",
+      "dans-la-tete-de-sherlock-holmes"
+    ],
+    "sources": [
+      "https://export.side.fr/en/9782413048886-le-serpent-et-la-lance-t03",
+      "https://bibliotheques.paris.fr/2024/doc/SYRACUSE/1470050"
+    ],
+    "date_reco": "2026-11-15",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "katanga",
+    "titre": "Katanga",
+    "auteurs": [
+      "Fabien Nury",
+      "Sylvain Vallée"
+    ],
+    "editeur": "Dargaud",
+    "tomes_parus": 3,
+    "statut_serie": "terminée",
+    "parution": "3 tomes, le dernier (Dispersion) le 25/01/2019 ; intégrale en novembre 2023",
+    "pourquoi": "Un thriller noir au Congo des années 1960 (mercenaires, diamants, trahisons), par le scénariste de Tyler Cross (10/10) et le dessinateur d'Habemus Bastard (8/10). Fini en 3 tomes, plus court qu'Il était une fois en France.",
+    "series_liees": [
+      "tyler-cross",
+      "habemus-bastard",
+      "la-bombe"
+    ],
+    "sources": [
+      "https://www.livreshebdo.fr/livres/katanga-volume-3-dispersion-dargaud-9782205077940",
+      "https://www.laprocure.com/product/1448368/nury-fabien-katanga-integrale"
+    ],
+    "date_reco": "2026-11-15",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "deux-filles-nues",
+    "titre": "Deux filles nues",
+    "auteurs": [
+      "Luz"
+    ],
+    "editeur": "Albin Michel",
+    "tomes_parus": 1,
+    "statut_serie": "terminée",
+    "parution": "One-shot, 02/10/2024 ; Fauve d'or Angoulême 2025",
+    "pourquoi": "Choix audacieux : un roman graphique d'auteur, loin des séries d'aventure. Un tableau de 1919, volé par les nazis, raconte lui-même son histoire. C'est la BD la plus primée de 2025 (Fauve d'or, Grand prix ACBD, prix Wolinski). La passerelle : La Bombe et Logicomix (10/10), où l'Histoire est racontée autrement.",
+    "series_liees": [
+      "la-bombe",
+      "logicomix"
+    ],
+    "sources": [
+      "https://www.europe1.fr/culture/festival-dangouleme-deux-filles-nues-de-luz-fauve-dor-de-la-meilleure-bd-de-lannee-277998",
+      "https://leclaireur.fnac.com/article/570696-deux-filles-nues-cest-quoi-cette-bd-primee-a-angouleme/",
+      "https://www.livreshebdo.fr/article/luz-remporte-le-grand-prix-de-la-critique-acbd-2025"
+    ],
+    "date_reco": "2026-11-15",
+    "statut": "à découvrir"
   }
 ]
