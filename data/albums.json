@@ -2763,6 +2763,24 @@
     "date_ajout": "2026-11-14"
   },
   {
+    "serie_id": "undertaker",
+    "tome": 5,
+    "titre": "L'Indien blanc",
+    "ean": "9782505075318",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "undertaker",
+    "tome": 6,
+    "titre": "Salvaje",
+    "ean": "9782505083382",
+    "possede": true,
+    "lu": false,
+    "date_ajout": "2026-11-15"
+  },
+  {
     "serie_id": "xiii",
     "tome": 1,
     "titre": "Le jour du soleil noir",
