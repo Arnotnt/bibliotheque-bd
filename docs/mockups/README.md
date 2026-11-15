@@ -12,7 +12,7 @@ Maquettes réalisées dans Claude Design et validées par Arnaud le 2026-11-14.
 | 2. Page série | `serie.html?id=…` | [`02-page-serie.dc.html`](source/02-page-serie.dc.html) | Blacksad (noté, 1 manquant), Undertaker (lu non possédé), Blake et Mortimer (sans note, à lire), sombre, desktop | US-04, US-06, US-07 |
 | 3. Tableau de bord | `stats.html` | [`03-tableau-de-bord.dc.html`](source/03-tableau-de-bord.dc.html) | mobile, sombre, desktop | US-08 |
 | 5. À acheter | `envies.html` | [`05-envies.html`](source/05-envies.html) (HTML statique, données réelles du 2026-11-14) | captures : défaut, avec classiques, mobile, sombre | US-18 |
-| 7. Thème « Planche » (proposition, à valider) | toutes les pages | [`07-theme-planche.css`](source/07-theme-planche.css) (surcouche chargée après `css/style.css`) | captures : [collection](07-planche-collection.png), [série Blacksad](07-planche-serie-blacksad.png), [tableau de bord sombre](07-planche-tableau-sombre.png), [mobile](07-planche-mobile.png) | US-27 |
+| 7. Thème « Planche » (validé le 2026-11-15, appliqué) | toutes les pages | [`07-theme-planche.css`](source/07-theme-planche.css) (surcouche chargée après `css/style.css`) | captures : [collection](07-planche-collection.png), [série Blacksad](07-planche-serie-blacksad.png), [tableau de bord sombre](07-planche-tableau-sombre.png), [mobile](07-planche-mobile.png) | US-27 |
 
 ### Captures (desktop, mode clair)
 
@@ -24,20 +24,33 @@ Les autres variantes (mobile, sombre, aucun résultat, Undertaker) sont sur le c
 
 ## Charte
 
+Depuis le 2026-11-15, le site applique le **thème « Planche »** (US-27, ton comics validé par Arnaud) : chaque écran est une planche de BD.
+Captures et source de la maquette : ligne 7 du tableau ci-dessus.
+
+### Codes graphiques « Planche »
+- **Papier tramé** : fond `--bg` couvert de points (`--trame`, 9 px), comme les points Ben-Day des vieux albums. Pas de trame à l'impression.
+- **Trait encré** : bordures `--ink` de 2 à 3 px (`--encre`), coins quasi droits (2–4 px), **ombres portées dures** (`--ombre` 4 px, `--ombre-s` 3 px), aucun flou.
+- **En-tête façon couverture** : bandeau jaune tramé de rouge, identique en clair et en sombre ; titre en Bangers blanc cerné de noir, légèrement penché ; statistiques dans un **cartouche** de récitatif ; onglets en petites cases, l'onglet actif noir sur jaune.
+- **Cartouches** jaunes pour les titres de page et de section (`.page-title`, `.panel h2`, `.tomes-head h2`…).
+- **Cases** : les cartes série sont un peu de travers (−0,6° / +0,5°) et se redressent au survol ; aucune rotation avec `prefers-reduced-motion: reduce`.
+- **Note en explosion** jaune (SVG en fond) sur la couverture ; sur la page série, grande note rouge et **avis dans une bulle** avec sa pointe.
+- **Recherche en bulle** de dialogue. Bouton ou filtre actif : fond `--rouge`, texte `--onrouge`.
+
 ### Typographie (Google Fonts)
-- Titres : **Literata** 700 (serif). Titre du site 22 px, titre de page 28 px, titres de section 20–22 px.
-- Texte : **Atkinson Hyperlegible** 400/700, 16 px, interligne 1.45. Libellés secondaires 13–14 px.
+- Lettrage : **Bangers** 400 (titre du site, titres de page et de série, note, chiffres clés, initiales de couverture).
+- Titres de section et de carte : **Comic Neue** 700, souvent en capitales.
+- Texte : **Atkinson Hyperlegible** 400/700, 16 px, interligne 1.45. Libellés secondaires 13–14 px. Inchangé pour la lisibilité.
 
 ### Couleurs (variables CSS, clair / sombre)
 
 | Variable | Rôle | Clair | Sombre |
 |---|---|---|---|
-| `--bg` | fond de page | `#F5EFE3` | `#1A1612` |
-| `--surf` | cartes, en-tête | `#FFFCF6` | `#231E19` |
-| `--surf2` | fond de barre, bouton thème | `#EDE4D3` | `#2E2720` |
-| `--line` | bordures | `#D9CBB2` | `#463B30` |
-| `--ink` | texte | `#2B2119` | `#F2EADD` |
-| `--ink2` | texte secondaire | `#62564A` | `#BCAF9D` |
+| `--bg` | fond de page | `#F3EAD3` | `#14171F` |
+| `--surf` | cartes, en-tête | `#FFFDF5` | `#1E2230` |
+| `--surf2` | fond de barre, bouton thème | `#F7E7B5` | `#2A2F40` |
+| `--line` | bordures | `#1B1B1B` | `#F2EADD` |
+| `--ink` | texte | `#1B1B1B` | `#F2EADD` |
+| `--ink2` | texte secondaire | `#4A4339` | `#BDB4A6` |
 | `--own` | **possédé** | `#6B4A2F` | `#D6B38E` |
 | `--read` | **lu** | `#2C5F8F` | `#8DB8E6` |
 | `--onread` | texte sur `--read` | `#FFFFFF` | `#10202F` |
@@ -48,8 +61,13 @@ Les autres variantes (mobile, sombre, aucun résultat, Undertaker) sont sur le c
 | `--toreadtint` | fond « à lire » | `#F7EAD0` | `#3A2D17` |
 | `--miss` | **manquant** | `#A8352A` | `#EE8270` |
 | `--misstint` | fond « manquant » | `#F5DDD7` | `#47231D` |
-| `--cover` | couverture par défaut | `#E4D8C3` | `#342C24` |
-| `--covertxt` | initiales sur couverture | `#6E604F` | `#A89880` |
+| `--cover` | couverture par défaut | `#E4D8C3` | `#2A2F40` |
+| `--covertxt` | initiales sur couverture | `#5A4E40` | `#BDB4A6` |
+| `--jaune` | bandeau, cartouches, explosion de note | `#FFD23F` | `#FFC930` |
+| `--rouge` | filtre ou bouton actif, grande note, coup de cœur | `#D02C20` | `#FF6A5A` |
+| `--onrouge` | texte sur `--rouge` | `#FFFFFF` | `#1B1B1B` |
+| `--cyan` | anneau de focus de la recherche | `#2FA4D9` | `#5BC2EE` |
+| `--trame` | points du papier | `rgba(27,27,27,.10)` | `rgba(242,234,221,.07)` |
 
 ### Codes visuels des statuts (légende commune aux écrans)
 - **Possédé · lu** : plein `--read`.
@@ -60,7 +78,7 @@ Les autres variantes (mobile, sombre, aucun résultat, Undertaker) sont sur le c
 
 ### Mise en page
 - Conteneur `max-width: 1120px`, marges 16 px.
-- En-tête : logo + « Bibliothèque BD d'Arnaud », sous-titre `N séries · N albums · N % lus`, bouton thème clair/sombre (44×44), onglets **Collection** / **Tableau de bord** (onglet actif souligné de 3 px).
+- En-tête (thème Planche) : « Bibliothèque BD d'Arnaud » en lettrage, cartouche `N séries · N albums · N % lus`, bouton thème clair/sombre (44×44, rond), onglets en cases **Collection** / **Tableau de bord** / **Recommandations** (onglet actif noir sur jaune).
 - Pied de page : « Consultation seule · Données mises à jour le <date> ».
 - Cibles tactiles ≥ 44 px, contraste texte ≥ 4.5:1, vrais `<button>`, `<a>`, `<label>`.
 
