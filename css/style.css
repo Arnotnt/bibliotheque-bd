@@ -138,10 +138,6 @@ main.container { flex: 1 0 auto; padding-top: 18px; padding-bottom: 40px; displa
 .vues button + button { border-left: 1px solid var(--line); }
 .vues button[aria-pressed="true"] { background: var(--ink); color: var(--surf); }
 
-/* Pastilles de genre (US-17) : plus discrètes que les filtres principaux */
-.chips-genres button { min-height: 40px; padding: 0 12px; font-size: 14px; font-weight: 400; }
-.chips-genres button .nb { margin-left: 2px; font-size: 12px; font-weight: 700; color: var(--ink2); }
-.chips-genres button[aria-pressed="true"] .nb { color: var(--surf); }
 .tag-genre { color: var(--ink); text-decoration: none; }
 .tag-genre:hover { border-color: var(--ink2); text-decoration: underline; }
 .lien-reinit {
