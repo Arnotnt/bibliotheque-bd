@@ -310,7 +310,7 @@ function pageCollection(series) {
   const boutonSuivies = document.getElementById('f-suivies');
   const choixTri = document.getElementById('f-tri');
   const reinit = document.getElementById('reinitialiser');
-  const zoneGenres = document.getElementById('genres');
+  const choixGenre = document.getElementById('f-genre');
   const boutonsVue = [...document.querySelectorAll('[data-vue]')];
   const vide = document.getElementById('aucun-resultat');
   const videTexte = document.getElementById('aucun-resultat-texte');
@@ -323,15 +323,13 @@ function pageCollection(series) {
   choixRegard.value = FILTRES_REGARD[params.get('regard')] ? params.get('regard') : 'toutes';
   choixTri.value = TRIS[params.get('tri')] ? params.get('tri') : 'titre';
 
-  // Genres (US-17) : pastilles des seuls genres présents, avec leur nombre de séries.
+  // Genres (US-17, US-23) : liste déroulante des seuls genres présents, avec leur nombre de séries.
   const nbParGenre = new Map();
   series.forEach(s => (s.genres || []).forEach(g => nbParGenre.set(g, (nbParGenre.get(g) || 0) + 1)));
   const genresPresents = [...nbParGenre.keys()].sort((a, b) => nbParGenre.get(b) - nbParGenre.get(a) || collator.compare(a, b));
   let genre = nbParGenre.has(params.get('genre')) ? params.get('genre') : '';
-  zoneGenres.innerHTML = genresPresents.map(g =>
-    '<button type="button" data-genre="' + esc(g) + '" aria-pressed="false">' + esc(g.charAt(0).toUpperCase() + g.slice(1)) +
-    ' <span class="nb">' + nbParGenre.get(g) + '</span></button>').join('');
-  const pucesGenre = [...zoneGenres.querySelectorAll('[data-genre]')];
+  choixGenre.insertAdjacentHTML('beforeend', genresPresents.map(g =>
+    '<option value="' + esc(g) + '">' + esc(g.charAt(0).toUpperCase() + g.slice(1)) + ' (' + nbParGenre.get(g) + ')</option>').join(''));
 
   // Vue cartes ou mur de couvertures (US-20) : l'URL prime, sinon le dernier choix de ce navigateur.
   let vue = VUES.includes(params.get('vue')) ? params.get('vue') : vueMemorisee();
@@ -356,7 +354,7 @@ function pageCollection(series) {
     const q = champ.value.trim();
     const resultats = filtrerSeries(series, { filtre, recherche: q, regard: choixRegard.value, suivies, tri: choixTri.value, genre });
     puces.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filtre === filtre)));
-    pucesGenre.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.genre === genre)));
+    choixGenre.value = genre;
     boutonsVue.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vue === vue)));
     liste.classList.toggle('mur', vue === 'couvertures');
     boutonSuivies.setAttribute('aria-pressed', String(suivies));
@@ -389,8 +387,7 @@ function pageCollection(series) {
   choixRegard.addEventListener('change', afficher);
   choixTri.addEventListener('change', afficher);
   boutonSuivies.addEventListener('click', () => { suivies = !suivies; afficher(); });
-  // Un seul genre à la fois ; re-cliquer le genre actif le désélectionne.
-  pucesGenre.forEach(b => b.addEventListener('click', () => { genre = genre === b.dataset.genre ? '' : b.dataset.genre; afficher(); }));
+  choixGenre.addEventListener('change', () => { genre = choixGenre.value; afficher(); });
   boutonsVue.forEach(b => b.addEventListener('click', () => {
     vue = b.dataset.vue;
     try { localStorage.setItem(CLE_VUE, vue); } catch (e) { /* stockage indisponible : l'URL suffit */ }
