@@ -600,8 +600,9 @@ function pileHTML(series) {
   const pile = series.filter(s => s.alire > 0)
     .map(s => ({ s, nombre: s.alire }))
     .sort((a, b) => b.nombre - a.nombre || collator.compare(a.s.titre, b.s.titre));
+  if (!pile.length) return ''; // tout est lu : l'encart n'apporte rien (US-25)
   const total = pile.reduce((n, x) => n + x.nombre, 0);
-  const max = pile.length ? pile[0].nombre : 1;
+  const max = pile[0].nombre;
   const lignes = pile.slice(0, NB_LIGNES_PANNEAU).map(({ s, nombre }) =>
     '<li><a href="' + lienSerie(s) + '"><strong class="r-titre">' + esc(s.titre) + '</strong>' +
     '<span class="r-toread">' + nombre + '</span>' +
@@ -610,29 +611,56 @@ function pileHTML(series) {
   return '<section class="panel" aria-labelledby="t-pile">' +
     '<div class="panel-head"><div><h2 id="t-pile">Pile à lire</h2><p>Albums possédés, pas encore lus</p></div>' +
     '<span class="pile-total" aria-label="' + total + ' albums à lire">' + total + '</span></div>' +
-    (pile.length ? '<ul class="rows">' + lignes + '</ul>' + reste(pile, n => pluriel(n, 'album')) : '<p>Rien à lire : tout est lu !</p>') +
+    '<ul class="rows">' + lignes + '</ul>' + reste(pile, n => pluriel(n, 'album')) +
   '</section>';
 }
 
-function incompletesHTML(series) {
-  // Les plus proches d'être complètes d'abord : c'est là qu'un achat compte le plus.
-  const inc = series.filter(s => s.incomplete)
-    .map(s => ({ s, nombre: s.manquants }))
-    .sort((a, b) => a.nombre - b.nombre || collator.compare(a.s.titre, b.s.titre));
-  const total = inc.reduce((n, x) => n + x.nombre, 0);
-  const lignes = inc.slice(0, NB_LIGNES_PANNEAU).map(({ s, nombre }) =>
-    '<li><a href="' + lienSerie(s) + '"><span class="r-titre"><strong>' + esc(s.titre) + '</strong> ' +
-    '<span class="r-own">' + s.possedes + '/' + s.parus + '</span></span>' +
-    '<span class="r-miss">' + nombre + ' ' + pluriel(nombre, 'manquant') + '</span>' +
-    '<span class="bar" role="img" aria-label="' + s.possedes + ' possédés sur ' + s.parus + ', ' + nombre + ' ' + pluriel(nombre, 'manquant') + '">' +
-    '<span class="seg-own" style="width:' + pct(s.possedes, s.parus) + '"></span>' +
-    '<span class="seg-miss" style="width:' + pct(nombre, s.parus) + '"></span></span></a></li>'
-  ).join('');
-  return '<section class="panel" aria-labelledby="t-inc">' +
-    '<div class="panel-head"><div><h2 id="t-inc">Séries incomplètes</h2>' +
-    '<p>' + inc.length + ' ' + pluriel(inc.length, 'série') + ' · ' + total + ' ' + pluriel(total, 'tome manquant', 'tomes manquants') +
-    ' · les plus proches d’être complètes d’abord</p></div></div>' +
-    (inc.length ? '<ul class="rows">' + lignes + '</ul>' + reste(inc, n => pluriel(n, 'tome manquant', 'tomes manquants')) : '<p>Toutes les séries sont complètes.</p>') +
+/* À lire (US-25) : séries lues sans en posséder un seul album (lues chez un ami), et la suite à lire. */
+function aLireHTML(series) {
+  const lues = series.filter(s => s.lnp > 0 && s.possedes === 0)
+    .map(s => ({ s, suite: s.tomes.filter(t => t.statut === 'manquant').map(t => t.tome) }))
+    .sort((a, b) => (b.suite.length > 0) - (a.suite.length > 0) || TRIS.note.comparer(a.s, b.s));
+  const lignes = lues.map(({ s, suite }) => {
+    const lus = s.tomes.filter(t => t.statut === 'lnp').map(t => t.tome);
+    return '<li><a href="' + lienSerie(s) + '"><span class="r-titre"><strong>' + esc(s.titre) + '</strong> ' +
+      '<span class="r-tome">' + 'T' + plagesDeTomes(lus) + ' ' + pluriel(lus.length, 'lu', 'lus') + '</span></span>' +
+      (suite.length
+        ? '<span class="r-suite">Suite : T' + plagesDeTomes(suite) + '</span>'
+        : '<span class="r-fini">Lue en entier</span>') +
+      '<span class="bar" role="img" aria-label="' + lus.length + ' ' + pluriel(lus.length, 'tome lu', 'tomes lus') + ' sur ' + s.parus + '">' +
+      '<span class="seg-lnp" style="width:' + pct(lus.length, s.parus) + '"></span>' +
+      '<span class="seg-miss" style="width:' + pct(suite.length, s.parus) + '"></span></span></a></li>';
+  }).join('');
+  return '<section class="panel" aria-labelledby="t-alire">' +
+    '<div class="panel-head"><div><h2 id="t-alire">À lire</h2><p>Séries lues ailleurs, que je ne possède pas : où j’en suis</p></div></div>' +
+    (lues.length ? '<ul class="rows">' + lignes + '</ul>' : '<p>Aucune série lue sans être achetée.</p>') +
+  '</section>';
+}
+
+/* Derniers ajouts (US-25) : les albums les plus récemment ajoutés (date_ajout). */
+const LIBELLES_STATUT_ALBUM = { lu: 'lu', alire: 'à lire', lnp: 'lu ailleurs' };
+
+function derniersAjoutsHTML(series) {
+  const ajouts = series.flatMap(s => s.tomes.filter(t => t.album && t.album.date_ajout).map(t => ({ s, t })))
+    .sort((x, y) => y.t.album.date_ajout.localeCompare(x.t.album.date_ajout) ||
+      collator.compare(x.s.titre, y.s.titre) || x.t.tome - y.t.tome);
+  // Un lot ajouté le même jour pour une série tient sur une ligne (« T1 à 17 »).
+  const lots = [];
+  ajouts.forEach(({ s, t }) => {
+    const der = lots[lots.length - 1];
+    if (der && der.s === s && der.date === t.album.date_ajout && der.statut === t.statut) der.tomes.push(t);
+    else lots.push({ s, date: t.album.date_ajout, statut: t.statut, tomes: [t] });
+  });
+  const lignes = lots.slice(0, NB_LIGNES_PANNEAU).map(({ s, date, statut, tomes }) => {
+    const nums = tomes.map(t => t.tome).sort((a, b) => a - b);
+    const titre = tomes.length === 1 && tomes[0].album.titre ? ' · ' + esc(tomes[0].album.titre) : '';
+    return '<li><a href="' + lienSerie(s) + '"><span class="r-titre"><strong>' + esc(s.titre) + '</strong> ' +
+      '<span class="r-tome">T' + plagesDeTomes(nums) + titre + '</span></span>' +
+      '<span class="r-date">' + dateCourte(date) + ' <span class="r-statut st-' + statut + '">' + LIBELLES_STATUT_ALBUM[statut] + '</span></span></a></li>';
+  }).join('');
+  return '<section class="panel" aria-labelledby="t-ajouts">' +
+    '<div class="panel-head"><div><h2 id="t-ajouts">Derniers ajouts</h2><p>Ce qui est entré dans la bibliothèque dernièrement</p></div></div>' +
+    (lots.length ? '<ul class="rows">' + lignes + '</ul>' : '<p>Aucune date d’ajout connue.</p>') +
   '</section>';
 }
 
@@ -727,7 +755,10 @@ function goutsHTML(series) {
 function pageStats(series) {
   const conteneur = document.getElementById('stats');
   conteneur.innerHTML = '<h1 class="page-title">Tableau de bord</h1>' + kpisHTML(series) +
-    '<div class="panels">' + aParaitreHTML(series) + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + goutsHTML(series) + '</div>';
+    achatsHTML(series) +
+    '<div class="panels">' + aParaitreHTML(series) + aLireHTML(series) + pileHTML(series) + derniersAjoutsHTML(series) +
+    notesHTML(series) + goutsHTML(series) + '</div>';
+  initAchats();
   const toutes = document.getElementById('gouts-toutes');
   toutes.addEventListener('change', () => {
     document.getElementById('gouts-contenu').innerHTML = goutsContenuHTML(series, toutes.checked);
@@ -784,7 +815,7 @@ function pageAuteur(series, recos) {
       : '');
 }
 
-/* ---------- Page : à acheter (envies.html, US-18) ---------- */
+/* ---------- À acheter (US-18, intégré au tableau de bord par US-25) ---------- */
 
 /** « 1 à 4, 9, 11 à 13 » à partir d'une liste triée de numéros. */
 function plagesDeTomes(nums) {
@@ -822,35 +853,30 @@ function envieHTML({ s, tomes }) {
 function groupeEnviesHTML(titre, sousTitre, groupe) {
   const total = groupe.reduce((n, x) => n + x.tomes.length, 0);
   return '<section class="groupe-envies">' +
-    '<h2 class="groupe-titre">' + titre + ' <span>' + total + ' ' + pluriel(total, 'tome') + (sousTitre ? ' · ' + sousTitre : '') + '</span></h2>' +
+    '<h3 class="groupe-titre">' + titre + ' <span>' + total + ' ' + pluriel(total, 'tome') + (sousTitre ? ' · ' + sousTitre : '') + '</span></h3>' +
     (groupe.length ? '<ul class="envies">' + groupe.map(envieHTML).join('') + '</ul>' : '<p class="count">Rien à acheter : ces séries sont complètes.</p>') +
   '</section>';
 }
 
-function pageEnvies(series) {
-  const conteneur = document.getElementById('envies');
+/* Liste à acheter, intégrée au tableau de bord (US-25, ex-page envies.html). */
+function achatsHTML(series) {
   const aAcheter = filtre => series.filter(filtre)
     .map(s => ({ s, tomes: tomesAAcheter(s) }))
     .filter(x => x.tomes.length)
     .sort((a, b) => TRIS.note.comparer(a.s, b.s));
   // Les séries jeunesse, hors goût et non suivi ne sont jamais proposées (validé par le PO, #50),
-  // ni celles dont je ne possède aucun album, même lues ailleurs (US-24, #65).
+  // ni celles dont je ne possède aucun album, même lues ailleurs (US-24, #65) : elles sont dans « À lire ».
   const collectionnee = s => s.possedes > 0;
   const gouts = aAcheter(s => !s.regard && collectionnee(s));
   const classiques = aAcheter(s => s.regard === 'classique' && collectionnee(s));
   const compter = g => g.reduce((n, x) => n + x.tomes.length, 0);
-
-  const annonces = series.filter(s => !s.regard && collectionnee(s)).flatMap(s => (s.a_paraitre || []).map(a => ({ s, a })))
-    .sort((x, y) => cleDateAnnonce(x.a.date).localeCompare(cleDateAnnonce(y.a.date)) || collator.compare(x.s.titre, y.s.titre));
-  const annoncesHTML = annonces.length
-    ? '<section class="annonces" aria-labelledby="t-annonces"><h2 id="t-annonces">Bientôt en librairie</h2><ul>' +
-      annonces.map(({ s, a }) => '<li><a href="' + lienSerie(s) + '">' + esc(s.titre) + ' · ' + libelleTomeAnnonce(a) + '</a>' +
-        '<span>' + dateAnnonce(a.date) + aVerifierHTML(a) + '</span></li>').join('') + '</ul></section>'
-    : '';
-
-  const params = new URLSearchParams(location.search);
-  conteneur.innerHTML =
-    '<div class="envies-head"><div><h1 class="page-title">À acheter</h1>' +
+  const total = avec => {
+    const nbTomes = compter(gouts) + (avec ? compter(classiques) : 0);
+    const nbSeries = gouts.length + (avec ? classiques.length : 0);
+    return nbTomes + '<small>' + pluriel(nbTomes, 'tome') + ' · ' + nbSeries + ' ' + pluriel(nbSeries, 'série') + '</small>';
+  };
+  return '<section class="panel achats" aria-labelledby="t-achats" data-total-sans="' + esc(total(false)) + '" data-total-avec="' + esc(total(true)) + '">' +
+    '<div class="envies-head"><div><h2 id="t-achats">À acheter</h2>' +
       '<p>Les tomes parus qui me manquent, dans les séries qui me plaisent. Triés par note.</p></div>' +
       '<div class="envies-total" id="total-envies" aria-live="polite"></div></div>' +
     '<div class="envies-options">' +
@@ -863,17 +889,18 @@ function pageEnvies(series) {
     '</div>' +
     groupeEnviesHTML('Mes séries', '', gouts) +
     '<div id="groupe-classiques" hidden>' + groupeEnviesHTML('Classiques', 'achetés par fidélité', classiques) + '</div>' +
-    annoncesHTML;
+  '</section>';
+}
 
+function initAchats() {
+  const section = document.querySelector('.achats');
   const caseClassiques = document.getElementById('avec-classiques');
   const total = document.getElementById('total-envies');
-  caseClassiques.checked = params.get('classiques') === '1';
+  caseClassiques.checked = new URLSearchParams(location.search).get('classiques') === '1';
   function maj() {
     const avec = caseClassiques.checked;
     document.getElementById('groupe-classiques').hidden = !avec;
-    const nbTomes = compter(gouts) + (avec ? compter(classiques) : 0);
-    const nbSeries = gouts.length + (avec ? classiques.length : 0);
-    total.innerHTML = nbTomes + '<small>' + pluriel(nbTomes, 'tome') + ' · ' + nbSeries + ' ' + pluriel(nbSeries, 'série') + '</small>';
+    total.innerHTML = avec ? section.dataset.totalAvec : section.dataset.totalSans;
     history.replaceState(null, '', avec ? '?classiques=1' : location.pathname);
   }
   caseClassiques.addEventListener('change', maj);
@@ -961,7 +988,6 @@ async function demarrer() {
     if (page === 'collection') pageCollection(series);
     if (page === 'serie') pageSerie(series);
     if (page === 'stats') pageStats(series);
-    if (page === 'envies') pageEnvies(series);
     if (page === 'auteur') pageAuteur(series, await chargerJSON('data/reco.json').catch(() => []));
     if (page === 'reco') pageReco(series, await chargerJSON('data/reco.json'));
   } catch (erreur) {
