@@ -6,7 +6,7 @@ Ma collection de BD : séries, albums possédés, lus et manquants, notes et avi
 
 - [Ma collection](https://arnotnt.github.io/bibliotheque-bd/) : toutes les séries, avec filtres et recherche
 - Page série, par exemple [Blacksad](https://arnotnt.github.io/bibliotheque-bd/serie.html?id=blacksad) : couverture, tomes possédés, lus et manquants, note et avis, tomes à paraître
-- [Tableau de bord](https://arnotnt.github.io/bibliotheque-bd/stats.html) : à acheter (liste imprimable), prochaines sorties, séries lues ailleurs à continuer, derniers ajouts, notes et goûts
+- [Tableau de bord](https://arnotnt.github.io/bibliotheque-bd/stats.html) : à acheter (liste imprimable), prochaines sorties, séries lues ailleurs à continuer, notes et goûts
 - [Recommandations](https://arnotnt.github.io/bibliotheque-bd/reco.html) : séries conseillées par Claude d'après mes notes, filtrables par statut
 
 ## Fonctionnement

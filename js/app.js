@@ -637,33 +637,6 @@ function aLireHTML(series) {
   '</section>';
 }
 
-/* Derniers ajouts (US-25) : les albums les plus récemment ajoutés (date_ajout). */
-const LIBELLES_STATUT_ALBUM = { lu: 'lu', alire: 'à lire', lnp: 'lu ailleurs' };
-
-function derniersAjoutsHTML(series) {
-  const ajouts = series.flatMap(s => s.tomes.filter(t => t.album && t.album.date_ajout).map(t => ({ s, t })))
-    .sort((x, y) => y.t.album.date_ajout.localeCompare(x.t.album.date_ajout) ||
-      collator.compare(x.s.titre, y.s.titre) || x.t.tome - y.t.tome);
-  // Un lot ajouté le même jour pour une série tient sur une ligne (« T1 à 17 »).
-  const lots = [];
-  ajouts.forEach(({ s, t }) => {
-    const der = lots[lots.length - 1];
-    if (der && der.s === s && der.date === t.album.date_ajout && der.statut === t.statut) der.tomes.push(t);
-    else lots.push({ s, date: t.album.date_ajout, statut: t.statut, tomes: [t] });
-  });
-  const lignes = lots.slice(0, NB_LIGNES_PANNEAU).map(({ s, date, statut, tomes }) => {
-    const nums = tomes.map(t => t.tome).sort((a, b) => a - b);
-    const titre = tomes.length === 1 && tomes[0].album.titre ? ' · ' + esc(tomes[0].album.titre) : '';
-    return '<li><a href="' + lienSerie(s) + '"><span class="r-titre"><strong>' + esc(s.titre) + '</strong> ' +
-      '<span class="r-tome">T' + plagesDeTomes(nums) + titre + '</span></span>' +
-      '<span class="r-date">' + dateCourte(date) + ' <span class="r-statut st-' + statut + '">' + LIBELLES_STATUT_ALBUM[statut] + '</span></span></a></li>';
-  }).join('');
-  return '<section class="panel" aria-labelledby="t-ajouts">' +
-    '<div class="panel-head"><div><h2 id="t-ajouts">Derniers ajouts</h2><p>Ce qui est entré dans la bibliothèque dernièrement</p></div></div>' +
-    (lots.length ? '<ul class="rows">' + lignes + '</ul>' : '<p>Aucune date d’ajout connue.</p>') +
-  '</section>';
-}
-
 function notesHTML(series) {
   const notees = series.filter(s => s.note != null);
   const compte = {};
@@ -752,11 +725,11 @@ function goutsHTML(series) {
   '</section>';
 }
 
-function pageStats(series) {
+function pageStats(series, recos) {
   const conteneur = document.getElementById('stats');
   conteneur.innerHTML = '<h1 class="page-title">Tableau de bord</h1>' + kpisHTML(series) +
-    achatsHTML(series) +
-    '<div class="panels">' + aParaitreHTML(series) + aLireHTML(series) + pileHTML(series) + derniersAjoutsHTML(series) +
+    achatsHTML(series, recos) +
+    '<div class="panels">' + aParaitreHTML(series) + aLireHTML(series) + pileHTML(series) +
     notesHTML(series) + goutsHTML(series) + '</div>';
   initAchats();
   const toutes = document.getElementById('gouts-toutes');
@@ -850,16 +823,41 @@ function envieHTML({ s, tomes }) {
     '</div></li>';
 }
 
-function groupeEnviesHTML(titre, sousTitre, groupe) {
+function groupeEnviesHTML(titre, sousTitre, groupe, rendu = envieHTML) {
   const total = groupe.reduce((n, x) => n + x.tomes.length, 0);
   return '<section class="groupe-envies">' +
     '<h3 class="groupe-titre">' + titre + ' <span>' + total + ' ' + pluriel(total, 'tome') + (sousTitre ? ' · ' + sousTitre : '') + '</span></h3>' +
-    (groupe.length ? '<ul class="envies">' + groupe.map(envieHTML).join('') + '</ul>' : '<p class="count">Rien à acheter : ces séries sont complètes.</p>') +
+    (groupe.length ? '<ul class="envies">' + groupe.map(rendu).join('') + '</ul>' : '<p class="count">Rien à acheter : ces séries sont complètes.</p>') +
   '</section>';
 }
 
+/* Reco « intéressé » dans la liste à acheter (US-25) : toute la série est à acheter. */
+function envieRecoHTML({ r, tomes }) {
+  const cases = tomes.map(t => '<li class="st-manquant"><span class="cell" title="Tome ' + t.tome + '">' + t.tome + '</span></li>').join('');
+  return '<li class="envie">' +
+    '<div class="mini-cover" aria-hidden="true"><span class="cover-initials">' + esc(initiales(r.titre)) + '</span></div>' +
+    '<div><h3><a href="reco.html?statut=' + encodeURIComponent('intéressé') + '#reco-' + encodeURIComponent(r.id) + '">' + esc(r.titre) + '</a></h3>' +
+      '<p class="auteurs">' + esc(auteursCourts(r.auteurs)) + '</p></div>' +
+    '<span class="note note-reco">Reco</span>' +
+    '<div class="tomes">' +
+      '<ul class="tomes-grid" aria-hidden="true">' + cases + '</ul>' +
+      '<p class="detail">' + pluriel(tomes.length, 'Tome', 'Tomes') + ' ' + plagesDeTomes(tomes.map(t => t.tome)) +
+        ' <span class="dispo">· ' + tomes.length + ' ' + pluriel(tomes.length, 'tome') + (r.statut_serie ? ', série ' + esc(r.statut_serie) : '') + '</span></p>' +
+    '</div></li>';
+}
+
+/** Case à cocher d'une option de la liste (classiques, recos), avec un aperçu des titres. */
+function optionAchatHTML(id, libelle, groupe, titre, vide) {
+  const nb = groupe.reduce((n, x) => n + x.tomes.length, 0);
+  const apercu = groupe.length
+    ? '(' + esc(groupe.slice(0, 3).map(titre).join(', ')) + (groupe.length > 3 ? '…' : '') + ' · ' + nb + ' ' + pluriel(nb, 'tome') + ')'
+    : '(' + vide + ')';
+  return '<label' + (groupe.length ? '' : ' class="desactive"') + '><input type="checkbox" id="' + id + '"' + (groupe.length ? '' : ' disabled') + '> ' +
+    '<span>' + libelle + ' <span class="hint">' + apercu + '</span></span></label>';
+}
+
 /* Liste à acheter, intégrée au tableau de bord (US-25, ex-page envies.html). */
-function achatsHTML(series) {
+function achatsHTML(series, recos) {
   const aAcheter = filtre => series.filter(filtre)
     .map(s => ({ s, tomes: tomesAAcheter(s) }))
     .filter(x => x.tomes.length)
@@ -869,41 +867,53 @@ function achatsHTML(series) {
   const collectionnee = s => s.possedes > 0;
   const gouts = aAcheter(s => !s.regard && collectionnee(s));
   const classiques = aAcheter(s => s.regard === 'classique' && collectionnee(s));
-  const compter = g => g.reduce((n, x) => n + x.tomes.length, 0);
-  const total = avec => {
-    const nbTomes = compter(gouts) + (avec ? compter(classiques) : 0);
-    const nbSeries = gouts.length + (avec ? classiques.length : 0);
-    return nbTomes + '<small>' + pluriel(nbTomes, 'tome') + ' · ' + nbSeries + ' ' + pluriel(nbSeries, 'série') + '</small>';
-  };
-  return '<section class="panel achats" aria-labelledby="t-achats" data-total-sans="' + esc(total(false)) + '" data-total-avec="' + esc(total(true)) + '">' +
+  const interesse = recos.filter(r => r.statut === 'intéressé' && r.tomes_parus > 0)
+    .map(r => ({ r, tomes: Array.from({ length: r.tomes_parus }, (_, i) => ({ tome: i + 1 })) }))
+    .sort((a, b) => collator.compare(a.r.titre, b.r.titre));
+  return '<section class="panel achats" aria-labelledby="t-achats">' +
     '<div class="envies-head"><div><h2 id="t-achats">À acheter</h2>' +
       '<p>Les tomes parus qui me manquent, dans les séries qui me plaisent. Triés par note.</p></div>' +
       '<div class="envies-total" id="total-envies" aria-live="polite"></div></div>' +
     '<div class="envies-options">' +
-      '<label><input type="checkbox" id="avec-classiques"> <span>Ajouter les classiques <span class="hint">(' +
-        esc(classiques.slice(0, 3).map(x => x.s.titre).join(', ')) + (classiques.length > 3 ? '…' : '') + ' · ' +
-        compter(classiques) + ' ' + pluriel(compter(classiques), 'tome') + ')</span></span></label>' +
+      '<div class="envies-cases">' +
+        optionAchatHTML('avec-classiques', 'Ajouter les classiques', classiques, x => x.s.titre, 'aucun') +
+        optionAchatHTML('avec-recos', 'Ajouter les recos qui m’intéressent', interesse, x => x.r.titre, 'aucune reco marquée « intéressé » pour l’instant') +
+      '</div>' +
       '<button type="button" class="btn-print" id="imprimer">' +
         '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg>' +
         'Imprimer la liste</button>' +
     '</div>' +
     groupeEnviesHTML('Mes séries', '', gouts) +
     '<div id="groupe-classiques" hidden>' + groupeEnviesHTML('Classiques', 'achetés par fidélité', classiques) + '</div>' +
+    '<div id="groupe-recos" hidden>' + groupeEnviesHTML('Recos qui m’intéressent', 'séries à commencer', interesse, envieRecoHTML) + '</div>' +
   '</section>';
 }
 
+/** Options de la liste à acheter : case cochée ↔ groupe affiché ↔ paramètre d'URL. */
+const OPTIONS_ACHAT = [
+  { caseId: 'avec-classiques', groupeId: 'groupe-classiques', param: 'classiques' },
+  { caseId: 'avec-recos', groupeId: 'groupe-recos', param: 'recos' }
+];
+
 function initAchats() {
-  const section = document.querySelector('.achats');
-  const caseClassiques = document.getElementById('avec-classiques');
   const total = document.getElementById('total-envies');
-  caseClassiques.checked = new URLSearchParams(location.search).get('classiques') === '1';
+  const params = new URLSearchParams(location.search);
+  const options = OPTIONS_ACHAT.map(o => Object.assign({}, o,
+    { box: document.getElementById(o.caseId), groupe: document.getElementById(o.groupeId) }));
+  options.forEach(o => { o.box.checked = !o.box.disabled && params.get(o.param) === '1'; });
   function maj() {
-    const avec = caseClassiques.checked;
-    document.getElementById('groupe-classiques').hidden = !avec;
-    total.innerHTML = avec ? section.dataset.totalAvec : section.dataset.totalSans;
-    history.replaceState(null, '', avec ? '?classiques=1' : location.pathname);
+    const url = new URLSearchParams();
+    options.forEach(o => {
+      o.groupe.hidden = !o.box.checked;
+      if (o.box.checked) url.set(o.param, '1');
+    });
+    const visibles = [...document.querySelectorAll('.achats .groupe-envies')].filter(g => !g.closest('[hidden]'));
+    const nbTomes = visibles.reduce((n, g) => n + g.querySelectorAll('.tomes-grid li').length, 0);
+    const nbSeries = visibles.reduce((n, g) => n + g.querySelectorAll('.envie').length, 0);
+    total.innerHTML = nbTomes + '<small>' + pluriel(nbTomes, 'tome') + ' · ' + nbSeries + ' ' + pluriel(nbSeries, 'série') + '</small>';
+    history.replaceState(null, '', url.toString() ? '?' + url : location.pathname);
   }
-  caseClassiques.addEventListener('change', maj);
+  options.forEach(o => o.box.addEventListener('change', maj));
   document.getElementById('imprimer').addEventListener('click', () => window.print());
   maj();
 }
@@ -932,7 +942,7 @@ function recoHTML(r, seriesParId) {
     '<a href="' + esc(u) + '" rel="noopener" target="_blank">' + esc(domaine(u)) + '</a>').join(', ');
   const meta = [r.editeur, r.tomes_parus ? r.tomes_parus + ' ' + pluriel(r.tomes_parus, 'tome') : '', r.statut_serie ? 'série ' + r.statut_serie : '']
     .filter(Boolean).map(esc).join(' · ');
-  return '<li class="reco-card statut-' + (statut === 'rejeté' ? 'rejete' : statut === 'intéressé' ? 'interesse' : 'decouvrir') + '">' +
+  return '<li id="reco-' + esc(r.id) + '" class="reco-card statut-' + (statut === 'rejeté' ? 'rejete' : statut === 'intéressé' ? 'interesse' : 'decouvrir') + '">' +
     '<div class="reco-head"><div><h2>' + esc(r.titre) + '</h2>' +
       '<p class="card-authors">' + auteursLiensHTML(r.auteurs) + '</p></div>' +
       '<span class="reco-statut">' + LIBELLES_STATUT_RECO[statut] + '</span></div>' +
@@ -987,7 +997,7 @@ async function demarrer() {
     afficherStatsEnTete(series);
     if (page === 'collection') pageCollection(series);
     if (page === 'serie') pageSerie(series);
-    if (page === 'stats') pageStats(series);
+    if (page === 'stats') pageStats(series, await chargerJSON('data/reco.json').catch(() => []));
     if (page === 'auteur') pageAuteur(series, await chargerJSON('data/reco.json').catch(() => []));
     if (page === 'reco') pageReco(series, await chargerJSON('data/reco.json'));
   } catch (erreur) {
