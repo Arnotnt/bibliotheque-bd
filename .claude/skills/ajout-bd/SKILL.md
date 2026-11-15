@@ -50,6 +50,7 @@ Sources, dans cet ordre :
 - `note` : entier de 0 à 10, au sens de DATA-03 (« dans son genre »).
 - `avis` : le texte donné, avec une majuscule et un point final, **sans le réécrire**.
 - Si l'avis suggère un `regard` (classique, jeunesse, hors goût, non suivi) : le proposer et ne l'ajouter qu'après accord.
+- Si la note est **≥ 8** et que la série n'est pas déjà coup de cœur : demander à Arnaud « Coup de cœur ? » (US-26). N'ajouter `"coup_de_coeur": true` qu'après un oui ; sinon ne rien ajouter (jamais `false`).
 
 ## 6. Clôture
 1. Montrer à Arnaud ce qui change : séries créées, albums, EAN trouvés et manquants, couvertures choisies.

@@ -2,6 +2,15 @@
 
 Une section par fin de sprint, la plus récente en haut.
 
+## Sprint 6 — 2026-11-15
+Sprint Goal : « Mon tableau de bord me dit quoi acheter et quoi lire, et je montre mes coups de cœur » — atteint
+Vélocité : 8 pts livrés sur 8 engagés (US-25, US-26 ; PR #73 et #75, fusionnées par Claude à la demande du PO)
+Démo : https://arnotnt.github.io/bibliotheque-bd/stats.html (À acheter avec options classiques et recos, À lire) et https://arnotnt.github.io/bibliotheque-bd/?filtre=coups-de-coeur
+
+- **Garder** : les retours du PO sur une PR ouverte intégrés dans la même PR (Derniers ajouts retiré, option recos ajoutée), et les idées écartées gardées en issue (US-26).
+- **Arrêter** : proposer des encarts « pour remplir » : Derniers ajouts et Pile à lire vide n'apportaient rien.
+- **Essayer** : marquer les premières recos « intéressé » et les premiers coups de cœur pour que les nouvelles options ne restent pas vides.
+
 ## Sprint 5 — 2026-11-14
 Sprint Goal : « Je trouve vite ce que je cherche, et je sais quoi acheter » — atteint
 Vélocité : 19 pts livrés sur 19 engagés (BUG-01, US-16, US-17, US-20, US-18, US-19, US-22 ; PR #55 à #61, fusionnées par Claude à la demande du PO, exceptionnellement)

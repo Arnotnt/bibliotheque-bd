@@ -107,6 +107,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - `note` : entier de 0 à 10, ou `null`.
 - Sens de la note (règle DATA-03, 2026-11-14) : elle juge la série **dans son genre** (« pour quelqu'un qui aime ce genre de BD, ça vaut combien ? »), pas mon envie actuelle. Barème : 9-10 chef-d'œuvre du genre, je relis ; 7-8 très bon, je recommande à un amateur du genre ; 5-6 correct, sans plus ; ≤ 4 raté, même pour son public.
 - `regard` (DATA-03, facultatif) : la série **ne guide pas les recommandations**, quelle que soit sa note. Valeurs : `classique` (patrimoine, acheté par fidélité : Astérix, Tintin), `jeunesse` (apprécié, mais pour enfants : Yakari, Cédric), `hors goût` (bien fait, pas mon style : Focu, Blueberry), `non suivi` (j'ai arrêté ou « sans plus » : Lucky Luke, Légende). Champ absent = la série reflète mes goûts actuels. Il se déduit de mon avis, et je valide la valeur. Indépendant de `suivie` : Astérix est `classique` et suivie ; 1629, terminée et non suivie, n'a pas de `regard` et guide les recos.
+- `coup_de_coeur` (US-26, facultatif) : `true` si je l'ai désignée comme coup de cœur, **au cas par cas** (jamais déduit de la note). Champ absent sinon, jamais `false`. Claude me pose la question quand une série reçoit une note ≥ 8. Filtre « Coups de cœur » de l'accueil et badge cœur. Aucune au 2026-11-15.
 - `auteurs` (règle DATA-01, 2026-11-14) : scénaristes et dessinateurs principaux, **sans les coloristes** ni les auteurs du roman ou de la licence d'origine. Ordre : scénariste puis dessinateur. Séries reprises par plusieurs équipes : les **créateurs**, puis l'**équipe du dernier album paru** de la série principale numérotée (hors-séries et spin-offs exclus). Noms de plume tels que signés (`Hergé`, `Jijé`, `Fabcaro`). Au moins un auteur par série.
 - `a_paraitre` (US-13, facultatif) : tomes **annoncés mais pas encore parus**, renseignés par la veille et affichés sur le tableau de bord et la page série.
   ```json
@@ -179,6 +180,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - « Note Tyler Cross 9/10 : ambiance géniale » → mettre à jour la série.
   `note` : entier de 0 à 10 ; `avis` : le texte donné, avec une majuscule et un point final, sans le réécrire. Testé le 2026-11-14 sur Okko.
   Si l'avis indique un `regard` (« classique », « pour la jeunesse », « pas mon style », « j'ai arrêté »), le proposer et l'ajouter après mon accord.
+  Si la note est ≥ 8 et que la série n'est pas déjà coup de cœur, me demander « Coup de cœur ? » et n'ajouter `coup_de_coeur` qu'après mon oui (US-26).
 - « Fais la veille des nouveautés » → pour chaque série `suivie`, chercher les tomes à paraître et mettre à jour `tomes_parus`.
 - « Long John Silver m'intéresse » / « Rejette De Cape et de Crocs » → mettre à jour `statut` dans `data/reco.json` (`intéressé` ou `rejeté`), sans supprimer l'entrée.
 - « Recommande-moi 5 séries » → partir de mes séries notées ≥ 8 **sans `regard`** (auteurs, genres, ton de mes avis), proposer des séries que je n'ai pas, écrire le résultat dans `data/reco.json`.
@@ -221,5 +223,6 @@ Le backlog vit dans les issues GitHub et le [kanban](https://github.com/users/Ar
 | 3 | « Le site est complet et les données sont fiables » | OPT-01, DATA-01, DATA-02, US-13, US-11, US-12, OPT-02 | 18 |
 | 4 | « Mes notes reflètent mes goûts d'aujourd'hui, et le site explique pourquoi une série ne guide pas mes recos » | DATA-03, US-14, US-15 | 6 |
 | 5 | « Je trouve vite ce que je cherche, et je sais quoi acheter » | BUG-01, US-16, US-17, US-20, US-18, US-19, US-22 | 19 |
+| 6 | « Mon tableau de bord me dit quoi acheter et quoi lire, et je montre mes coups de cœur » | US-25, US-26 | 8 |
 
 Capacité : la charge se calcule sur la capacité de Claude ; le goulot est la revue du PO (rétros des sprints 1 et 2).
