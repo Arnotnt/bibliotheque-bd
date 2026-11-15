@@ -79,6 +79,7 @@ scripts/setup_github.sh    création des labels, milestones et issues du Sprint 
 scripts/verifier_donnees.py  vérification de data/*.json (format, doublons, cohérence) et des ?v=N des pages
 .github/workflows/verifier-donnees.yml  lance la vérification sur chaque PR
 docs/JOURNAL.md  docs/retro.md  docs/mockups/
+.claude/skills/ajout-bd/SKILL.md  procédure d'ajout de BD (EAN, couverture…)
 .github/ISSUE_TEMPLATE/user-story.md
 .github/pull_request_template.md
 ```
@@ -137,7 +138,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
   1. `data/couvertures_manuelles.json` (`{ serie_id: url }`, édité à la main) : image choisie par Claude et validée par moi, de préférence sur [Open Library](https://openlibrary.org) (autre édition, `…/b/id/<n°>-M.jpg`) ou sur le site de l'éditeur (image de la fiche album, en taille moyenne). Open Library n'est pas interrogé pour ces séries.
   2. Open Library : le premier album (par numéro de tome) dont l'EAN a une image ([API Covers](https://openlibrary.org/dev/docs/api/covers)).
 - Écartés (US-15) : scraping de la Fnac (interdit par ses conditions, anti-robots) et Google Books (clé d'API et attribution Google obligatoires).
-- Série absente du fichier = visuel par défaut (initiales). 58 séries sur 61 au 2026-11-14 (37 Open Library, 21 manuelles) ; sans couverture : 24 Heures Chrono, Durandal, L'Enfer du Tromé.
+- Série absente du fichier = visuel par défaut (initiales). 62 séries sur 65 au 2026-11-15 (38 Open Library, 24 manuelles) ; sans couverture : 24 Heures Chrono, Durandal, L'Enfer du Tromé.
 - Une image liée sur un site d'éditeur peut disparaître : le site réaffiche alors les initiales. Il suffit de remplacer l'URL dans `couvertures_manuelles.json` et de relancer le script.
 - Open Library limite les requêtes par ISBN (environ 100 toutes les 5 minutes par adresse IP) : ne pas relancer le script en boucle.
 
@@ -175,10 +176,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 - En fin de sprint, proposer la démo (ce qui est en ligne) et une rétro de 3 lignes.
 
 ## Demandes types (gestion courante, sans issue)
-- « J'ai acheté et lu Blacksad tome 8 » → ajouter ou mettre à jour l'album.
-- « J'ai lu Undertaker 1 à 3 chez un ami » → albums `possede: false, lu: true`.
-  Si la série n'existe pas encore : la créer (`suivie: false`, `note: null`, `tomes_parus` d'après une source), puis ajouter les albums avec `date_ajout` du jour et `ean: null` si inconnu. Testé le 2026-11-14 sur Undertaker.
-  Après l'ajout d'albums ou d'une série, relancer `python3 scripts/couvertures.py` pour lui trouver une couverture.
+- « J'ai acheté et lu Blacksad tome 8 » / « J'ai lu Undertaker 1 à 3 chez un ami » → **skill `ajout-bd`** (`.claude/skills/ajout-bd/SKILL.md`, OPT-03) : série créée si besoin, albums, EAN (BnF, libraires), titres, couverture (Claude ajoute lui-même une couverture manuelle si Open Library ne trouve rien, le PO corrige ensuite), note et avis, vérification et commit. Testée le 2026-11-15 sur Les 5 Terres, Dead Train, Cyborgs et RIP.
 - « Note Tyler Cross 9/10 : ambiance géniale » → mettre à jour la série.
   `note` : entier de 0 à 10 ; `avis` : le texte donné, avec une majuscule et un point final, sans le réécrire. Testé le 2026-11-14 sur Okko.
   Si l'avis indique un `regard` (« classique », « pour la jeunesse », « pas mon style », « j'ai arrêté »), le proposer et l'ajouter après mon accord.

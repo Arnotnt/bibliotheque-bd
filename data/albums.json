@@ -695,8 +695,8 @@
   {
     "serie_id": "cyborgs",
     "tome": 1,
-    "titre": null,
-    "ean": null,
+    "titre": "Ronin",
+    "ean": "9782302105027",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -704,8 +704,8 @@
   {
     "serie_id": "cyborgs",
     "tome": 2,
-    "titre": null,
-    "ean": null,
+    "titre": "Steel",
+    "ean": "9782302106598",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -713,8 +713,8 @@
   {
     "serie_id": "cyborgs",
     "tome": 3,
-    "titre": null,
-    "ean": null,
+    "titre": "Tank",
+    "ean": "9782302093065",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -722,8 +722,8 @@
   {
     "serie_id": "cyborgs",
     "tome": 4,
-    "titre": null,
-    "ean": null,
+    "titre": "Hawk",
+    "ean": "9782302091610",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -749,8 +749,8 @@
   {
     "serie_id": "dead-train",
     "tome": 1,
-    "titre": null,
-    "ean": null,
+    "titre": "La prophétie de la Vierge Noire",
+    "ean": "9782380463972",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1838,8 +1838,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 1,
-    "titre": null,
-    "ean": null,
+    "titre": "De toutes mes forces",
+    "ean": "9782413002284",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1847,8 +1847,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 2,
-    "titre": null,
-    "ean": null,
+    "titre": "Quelqu'un de vivant",
+    "ean": "9782413007937",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1856,8 +1856,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 3,
-    "titre": null,
-    "ean": null,
+    "titre": "L'amour d'un imbécile",
+    "ean": "9782413010739",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1865,8 +1865,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 4,
-    "titre": null,
-    "ean": null,
+    "titre": "La même férocité",
+    "ean": "9782413016731",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1874,8 +1874,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 5,
-    "titre": null,
-    "ean": null,
+    "titre": "L'objet de votre haine",
+    "ean": "9782413019336",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1883,8 +1883,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 6,
-    "titre": null,
-    "ean": null,
+    "titre": "Pas la force",
+    "ean": "9782413019343",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1892,8 +1892,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 7,
-    "titre": null,
-    "ean": null,
+    "titre": "L'heure du cadeau",
+    "ean": "9782413040620",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1901,8 +1901,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 8,
-    "titre": null,
-    "ean": null,
+    "titre": "Plus morte que morte",
+    "ean": "9782413043065",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1910,8 +1910,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 9,
-    "titre": null,
-    "ean": null,
+    "titre": "Ton rire intérieur",
+    "ean": "9782413043072",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1919,8 +1919,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 10,
-    "titre": null,
-    "ean": null,
+    "titre": "Réapprendre la peur",
+    "ean": "9782413043089",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1928,8 +1928,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 11,
-    "titre": null,
-    "ean": null,
+    "titre": "Tomber vraiment",
+    "ean": "9782413047599",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1937,8 +1937,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 12,
-    "titre": null,
-    "ean": null,
+    "titre": "La première à mourir",
+    "ean": "9782413047605",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1946,8 +1946,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 13,
-    "titre": null,
-    "ean": null,
+    "titre": "Rester vivants",
+    "ean": "9782413081630",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1955,8 +1955,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 14,
-    "titre": null,
-    "ean": null,
+    "titre": "Juste des ennemis",
+    "ean": "9782413081647",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1964,8 +1964,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 15,
-    "titre": null,
-    "ean": null,
+    "titre": "Rien de plus que vivre",
+    "ean": "9782413081654",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1973,8 +1973,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 16,
-    "titre": null,
-    "ean": null,
+    "titre": "Nulle part où aller",
+    "ean": "9782413081906",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -1982,8 +1982,8 @@
   {
     "serie_id": "les-5-terres",
     "tome": 17,
-    "titre": null,
-    "ean": null,
+    "titre": "Ces foutues terres gelées",
+    "ean": "9782413084563",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -2306,8 +2306,8 @@
   {
     "serie_id": "rip",
     "tome": 1,
-    "titre": null,
-    "ean": null,
+    "titre": "Derrick : je ne survivrai pas à la mort",
+    "ean": "9791095670568",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -2315,8 +2315,8 @@
   {
     "serie_id": "rip",
     "tome": 2,
-    "titre": null,
-    "ean": null,
+    "titre": "Maurice : les mouches suivent toujours les charognes",
+    "ean": "9791095670865",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -2324,8 +2324,8 @@
   {
     "serie_id": "rip",
     "tome": 3,
-    "titre": null,
-    "ean": null,
+    "titre": "Ahmed : au bon endroit au mauvais moment",
+    "ean": "9782380460414",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -2333,8 +2333,8 @@
   {
     "serie_id": "rip",
     "tome": 4,
-    "titre": null,
-    "ean": null,
+    "titre": "Albert : prière de rendre l'âme sœur",
+    "ean": "9782380460995",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -2342,8 +2342,8 @@
   {
     "serie_id": "rip",
     "tome": 5,
-    "titre": null,
-    "ean": null,
+    "titre": "Fanette : mal dans la peau des autres",
+    "ean": "9782380461381",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
@@ -2351,8 +2351,8 @@
   {
     "serie_id": "rip",
     "tome": 6,
-    "titre": null,
-    "ean": null,
+    "titre": "Eugène : toutes les bonnes choses ont une fin",
+    "ean": "9782380461787",
     "possede": false,
     "lu": true,
     "date_ajout": "2026-11-15"
