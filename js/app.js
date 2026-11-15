@@ -600,8 +600,9 @@ function pileHTML(series) {
   const pile = series.filter(s => s.alire > 0)
     .map(s => ({ s, nombre: s.alire }))
     .sort((a, b) => b.nombre - a.nombre || collator.compare(a.s.titre, b.s.titre));
+  if (!pile.length) return ''; // tout est lu : l'encart n'apporte rien (US-25)
   const total = pile.reduce((n, x) => n + x.nombre, 0);
-  const max = pile.length ? pile[0].nombre : 1;
+  const max = pile[0].nombre;
   const lignes = pile.slice(0, NB_LIGNES_PANNEAU).map(({ s, nombre }) =>
     '<li><a href="' + lienSerie(s) + '"><strong class="r-titre">' + esc(s.titre) + '</strong>' +
     '<span class="r-toread">' + nombre + '</span>' +
@@ -610,29 +611,29 @@ function pileHTML(series) {
   return '<section class="panel" aria-labelledby="t-pile">' +
     '<div class="panel-head"><div><h2 id="t-pile">Pile à lire</h2><p>Albums possédés, pas encore lus</p></div>' +
     '<span class="pile-total" aria-label="' + total + ' albums à lire">' + total + '</span></div>' +
-    (pile.length ? '<ul class="rows">' + lignes + '</ul>' + reste(pile, n => pluriel(n, 'album')) : '<p>Rien à lire : tout est lu !</p>') +
+    '<ul class="rows">' + lignes + '</ul>' + reste(pile, n => pluriel(n, 'album')) +
   '</section>';
 }
 
-function incompletesHTML(series) {
-  // Les plus proches d'être complètes d'abord : c'est là qu'un achat compte le plus.
-  const inc = series.filter(s => s.incomplete)
-    .map(s => ({ s, nombre: s.manquants }))
-    .sort((a, b) => a.nombre - b.nombre || collator.compare(a.s.titre, b.s.titre));
-  const total = inc.reduce((n, x) => n + x.nombre, 0);
-  const lignes = inc.slice(0, NB_LIGNES_PANNEAU).map(({ s, nombre }) =>
-    '<li><a href="' + lienSerie(s) + '"><span class="r-titre"><strong>' + esc(s.titre) + '</strong> ' +
-    '<span class="r-own">' + s.possedes + '/' + s.parus + '</span></span>' +
-    '<span class="r-miss">' + nombre + ' ' + pluriel(nombre, 'manquant') + '</span>' +
-    '<span class="bar" role="img" aria-label="' + s.possedes + ' possédés sur ' + s.parus + ', ' + nombre + ' ' + pluriel(nombre, 'manquant') + '">' +
-    '<span class="seg-own" style="width:' + pct(s.possedes, s.parus) + '"></span>' +
-    '<span class="seg-miss" style="width:' + pct(nombre, s.parus) + '"></span></span></a></li>'
-  ).join('');
-  return '<section class="panel" aria-labelledby="t-inc">' +
-    '<div class="panel-head"><div><h2 id="t-inc">Séries incomplètes</h2>' +
-    '<p>' + inc.length + ' ' + pluriel(inc.length, 'série') + ' · ' + total + ' ' + pluriel(total, 'tome manquant', 'tomes manquants') +
-    ' · les plus proches d’être complètes d’abord</p></div></div>' +
-    (inc.length ? '<ul class="rows">' + lignes + '</ul>' + reste(inc, n => pluriel(n, 'tome manquant', 'tomes manquants')) : '<p>Toutes les séries sont complètes.</p>') +
+/* À lire (US-25) : séries lues sans en posséder un seul album (lues chez un ami), et la suite à lire. */
+function aLireHTML(series) {
+  const lues = series.filter(s => s.lnp > 0 && s.possedes === 0)
+    .map(s => ({ s, suite: s.tomes.filter(t => t.statut === 'manquant').map(t => t.tome) }))
+    .sort((a, b) => (b.suite.length > 0) - (a.suite.length > 0) || TRIS.note.comparer(a.s, b.s));
+  const lignes = lues.map(({ s, suite }) => {
+    const lus = s.tomes.filter(t => t.statut === 'lnp').map(t => t.tome);
+    return '<li><a href="' + lienSerie(s) + '"><span class="r-titre"><strong>' + esc(s.titre) + '</strong> ' +
+      '<span class="r-tome">' + 'T' + plagesDeTomes(lus) + ' ' + pluriel(lus.length, 'lu', 'lus') + '</span></span>' +
+      (suite.length
+        ? '<span class="r-suite">Suite : T' + plagesDeTomes(suite) + '</span>'
+        : '<span class="r-fini">Lue en entier</span>') +
+      '<span class="bar" role="img" aria-label="' + lus.length + ' ' + pluriel(lus.length, 'tome lu', 'tomes lus') + ' sur ' + s.parus + '">' +
+      '<span class="seg-lnp" style="width:' + pct(lus.length, s.parus) + '"></span>' +
+      '<span class="seg-miss" style="width:' + pct(suite.length, s.parus) + '"></span></span></a></li>';
+  }).join('');
+  return '<section class="panel" aria-labelledby="t-alire">' +
+    '<div class="panel-head"><div><h2 id="t-alire">À lire</h2><p>Séries lues ailleurs, que je ne possède pas : où j’en suis</p></div></div>' +
+    (lues.length ? '<ul class="rows">' + lignes + '</ul>' : '<p>Aucune série lue sans être achetée.</p>') +
   '</section>';
 }
 
@@ -724,10 +725,13 @@ function goutsHTML(series) {
   '</section>';
 }
 
-function pageStats(series) {
+function pageStats(series, recos) {
   const conteneur = document.getElementById('stats');
   conteneur.innerHTML = '<h1 class="page-title">Tableau de bord</h1>' + kpisHTML(series) +
-    '<div class="panels">' + aParaitreHTML(series) + pileHTML(series) + incompletesHTML(series) + notesHTML(series) + goutsHTML(series) + '</div>';
+    achatsHTML(series, recos) +
+    '<div class="panels">' + aParaitreHTML(series) + aLireHTML(series) + pileHTML(series) +
+    notesHTML(series) + goutsHTML(series) + '</div>';
+  initAchats();
   const toutes = document.getElementById('gouts-toutes');
   toutes.addEventListener('change', () => {
     document.getElementById('gouts-contenu').innerHTML = goutsContenuHTML(series, toutes.checked);
@@ -784,7 +788,7 @@ function pageAuteur(series, recos) {
       : '');
 }
 
-/* ---------- Page : à acheter (envies.html, US-18) ---------- */
+/* ---------- À acheter (US-18, intégré au tableau de bord par US-25) ---------- */
 
 /** « 1 à 4, 9, 11 à 13 » à partir d'une liste triée de numéros. */
 function plagesDeTomes(nums) {
@@ -819,64 +823,97 @@ function envieHTML({ s, tomes }) {
     '</div></li>';
 }
 
-function groupeEnviesHTML(titre, sousTitre, groupe) {
+function groupeEnviesHTML(titre, sousTitre, groupe, rendu = envieHTML) {
   const total = groupe.reduce((n, x) => n + x.tomes.length, 0);
   return '<section class="groupe-envies">' +
-    '<h2 class="groupe-titre">' + titre + ' <span>' + total + ' ' + pluriel(total, 'tome') + (sousTitre ? ' · ' + sousTitre : '') + '</span></h2>' +
-    (groupe.length ? '<ul class="envies">' + groupe.map(envieHTML).join('') + '</ul>' : '<p class="count">Rien à acheter : ces séries sont complètes.</p>') +
+    '<h3 class="groupe-titre">' + titre + ' <span>' + total + ' ' + pluriel(total, 'tome') + (sousTitre ? ' · ' + sousTitre : '') + '</span></h3>' +
+    (groupe.length ? '<ul class="envies">' + groupe.map(rendu).join('') + '</ul>' : '<p class="count">Rien à acheter : ces séries sont complètes.</p>') +
   '</section>';
 }
 
-function pageEnvies(series) {
-  const conteneur = document.getElementById('envies');
+/* Reco « intéressé » dans la liste à acheter (US-25) : toute la série est à acheter. */
+function envieRecoHTML({ r, tomes }) {
+  const cases = tomes.map(t => '<li class="st-manquant"><span class="cell" title="Tome ' + t.tome + '">' + t.tome + '</span></li>').join('');
+  return '<li class="envie">' +
+    '<div class="mini-cover" aria-hidden="true"><span class="cover-initials">' + esc(initiales(r.titre)) + '</span></div>' +
+    '<div><h3><a href="reco.html?statut=' + encodeURIComponent('intéressé') + '#reco-' + encodeURIComponent(r.id) + '">' + esc(r.titre) + '</a></h3>' +
+      '<p class="auteurs">' + esc(auteursCourts(r.auteurs)) + '</p></div>' +
+    '<span class="note note-reco">Reco</span>' +
+    '<div class="tomes">' +
+      '<ul class="tomes-grid" aria-hidden="true">' + cases + '</ul>' +
+      '<p class="detail">' + pluriel(tomes.length, 'Tome', 'Tomes') + ' ' + plagesDeTomes(tomes.map(t => t.tome)) +
+        ' <span class="dispo">· ' + tomes.length + ' ' + pluriel(tomes.length, 'tome') + (r.statut_serie ? ', série ' + esc(r.statut_serie) : '') + '</span></p>' +
+    '</div></li>';
+}
+
+/** Case à cocher d'une option de la liste (classiques, recos), avec un aperçu des titres. */
+function optionAchatHTML(id, libelle, groupe, titre, vide) {
+  const nb = groupe.reduce((n, x) => n + x.tomes.length, 0);
+  const apercu = groupe.length
+    ? '(' + esc(groupe.slice(0, 3).map(titre).join(', ')) + (groupe.length > 3 ? '…' : '') + ' · ' + nb + ' ' + pluriel(nb, 'tome') + ')'
+    : '(' + vide + ')';
+  return '<label' + (groupe.length ? '' : ' class="desactive"') + '><input type="checkbox" id="' + id + '"' + (groupe.length ? '' : ' disabled') + '> ' +
+    '<span>' + libelle + ' <span class="hint">' + apercu + '</span></span></label>';
+}
+
+/* Liste à acheter, intégrée au tableau de bord (US-25, ex-page envies.html). */
+function achatsHTML(series, recos) {
   const aAcheter = filtre => series.filter(filtre)
     .map(s => ({ s, tomes: tomesAAcheter(s) }))
     .filter(x => x.tomes.length)
     .sort((a, b) => TRIS.note.comparer(a.s, b.s));
   // Les séries jeunesse, hors goût et non suivi ne sont jamais proposées (validé par le PO, #50),
-  // ni celles dont je ne possède aucun album, même lues ailleurs (US-24, #65).
+  // ni celles dont je ne possède aucun album, même lues ailleurs (US-24, #65) : elles sont dans « À lire ».
   const collectionnee = s => s.possedes > 0;
   const gouts = aAcheter(s => !s.regard && collectionnee(s));
   const classiques = aAcheter(s => s.regard === 'classique' && collectionnee(s));
-  const compter = g => g.reduce((n, x) => n + x.tomes.length, 0);
-
-  const annonces = series.filter(s => !s.regard && collectionnee(s)).flatMap(s => (s.a_paraitre || []).map(a => ({ s, a })))
-    .sort((x, y) => cleDateAnnonce(x.a.date).localeCompare(cleDateAnnonce(y.a.date)) || collator.compare(x.s.titre, y.s.titre));
-  const annoncesHTML = annonces.length
-    ? '<section class="annonces" aria-labelledby="t-annonces"><h2 id="t-annonces">Bientôt en librairie</h2><ul>' +
-      annonces.map(({ s, a }) => '<li><a href="' + lienSerie(s) + '">' + esc(s.titre) + ' · ' + libelleTomeAnnonce(a) + '</a>' +
-        '<span>' + dateAnnonce(a.date) + aVerifierHTML(a) + '</span></li>').join('') + '</ul></section>'
-    : '';
-
-  const params = new URLSearchParams(location.search);
-  conteneur.innerHTML =
-    '<div class="envies-head"><div><h1 class="page-title">À acheter</h1>' +
+  const interesse = recos.filter(r => r.statut === 'intéressé' && r.tomes_parus > 0)
+    .map(r => ({ r, tomes: Array.from({ length: r.tomes_parus }, (_, i) => ({ tome: i + 1 })) }))
+    .sort((a, b) => collator.compare(a.r.titre, b.r.titre));
+  return '<section class="panel achats" aria-labelledby="t-achats">' +
+    '<div class="envies-head"><div><h2 id="t-achats">À acheter</h2>' +
       '<p>Les tomes parus qui me manquent, dans les séries qui me plaisent. Triés par note.</p></div>' +
       '<div class="envies-total" id="total-envies" aria-live="polite"></div></div>' +
     '<div class="envies-options">' +
-      '<label><input type="checkbox" id="avec-classiques"> <span>Ajouter les classiques <span class="hint">(' +
-        esc(classiques.slice(0, 3).map(x => x.s.titre).join(', ')) + (classiques.length > 3 ? '…' : '') + ' · ' +
-        compter(classiques) + ' ' + pluriel(compter(classiques), 'tome') + ')</span></span></label>' +
+      '<div class="envies-cases">' +
+        optionAchatHTML('avec-classiques', 'Ajouter les classiques', classiques, x => x.s.titre, 'aucun') +
+        optionAchatHTML('avec-recos', 'Ajouter les recos qui m’intéressent', interesse, x => x.r.titre, 'aucune reco marquée « intéressé » pour l’instant') +
+      '</div>' +
       '<button type="button" class="btn-print" id="imprimer">' +
         '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg>' +
         'Imprimer la liste</button>' +
     '</div>' +
     groupeEnviesHTML('Mes séries', '', gouts) +
     '<div id="groupe-classiques" hidden>' + groupeEnviesHTML('Classiques', 'achetés par fidélité', classiques) + '</div>' +
-    annoncesHTML;
+    '<div id="groupe-recos" hidden>' + groupeEnviesHTML('Recos qui m’intéressent', 'séries à commencer', interesse, envieRecoHTML) + '</div>' +
+  '</section>';
+}
 
-  const caseClassiques = document.getElementById('avec-classiques');
+/** Options de la liste à acheter : case cochée ↔ groupe affiché ↔ paramètre d'URL. */
+const OPTIONS_ACHAT = [
+  { caseId: 'avec-classiques', groupeId: 'groupe-classiques', param: 'classiques' },
+  { caseId: 'avec-recos', groupeId: 'groupe-recos', param: 'recos' }
+];
+
+function initAchats() {
   const total = document.getElementById('total-envies');
-  caseClassiques.checked = params.get('classiques') === '1';
+  const params = new URLSearchParams(location.search);
+  const options = OPTIONS_ACHAT.map(o => Object.assign({}, o,
+    { box: document.getElementById(o.caseId), groupe: document.getElementById(o.groupeId) }));
+  options.forEach(o => { o.box.checked = !o.box.disabled && params.get(o.param) === '1'; });
   function maj() {
-    const avec = caseClassiques.checked;
-    document.getElementById('groupe-classiques').hidden = !avec;
-    const nbTomes = compter(gouts) + (avec ? compter(classiques) : 0);
-    const nbSeries = gouts.length + (avec ? classiques.length : 0);
+    const url = new URLSearchParams();
+    options.forEach(o => {
+      o.groupe.hidden = !o.box.checked;
+      if (o.box.checked) url.set(o.param, '1');
+    });
+    const visibles = [...document.querySelectorAll('.achats .groupe-envies')].filter(g => !g.closest('[hidden]'));
+    const nbTomes = visibles.reduce((n, g) => n + g.querySelectorAll('.tomes-grid li').length, 0);
+    const nbSeries = visibles.reduce((n, g) => n + g.querySelectorAll('.envie').length, 0);
     total.innerHTML = nbTomes + '<small>' + pluriel(nbTomes, 'tome') + ' · ' + nbSeries + ' ' + pluriel(nbSeries, 'série') + '</small>';
-    history.replaceState(null, '', avec ? '?classiques=1' : location.pathname);
+    history.replaceState(null, '', url.toString() ? '?' + url : location.pathname);
   }
-  caseClassiques.addEventListener('change', maj);
+  options.forEach(o => o.box.addEventListener('change', maj));
   document.getElementById('imprimer').addEventListener('click', () => window.print());
   maj();
 }
@@ -905,7 +942,7 @@ function recoHTML(r, seriesParId) {
     '<a href="' + esc(u) + '" rel="noopener" target="_blank">' + esc(domaine(u)) + '</a>').join(', ');
   const meta = [r.editeur, r.tomes_parus ? r.tomes_parus + ' ' + pluriel(r.tomes_parus, 'tome') : '', r.statut_serie ? 'série ' + r.statut_serie : '']
     .filter(Boolean).map(esc).join(' · ');
-  return '<li class="reco-card statut-' + (statut === 'rejeté' ? 'rejete' : statut === 'intéressé' ? 'interesse' : 'decouvrir') + '">' +
+  return '<li id="reco-' + esc(r.id) + '" class="reco-card statut-' + (statut === 'rejeté' ? 'rejete' : statut === 'intéressé' ? 'interesse' : 'decouvrir') + '">' +
     '<div class="reco-head"><div><h2>' + esc(r.titre) + '</h2>' +
       '<p class="card-authors">' + auteursLiensHTML(r.auteurs) + '</p></div>' +
       '<span class="reco-statut">' + LIBELLES_STATUT_RECO[statut] + '</span></div>' +
@@ -960,8 +997,7 @@ async function demarrer() {
     afficherStatsEnTete(series);
     if (page === 'collection') pageCollection(series);
     if (page === 'serie') pageSerie(series);
-    if (page === 'stats') pageStats(series);
-    if (page === 'envies') pageEnvies(series);
+    if (page === 'stats') pageStats(series, await chargerJSON('data/reco.json').catch(() => []));
     if (page === 'auteur') pageAuteur(series, await chargerJSON('data/reco.json').catch(() => []));
     if (page === 'reco') pageReco(series, await chargerJSON('data/reco.json'));
   } catch (erreur) {
