@@ -693,6 +693,42 @@
     "date_ajout": null
   },
   {
+    "serie_id": "cyborgs",
+    "tome": 1,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "cyborgs",
+    "tome": 2,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "cyborgs",
+    "tome": 3,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "cyborgs",
+    "tome": 4,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
     "serie_id": "dans-la-tete-de-sherlock-holmes",
     "tome": 1,
     "titre": "L'Affaire du Ticket Scandaleux",
@@ -709,6 +745,15 @@
     "possede": true,
     "lu": true,
     "date_ajout": "2025-12-31"
+  },
+  {
+    "serie_id": "dead-train",
+    "tome": 1,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
   },
   {
     "serie_id": "death-note-black-edition",
@@ -1791,6 +1836,159 @@
     "date_ajout": null
   },
   {
+    "serie_id": "les-5-terres",
+    "tome": 1,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 2,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 3,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 4,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 5,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 6,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 7,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 8,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 9,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 10,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 11,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 12,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 13,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 14,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 15,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 16,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "les-5-terres",
+    "tome": 17,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
     "serie_id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
     "tome": 1,
     "titre": "Ile aux Requins",
@@ -2104,6 +2302,60 @@
     "possede": true,
     "lu": true,
     "date_ajout": null
+  },
+  {
+    "serie_id": "rip",
+    "tome": 1,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "rip",
+    "tome": 2,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "rip",
+    "tome": 3,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "rip",
+    "tome": 4,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "rip",
+    "tome": 5,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
+  },
+  {
+    "serie_id": "rip",
+    "tome": 6,
+    "titre": null,
+    "ean": null,
+    "possede": false,
+    "lu": true,
+    "date_ajout": "2026-11-15"
   },
   {
     "serie_id": "saint-seiya-time-odyssey",

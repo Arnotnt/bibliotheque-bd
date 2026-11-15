@@ -224,6 +224,25 @@
     "regard": "jeunesse"
   },
   {
+    "id": "cyborgs",
+    "titre": "Cyborgs",
+    "auteurs": [
+      "Jean-Luc Istin",
+      "Kael Ngu",
+      "Alina Yerofieiva"
+    ],
+    "editeur": "Soleil",
+    "categorie": "BD",
+    "genres": [
+      "science-fiction"
+    ],
+    "statut": "en cours",
+    "tomes_parus": 4,
+    "suivie": false,
+    "note": 7,
+    "avis": "Bien, une bonne BD à lire."
+  },
+  {
     "id": "dans-la-tete-de-sherlock-holmes",
     "titre": "Dans la Tête de Sherlock Holmes",
     "auteurs": [
@@ -251,6 +270,25 @@
         ]
       }
     ]
+  },
+  {
+    "id": "dead-train",
+    "titre": "Dead Train",
+    "auteurs": [
+      "Wallace",
+      "Le Turk"
+    ],
+    "editeur": "Petit à Petit",
+    "categorie": "BD",
+    "genres": [
+      "thriller",
+      "polar"
+    ],
+    "statut": "en cours",
+    "tomes_parus": 1,
+    "suivie": false,
+    "note": 9,
+    "avis": "Tout est très bien : dessin, histoire, personnages."
   },
   {
     "id": "death-note-black-edition",
@@ -818,6 +856,25 @@
     "regard": "jeunesse"
   },
   {
+    "id": "les-5-terres",
+    "titre": "Les 5 Terres",
+    "auteurs": [
+      "Lewelyn",
+      "Jérôme Lereculey"
+    ],
+    "editeur": "Delcourt",
+    "categorie": "BD",
+    "genres": [
+      "fantasy",
+      "animalier"
+    ],
+    "statut": "en cours",
+    "tomes_parus": 18,
+    "suivie": false,
+    "note": 8,
+    "avis": "Histoire et dessin très bien. Le principe de séparer les histoires des clans par lots d'albums rend l'ensemble très lisible, malgré le nombre important de personnages."
+  },
+  {
     "id": "les-aventures-de-l-equipe-cousteau-en-bande-dessinee",
     "titre": "Les aventures de l'équipe COUSTEAU en bande dessinée",
     "auteurs": [
@@ -1019,6 +1076,25 @@
     "suivie": false,
     "note": 9,
     "avis": "Superbe BD avec un dessin magnifique pour se plonger dedans."
+  },
+  {
+    "id": "rip",
+    "titre": "RIP",
+    "auteurs": [
+      "Gaët's",
+      "Julien Monier"
+    ],
+    "editeur": "Petit à Petit",
+    "categorie": "BD",
+    "genres": [
+      "polar",
+      "humour"
+    ],
+    "statut": "terminée",
+    "tomes_parus": 6,
+    "suivie": false,
+    "note": 8,
+    "avis": "Très bonne idée, le point de vue par personnage."
   },
   {
     "id": "saint-seiya-time-odyssey",
