@@ -51,7 +51,7 @@
       "humour"
     ],
     "statut": "terminée",
-    "tomes_parus": 34,
+    "tomes_parus": 48,
     "suivie": false,
     "note": 7,
     "avis": "Bien mais j'ai arrêté de suivre.",
@@ -70,7 +70,7 @@
       "aventure"
     ],
     "statut": "terminée",
-    "tomes_parus": 8,
+    "tomes_parus": 9,
     "suivie": false,
     "note": 7,
     "avis": "Mais non suivi.",
@@ -92,7 +92,7 @@
       "aventure"
     ],
     "statut": "en cours",
-    "tomes_parus": 5,
+    "tomes_parus": 20,
     "suivie": false,
     "note": 6,
     "avis": "Sans plus.",
@@ -174,8 +174,8 @@
     "genres": [
       "western"
     ],
-    "statut": "en cours",
-    "tomes_parus": 26,
+    "statut": "terminée",
+    "tomes_parus": 28,
     "suivie": false,
     "note": 8,
     "avis": "Bien mais je n'ai pas accroché - à ne pas suivre.",
@@ -217,7 +217,7 @@
       "jeunesse"
     ],
     "statut": "en cours",
-    "tomes_parus": 5,
+    "tomes_parus": 37,
     "suivie": false,
     "note": 7,
     "avis": "Bien pour la jeunesse.",
@@ -475,10 +475,21 @@
       "thriller"
     ],
     "statut": "en cours",
-    "tomes_parus": 1,
+    "tomes_parus": 2,
     "suivie": true,
     "note": 7,
-    "avis": "Idée intéressante, j'espère plus de la suite."
+    "avis": "Idée intéressante, j'espère plus de la suite.",
+    "a_paraitre": [
+      {
+        "tome": 3,
+        "titre": null,
+        "date": null,
+        "a_verifier": true,
+        "sources": [
+          "https://www.bedetheque.com/BD-Islander-Tome-1-L-exil-510336.html"
+        ]
+      }
+    ]
   },
   {
     "id": "iznogoud",
@@ -494,7 +505,7 @@
       "humour"
     ],
     "statut": "en cours",
-    "tomes_parus": 13,
+    "tomes_parus": 33,
     "suivie": false,
     "note": 6,
     "avis": "Sans plus.",
@@ -512,7 +523,7 @@
       "western"
     ],
     "statut": "terminée",
-    "tomes_parus": 10,
+    "tomes_parus": 22,
     "suivie": false,
     "note": 7,
     "avis": "Bien, sans plus - à ne pas suivre.",
@@ -567,7 +578,7 @@
       "historique"
     ],
     "statut": "en cours",
-    "tomes_parus": 22,
+    "tomes_parus": 37,
     "suivie": false,
     "note": 2,
     "avis": "Beaucoup trop long - plus de 35 tomes sur une histoire qui s étire sans fin. Décourageant et devient sans intérêt à suivre - sauf de finir la série mais au prix d acheter d autre bd bien mieux"
@@ -683,7 +694,7 @@
       "aventure"
     ],
     "statut": "en cours",
-    "tomes_parus": 1,
+    "tomes_parus": 25,
     "suivie": false,
     "note": 7,
     "avis": "Classique mais pas suivi.",
@@ -720,7 +731,7 @@
       "humour"
     ],
     "statut": "en cours",
-    "tomes_parus": 15,
+    "tomes_parus": 25,
     "suivie": false,
     "note": 6,
     "avis": "Pas mon style.",
@@ -829,7 +840,7 @@
       "fantasy"
     ],
     "statut": "terminée",
-    "tomes_parus": 6,
+    "tomes_parus": 11,
     "suivie": false,
     "note": 6,
     "avis": "Sans plus.",
@@ -849,7 +860,7 @@
       "humour"
     ],
     "statut": "en cours",
-    "tomes_parus": 22,
+    "tomes_parus": 57,
     "suivie": false,
     "note": 8,
     "avis": "Très bien pour la jeunesse.",
@@ -887,8 +898,8 @@
       "documentaire",
       "aventure"
     ],
-    "statut": "en cours",
-    "tomes_parus": 5,
+    "statut": "terminée",
+    "tomes_parus": 17,
     "suivie": false,
     "note": 7,
     "avis": "Bien, de jeunesse - à ne pas suivre.",
@@ -908,7 +919,7 @@
       "historique",
       "humour"
     ],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 1,
     "suivie": false,
     "note": 10,
@@ -931,7 +942,7 @@
       "historique"
     ],
     "statut": "en cours",
-    "tomes_parus": 34,
+    "tomes_parus": 69,
     "suivie": false,
     "note": 8,
     "avis": "Très bien, des aventures et de l'humour, parfait pour la jeunesse.",
@@ -996,7 +1007,7 @@
       "animalier"
     ],
     "statut": "en cours",
-    "tomes_parus": 7,
+    "tomes_parus": 35,
     "suivie": false,
     "note": 7,
     "avis": "Bien pour la jeunesse.",
@@ -1015,8 +1026,8 @@
       "sport",
       "aventure"
     ],
-    "statut": "en cours",
-    "tomes_parus": 36,
+    "statut": "terminée",
+    "tomes_parus": 70,
     "suivie": false,
     "note": 8,
     "avis": "Bien mais j'ai arrêté de suivre.",
@@ -1071,7 +1082,7 @@
       "fantasy",
       "aventure"
     ],
-    "statut": "en cours",
+    "statut": "terminée",
     "tomes_parus": 10,
     "suivie": false,
     "note": 9,
@@ -1141,8 +1152,8 @@
       "humour",
       "polar"
     ],
-    "statut": "en cours",
-    "tomes_parus": 11,
+    "statut": "terminée",
+    "tomes_parus": 40,
     "suivie": false,
     "note": 6,
     "avis": "Jeunesse, sans plus.",
@@ -1183,7 +1194,7 @@
       "humour"
     ],
     "statut": "en cours",
-    "tomes_parus": 41,
+    "tomes_parus": 56,
     "suivie": false,
     "note": 8,
     "avis": "Très bien, des aventures et de l'humour, parfait pour la jeunesse.",
@@ -1280,7 +1291,7 @@
       "espionnage"
     ],
     "statut": "en cours",
-    "tomes_parus": 22,
+    "tomes_parus": 30,
     "suivie": false,
     "note": 8,
     "avis": "Excellent"
@@ -1301,7 +1312,7 @@
       "animalier"
     ],
     "statut": "en cours",
-    "tomes_parus": 20,
+    "tomes_parus": 42,
     "suivie": false,
     "note": 8,
     "avis": "Très bien pour la jeunesse.",
