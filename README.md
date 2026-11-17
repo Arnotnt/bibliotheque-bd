@@ -16,6 +16,7 @@ Ma collection de BD : séries, albums possédés, lus et manquants, notes et avi
 - Les données sont dans `data/` (`series.json`, `albums.json`, `reco.json`, `couvertures.json`, `couvertures_manuelles.json`). La collection se gère avec Claude Code dans ce dépôt (voir `CLAUDE.md`).
 - `python3 scripts/verifier_donnees.py` contrôle les données ; une GitHub Action le lance sur chaque pull request.
 - Couvertures : [Open Library](https://openlibrary.org) et sites des éditeurs, choisies par `python3 scripts/couvertures.py` (surcharges manuelles dans `data/couvertures_manuelles.json`).
+- Veille mensuelle : une routine Claude dans le cloud fait, le 1er de chaque mois, la veille des sorties, des auteurs et 3 recos, puis ouvre une pull request à relire (voir `CLAUDE.md`).
 - Le projet est mené en mode agile : issues, sprints (milestones), pull requests et [kanban](https://github.com/users/Arnotnt/projects/2).
 
 ## Installer sur iPhone

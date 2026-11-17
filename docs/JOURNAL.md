@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-17 — US-30 — Veille mensuelle automatique : routine cloud « Veille mensuelle BD » le 1er du mois à 8 h (Paris), qui enchaîne veille des sorties, veille des auteurs et 3 recos, puis ouvre une PR sans jamais fusionner ; procédure dans `CLAUDE.md` (#PR)
 - 2026-11-17 — US-29 — Veille des auteurs : procédure dans `CLAUDE.md` (auteurs des séries notées ≥ 8 sans `regard`, nouvelles séries depuis la veille précédente) ; première veille sur 46 auteurs depuis le 2025-01-01, 6 recos ajoutées (Les Gorilles du Général, Cauchon, Electric Miles, Les Chants du Cygne noir, La Terre verte, Les Enfants perdus), compte rendu `docs/veille/2026-11-17.md` (#92)
 - 2026-11-17 — US-28 — Site installable et consultable hors ligne (iPhone) : manifeste, icône « BD » style Planche (`img/`, source SVG dans `docs/mockups/source/`), balises iOS, service worker `sw.js` (pages et données réseau d'abord, cache en secours, couvertures et polices gardées), bandeau « Hors ligne : données du … », `VERSION` de `sw.js` contrôlée par le script (#91)
 - 2026-11-17 — DATA-04 — 229 albums sur 230 datés à l'année selon les règles du PO (année de référence ou année de parution d'origine, la plus récente des deux) ; Focu reste sans date (parution introuvable) ; il ne reste qu'un album lu sans date (#90)
