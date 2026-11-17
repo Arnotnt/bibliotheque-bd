@@ -364,5 +364,71 @@
     ],
     "date_reco": "2026-11-17",
     "statut": "à découvrir"
+  },
+  {
+    "id": "asgard",
+    "titre": "Asgard",
+    "auteurs": [
+      "Xavier Dorison",
+      "Ralph Meyer"
+    ],
+    "editeur": "Dargaud",
+    "tomes_parus": 2,
+    "statut_serie": "terminée",
+    "parution": "Diptyque : T1 Pied-de-fer (mars 2012), T2 Le Serpent-Monde (janvier 2013)",
+    "pourquoi": "Le duo d'Undertaker (8/10) dans une épopée viking : Dorison au scénario, Ralph Meyer au dessin, en deux tomes seulement. Pour qui a aimé le souffle et l'aventure de 1629 (10/10), du même scénariste.",
+    "series_liees": [
+      "undertaker",
+      "1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta"
+    ],
+    "sources": [
+      "https://www.ludum.fr/bd/pied-de-fer-1010249",
+      "https://www.ludum.fr/bd/le-serpent-monde-1010250"
+    ],
+    "date_reco": "2026-11-17",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "orbital",
+    "titre": "Orbital",
+    "auteurs": [
+      "Sylvain Runberg",
+      "Serge Pellé"
+    ],
+    "editeur": "Dupuis",
+    "tomes_parus": 9,
+    "statut_serie": "en cours",
+    "parution": "9 tomes, le dernier (Sécession) le 24/10/2025",
+    "pourquoi": "Space opera politique et aventureux, un cran au-dessus de la science-fiction de Goldorak (10/10) en matière d'intrigue. Cycle principal solide, déjà 9 tomes à lire.",
+    "series_liees": [
+      "goldorak"
+    ],
+    "sources": [
+      "https://www.bedetheque.com/BD-Orbital-Tome-9-Secession-527589.html"
+    ],
+    "date_reco": "2026-11-17",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "les-maitres-inquisiteurs",
+    "titre": "Les Maîtres inquisiteurs",
+    "auteurs": [
+      "Sylvain Cordurié"
+    ],
+    "editeur": "Soleil",
+    "tomes_parus": 18,
+    "statut_serie": "terminée",
+    "parution": "18 tomes numérotés (+ un hors-série), série terminée selon Livraddict ; date du dernier tome à vérifier",
+    "pourquoi": "Fantasy d'aventure en équipe de héros, dans la veine d'Okko (9/10) et des Lanfeust (8/10), avec une longue série à dévorer. Fiche à vérifier : dessinateurs multiples selon les tomes.",
+    "series_liees": [
+      "okko",
+      "lanfeust-de-troy"
+    ],
+    "sources": [
+      "https://www.bedetheque.com/serie-46610-BD-Maitres-Inquisiteurs__1.html",
+      "https://livraddict.com/biblio/auteur/sylvain-cordurie.html"
+    ],
+    "date_reco": "2026-11-17",
+    "statut": "à découvrir"
   }
 ]
