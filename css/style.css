@@ -611,3 +611,9 @@ main.page-auteur { padding-top: 8px; gap: 18px; }
 .histo-annees-axe button[aria-current="true"] { color: var(--ink); font-weight: 700; text-decoration: none; }
 .tome-date { display: block; font-size: 12px; color: var(--ink2); }
 .encart-erreur p { margin: 0; color: var(--ink2); }
+
+/* Hors ligne (US-28) */
+.hors-ligne {
+  align-self: flex-start; margin: 0; padding: 6px 12px; font-size: 14px; font-weight: 700;
+  background: var(--surf2); color: var(--ink); border: 2px dashed var(--ink); border-radius: 2px;
+}

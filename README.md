@@ -18,6 +18,10 @@ Ma collection de BD : séries, albums possédés, lus et manquants, notes et avi
 - Couvertures : [Open Library](https://openlibrary.org) et sites des éditeurs, choisies par `python3 scripts/couvertures.py` (surcharges manuelles dans `data/couvertures_manuelles.json`).
 - Le projet est mené en mode agile : issues, sprints (milestones), pull requests et [kanban](https://github.com/users/Arnotnt/projects/2).
 
+## Installer sur iPhone
+
+Ouvrir le site dans Safari, bouton Partager, puis « Sur l'écran d'accueil ». Le site s'ouvre alors comme une application, avec l'icône « BD ». Après une première visite, il reste consultable sans réseau (en librairie par exemple) : un bandeau « Hors ligne : données du … » indique que les données viennent de la dernière visite.
+
 ## Lancer le site en local
 
 ```bash

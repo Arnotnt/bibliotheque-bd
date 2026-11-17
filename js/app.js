@@ -56,10 +56,29 @@ function initTheme() {
 
 /* ---------- Données ---------- */
 
+/* Hors ligne (US-28) : le service worker sert la dernière copie des données avec l'en-tête
+   X-Bd-Hors-Ligne (date de cette copie) ; on le signale en haut de la page. */
+let donneesHorsLigne = null;
+
 async function chargerJSON(chemin) {
   const reponse = await fetch(chemin, { cache: 'no-cache' });
   if (!reponse.ok) throw new Error(chemin + ' : HTTP ' + reponse.status);
+  const horsLigne = reponse.headers.get('X-Bd-Hors-Ligne');
+  if (horsLigne) donneesHorsLigne = horsLigne;
   return reponse.json();
+}
+
+function afficherHorsLigne(contenu) {
+  if (!donneesHorsLigne || document.getElementById('hors-ligne')) return;
+  const date = new Date(donneesHorsLigne);
+  const texte = isNaN(date) ? 'Hors ligne : dernières données enregistrées'
+    : 'Hors ligne : données du ' + date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+  contenu.insertAdjacentHTML('afterbegin', '<p class="hors-ligne" id="hors-ligne" role="status">' + esc(texte) + '</p>');
+}
+
+function enregistrerServiceWorker() {
+  if (!('serviceWorker' in navigator) || location.protocol === 'file:') return;
+  navigator.serviceWorker.register('sw.js').catch(e => console.warn('Mode hors ligne indisponible :', e));
 }
 
 async function chargerDonnees() {
@@ -1172,9 +1191,11 @@ async function demarrer() {
     if (page === 'bilan') pageBilan(series);
     if (page === 'auteur') pageAuteur(series, recos);
     if (page === 'reco') pageReco(series, recos);
+    afficherHorsLigne(contenu);
   } catch (erreur) {
     afficherErreur(contenu, erreur, 'affichage');
   }
 }
 
 document.addEventListener('DOMContentLoaded', demarrer);
+window.addEventListener('load', enregistrerServiceWorker);

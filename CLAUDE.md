@@ -49,7 +49,7 @@ Chaque issue porte exactement un label type, un epic, une priorité et une estim
 - [ ] Testé en local (`python3 -m http.server` puis http://localhost:8000)
 - [ ] Aucune erreur dans la console du navigateur
 - [ ] `python3 scripts/verifier_donnees.py` passe (0 erreur ; vérifié aussi par l'Action sur la PR)
-- [ ] N incrémenté dans `?v=N` sur toutes les pages si `js/app.js` ou `css/style.css` a changé (même N partout : contrôlé par le script ; N plus grand que sur `main` : contrôlé par l'Action sur la PR)
+- [ ] N incrémenté dans `?v=N` sur toutes les pages et dans `VERSION` de `sw.js` si `js/app.js` ou `css/style.css` a changé (même N partout : contrôlé par le script ; N plus grand que sur `main` : contrôlé par l'Action sur la PR)
 - [ ] `docs/JOURNAL.md` mis à jour
 - [ ] La description de la PR contient `Closes #N`
 
@@ -68,6 +68,8 @@ reco.html           recommandations (data/reco.json), filtrables par statut
 auteur.html         page d'un auteur (?nom=...) : ses séries et ses recos
 css/style.css
 js/app.js
+sw.js               service worker (US-28) : site consultable hors ligne ; VERSION = N de ?v=N (contrôlé par le script)
+manifest.webmanifest  site installable (US-28) ; icônes dans img/ (source : docs/mockups/source/icone.svg)
 data/series.json    une entrée par série
 data/albums.json    une entrée par album
 data/reco.json      recommandations issues des veilles

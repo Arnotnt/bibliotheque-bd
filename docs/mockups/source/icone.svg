@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Icône du site (US-28) : bulle « BD » sur papier jaune tramé, dans le style « Planche ». -->
+  <defs>
+    <pattern id="trame" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="4.2" fill="#E63B2E" fill-opacity="0.28"/>
+      <circle cx="18" cy="18" r="4.2" fill="#E63B2E" fill-opacity="0.28"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="#FFD23F"/>
+  <rect width="512" height="512" fill="url(#trame)"/>
+  <g transform="translate(14 14)">
+    <path d="M256 82c108 0 190 64 190 146s-82 146-190 146c-20 0-40-2-58-7l-92 61 24-86C82 315 66 274 66 228c0-82 82-146 190-146z" fill="#1B1B1B"/>
+  </g>
+  <path d="M256 82c108 0 190 64 190 146s-82 146-190 146c-20 0-40-2-58-7l-92 61 24-86C82 315 66 274 66 228c0-82 82-146 190-146z" fill="#FFFDF5" stroke="#1B1B1B" stroke-width="16" stroke-linejoin="round"/>
+  <g transform="translate(-14 4) rotate(-4 256 230)" fill="none" stroke="#1B1B1B" stroke-width="34" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M168 160V296M168 160H214A31 31 0 0 1 214 222H168M168 222H221A37 37 0 0 1 221 296H168"/>
+    <path d="M292 160V296M292 160H312A68 68 0 0 1 312 296H292"/>
+  </g>
+</svg>
