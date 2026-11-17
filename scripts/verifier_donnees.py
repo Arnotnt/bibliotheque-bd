@@ -83,7 +83,25 @@ def verifier_id(fichier, ident, deja_vus, libelle):
     deja_vus.add(ident)
 
 
-FORMAT_DATE_ANNONCE = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?$")
+FORMAT_DATE_PARTIELLE = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?$")
+
+
+def date_partielle_valide(date):
+    """« AAAA », « AAAA-MM » ou « AAAA-MM-JJ », avec un mois de 01 à 12 et un jour qui existe (BUG-02)."""
+    if not (isinstance(date, str) and FORMAT_DATE_PARTIELLE.match(date)):
+        return False
+    morceaux = [int(x) for x in date.split("-")]
+    try:
+        datetime.date(morceaux[0], morceaux[1] if len(morceaux) > 1 else 1, morceaux[2] if len(morceaux) > 2 else 1)
+    except ValueError:
+        return False
+    return True
+
+
+def est_liste_d_urls(valeur):
+    """Liste non vide d'adresses https:// (sources des recos et des tomes annoncés, BUG-02)."""
+    return (isinstance(valeur, list) and bool(valeur)
+            and all(isinstance(v, str) and re.fullmatch(r"https://\S+", v) for v in valeur))
 
 
 def fin_de_periode(date):
@@ -122,18 +140,14 @@ def verifier_a_paraitre(f, libelle, s):
             erreur(f, f"{lib} : titre doit être un texte ou null")
         date = a.get("date")
         if date is not None:
-            if not (isinstance(date, str) and FORMAT_DATE_ANNONCE.match(date)):
-                erreur(f, f"{lib} : date « {date} » invalide (AAAA, AAAA-MM, AAAA-MM-JJ ou null)")
-            else:
-                try:
-                    if fin_de_periode(date) < datetime.date.today():
-                        avertir(f, f"{lib} : date {date} dépassée, à vérifier lors de la prochaine veille")
-                except ValueError:
-                    erreur(f, f"{lib} : date « {date} » invalide")
+            if not date_partielle_valide(date):
+                erreur(f, f"{lib} : date « {date} » invalide (AAAA, AAAA-MM, AAAA-MM-JJ ou null, mois de 01 à 12)")
+            elif fin_de_periode(date) < datetime.date.today():
+                avertir(f, f"{lib} : date {date} dépassée, à vérifier lors de la prochaine veille")
         if not isinstance(a.get("a_verifier"), bool):
             erreur(f, f"{lib} : a_verifier doit valoir true ou false")
-        if not est_liste_de_textes(a.get("sources")) or not a["sources"]:
-            erreur(f, f"{lib} : au moins une source est obligatoire")
+        if not est_liste_d_urls(a.get("sources")):
+            erreur(f, f"{lib} : au moins une source est obligatoire, chacune en https://")
 
 
 def verifier_series(series):
@@ -239,10 +253,18 @@ def verifier_reco(recos, series_par_id):
             erreur(f, f"{libelle} : déjà dans series.json (lue ou possédée), à retirer des recos")
         elif normaliser(r.get("titre")) in titres_series:
             erreur(f, f"{libelle} : même titre que la série « {titres_series[normaliser(r.get('titre'))]} » de series.json")
+        # BUG-02 : champs affichés par le site (reco.html, tableau de bord, page auteur).
+        for champ in ("titre", "editeur", "parution"):
+            if not isinstance(r.get(champ), str) or not r[champ].strip():
+                erreur(f, f"{libelle} : {champ} manquant (texte non vide)")
+        if not est_liste_de_textes(r.get("auteurs")) or not r["auteurs"]:
+            erreur(f, f"{libelle} : auteurs doit être une liste non vide de noms")
+        if not (est_entier(r.get("tomes_parus")) and r["tomes_parus"] >= 1):
+            erreur(f, f"{libelle} : tomes_parus doit être un entier ≥ 1")
         if not isinstance(r.get("pourquoi"), str) or not r["pourquoi"].strip():
             erreur(f, f"{libelle} : justification (pourquoi) manquante")
-        if not est_liste_de_textes(r.get("sources")) or not r["sources"]:
-            erreur(f, f"{libelle} : au moins une source est obligatoire")
+        if not est_liste_d_urls(r.get("sources")):
+            erreur(f, f"{libelle} : au moins une source est obligatoire, chacune en https://")
         if r.get("statut_serie") not in STATUTS_RECO:
             erreur(f, f"{libelle} : statut_serie « {r.get('statut_serie')} » non autorisé")
         if r.get("statut") not in STATUTS_AVIS_RECO:

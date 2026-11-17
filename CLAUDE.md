@@ -161,7 +161,8 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 ```
 - Une série que je lis ou ajoute à ma collection sort de `reco.json`.
 - `series_liees` : `id` de mes séries (notées ≥ 8 de préférence) qui justifient la recommandation, **jamais une série avec `regard`** (contrôlé par le script).
-- `sources` : au moins une URL qui confirme les tomes et les dates.
+- `sources` : au moins une URL qui confirme les tomes et les dates, toujours en `https://` (BUG-02, contrôlé par le script, comme les sources de `a_paraitre`).
+- `titre`, `auteurs`, `editeur`, `tomes_parus` et `parution` sont obligatoires (BUG-02, contrôlés par le script).
 - Une nouvelle demande de recommandations ajoute des entrées ; on ne supprime une reco qu'avec mon accord.
 - `statut` (US-11) : `à découvrir` (par défaut à la création) | `intéressé` | `rejeté`. Une reco rejetée reste dans le fichier et s'affiche grisée sur la page Recommandations, filtrable par statut.
 
