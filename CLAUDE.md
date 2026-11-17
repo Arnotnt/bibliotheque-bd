@@ -62,6 +62,7 @@ Chaque issue porte exactement un label type, un epic, une priorité et une estim
 ```
 index.html          accueil : liste des séries, filtres, recherche
 serie.html          détail d'une série (?id=...)
+bilan.html          bilan de l'année en BD (?annee=AAAA, US-21) : albums lus, séries commencées et finies, genres, meilleures notes
 stats.html          tableau de bord : à acheter (+ classiques en option), à paraître, à lire, derniers ajouts, notes
 reco.html           recommandations (data/reco.json), filtrables par statut
 auteur.html         page d'un auteur (?nom=...) : ses séries et ses recos
@@ -131,6 +132,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
 }
 ```
 - Lu sans être acheté : `possede: false, lu: true`.
+- `date_ajout` (US-21, 2026-11-17) : date d'entrée dans ma vie de lecteur, la **première** des deux dates, achat ou lecture (je lis en gros quand j'achète : pas de champ `date_lecture` séparé). Format `AAAA`, `AAAA-MM` ou `AAAA-MM-JJ`, ou `null` si inconnue ; jamais dans le futur. On ne la change pas quand un album lu ailleurs est acheté, ni quand un album acheté est lu. Sert au bilan de l'année (`bilan.html`) : un album lu compte dans l'année de sa date.
 - Les manquants ne sont pas stockés : ce sont les tomes de 1 à `tomes_parus` absents de `albums.json` ou avec `possede: false`.
 
 `data/couvertures.json` (US-12, US-15) : `{ "blacksad": "https://covers.openlibrary.org/b/isbn/9782205049657-M.jpg", … }`, généré par `python3 scripts/couvertures.py`, jamais édité à la main. Le site affiche l'URL telle quelle ; aucune image n'est stockée dans le repo.

@@ -118,6 +118,12 @@ def fin_de_periode(date):
     return datetime.date(morceaux[0], 12, 31)
 
 
+def debut_de_periode(date):
+    """Premier jour couvert par une date partielle : « 2026 » → 01/01/2026."""
+    morceaux = [int(x) for x in date.split("-")] + [1, 1]
+    return datetime.date(*morceaux[:3])
+
+
 def verifier_a_paraitre(f, libelle, s):
     """Tomes annoncés (US-13) : liste de {tome, titre, date, a_verifier, sources}."""
     annonces = s["a_paraitre"]
@@ -229,12 +235,14 @@ def verifier_albums(albums, series_par_id):
         ean = a.get("ean")
         if ean is not None and not (isinstance(ean, str) and re.fullmatch(r"\d{10}|\d{13}", ean)):
             erreur(f, f"{libelle} : ean « {ean} » invalide (10 ou 13 chiffres, ou null)")
+        # US-21 : date d'entrée dans ma vie de lecteur (première des deux : achat ou lecture),
+        # à l'année, au mois ou au jour.
         date = a.get("date_ajout")
         if date is not None:
-            try:
-                datetime.date.fromisoformat(date)
-            except (TypeError, ValueError):
-                erreur(f, f"{libelle} : date_ajout « {date} » invalide (AAAA-MM-JJ ou null)")
+            if not date_partielle_valide(date):
+                erreur(f, f"{libelle} : date_ajout « {date} » invalide (AAAA, AAAA-MM, AAAA-MM-JJ ou null)")
+            elif debut_de_periode(date) > datetime.date.today():
+                erreur(f, f"{libelle} : date_ajout « {date} » dans le futur")
     for sid, tome in max_tome.items():
         tp = series_par_id[sid].get("tomes_parus") if sid in series_par_id else None
         if est_entier(tp) and tome > tp:

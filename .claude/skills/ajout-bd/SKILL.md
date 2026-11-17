@@ -20,7 +20,7 @@ Les règles de données sont dans `CLAUDE.md` (Modèle de données) ; cette skil
 ## 2. Albums
 - Un objet par tome dans `data/albums.json`, ou mise à jour s'il existe déjà.
 - `possede` / `lu` d'après la demande (« chez un ami » → `possede: false, lu: true`).
-- `date_ajout` : date du jour pour un nouvel album ; ne pas la changer sur un album existant.
+- `date_ajout` (US-21) : date d'entrée dans ma vie de lecteur, la **première** des deux dates, achat ou lecture. Date du jour pour un nouvel album (ou la date donnée par Arnaud, au format `AAAA`, `AAAA-MM` ou `AAAA-MM-JJ`) ; ne pas la changer sur un album existant (lu chez un ami puis acheté, ou acheté puis lu).
 - `titre` : titre de l'album (pas celui de la série), `null` seulement pour un one-shot sans sous-titre.
 
 ## 3. EAN (ISBN-13 de l'édition standard)

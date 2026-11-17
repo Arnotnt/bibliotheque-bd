@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-17 — US-21 — Date de lecture et bilan de l'année : un seul champ `date_ajout` (première des deux dates, achat ou lecture), au format `AAAA`, `AAAA-MM` ou `AAAA-MM-JJ`, jamais dans le futur ; nouvelle page `bilan.html?annee=AAAA` (albums et séries lus, séries commencées et finies, genres, meilleure note, mur des séries, albums lus par année) ; date affichée à côté de chaque tome sur la page série (#89)
 - 2026-11-17 — OPT-04 — L'Action contrôle aussi le code : syntaxe de `js/*.js` (`node --check`) et, sur une PR, `?v=N` augmenté dès que `js/app.js` ou `css/style.css` diffère de `main` (`verifier_donnees.py --comparer-a`) ; protection de `main` laissée à la décision du PO (#88)
 - 2026-11-17 — BUG-02 — Une donnée inattendue ne fait plus tomber une page : script plus strict (mois des dates `a_paraitre`, champs de `reco.json`, sources en `https://`), encarts protégés un par un, messages « Données illisibles » et « Erreur d’affichage », en-tête qui ne reste plus sur « Chargement… », liens de source limités à `https://` (#87)
 - 2026-11-16 — Audit — Audit complet du code en lecture seule (`docs/audit/2026-11-15.md`) : 0 constat bloquant, 2 importants tracés en BUG-02 (#78) et OPT-04 (#79), 17 mineurs (#80)
