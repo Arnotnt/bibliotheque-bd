@@ -472,9 +472,11 @@ function ligneTomeHTML(l) {
       '<span class="tome-tag">' + ICONE_MANQUANT + 'Manquants</span></li>';
   }
   const titre = l.album && l.album.titre;
+  const date = l.album && l.album.date_ajout;
   return '<li class="tome-row st-' + l.statut + '">' +
     '<span class="cell" aria-hidden="true">' + l.tome + '</span>' +
-    '<span class="tome-titre"><span class="num">T' + l.tome + '</span>' + (titre ? ' <strong>' + esc(titre) + '</strong>' : '') + '</span>' +
+    '<span class="tome-titre"><span class="num">T' + l.tome + '</span>' + (titre ? ' <strong>' + esc(titre) + '</strong>' : '') +
+      (date ? '<span class="tome-date" title="Date d’ajout ou de lecture">' + dateAnnonce(date) + '</span>' : '') + '</span>' +
     '<span class="tome-tag">' + (l.statut === 'manquant' ? ICONE_MANQUANT : '') + STATUTS_TOME[l.statut] + '</span></li>';
 }
 
@@ -1016,6 +1018,131 @@ function pageReco(series, recos) {
   afficher();
 }
 
+/* ---------- Page : bilan de l'année (bilan.html?annee=AAAA, US-21) ---------- */
+
+/* Un album lu compte dans l'année de sa date_ajout (première des deux dates : achat ou lecture).
+   Les albums sans date ne comptent dans aucune année. */
+function lecturesDatees(series) {
+  return series.flatMap(s => s.tomes
+    .filter(t => (t.statut === 'lu' || t.statut === 'lnp') && t.album)
+    .map(t => ({ s, tome: t.tome, date: t.album.date_ajout || null, annee: t.album.date_ajout ? Number(String(t.album.date_ajout).slice(0, 4)) : null })));
+}
+
+/** Données du bilan d'une année : albums, séries, séries commencées et finies, genres, meilleures notes. */
+function bilanAnnee(series, lectures, annee) {
+  const lues = lectures.filter(l => l.annee === annee);
+  const parSerie = new Map();
+  lues.forEach(l => { if (!parSerie.has(l.s.id)) parSerie.set(l.s.id, { s: l.s, nombre: 0 }); parSerie.get(l.s.id).nombre++; });
+  const seriesLues = [...parSerie.values()].sort((a, b) => b.nombre - a.nombre || TRIS.note.comparer(a.s, b.s));
+  const lecturesDe = s => lectures.filter(l => l.s.id === s.id);
+  // Commencée : sa première lecture datée est dans l'année, et aucune lecture de la série n'est sans date.
+  const commencees = seriesLues.filter(({ s }) => {
+    const l = lecturesDe(s);
+    return l.every(x => x.annee) && Math.min(...l.map(x => x.annee)) === annee;
+  });
+  // Finie : tous les tomes parus sont lus, et la dernière lecture datée est dans l'année.
+  const finies = seriesLues.filter(({ s }) => {
+    const l = lecturesDe(s);
+    return s.lus === s.parus && l.every(x => x.annee) && Math.max(...l.map(x => x.annee)) === annee;
+  });
+  const genres = new Map();
+  lues.forEach(l => (l.s.genres || []).forEach(g => genres.set(g, (genres.get(g) || 0) + 1)));
+  const topGenres = [...genres].map(([g, n]) => ({ g, n })).sort((a, b) => b.n - a.n || collator.compare(a.g, b.g));
+  const notees = seriesLues.filter(x => x.s.note != null);
+  const noteMax = notees.length ? Math.max(...notees.map(x => x.s.note)) : null;
+  return { annee, albums: lues.length, seriesLues, commencees, finies, topGenres,
+    meilleures: notees.filter(x => x.s.note === noteMax) };
+}
+
+function anneesHistoHTML(lectures, annees, choisie) {
+  const compte = new Map(annees.map(a => [a, lectures.filter(l => l.annee === a).length]));
+  const chrono = annees.slice().sort((a, b) => a - b);
+  const max = Math.max(1, ...compte.values());
+  const sansDate = lectures.filter(l => !l.annee).length;
+  const aria = 'Albums lus par année : ' + chrono.map(a => a + ' : ' + compte.get(a)).join(', ') + '.';
+  return '<section class="panel panel-large" aria-labelledby="t-annees">' +
+    '<div class="panel-head"><div><h2 id="t-annees">Albums lus par année</h2>' +
+    '<p>D’après la date d’ajout ou de lecture de chaque album · cliquer sur une année pour voir son bilan</p></div></div>' +
+    '<div class="histo histo-annees" role="img" aria-label="' + esc(aria) + '" style="--cols:' + chrono.length + '">' +
+    chrono.map(a => '<div><b>' + compte.get(a) + '</b><i class="' + (a === choisie ? 'top' : '') + '" style="height:' +
+      Math.max(2, Math.round(compte.get(a) / max * 130)) + 'px"></i></div>').join('') + '</div>' +
+    '<div class="histo-axis histo-annees-axe" style="--cols:' + chrono.length + '">' +
+    chrono.map(a => '<button type="button" data-annee="' + a + '"' + (a === choisie ? ' aria-current="true"' : '') + '>' + a + '</button>').join('') + '</div>' +
+    (sansDate ? '<p class="histo-note">' + sansDate + ' ' + pluriel(sansDate, 'album lu', 'albums lus') + ' sans date, comptés dans aucune année.</p>' : '') +
+  '</section>';
+}
+
+function listeSeriesBilanHTML(groupe, vide) {
+  if (!groupe.length) return '<p class="histo-note">' + vide + '</p>';
+  return '<ul class="rows">' + groupe.map(({ s, nombre }) =>
+    '<li><a href="' + lienSerie(s) + '"><strong class="r-titre">' + esc(s.titre) + '</strong>' +
+    '<span class="r-tome">' + nombre + ' ' + pluriel(nombre, 'album') + (s.note != null ? ' · ' + s.note + '/10' : '') + '</span></a></li>').join('') + '</ul>';
+}
+
+function bilanHTML(b) {
+  const majuscule = g => g.charAt(0).toUpperCase() + g.slice(1);
+  const kpis = '<div class="kpis">' +
+    '<div class="kpi k-read"><strong>' + b.albums + '</strong><span>' + pluriel(b.albums, 'album lu', 'albums lus') + '</span></div>' +
+    '<div class="kpi"><strong>' + b.seriesLues.length + '</strong><span>' + pluriel(b.seriesLues.length, 'série lue', 'séries lues') + '</span></div>' +
+    '<div class="kpi k-own"><strong>' + b.commencees.length + '</strong><span>' + pluriel(b.commencees.length, 'série commencée', 'séries commencées') + '</span></div>' +
+    '<div class="kpi"><strong>' + b.finies.length + '</strong><span>' + pluriel(b.finies.length, 'série finie', 'séries finies') + '</span></div>' +
+  '</div>';
+  const genres = b.topGenres.slice(0, 5);
+  const maxG = genres.length ? genres[0].n : 1;
+  const panneauGenres = '<section class="panel" aria-labelledby="t-genres-annee"><div class="panel-head"><div><h2 id="t-genres-annee">Genres de l’année</h2>' +
+    '<p>Albums lus par genre (un album compte pour chacun des genres de sa série)</p></div></div>' +
+    (genres.length ? '<ul class="gouts-barres">' + genres.map((x, i) =>
+      '<li><span class="g-nom"><a href="index.html?genre=' + encodeURIComponent(x.g) + '">' + (i === 0 ? '★ ' : '') + esc(majuscule(x.g)) + '</a></span>' +
+      '<span class="g-val"><strong>' + x.n + '</strong> ' + pluriel(x.n, 'album') + '</span>' +
+      '<span class="bar" aria-hidden="true"><span class="seg-read" style="width:' + pct(x.n, maxG) + '"></span></span></li>').join('') + '</ul>'
+      : '<p class="histo-note">Aucun genre cette année.</p>') + '</section>';
+  const panneauNotes = '<section class="panel" aria-labelledby="t-meilleures"><div class="panel-head"><div><h2 id="t-meilleures">Meilleure note</h2>' +
+    '<p>Parmi les séries lues dans l’année</p></div>' +
+    (b.meilleures.length ? '<span class="pile-total bilan-note">' + b.meilleures[0].s.note + '/10</span>' : '') + '</div>' +
+    listeSeriesBilanHTML(b.meilleures, 'Aucune série notée parmi celles lues cette année.') + '</section>';
+  const mur = '<section class="auteur-section" aria-labelledby="t-mur-annee"><h2 id="t-mur-annee">Les séries de ' + b.annee + '</h2>' +
+    '<ul class="series-grid mur">' + b.seriesLues.map(x => carteHTML(x.s)).join('') + '</ul></section>';
+  return kpis +
+    '<div class="panels">' + panneauGenres + panneauNotes +
+      '<section class="panel" aria-labelledby="t-commencees"><div class="panel-head"><div><h2 id="t-commencees">Commencées</h2><p>Première lecture de la série dans l’année</p></div></div>' +
+        listeSeriesBilanHTML(b.commencees, 'Aucune nouvelle série cette année.') + '</section>' +
+      '<section class="panel" aria-labelledby="t-finies"><div class="panel-head"><div><h2 id="t-finies">Finies</h2><p>Tous les tomes parus lus, le dernier dans l’année</p></div></div>' +
+        listeSeriesBilanHTML(b.finies, 'Aucune série finie cette année.') + '</section>' +
+    '</div>' + (b.seriesLues.length ? mur : '');
+}
+
+function pageBilan(series) {
+  const conteneur = document.getElementById('bilan');
+  const lectures = lecturesDatees(series);
+  const annees = [...new Set(lectures.filter(l => l.annee).map(l => l.annee))].sort((a, b) => b - a);
+  if (!annees.length) {
+    conteneur.innerHTML = '<h1 class="page-title">Mon année en BD</h1><div class="message"><p>Aucun album lu n’a encore de date.</p></div>';
+    return;
+  }
+  const courante = new Date().getFullYear();
+  const demandee = Number(new URLSearchParams(location.search).get('annee'));
+  let annee = annees.includes(demandee) ? demandee : (annees.includes(courante) ? courante : annees[0]);
+
+  function afficher() {
+    document.title = 'Mon année ' + annee + ' en BD — Bibliothèque BD d’Arnaud';
+    conteneur.innerHTML =
+      '<div class="bilan-tete"><h1 class="page-title">Mon année ' + annee + ' en BD</h1>' +
+      '<label class="reglage bilan-annee">Année <select id="choix-annee">' +
+        annees.map(a => '<option value="' + a + '"' + (a === annee ? ' selected' : '') + '>' + a + '</option>').join('') +
+      '</select></label></div>' +
+      encart('Bilan ' + annee, () => bilanHTML(bilanAnnee(series, lectures, annee))) +
+      encart('Albums lus par année', () => anneesHistoHTML(lectures, annees, annee));
+    document.getElementById('choix-annee').addEventListener('change', e => changer(Number(e.target.value)));
+    conteneur.querySelectorAll('[data-annee]').forEach(b => b.addEventListener('click', () => changer(Number(b.dataset.annee))));
+  }
+  function changer(a) {
+    annee = a;
+    history.replaceState(null, '', a === courante ? location.pathname : '?annee=' + a);
+    afficher();
+  }
+  afficher();
+}
+
 /* ---------- Démarrage ---------- */
 
 async function demarrer() {
@@ -1042,6 +1169,7 @@ async function demarrer() {
     if (page === 'collection') pageCollection(series);
     if (page === 'serie') pageSerie(series);
     if (page === 'stats') pageStats(series, recos);
+    if (page === 'bilan') pageBilan(series);
     if (page === 'auteur') pageAuteur(series, recos);
     if (page === 'reco') pageReco(series, recos);
   } catch (erreur) {
