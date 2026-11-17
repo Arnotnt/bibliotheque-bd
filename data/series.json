@@ -1295,7 +1295,8 @@
     "tomes_parus": 30,
     "suivie": false,
     "note": 8,
-    "avis": "Excellent"
+    "avis": "Excellent",
+    "regard": "non suivi"
   },
   {
     "id": "yakari",
