@@ -1,4 +1,4 @@
-# Vérifie data/*.json à chaque PR et à chaque push sur main (OPT-01).
+# Vérifie data/*.json et le code du site à chaque PR et à chaque push sur main (OPT-01, OPT-04).
 name: Vérifier les données
 
 on:
@@ -14,8 +14,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # historique complet : comparaison avec la branche cible (?v=N)
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Vérifier data/*.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Syntaxe du JavaScript (js/*.js et fichiers .js à la racine)
+        run: |
+          for f in js/*.js *.js; do
+            [ -f "$f" ] || continue
+            echo "node --check $f"
+            node --check "$f"
+          done
+      - name: Vérifier data/*.json et ?v=N
+        if: github.event_name != 'pull_request'
         run: python3 scripts/verifier_donnees.py
+      - name: Vérifier data/*.json et ?v=N (augmenté si app.js ou style.css a changé)
+        if: github.event_name == 'pull_request'
+        run: python3 scripts/verifier_donnees.py --comparer-a "origin/${{ github.base_ref }}"

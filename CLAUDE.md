@@ -49,7 +49,7 @@ Chaque issue porte exactement un label type, un epic, une priorité et une estim
 - [ ] Testé en local (`python3 -m http.server` puis http://localhost:8000)
 - [ ] Aucune erreur dans la console du navigateur
 - [ ] `python3 scripts/verifier_donnees.py` passe (0 erreur ; vérifié aussi par l'Action sur la PR)
-- [ ] N incrémenté dans `?v=N` sur toutes les pages si `js/app.js` ou `css/style.css` a changé (contrôlé par le script)
+- [ ] N incrémenté dans `?v=N` sur toutes les pages si `js/app.js` ou `css/style.css` a changé (même N partout : contrôlé par le script ; N plus grand que sur `main` : contrôlé par l'Action sur la PR)
 - [ ] `docs/JOURNAL.md` mis à jour
 - [ ] La description de la PR contient `Closes #N`
 
@@ -76,7 +76,7 @@ scripts/couvertures.py     fusionne surcharges manuelles et Open Library → dat
 scripts/import_bubble.py   import unique de l'export Bubble (CSV)
 scripts/setup_github.sh    création des labels, milestones et issues du Sprint 0
 scripts/verifier_donnees.py  vérification de data/*.json (format, doublons, cohérence) et des ?v=N des pages
-.github/workflows/verifier-donnees.yml  lance la vérification sur chaque PR
+.github/workflows/verifier-donnees.yml  sur chaque PR : syntaxe du JavaScript (node --check), vérification des données, ?v=N augmenté si app.js ou style.css a changé
 docs/JOURNAL.md  docs/retro.md  docs/mockups/
 .claude/skills/ajout-bd/SKILL.md  procédure d'ajout de BD (EAN, couverture…)
 .github/ISSUE_TEMPLATE/user-story.md

@@ -13,6 +13,6 @@ Closes #
 - [ ] Testé en local (`python3 -m http.server` puis http://localhost:8000)
 - [ ] Aucune erreur dans la console du navigateur
 - [ ] `python3 scripts/verifier_donnees.py` passe (0 erreur ; vérifié aussi par l'Action sur la PR)
-- [ ] N incrémenté dans `?v=N` sur toutes les pages si `js/app.js` ou `css/style.css` a changé (contrôlé par le script)
+- [ ] N incrémenté dans `?v=N` sur toutes les pages si `js/app.js` ou `css/style.css` a changé (même N partout : contrôlé par le script ; N plus grand que sur `main` : contrôlé par l'Action sur la PR)
 - [ ] `docs/JOURNAL.md` mis à jour
 - [ ] La description de la PR contient `Closes #N`
