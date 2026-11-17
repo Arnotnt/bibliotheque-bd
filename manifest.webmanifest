@@ -1,0 +1,17 @@
+{
+  "name": "Bibliothèque BD d'Arnaud",
+  "short_name": "BD d'Arnaud",
+  "description": "Ma collection de BD : séries, albums lus et manquants, notes, bilan et recommandations.",
+  "lang": "fr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F3EAD3",
+  "theme_color": "#FFD23F",
+  "icons": [
+    { "src": "img/icone-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "img/icone-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "img/icone-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "img/icone.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

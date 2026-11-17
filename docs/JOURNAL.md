@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-17 — US-28 — Site installable et consultable hors ligne (iPhone) : manifeste, icône « BD » style Planche (`img/`, source SVG dans `docs/mockups/source/`), balises iOS, service worker `sw.js` (pages et données réseau d'abord, cache en secours, couvertures et polices gardées), bandeau « Hors ligne : données du … », `VERSION` de `sw.js` contrôlée par le script (#91)
 - 2026-11-17 — DATA-04 — 229 albums sur 230 datés à l'année selon les règles du PO (année de référence ou année de parution d'origine, la plus récente des deux) ; Focu reste sans date (parution introuvable) ; il ne reste qu'un album lu sans date (#90)
 - 2026-11-17 — US-21 — Date de lecture et bilan de l'année : un seul champ `date_ajout` (première des deux dates, achat ou lecture), au format `AAAA`, `AAAA-MM` ou `AAAA-MM-JJ`, jamais dans le futur ; nouvelle page `bilan.html?annee=AAAA` (albums et séries lus, séries commencées et finies, genres, meilleure note, mur des séries, albums lus par année) ; date affichée à côté de chaque tome sur la page série (#89)
 - 2026-11-17 — OPT-04 — L'Action contrôle aussi le code : syntaxe de `js/*.js` (`node --check`) et, sur une PR, `?v=N` augmenté dès que `js/app.js` ou `css/style.css` diffère de `main` (`verifier_donnees.py --comparer-a`) ; protection de `main` laissée à la décision du PO (#88)

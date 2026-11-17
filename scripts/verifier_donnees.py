@@ -364,6 +364,24 @@ def verifier_versions_statiques():
     return max(versions) if versions else None
 
 
+def verifier_service_worker(version):
+    """US-28 : sw.js garde en cache la même version que les pages, et toutes les pages."""
+    sw = RACINE / "sw.js"
+    if not sw.exists():
+        return
+    texte = sw.read_text(encoding="utf-8")
+    m = re.search(r"const VERSION = (\d+);", texte)
+    if not m:
+        erreur("sw.js", "constante VERSION introuvable")
+    elif version is not None and int(m.group(1)) != version:
+        erreur("sw.js", f"VERSION = {m.group(1)} alors que les pages sont en ?v={version} : mettre {version}")
+    m = re.search(r"const PAGES = \[([^\]]*)\]", texte)
+    listees = set(re.findall(r"'([^']+\.html)'", m.group(1))) if m else set()
+    for page in sorted(RACINE.glob("*.html")):
+        if page.name not in listees:
+            erreur("sw.js", f"{page.name} absente de PAGES : elle ne serait pas disponible hors ligne")
+
+
 def version_dans(texte):
     m = re.search(r'js/app\.js\?v=(\d+)"', texte)
     return int(m.group(1)) if m else None
@@ -406,6 +424,7 @@ def main():
     if albums is not None and series is not None:
         verifier_couvertures(series_par_id, albums)
     version = verifier_versions_statiques()
+    verifier_service_worker(version)
     if reference:
         verifier_increment_version(reference, version)
 
