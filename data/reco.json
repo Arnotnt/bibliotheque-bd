@@ -230,5 +230,139 @@
     ],
     "date_reco": "2026-11-15",
     "statut": "à découvrir"
+  },
+  {
+    "id": "les-gorilles-du-general",
+    "titre": "Les Gorilles du Général",
+    "auteurs": [
+      "Xavier Dorison",
+      "Julien Telo"
+    ],
+    "editeur": "Casterman",
+    "tomes_parus": 1,
+    "statut_serie": "en cours",
+    "parution": "Tome 1 « Septembre 59 » paru le 28/05/2025 ; série en cours",
+    "pourquoi": "La nouvelle série de Xavier Dorison, scénariste de 1629 (10/10) et du Troisième Testament (10/10) : les gardes du corps du général de Gaulle en 1959, entre récit historique et action. Grosse vente à sa sortie.",
+    "series_liees": [
+      "1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta",
+      "le-troisieme-testament"
+    ],
+    "sources": [
+      "https://www.ludum.fr/bd/les-gorilles-du-general-tome-1-septembre-59-1007569",
+      "https://www.livreshebdo.fr/article/les-meilleures-ventes-de-livres-du-9-au-15-juin-2025-lirresistible-ascension-des-gorilles"
+    ],
+    "date_reco": "2026-11-17",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "cauchon-ou-l-homme-qui-tua-jeanne-d-arc",
+    "titre": "Cauchon... ou l'homme qui tua Jeanne d'Arc",
+    "auteurs": [
+      "Xavier Dorison",
+      "Louis-David Delahaye",
+      "Joël Parnotte"
+    ],
+    "editeur": "Dargaud",
+    "tomes_parus": 1,
+    "statut_serie": "terminée",
+    "parution": "One-shot de 176 pages paru le 24/04/2026",
+    "pourquoi": "Xavier Dorison (1629, 10/10 ; Le Troisième Testament, 10/10) raconte le procès de Jeanne d'Arc du côté de son juge, l'évêque Cauchon. Un gros one-shot historique et politique, dans la veine de 1629.",
+    "series_liees": [
+      "1629-ou-l-effrayante-histoire-des-naufrages-du-jakarta",
+      "le-troisieme-testament"
+    ],
+    "sources": [
+      "https://www.livreshebdo.fr/livres/cauchon-ou-lhomme-qui-tua-jeanne-darc-dargaud-9782505120018",
+      "https://actualitte.com/livres/896545/extraits/cauchon-ou-l-homme-qui-tua-jeanne-d-arc-joel-parnotte-xavier-dorison-louis-david-delahaye-9782505120018"
+    ],
+    "date_reco": "2026-11-17",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "electric-miles",
+    "titre": "Electric Miles",
+    "auteurs": [
+      "Fabien Nury",
+      "Brüno"
+    ],
+    "editeur": "Glénat",
+    "tomes_parus": 1,
+    "statut_serie": "en cours",
+    "parution": "Tome 1 « Wilbur » paru le 02/04/2025 ; diptyque, tome 2 pas encore daté",
+    "pourquoi": "La nouvelle série de l'équipe de Tyler Cross (10/10) : un polar fantastique dans le Los Angeles de 1949, autour d'un manuscrit qui rend fous ses lecteurs. Un diptyque, donc vite complet.",
+    "series_liees": [
+      "tyler-cross"
+    ],
+    "sources": [
+      "https://www.ludum.fr/bd/electric-miles-tome-1-1010591",
+      "https://www.livreshebdo.fr/article/fabien-nury-bruno-electric-miles-t-1-wilbur-glenat"
+    ],
+    "date_reco": "2026-11-17",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "les-chants-du-cygne-noir",
+    "titre": "Les Chants du Cygne noir",
+    "auteurs": [
+      "Alex Alice"
+    ],
+    "editeur": "Rue de Sèvres",
+    "tomes_parus": 1,
+    "statut_serie": "en cours",
+    "parution": "Tome 1 paru le 20/05/2026 ; série prévue en 3 tomes, tome 2 annoncé",
+    "pourquoi": "Alex Alice, dessinateur du Troisième Testament (10/10), se lance dans un space opera de pirates au format manga, dans l'esprit d'Albator : de quoi plaire à l'amateur de Goldorak (10/10).",
+    "series_liees": [
+      "le-troisieme-testament",
+      "goldorak"
+    ],
+    "sources": [
+      "https://www.ludum.fr/mangas/les-chants-du-cygne-noir-tome-1-1009218",
+      "https://leclaireur.fnac.com/article/674510-les-chants-du-cygne-noir-de-quoi-parle-la-bd-evenement-dalex-alice/"
+    ],
+    "date_reco": "2026-11-17",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "la-terre-verte",
+    "titre": "La Terre verte",
+    "auteurs": [
+      "Alain Ayroles",
+      "Hervé Tanquerelle"
+    ],
+    "editeur": "Delcourt",
+    "tomes_parus": 1,
+    "statut_serie": "terminée",
+    "parution": "One-shot de 256 pages paru le 09/04/2025",
+    "pourquoi": "Le scénariste des Indes fourbes (10/10) : un drame en cinq actes à la fin du Moyen Âge, quand un noble au passé trouble veut se faire roi du Groenland. Sélectionné pour le Grand Prix de la critique ACBD 2026.",
+    "series_liees": [
+      "les-indes-fourbes"
+    ],
+    "sources": [
+      "https://actualitte.com/livres/780139/extraits/la-terre-verte-alain-ayroles-herve-tanquerelle-9782413076780",
+      "https://www.livreshebdo.fr/article/alain-ayroles-et-herve-tanquerelle-la-terre-verte-delcourt"
+    ],
+    "date_reco": "2026-11-17",
+    "statut": "à découvrir"
+  },
+  {
+    "id": "les-enfants-perdus",
+    "titre": "Les Enfants perdus",
+    "auteurs": [
+      "Neyef"
+    ],
+    "editeur": "Rue de Sèvres",
+    "tomes_parus": 1,
+    "statut_serie": "terminée",
+    "parution": "One-shot de 200 pages paru le 07/10/2026",
+    "pourquoi": "Le nouvel album de Neyef, l'auteur de Hoka Hey ! (10/10) : Peter Pan revisité en fable post-apocalyptique. En lice pour le Grand Prix de la critique ACBD 2027.",
+    "series_liees": [
+      "hoka-hey"
+    ],
+    "sources": [
+      "https://www.livreshebdo.fr/article/neyef-les-enfants-perdus-rue-de-sevres",
+      "https://actualitte.com/article/135065/prix-litteraires/grand-prix-de-la-critique-acbd-2027-les-15-bandes-dessinees-en-lice"
+    ],
+    "date_reco": "2026-11-17",
+    "statut": "à découvrir"
   }
 ]
