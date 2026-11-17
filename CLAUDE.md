@@ -187,6 +187,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
   Si l'avis indique un `regard` (« classique », « pour la jeunesse », « pas mon style », « j'ai arrêté »), le proposer et l'ajouter après mon accord.
   Si la note est ≥ 8 et que la série n'est pas déjà coup de cœur, me demander « Coup de cœur ? » et n'ajouter `coup_de_coeur` qu'après mon oui (US-26).
 - « Fais la veille des nouveautés » → pour chaque série `suivie`, chercher les tomes à paraître et mettre à jour `tomes_parus`.
+- « Fais la veille mensuelle » → les trois veilles d'un coup et une PR (procédure « Veille mensuelle automatique », US-30).
 - « Fais la veille des auteurs » → nouvelles séries des auteurs de mes séries notées ≥ 8 sans `regard` (procédure ci-dessous, US-29).
 - « Long John Silver m'intéresse » / « Rejette De Cape et de Crocs » → mettre à jour `statut` dans `data/reco.json` (`intéressé` ou `rejeté`), sans supprimer l'entrée.
 - « Recommande-moi 5 séries » → partir de mes séries notées ≥ 8 **sans `regard`** (auteurs, genres, ton de mes avis), proposer des séries que je n'ai pas, écrire le résultat dans `data/reco.json`.
@@ -210,6 +211,18 @@ Déclencheur : « Fais la veille des auteurs », ou étape de la veille mensuell
    - annonce sans tome paru → citée dans le compte rendu seulement.
 4. Section « Auteurs » du compte rendu `docs/veille/AAAA-MM-JJ.md` (ou `AAAA-MM.md` pour la veille mensuelle) : pour chaque auteur ou équipe, la nouveauté trouvée (titre, éditeur, date, source) ou « rien de nouveau ».
 5. Montrer les changements au PO, lancer `python3 scripts/verifier_donnees.py`, commiter `data/reco.json` et le compte rendu.
+
+## Veille mensuelle automatique (US-30)
+Une routine Claude Code dans le cloud ([« Veille mensuelle BD »](https://claude.ai/code/routines/trig_014NivKh8GdMDSeii85XFFNt), modèle Sonnet, sans connecteur) se lance **le 1er de chaque mois à 8 h (heure de Paris)** sur ce repo. Elle suit cette section, à la lettre :
+1. Partir de `main` à jour, créer la branche `veille-AAAA-MM`.
+2. **À paraître** : procédure de veille (US-09) sur les séries `suivie: true`.
+3. **Auteurs** : veille des auteurs (US-29), depuis la date de la veille des auteurs précédente (dernier compte rendu de `docs/veille/` qui a une section « Auteurs »).
+4. **Recos** : ajouter **3 recos** à `data/reco.json` selon les règles de « Recommande-moi 5 séries » (séries notées ≥ 8 sans `regard`, jamais une série déjà dans `series.json` ou `reco.json`), en priorité parmi les nouveautés d'auteurs trouvées à l'étape 3 qui n'y sont pas encore ; chaque reco cite au moins une source `https://`.
+5. Compte rendu `docs/veille/AAAA-MM.md` : sections « À paraître », « Mises à jour », « Auteurs », « Recos », « Sans nouveauté », chaque sortie avec sa date et sa source, « à vérifier » si une seule source.
+6. `python3 scripts/verifier_donnees.py` doit donner 0 erreur ; ligne datée en tête de `docs/JOURNAL.md` (« Veille mensuelle AAAA-MM »).
+7. Commit, push de la branche, PR vers `main` avec le résumé et les sources. **Ne jamais fusionner, ne jamais poser de milestone, ne jamais pousser sur `main`** : le PO relit et fusionne.
+
+Lancer la veille à la main : bouton « Run now » de la routine sur https://claude.ai/code/routines, ou demander « Fais la veille mensuelle » à Claude dans ce repo (même procédure).
 
 ## Import Bubble (US-01)
 - Source : `import/export-bubble.csv` (séparateur `;`, UTF-8 avec BOM, champs texte sur plusieurs lignes).
