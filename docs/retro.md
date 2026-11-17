@@ -2,6 +2,15 @@
 
 Une section par fin de sprint, la plus récente en haut.
 
+## Sprint 7 — 2026-11-17
+Sprint Goal : « Mon site me suit en librairie, connaît mes lectures, et la veille tourne seule » — atteint, avec deux réserves : protection de `main` (OPT-04) en attente de décision du PO, installation sur iPhone à vérifier par le PO
+Vélocité : 22 pts livrés sur 24 engagés (BUG-02, US-21, DATA-04, US-28, US-29, US-30 ; OPT-04 livrée sauf la protection de `main`), PR #87 à #93, développées et fusionnées par Claude en une nuit à la demande du PO
+Démo : https://arnotnt.github.io/bibliotheque-bd/bilan.html (bilan de l'année), https://arnotnt.github.io/bibliotheque-bd/reco.html (6 nouvelles recos), installation sur iPhone (Safari → Partager → Sur l'écran d'accueil)
+
+- **Garder** : tester sur une copie aux données volontairement cassées (BUG-02) et simuler ce que le navigateur intégré ne sait pas faire (service worker testé dans Node) plutôt que livrer sans preuve.
+- **Arrêter** : chercher des nouveautés BD avec le mot « album » : les moteurs renvoient de la musique ; écrire « bande dessinée » et viser les sites BD.
+- **Essayer** : relire en début de sprint la PR « Veille mensuelle » ouverte par la routine, et trancher la protection de `main` (OPT-04).
+
 ## Sprint 6 — 2026-11-15
 Sprint Goal : « Mon tableau de bord me dit quoi acheter et quoi lire, et je montre mes coups de cœur » — atteint
 Vélocité : 8 pts livrés sur 8 engagés (US-25, US-26 ; PR #73 et #75, fusionnées par Claude à la demande du PO)
