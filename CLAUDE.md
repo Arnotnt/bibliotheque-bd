@@ -254,5 +254,6 @@ Le backlog vit dans les issues GitHub et le [kanban](https://github.com/users/Ar
 | 4 | « Mes notes reflètent mes goûts d'aujourd'hui, et le site explique pourquoi une série ne guide pas mes recos » | DATA-03, US-14, US-15 | 6 |
 | 5 | « Je trouve vite ce que je cherche, et je sais quoi acheter » | BUG-01, US-16, US-17, US-20, US-18, US-19, US-22 | 19 |
 | 6 | « Mon tableau de bord me dit quoi acheter et quoi lire, et je montre mes coups de cœur » | US-25, US-26 | 8 |
+| 7 | « Mon site me suit en librairie, connaît mes lectures, et la veille tourne seule » | BUG-02, OPT-04, US-21, DATA-04, US-28, US-29, US-30 (+ US-27 livrée en avance) | 24 |
 
 Capacité : la charge se calcule sur la capacité de Claude ; le goulot est la revue du PO (rétros des sprints 1 et 2).
