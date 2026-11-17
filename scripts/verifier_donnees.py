@@ -2,7 +2,9 @@
 """Vérifie la validité et la cohérence des fichiers data/*.json (OPT-01),
 et le numéro de version des fichiers statiques dans les pages HTML (BUG-01).
 
-Usage : python3 scripts/verifier_donnees.py
+Usage : python3 scripts/verifier_donnees.py [--comparer-a <réf git>]
+  --comparer-a origin/main : en plus, si js/app.js ou css/style.css diffère de cette
+  référence, le N de ?v=N doit avoir augmenté (OPT-04, utilisé par l'Action sur les PR).
 Code de sortie 0 si tout est bon, 1 s'il y a au moins une erreur.
 Les avertissements sont affichés mais ne font pas échouer le script.
 Python standard uniquement, sans dépendance.
@@ -11,6 +13,7 @@ Python standard uniquement, sans dépendance.
 import datetime
 import json
 import re
+import subprocess
 import sys
 import unicodedata
 from pathlib import Path
@@ -353,7 +356,36 @@ def verifier_versions_statiques():
     return max(versions) if versions else None
 
 
+def version_dans(texte):
+    m = re.search(r'js/app\.js\?v=(\d+)"', texte)
+    return int(m.group(1)) if m else None
+
+
+def verifier_increment_version(reference, version):
+    """OPT-04 : fichier versionné modifié par rapport à `reference` ⇒ N doit avoir augmenté."""
+    def git(*args):
+        return subprocess.run(["git", *args], cwd=RACINE, capture_output=True, text=True)
+    if git("rev-parse", "--verify", "--quiet", reference).returncode != 0:
+        erreur("version", f"référence git « {reference} » introuvable (checkout avec fetch-depth: 0 ?)")
+        return
+    modifies = [f for f in FICHIERS_VERSIONNES if git("diff", "--quiet", reference, "--", f).returncode != 0]
+    if not modifies:
+        return
+    ancienne = git("show", f"{reference}:index.html")
+    v_ref = version_dans(ancienne.stdout) if ancienne.returncode == 0 else None
+    if v_ref is not None and (version is None or version <= v_ref):
+        erreur("pages HTML", f"{', '.join(modifies)} modifié(s) par rapport à {reference} mais ?v={version} "
+                             f"n'a pas augmenté (v={v_ref} sur {reference}) : passer à v={v_ref + 1}")
+
+
 def main():
+    reference = None
+    if "--comparer-a" in sys.argv:
+        i = sys.argv.index("--comparer-a")
+        reference = sys.argv[i + 1] if i + 1 < len(sys.argv) else None
+        if not reference:
+            print("❌ --comparer-a attend une référence git (ex. origin/main)")
+            return 1
     series = charger("series.json")
     albums = charger("albums.json")
     recos = charger("reco.json")
@@ -366,6 +398,8 @@ def main():
     if albums is not None and series is not None:
         verifier_couvertures(series_par_id, albums)
     version = verifier_versions_statiques()
+    if reference:
+        verifier_increment_version(reference, version)
 
     for a in avertissements:
         print(f"⚠️  {a}")

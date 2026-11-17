@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-17 — OPT-04 — L'Action contrôle aussi le code : syntaxe de `js/*.js` (`node --check`) et, sur une PR, `?v=N` augmenté dès que `js/app.js` ou `css/style.css` diffère de `main` (`verifier_donnees.py --comparer-a`) ; protection de `main` laissée à la décision du PO (#88)
 - 2026-11-17 — BUG-02 — Une donnée inattendue ne fait plus tomber une page : script plus strict (mois des dates `a_paraitre`, champs de `reco.json`, sources en `https://`), encarts protégés un par un, messages « Données illisibles » et « Erreur d’affichage », en-tête qui ne reste plus sur « Chargement… », liens de source limités à `https://` (#87)
 - 2026-11-16 — Audit — Audit complet du code en lecture seule (`docs/audit/2026-11-15.md`) : 0 constat bloquant, 2 importants tracés en BUG-02 (#78) et OPT-04 (#79), 17 mineurs (#80)
 - 2026-11-15 — US-27 — Thème « Planche » : papier tramé, traits encrés et ombres dures, en-tête façon couverture, cartouches, cartes en cases de travers, note en explosion, avis en bulle, mode sombre « planche de nuit » ; polices Bangers et Comic Neue à la place de Literata ; couleurs de statut inchangées (#77)
