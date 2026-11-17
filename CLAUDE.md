@@ -187,6 +187,7 @@ docs/JOURNAL.md  docs/retro.md  docs/mockups/
   Si l'avis indique un `regard` (« classique », « pour la jeunesse », « pas mon style », « j'ai arrêté »), le proposer et l'ajouter après mon accord.
   Si la note est ≥ 8 et que la série n'est pas déjà coup de cœur, me demander « Coup de cœur ? » et n'ajouter `coup_de_coeur` qu'après mon oui (US-26).
 - « Fais la veille des nouveautés » → pour chaque série `suivie`, chercher les tomes à paraître et mettre à jour `tomes_parus`.
+- « Fais la veille des auteurs » → nouvelles séries des auteurs de mes séries notées ≥ 8 sans `regard` (procédure ci-dessous, US-29).
 - « Long John Silver m'intéresse » / « Rejette De Cape et de Crocs » → mettre à jour `statut` dans `data/reco.json` (`intéressé` ou `rejeté`), sans supprimer l'entrée.
 - « Recommande-moi 5 séries » → partir de mes séries notées ≥ 8 **sans `regard`** (auteurs, genres, ton de mes avis), proposer des séries que je n'ai pas, écrire le résultat dans `data/reco.json`.
 
@@ -198,6 +199,17 @@ Déclencheur : « Fais la veille des nouveautés ».
    Mettre à jour `a_paraitre` : ajouter les tomes annoncés (avec date, titre et source), et retirer ceux qui sont parus (ils passent dans `tomes_parus`). Le script de vérification signale les dates dépassées.
 4. Écrire le compte rendu dans `docs/veille/AAAA-MM-JJ.md` : sorties à venir (série, tome, date, source), mises à jour, séries sans nouveauté. Une date issue d'une seule source ou d'une précommande est marquée « à vérifier ».
 5. Montrer les changements au PO, puis commiter `data/series.json` et le compte rendu avec un message qui cite les principales sources.
+
+## Veille des auteurs (US-29)
+Déclencheur : « Fais la veille des auteurs », ou étape de la veille mensuelle (US-30).
+1. **Auteurs suivis** : les `auteurs` des séries notées **≥ 8 sans `regard`**. Un auteur compte dès qu'une de ses séries remplit la condition, même s'il en a aussi une avec `regard`. Liste recalculée à chaque veille, jamais stockée.
+2. Pour chacun (ou par équipe, quand plusieurs auteurs suivis signent les mêmes séries), une recherche web : séries et one-shots **parus ou annoncés depuis la veille des auteurs précédente** (la première fois : depuis le 2025-01-01). Sources : éditeur, Bédéthèque, libraires, presse BD.
+3. Pour chaque nouveauté trouvée :
+   - série déjà dans `series.json` ou `reco.json` → rien (la veille des nouveautés suit ses tomes) ;
+   - nouvelle série avec au moins un tome **paru** → ajoutée à `reco.json` (`statut: à découvrir`, `series_liees` = la série notée de l'auteur, `pourquoi` qui cite l'auteur et ma note, sources et date de sortie) ;
+   - annonce sans tome paru → citée dans le compte rendu seulement.
+4. Section « Auteurs » du compte rendu `docs/veille/AAAA-MM-JJ.md` (ou `AAAA-MM.md` pour la veille mensuelle) : pour chaque auteur ou équipe, la nouveauté trouvée (titre, éditeur, date, source) ou « rien de nouveau ».
+5. Montrer les changements au PO, lancer `python3 scripts/verifier_donnees.py`, commiter `data/reco.json` et le compte rendu.
 
 ## Import Bubble (US-01)
 - Source : `import/export-bubble.csv` (séparateur `;`, UTF-8 avec BOM, champs texte sur plusieurs lignes).
