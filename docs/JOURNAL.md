@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-17 — BUG-02 — Une donnée inattendue ne fait plus tomber une page : script plus strict (mois des dates `a_paraitre`, champs de `reco.json`, sources en `https://`), encarts protégés un par un, messages « Données illisibles » et « Erreur d’affichage », en-tête qui ne reste plus sur « Chargement… », liens de source limités à `https://` (#PR)
 - 2026-11-16 — Audit — Audit complet du code en lecture seule (`docs/audit/2026-11-15.md`) : 0 constat bloquant, 2 importants tracés en BUG-02 (#78) et OPT-04 (#79), 17 mineurs (#80)
 - 2026-11-15 — US-27 — Thème « Planche » : papier tramé, traits encrés et ombres dures, en-tête façon couverture, cartouches, cartes en cases de travers, note en explosion, avis en bulle, mode sombre « planche de nuit » ; polices Bangers et Comic Neue à la place de Literata ; couleurs de statut inchangées (#77)
 - 2026-11-15 — US-26 — Coups de cœur : champ `coup_de_coeur` donné au cas par cas (question posée par Claude pour toute note ≥ 8, dans le skill `ajout-bd` et la demande « Note »), filtre « Coups de cœur » sur l'accueil, badge cœur sur les cartes et la page série ; aucune série marquée au départ (#75)

@@ -147,7 +147,7 @@ const MOTS_IGNORES = new Set(['le', 'la', 'les', 'l', 'de', 'des', 'du', 'd', 'e
 
 /** Initiales pour la couverture par défaut : « Blake et Mortimer » → BM, « XIII » → XIII. */
 function initiales(titre) {
-  const mots = titre.split(/[\s'’\-–:,.()…]+/).filter(Boolean);
+  const mots = String(titre || '').split(/[\s'’\-–:,.()…]+/).filter(Boolean);
   if (mots.length && /^(\d+|[IVXLC]{2,})$/.test(mots[0])) return mots[0].slice(0, 4);
   const utiles = mots.filter(m => !MOTS_IGNORES.has(normaliser(m)));
   return (utiles.length ? utiles : mots).slice(0, 2).map(m => m[0].toUpperCase()).join('');
@@ -246,10 +246,30 @@ function afficherStatsEnTete(series) {
     ' · <span class="stat-read">' + pctLus + ' % lus</span>';
 }
 
-function afficherErreur(conteneur, erreur) {
+/* Erreurs (BUG-02) : on distingue des données illisibles (fichier absent, JSON invalide)
+   d'une erreur d'affichage (donnée inattendue), et l'en-tête ne reste pas sur « Chargement… ». */
+const MESSAGES_ERREUR = {
+  donnees: { titre: 'Données illisibles', texte: 'Les fichiers de données n’ont pas pu être lus. Réessayez dans un instant.' },
+  affichage: { titre: 'Erreur d’affichage', texte: 'Les données sont chargées, mais une valeur inattendue empêche d’afficher cette page.' }
+};
+
+function afficherErreur(conteneur, erreur, cause = 'donnees') {
   console.error(erreur);
-  conteneur.innerHTML = '<div class="message" role="alert"><h2>Impossible de charger la collection</h2>' +
-    '<p>Les fichiers de données n’ont pas pu être lus. Réessayez dans un instant.</p></div>';
+  const m = MESSAGES_ERREUR[cause] || MESSAGES_ERREUR.donnees;
+  const entete = document.getElementById('stats-entete');
+  if (entete && entete.textContent === 'Chargement…') entete.textContent = cause === 'donnees' ? 'Données indisponibles' : '';
+  conteneur.innerHTML = '<div class="message" role="alert"><h2>' + m.titre + '</h2><p>' + m.texte + '</p></div>';
+}
+
+/** Rend un encart ; s'il échoue sur une donnée inattendue, un message le remplace sans faire tomber la page. */
+function encart(titre, rendu) {
+  try {
+    return rendu();
+  } catch (erreur) {
+    console.error('Encart « ' + titre + ' » :', erreur);
+    return '<section class="panel encart-erreur" role="alert"><h2>' + esc(titre) + '</h2>' +
+      '<p>Cet encart n’a pas pu s’afficher : une donnée est inattendue.</p></section>';
+  }
 }
 
 /* ---------- Page : collection (index.html) ---------- */
@@ -504,7 +524,7 @@ function serieHTML(s) {
       '</div>' +
       noteHTML(s) +
       compteursHTML(s) +
-      annoncesSerieHTML(s) +
+      encart('À paraître', () => annoncesSerieHTML(s)) +
     '</section>' +
     '<section class="serie-tomes" aria-labelledby="titre-tomes">' +
       '<div class="tomes-head"><h2 id="titre-tomes">Tomes</h2><span>' + s.parus + ' parus</span></div>' +
@@ -544,7 +564,8 @@ const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 
 
 function dateAnnonce(date) {
   if (!date) return 'Date inconnue';
-  const [a, m, j] = date.split('-').map(Number);
+  const [a, m, j] = String(date).split('-').map(Number);
+  if (!a || (m !== undefined && !MOIS[m - 1])) return esc(date); // date mal formée : affichée telle quelle (BUG-02)
   if (j) return j + (j === 1 ? 'er' : '') + ' ' + MOIS[m - 1] + ' ' + a;
   if (m) return MOIS[m - 1].charAt(0).toUpperCase() + MOIS[m - 1].slice(1) + ' ' + a;
   return String(a);
@@ -736,14 +757,15 @@ function goutsHTML(series) {
 
 function pageStats(series, recos) {
   const conteneur = document.getElementById('stats');
-  conteneur.innerHTML = '<h1 class="page-title">Tableau de bord</h1>' + kpisHTML(series) +
-    achatsHTML(series, recos) +
-    '<div class="panels">' + aParaitreHTML(series) + aLireHTML(series) + pileHTML(series) +
-    notesHTML(series) + goutsHTML(series) + '</div>';
-  initAchats();
+  conteneur.innerHTML = '<h1 class="page-title">Tableau de bord</h1>' + encart('Chiffres clés', () => kpisHTML(series)) +
+    encart('À acheter', () => achatsHTML(series, recos)) +
+    '<div class="panels">' + encart('À paraître', () => aParaitreHTML(series)) + encart('À lire', () => aLireHTML(series)) +
+    encart('Pile à lire', () => pileHTML(series)) + encart('Répartition des notes', () => notesHTML(series)) +
+    encart('Mes goûts en chiffres', () => goutsHTML(series)) + '</div>';
+  if (document.getElementById('total-envies')) initAchats();
   const toutes = document.getElementById('gouts-toutes');
-  toutes.addEventListener('change', () => {
-    document.getElementById('gouts-contenu').innerHTML = goutsContenuHTML(series, toutes.checked);
+  if (toutes) toutes.addEventListener('change', () => {
+    document.getElementById('gouts-contenu').innerHTML = encart('Mes goûts en chiffres', () => goutsContenuHTML(series, toutes.checked));
   });
 }
 
@@ -947,8 +969,10 @@ function recoHTML(r, seriesParId) {
   const liees = (r.series_liees || []).map(id => seriesParId.get(id)).filter(Boolean).map(s =>
     '<a href="' + lienSerie(s) + '">' + esc(s.titre) + (s.note != null ? ' <span class="r-note">' + s.note + '/10</span>' : '') + '</a>'
   ).join('');
-  const sources = (r.sources || []).map(u =>
-    '<a href="' + esc(u) + '" rel="noopener" target="_blank">' + esc(domaine(u)) + '</a>').join(', ');
+  // Seules les adresses https:// deviennent des liens (BUG-02) : jamais de « javascript: » cliquable.
+  const sources = (r.sources || []).map(u => /^https:\/\//.test(u)
+    ? '<a href="' + esc(u) + '" rel="noopener" target="_blank">' + esc(domaine(u)) + '</a>'
+    : esc(u)).join(', ');
   const meta = [r.editeur, r.tomes_parus ? r.tomes_parus + ' ' + pluriel(r.tomes_parus, 'tome') : '', r.statut_serie ? 'série ' + r.statut_serie : '']
     .filter(Boolean).map(esc).join(' · ');
   return '<li id="reco-' + esc(r.id) + '" class="reco-card statut-' + (statut === 'rejeté' ? 'rejete' : statut === 'intéressé' ? 'interesse' : 'decouvrir') + '">' +
@@ -1001,16 +1025,27 @@ async function demarrer() {
   if (courant) courant.parentElement.scrollLeft = courant.offsetLeft - courant.parentElement.offsetLeft - 16;
   const page = document.body.dataset.page;
   const contenu = document.querySelector('main');
+  let series, recos;
   try {
-    const series = enrichirTout(await chargerDonnees());
+    series = enrichirTout(await chargerDonnees());
+    if (['stats', 'auteur', 'reco'].includes(page)) {
+      const lecture = chargerJSON('data/reco.json');
+      recos = await (page === 'reco' ? lecture : lecture.catch(() => []));
+      if (!Array.isArray(recos)) throw new Error('data/reco.json : une liste est attendue');
+    }
+  } catch (erreur) {
+    afficherErreur(contenu, erreur, 'donnees');
+    return;
+  }
+  try {
     afficherStatsEnTete(series);
     if (page === 'collection') pageCollection(series);
     if (page === 'serie') pageSerie(series);
-    if (page === 'stats') pageStats(series, await chargerJSON('data/reco.json').catch(() => []));
-    if (page === 'auteur') pageAuteur(series, await chargerJSON('data/reco.json').catch(() => []));
-    if (page === 'reco') pageReco(series, await chargerJSON('data/reco.json'));
+    if (page === 'stats') pageStats(series, recos);
+    if (page === 'auteur') pageAuteur(series, recos);
+    if (page === 'reco') pageReco(series, recos);
   } catch (erreur) {
-    afficherErreur(contenu, erreur);
+    afficherErreur(contenu, erreur, 'affichage');
   }
 }
 
