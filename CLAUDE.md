@@ -57,6 +57,7 @@ Chaque issue porte exactement un label type, un epic, une priorité et une estim
 - HTML + CSS + JavaScript vanilla, **sans build ni npm**.
 - Données dans des fichiers JSON sous `data/`, lues par le site au chargement.
 - Déploiement : GitHub Pages depuis la branche `main`, à la racine. Repo public.
+- `main` est protégée (OPT-04, 2026-11-18) : une PR ne se fusionne que si l'Action `verifier` passe ; ni force-push ni suppression. Les administrateurs gardent le droit de pousser directement (commits de données des demandes types) et de contourner le contrôle en cas d'urgence.
 
 ## Structure
 ```
@@ -221,6 +222,8 @@ Une routine Claude Code dans le cloud ([« Veille mensuelle BD »](https://claud
 5. Compte rendu `docs/veille/AAAA-MM.md` : sections « À paraître », « Mises à jour », « Auteurs », « Recos », « Sans nouveauté », chaque sortie avec sa date et sa source, « à vérifier » si une seule source.
 6. `python3 scripts/verifier_donnees.py` doit donner 0 erreur ; ligne datée en tête de `docs/JOURNAL.md` (« Veille mensuelle AAAA-MM »).
 7. Commit, push de la branche, PR vers `main` avec le résumé et les sources. **Ne jamais fusionner, ne jamais poser de milestone, ne jamais pousser sur `main`** : le PO relit et fusionne.
+
+Si la PR de la routine est en conflit avec `main` (souvent `docs/JOURNAL.md`), l'Action ne se lance pas et la PR ne peut pas être fusionnée : fusionner `main` dans la branche `veille-AAAA-MM`, garder les deux lignes du journal, pousser.
 
 Lancer la veille à la main : bouton « Run now » de la routine sur https://claude.ai/code/routines, ou demander « Fais la veille mensuelle » à Claude dans ce repo (même procédure).
 
