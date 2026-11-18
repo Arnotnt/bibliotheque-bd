@@ -753,21 +753,10 @@
       "aventure"
     ],
     "statut": "en cours",
-    "tomes_parus": 14,
+    "tomes_parus": 15,
     "suivie": true,
     "note": 8,
-    "avis": "Bien mais commence à trop durer dans le temps",
-    "a_paraitre": [
-      {
-        "tome": 15,
-        "titre": "Le secret du Scorpion",
-        "date": "2026",
-        "a_verifier": true,
-        "sources": [
-          "https://www.bedetheque.com/serie-490-BD-Scorpion__1.html"
-        ]
-      }
-    ]
+    "avis": "Bien mais commence à trop durer dans le temps"
   },
   {
     "id": "le-scorpion-le-proces-scorpion",
