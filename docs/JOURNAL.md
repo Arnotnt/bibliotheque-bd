@@ -3,6 +3,7 @@
 Une ligne datée par ticket soldé, le plus récent en haut.
 Format : `AAAA-MM-JJ — <PRÉFIXE-NN> — titre (#n° PR)`
 
+- 2026-11-18 — OPT-05 — La veille mensuelle n'écrit plus dans `docs/JOURNAL.md` (son compte rendu `docs/veille/AAAA-MM.md` en tient lieu) : sa PR n'entre plus en conflit avec les autres ; `CLAUDE.md` et prompt de la routine mis à jour (#98)
 - 2026-11-18 — OPT-04 — Protection de `main` activée sur décision du PO : Action `verifier` requise avant fusion, ni force-push ni suppression, administrateurs non bloqués (#96)
 - 2026-11-17 — Veille mensuelle 2026-11 — Le Scorpion T15 paru (14 → 15), 3 recos ajoutées (Asgard, Orbital, Les Maîtres inquisiteurs), compte rendu `docs/veille/2026-11.md` (#95)
 - 2026-11-17 — Sprint 7 — Clôture : rétro dans `docs/retro.md`, historique des sprints à jour ; 22 pts sur 24, OPT-04 en attente de la décision sur la protection de `main` (#94)
