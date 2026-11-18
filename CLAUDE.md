@@ -220,10 +220,10 @@ Une routine Claude Code dans le cloud ([« Veille mensuelle BD »](https://claud
 3. **Auteurs** : veille des auteurs (US-29), depuis la date de la veille des auteurs précédente (dernier compte rendu de `docs/veille/` qui a une section « Auteurs »).
 4. **Recos** : ajouter **3 recos** à `data/reco.json` selon les règles de « Recommande-moi 5 séries » (séries notées ≥ 8 sans `regard`, jamais une série déjà dans `series.json` ou `reco.json`), en priorité parmi les nouveautés d'auteurs trouvées à l'étape 3 qui n'y sont pas encore ; chaque reco cite au moins une source `https://`.
 5. Compte rendu `docs/veille/AAAA-MM.md` : sections « À paraître », « Mises à jour », « Auteurs », « Recos », « Sans nouveauté », chaque sortie avec sa date et sa source, « à vérifier » si une seule source.
-6. `python3 scripts/verifier_donnees.py` doit donner 0 erreur ; ligne datée en tête de `docs/JOURNAL.md` (« Veille mensuelle AAAA-MM »).
+6. `python3 scripts/verifier_donnees.py` doit donner 0 erreur. **Pas de ligne dans `docs/JOURNAL.md`** : le compte rendu `docs/veille/AAAA-MM.md` en tient lieu, et la PR ne touche que `data/series.json`, `data/reco.json` et ce compte rendu, pour ne pas entrer en conflit avec les autres PR (OPT-05).
 7. Commit, push de la branche, PR vers `main` avec le résumé et les sources. **Ne jamais fusionner, ne jamais poser de milestone, ne jamais pousser sur `main`** : le PO relit et fusionne.
 
-Si la PR de la routine est en conflit avec `main` (souvent `docs/JOURNAL.md`), l'Action ne se lance pas et la PR ne peut pas être fusionnée : fusionner `main` dans la branche `veille-AAAA-MM`, garder les deux lignes du journal, pousser.
+Si la PR de la routine est malgré tout en conflit avec `main` (une demande type a modifié la même série le même mois), l'Action ne se lance pas et la PR ne peut pas être fusionnée : fusionner `main` dans la branche `veille-AAAA-MM`, résoudre, pousser.
 
 Lancer la veille à la main : bouton « Run now » de la routine sur https://claude.ai/code/routines, ou demander « Fais la veille mensuelle » à Claude dans ce repo (même procédure).
 
